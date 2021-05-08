@@ -8,7 +8,7 @@
                 max-width: 100%; height: auto;
             }
             .backgrou {
-                background-image: url({{ URL::asset('/images/home.jpg')}}) no-repeat center center fixed;
+                background: url("images/home.jpg") no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -27,7 +27,7 @@
     <nav class="navbar fixed-top navbar-dark bg-dark">
         <div><a href="/"><span style="color: black; font-family: Geneva; font-size: x-large">My</span><span style="color: white; font-family: Geneva; font-size: x-large">Store</span></a></div>
         <div>
-            <span><a href="{{ route('store_name') }}" style="color:white; font-family: Monaco;">Sign up</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
+            <span><a href="{{ route('sign_up') }}" style="color:white; font-family: Monaco;">Sign up</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
             <span><a href="{{{ route('sign_in') }}}" style="color:white; font-family: Monaco;">Sign in</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
             <span><a href="#bottom" style="color: white; font-family: Monaco;">Contact us</a> &ensp;</span>
         </div>
@@ -39,7 +39,7 @@
                     <div style="color: aliceblue; font-size: xxx-large; font-family: 'SF Mono'" data-aos="zoom-in-down">CREATE YOUR OWN<br>
                         STORE IN FEW<br>
                         MINUTES!<br><br> </div>
-                    &ensp;<div class="offset-3" style="padding:2px 0;height:40px; border-radius: 15px; text-align:center; background: #555555; width: 300px;" ><a href="{{ route('store_name') }}" style="color: white; font-size: x-large; font-family: 'SF Mono'">Create your store</a></div>
+                    &ensp;<div class="offset-3" style="padding:2px 0;height:40px; border-radius: 15px; text-align:center; background: #555555; width: 300px;" ><a href="{{ route('sign_up') }}" style="color: white; font-size: x-large; font-family: 'SF Mono'">Create your store</a></div>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             </span>
             </div>
             <div data-aos="flip-right" data-aos-duration="1000">
-                <img style="width: 700px; height: 500px;" src="/Users/saad/PhpstormProjects/project/images/ecommerce.png" alt="">
+                <img style="width: 700px; height: 500px;" src="images/ecommerce.png" alt="">
             </div>
         </div>
     </div>
