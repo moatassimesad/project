@@ -20,5 +20,8 @@ Route::post('/sign_up', [SignUpController::class,'store']);
 Route::get('/sign_in', [SignInController::class,'index'])->name('sign_in');
 Route::post('/sign_in', [SignInController::class,'signin']);
 Route::post('/logout', [logOutController::class,'logout'])->name('logout');
-Route::get('/store_stats', [StoreStatsController::class,'index'])->name('store_stats');
+Route::get('/logout', [logOutController::class,'logout'])->name('logout');
+Route::get('/store_stats', [StoreStatsController::class,'index'])
+    ->name('store_stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
+
 

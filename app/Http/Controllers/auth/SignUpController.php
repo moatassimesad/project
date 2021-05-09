@@ -12,6 +12,11 @@ use Symfony\Component\Console\Input\Input;
 
 class SignUpController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     public function index(){
         return view('sign.sign_up');
     }

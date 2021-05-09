@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SignInController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['guest']);
+    }
+
     public function index(){
         return view('sign.sign_in');
     }
@@ -15,7 +20,7 @@ class SignInController extends Controller
             'email'=>'required',
             'password'=>'required',
         ]);
-        if(!auth()->attempt($request->only('email','password'))){
+        if(!auth()->attempt($request->only('email','password'),$request->remember)){
             return back()->with('status','invalid login');
         }
         return redirect()->route('store_stats');

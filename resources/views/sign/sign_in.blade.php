@@ -47,6 +47,11 @@
     @error('password')
     <div style="margin-bottom: 20px; text-align: center; color: red;">{{ $message }}</div>
     @enderror
+    <div class="row justify-content-center">
+        <div>
+        <input type="checkbox" class="form-check-input" name="remember" id="remember">
+        <label class="form-check-label" for="remember">Remember me</label></div>
+    </div>
 <div style="height: 100px;" class="row justify-content-center align-items-center">
     <div><button style="width: 150px;" class="btn btn-dark">Sign in</button></div>
 </div>

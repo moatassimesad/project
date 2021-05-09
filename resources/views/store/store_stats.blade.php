@@ -1,13 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    @Auth
-    this is your stats
+
     <form action="{{route('logout')}}" method="post">
         @csrf
-        <button type="submit">logout</button>
+        Welcome , this is your stats <button type="submit" style="float:right; background:none; border: none;">logout</button>
     </form>
-    @endauth
-    @guest()
-        U should <a href="/sign_in">sign in</a>
-    @endguest
 @endsection

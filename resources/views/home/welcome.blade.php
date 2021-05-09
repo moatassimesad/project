@@ -25,11 +25,20 @@
         </style>
     </head>
     <nav class="navbar fixed-top navbar-dark bg-dark">
-        <div><a href="/"><span style="color: black; font-family: Geneva; font-size: x-large">My</span><span style="color: white; font-family: Geneva; font-size: x-large">Store</span></a></div>
+        <div>
+            <a href="/"><span style=" color: black; font-family: Geneva; font-size: x-large">My</span><span style=" margin-right: 20px;color: white; font-family: Geneva; font-size: x-large">Store</span></a>
+            @auth
+            <a href="{{ route('store_stats') }}"><span style="color: white; font-family: Geneva; font-size: large">Dashboard</span></a>
+            @endauth
+        </div>
         <div>
             <span><a href="{{ route('sign_up') }}" style="color:white; font-family: Monaco;">Sign up</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
             <span><a href="{{{ route('sign_in') }}}" style="color:white; font-family: Monaco;">Sign in</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
-            <span><a href="#bottom" style="color: white; font-family: Monaco;">Contact us</a> &ensp;</span>
+            <span><a href="#bottom" style="color: white; font-family: Monaco;">Contact us</a>  &ensp;
+                @auth()
+                    <span style="color: dimgrey">|</span>&ensp;</span>
+            <span><a href="{{{ route('logout') }}}" style="color:white; font-family: Monaco;">Log out</a>&ensp;</span>
+            @endauth
         </div>
     </nav>
     <div class="backgrou">
@@ -39,7 +48,7 @@
                     <div style="color: aliceblue; font-size: xxx-large; font-family: 'SF Mono'" data-aos="zoom-in-down">CREATE YOUR OWN<br>
                         STORE IN FEW<br>
                         MINUTES!<br><br> </div>
-                    &ensp;<div class="offset-3" style="padding:2px 0;height:40px; border-radius: 15px; text-align:center; background: #555555; width: 300px;" ><a href="{{ route('sign_up') }}" style="color: white; font-size: x-large; font-family: 'SF Mono'">Create your store</a></div>
+                    &ensp;<div class="offset-3" style=" padding:2px 0;height:40px; border-radius: 15px; text-align:center; background: #363636; width: 300px;" ><a href="{{ route('sign_up') }}" style="color: white; font-size: x-large; font-family: 'SF Mono'">Create your store</a></div>
                 </div>
             </div>
         </div>

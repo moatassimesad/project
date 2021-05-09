@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class StoreStatsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function index(){
         return view('store.store_stats');
     }
