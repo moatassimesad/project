@@ -21,6 +21,6 @@ class Store extends Model
         'createdAt',
         'designName',
         'image',
-        'userId',
+        'user_id',
     ];
 }

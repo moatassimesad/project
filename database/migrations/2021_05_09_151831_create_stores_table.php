@@ -19,13 +19,12 @@ class CreateStoresTable extends Migration
             $table->string('facebookLink');
             $table->string('twitterLink');
             $table->string('storeActivityType');
-            $table->date('createdAt');
             $table->string('conditionOfUse');
             $table->string('designName');
             $table->mediumText('image'); // it will store the link of the image here not the image itself!
             //the image will be stored inside one of our application's folders.
             $table->mediumText('textLayer');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

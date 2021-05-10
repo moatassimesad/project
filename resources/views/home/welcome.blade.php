@@ -27,18 +27,11 @@
     <nav class="navbar fixed-top navbar-dark bg-dark">
         <div>
             <a href="/"><span style=" color: black; font-family: Geneva; font-size: x-large">My</span><span style=" margin-right: 20px;color: white; font-family: Geneva; font-size: x-large">Store</span></a>
-            @auth
-            <a href="{{ route('store_stats') }}"><span style="color: white; font-family: Geneva; font-size: large">Dashboard</span></a>
-            @endauth
         </div>
         <div>
             <span><a href="{{ route('sign_up') }}" style="color:white; font-family: Monaco;">Sign up</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
             <span><a href="{{{ route('sign_in') }}}" style="color:white; font-family: Monaco;">Sign in</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
-            <span><a href="#bottom" style="color: white; font-family: Monaco;">Contact us</a>  &ensp;
-                @auth()
-                    <span style="color: dimgrey">|</span>&ensp;</span>
-            <span><a href="{{{ route('logout') }}}" style="color:white; font-family: Monaco;">Log out</a>&ensp;</span>
-            @endauth
+            <span><a href="#bottom" style="color: white; font-family: Monaco;">Contact us</a>  &ensp; </span>
         </div>
     </nav>
     <div class="backgrou">
