@@ -17,7 +17,7 @@
     </nav>
     <div class="backgrou">
         <div class="container-fluid">
-            <div class="row align-items-center" style="height: 650px;">
+            <div class="row align-items-center" style="height: 100vh">
                 <div class="offset-1">
                     <div class="createyourown" data-aos="zoom-in-down">CREATE YOUR OWN<br>
                         STORE IN FEW<br>
@@ -29,7 +29,7 @@
     </div>
     <div class="container-fluid">
         <div class="row justify-content-between align-items-center offset-1 centre">
-            <div data-aos="flip-left" data-aos-duration="1000">
+            <div data-aos="fade-down-left" data-aos-duration="1000">
             <span class="beautiful">
             Beautiful themes<br>
             that are responsive<br>
@@ -44,8 +44,8 @@
             to content and colors.
             </span>
             </div>
-            <div data-aos="flip-right" data-aos-duration="1000">
-                <img class="ecommerceimage" src="images/ecommerce.jpg" alt="">
+            <div data-aos="fade-down-right" data-aos-duration="1000">
+                <img class="ecommerceimage mr-4" src="images/ecommerce.jpg" alt="">
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                     <span class="titles">About</span><br><br>
                     <span style="font-size: 10px; font-family: 'SF Mono'; color: white">MyStore is a result of many years of experience<br>
                     of creating Web Sites and online  stores.<br>
-We build this application to make it easy<br>
+                    We build this application to make it easy<br>
                     for clients to get their own store<br>
                     without contacting a software engineer.</span>
                 </div>

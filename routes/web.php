@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\logOutController;
 use App\Http\Controllers\auth\SignInController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
+use App\Http\Controllers\store\CategorieController;
 use App\Http\Controllers\store\StoreStatsController;
 use App\Http\Controllers\welcome\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,4 @@ Route::get('/logout', [logOutController::class,'logout'])->name('logout');
 Route::get('/store_stats', [StoreStatsController::class,'index'])
     ->name('store_stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
 
-
+Route::get('/store_add_categorie', [CategorieController::class,'index_add'])->name('add_categorie');
