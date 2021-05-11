@@ -1,0 +1,56 @@
+.mystore{
+    color: black;
+    font-family: Geneva;
+    font-size: x-large;
+}
+img {
+    max-width: 100%; height: auto;
+}
+input{
+    text-align:center;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+.sign_in{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 80px;
+}
+.havent{
+    font-family: Geneva;
+}
+.status{
+    text-align: center;
+    color: red;
+}
+.email{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.email_error{
+    text-align: center;
+    color: red;
+}
+.pd{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.pd_error{
+    margin-bottom: 20px;
+    text-align: center;
+    color: red;
+}
+.bouton{
+    width: 150px;
+}

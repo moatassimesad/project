@@ -1,0 +1,89 @@
+.mystore{
+    color: black;
+    font-family: Geneva;
+    font-size: x-large;
+}
+img {
+    max-width: 100%; height: auto;
+}
+input{
+    text-align:center;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+.signup{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 80px;
+}
+.already{
+    font-family: Geneva;
+}
+.fn_ln{
+    height: 100px;
+}
+.fn_and_ln{
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.error{
+    text-align: center;
+    color: red;
+}
+.pd_error{
+    margin-bottom: 20px;
+    text-align: center;
+    color: red
+}
+.email_div{
+    height: 100px;
+}
+.email{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.city_div{
+    height: 100px;
+}
+.city{
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.code_div{
+    height: 100px;
+}
+.code{
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.phone{
+    width :300px;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.pd_div{
+    height: 100px;
+}
+.pd{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.bouton{
+    width: 150px;
+}

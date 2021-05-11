@@ -1,0 +1,71 @@
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+img {
+    max-width: 100%; height: auto;
+}
+input{
+    text-align:center;
+    color: white;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+    color: white;
+}
+select{
+    text-align:center;
+}
+.backg{
+    background: url("../images/im.png") no-repeat center center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 1100px;
+}
+.mystore{
+    font-family: Geneva;
+    font-size: x-large;
+    color: white;
+}
+.sell{
+    font-family: Arial;
+    color: white;
+    font-weight: bold;
+    font-size: 80px;
+}
+.storename{
+    background: none;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px white;
+}
+.name_error{
+    color: red;
+    text-align: center
+}
+.ajax{
+    color: white;
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px white;
+}
+.activity{
+    width: 10%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+.activity_error{
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}

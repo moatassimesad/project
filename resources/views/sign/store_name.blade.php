@@ -3,38 +3,15 @@
 
 <head>
     <title>Store Name</title>
-    <style>
-        img {
-            max-width: 100%; height: auto;
-        }
-        input{
-            text-align:center;
-            color: white;
-        }
-        input:focus, textarea:focus, select:focus{
-            outline: none;
-            color: white;
-        }
-        select{
-            text-align:center;
-        }
-        .backg{
-            background: url("images/im.png") no-repeat center center ;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/store_name.css">
 </head>
-<div class="backg" style="height: 1100px;">
+<div class="backg">
     <div class="container-fluid">
         <div class="row offset-1">
-            <a href="/"><span style=" font-family: Geneva; font-size: x-large; color: white;">MyStore</span></a>
+            <a href="/"><span class="mystore">MyStore</span></a>
         </div>
         <div class="row justify-content-center">
-            <span style="font-family: Arial; color: white; font-weight: bold; font-size: 80px;">Sell online with MyStore</span>
+            <span class="sell">Sell online with MyStore</span>
         </div>
 
 
@@ -42,20 +19,20 @@
 <form action="{{ route('store_name') }}" method="post">
     @csrf
         <div style="height: 100px;" class="align-items-center row justify-content-center">
-            <input name="storeName" style="background: none; width: 40%; height: 30px; border: none; border-bottom: solid 1px white; @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off">
+            <input name="storeName" class="storename" style=" @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off">
 
         </div>
     @error('storeName')
-    <div style="color: red; text-align: center">
+    <div class="name_error">
         {{$message}}
     </div>
     @enderror
         <div style="height: 100px;" class="align-items-center row justify-content-center">
-            <span style="color: white; text-align: center; width: 40%; height: 30px; border: none; border-bottom: solid 1px white;" id="show"></span>
+            <span class="ajax" id="show"></span>
 
         </div>
         <div style="height: 100px;" class="align-items-center row justify-content-center">
-            <select name="storeActivityType" style=" width: 10%; background: none; outline: none; border: none; border-bottom: 1px solid white; color: white; @error('storeActivityType') border-bottom:1px solid red;  @enderror" id="storeActivityType" >
+            <select name="storeActivityType" class="activity" style="  @error('storeActivityType') border-bottom:1px solid red;  @enderror" id="storeActivityType" >
                 <option selected disabled>Selling what?</option>
                 <option value="Clothing">Clothing</option>
                 <option value="Jewlery">Jewelry</option>
@@ -65,7 +42,7 @@
             </select>
         </div>
     @error('storeActivityType')
-    <div style="color: red; text-align: center; margin-bottom: 20px;">
+    <div class="activity_error">
         {{$message}}
     </div>
     @enderror
