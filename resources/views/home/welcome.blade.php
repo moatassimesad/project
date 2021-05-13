@@ -64,10 +64,10 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-lg-4">
                     <span class="titles">Social Media</span><br><br>
-                    <span style="font-size: 10px; font-family: 'SF Mono'"><a href="https://mail.google.com/"><span style="color: white">saadounmtsm@gmail.com</span></a><br>
-<a href="https://mail.google.com/"><span style="color: white">yahyaelfarci@gmail.com</span></a><br>
-<a href="https://facebook.com/saadmtsm"><span style="color: white">Facebook : SAAD MTSM</span></a><br>
-<a href="https://facebook.com/yahyaelfarci"><span style="color: white"> Facebook : YAHYA ELFARCI</span></a></span>
+                    <span style="font-size: 10px; font-family: 'SF Mono'"><a href="https://mail.google.com/" target="_blank"><span style="color: white">saadounmtsm@gmail.com</span></a><br>
+<a href="https://mail.google.com/" target="_blank"><span style="color: white">yahyaelfarci@gmail.com</span></a><br>
+<a href="https://facebook.com/saadmtsm" target="_blank"><span style="color: white">Facebook : SAAD MTSM</span></a><br>
+<a href="https://facebook.com/yahyaelfarci" target="_blank"><span style="color: white"> Facebook : YAHYA ELFARCI</span></a></span>
                 </div>
                 <div class="col-md-3 col-sm-3 col-lg-3">
                     <span id="bottom" class="titles">Contact us</span><br><br>

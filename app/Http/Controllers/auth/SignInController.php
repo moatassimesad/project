@@ -23,6 +23,6 @@ class SignInController extends Controller
         if(!auth()->attempt($request->only('email','password'),$request->remember)){
             return back()->with('status','invalid login');
         }
-        return redirect()->route('store_stats');
+        return redirect()->route('stats');
     }
 }

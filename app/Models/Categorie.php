@@ -15,5 +15,7 @@ class Categorie extends Model
     protected $fillable = [
         'reference',
         'name',
+        'image',
+        'user_id'
     ];
 }

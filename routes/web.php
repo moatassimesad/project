@@ -28,7 +28,17 @@ Route::post('/sign_in', [SignInController::class,'signin']);
 Route::post('/logout', [logOutController::class,'logout'])->name('logout');
 Route::get('/logout', [logOutController::class,'logout'])->name('logout');
 
-Route::get('/store_stats', [StoreStatsController::class,'index'])
-    ->name('store_stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
+Route::get('/stats', [StoreStatsController::class,'index'])
+    ->name('stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
 
-Route::get('/store_add_categorie', [CategorieController::class,'index_add'])->name('add_categorie');
+Route::get('/add_categorie', [CategorieController::class,'index_add'])->name('add_categorie');
+Route::post('/add_categorie', [CategorieController::class,'store']);
+
+Route::get('/list_categorie', [CategorieController::class,'index_list'])->name('list_categorie');
+
+Route::get('/categorie_info/{id}', [CategorieController::class,'index_categorie_info']);
+
+Route::get('/delete_categorie/{id}', [CategorieController::class,'delete']);
+
+Route::post('/edit_categorie', [CategorieController::class,'edit'])->name('edit_categorie');
+

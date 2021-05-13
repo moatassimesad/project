@@ -13,6 +13,6 @@ class StoreStatsController extends Controller
     }
 
     public function index(){
-        return view('store.store_stats');
+        return view('store.stats');
     }
 }

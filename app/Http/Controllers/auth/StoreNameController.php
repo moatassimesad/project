@@ -35,6 +35,6 @@ class StoreNameController extends Controller
             'storeName'=>''
         ]);*/
 
-        return redirect()->route('store_stats');
+        return redirect()->route('stats');
     }
 }

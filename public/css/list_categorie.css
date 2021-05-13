@@ -1,0 +1,16 @@
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+.images{
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
+}
+.plus{
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
