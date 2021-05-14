@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.store_admin')
+@section('content1')
 <head>
     <link rel="stylesheet" href="css/add_categorie.css">
 </head>

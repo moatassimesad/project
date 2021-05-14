@@ -1,9 +1,11 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.store_admin')
+@section('content1')
+
+
     <head>
 
         <style>
-            .contenus{
+            .contenu{
                 border: solid 1px grey;
                 border-radius: 15px;
                 margin-top: 150px;
@@ -38,22 +40,19 @@
             input{
                 background: none;
             }
-            .bouton{
-                margin-right: 20px;
-            }
             .cat_info{
                 font-size: x-large;
                 font-family: "SF Mono";
                 height: 50px;
             }
-
         </style>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <form action="{{ route('edit_categorie') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="container">
-            <div class="contenus bg-light">
+            <div class="contenu bg-light">
                 <div  class=" row justify-content-center align-items-center cat_info">Change Category info</div>
                 <hr>
                 <input type="hidden" name="id" value="{{$id}}">
@@ -76,8 +75,5 @@
         </div>
     </form>
 
-    <script src="jquery-3.5.1.min.js"></script>
-    <script>
-        $('.file-upload').file_upload();
-    </script>
+
 @endsection

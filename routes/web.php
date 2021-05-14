@@ -6,7 +6,7 @@ use App\Http\Controllers\auth\SignInController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\store\CategorieController;
-use App\Http\Controllers\store\StoreStatsController;
+use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\welcome\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +28,7 @@ Route::post('/sign_in', [SignInController::class,'signin']);
 Route::post('/logout', [logOutController::class,'logout'])->name('logout');
 Route::get('/logout', [logOutController::class,'logout'])->name('logout');
 
-Route::get('/stats', [StoreStatsController::class,'index'])
+Route::get('/stats', [DashboardController::class,'index'])
     ->name('stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
 
 Route::get('/add_categorie', [CategorieController::class,'index_add'])->name('add_categorie');
@@ -36,7 +36,7 @@ Route::post('/add_categorie', [CategorieController::class,'store']);
 
 Route::get('/list_categorie', [CategorieController::class,'index_list'])->name('list_categorie');
 
-Route::get('/categorie_info/{id}', [CategorieController::class,'index_categorie_info']);
+Route::get('/categorie_info/{id}', [CategorieController::class,'index_categorie_info'])->name('categorie_info');
 
 Route::get('/delete_categorie/{id}', [CategorieController::class,'delete']);
 
