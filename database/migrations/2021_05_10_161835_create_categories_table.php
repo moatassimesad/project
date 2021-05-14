@@ -15,7 +15,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('reference');
+            $table->string('reference')->unique();
             $table->string('name');
             $table->mediumText('image');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');

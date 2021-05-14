@@ -14,10 +14,12 @@ class StoreNameController extends Controller
     }
 
     public function index(){
-        if(auth()->user()->stores->count()){
-            return redirect()->route('store_stats');
+        if(auth()->user()->store){
+            return view('store.stats');
         }
-        return view('sign.store_name');
+        else {
+            return view('sign.store_name');
+        }
     }
     public function store(Request $request){
         //validation

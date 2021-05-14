@@ -32,19 +32,19 @@ class SignUpController extends Controller
             'password'=> 'required|confirmed',
         ]);
         //storing_data
-        /*
+
 
         //first way
-        $user = new User();
+        /*$user = new User();
         $user->firstName = $request->firstName;
         $user->lastName = $request->lastName;
         $user->email = $request->email;
         $user->city = $request->city;
-        $user->phone = $request->phone;
+        $user->phone = $phone;
         $user->password = Hash::make($request->password);
-        $user->save();
+        $user->save();*/
 
-        */
+
         //another way ⬇️
         User::create([
             'firstName'=>$request->firstName,

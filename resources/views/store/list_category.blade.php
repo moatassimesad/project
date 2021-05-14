@@ -1,7 +1,7 @@
 @extends('layouts.store_admin')
 @section('content1')
 <head>
-    <link rel="stylesheet" href="css/list_categorie.css">
+    <link rel="stylesheet" href="css/list_category.css">
 </head>
 
 <div class="container-fluid mt-5">
@@ -11,26 +11,26 @@
     <div class="row justify-content-around">
 
         <div class="mt-5">
-            <a href="/categorie_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image }}" alt="" class="images"></a>
+            <a href="/category_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image }}" alt="" class="images"></a>
         </div>
         <input type="hidden" value="{{ $i++ }}">
         @if($categories->getNth($i)!=null)
             <div class="mt-5">
-                <a href="/categorie_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image}}" alt="" class="images"></a>
+                <a href="/category_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image}}" alt="" class="images"></a>
             </div>
         @else
             <input type="hidden" value="{{ $j=1 }}">
-            <a href="/add_categorie">
+            <a href="/add_category">
             <div class="row mt-5 bg-light align-items-center justify-content-center plus"><h1>+</h1></div>
             </a>
         @endif
         <input type="hidden" value="{{ $i++ }}">
         @if($categories->getNth($i)!=null)
             <div class="mt-5">
-                <a href="/categorie_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image}}" alt="" class="images"></a>
+                <a href="/category_info/{{$categories->getNth($i)->id}}"> <img src="images/{{ $categories->getNth($i)->image}}" alt="" class="images"></a>
             </div>
         @elseif($j==0)
-            <a href="/add_categorie">
+            <a href="/add_category">
             <div class="row mt-5 bg-light align-items-center justify-content-center plus"><h1>+</h1></div>
             </a>
             <input type="hidden" value="{{ $j=1 }}">
@@ -41,7 +41,7 @@
     @endfor
     @if($j==0)
         <div class="row justify-content-around">
-            <a href="/add_categorie">
+            <a href="/add_category">
             <div class="row mt-5 bg-light align-items-center justify-content-center plus"><h1>+</h1></div>
             </a>
             <div class="mt-5 plus" ></div>

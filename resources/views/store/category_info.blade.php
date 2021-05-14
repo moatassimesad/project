@@ -1,3 +1,4 @@
+
 @extends('layouts.store_admin')
 @section('content1')
 
@@ -49,7 +50,8 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <form action="{{ route('edit_categorie') }}" method="post" enctype="multipart/form-data">
+    @if($category->user_id==auth()->user()->id)
+    <form action="{{ route('edit_category') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <div class="contenu bg-light">
@@ -57,16 +59,16 @@
                 <hr>
                 <input type="hidden" name="id" value="{{$id}}">
                 <div  class="infos row justify-content-center align-items-center">
-                    <input class="name"  name="name" type="text" placeholder="name" value="{{$categorie->name}}">
+                    <input class="name"  name="name" type="text" placeholder="name" value="{{$category->name}}">
                 </div>
 
                 <div  class="infos row justify-content-center align-items-center">
-                    <input class="reference"  name="reference" type="text"  placeholder="reference" value="{{$categorie->reference}}">
+                    <input class="reference"  name="reference" type="text"  placeholder="reference" value="{{$category->reference}}">
                 </div>
 
                 <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <span><a href="/list_categorie" class="fa fa-arrow-left btn btn-secondary mr-2"></a></span>
-                    <span><a href="/delete_categorie/{{ $id }}" class="fa fa-trash btn btn-danger mr-2"></a></span>
+                    <span><a href="/list_category" class="fa fa-arrow-left btn btn-secondary mr-2"></a></span>
+                    <span><a href="/delete_category/{{ $id }}" class="fa fa-trash btn btn-danger mr-2"></a></span>
                     <span><button type="submit" class="fa fa-edit btn btn-warning mr-2"></button></span>
                 </div>
 
@@ -75,5 +77,10 @@
         </div>
     </form>
 
+    @else
+        <div class="container">
+            <div class="row mt-5 justify-content-center text-muted"><h1 style="margin-top: 100px;">No such category to edit</h1></div>
+        </div>
+    @endif
 
 @endsection
