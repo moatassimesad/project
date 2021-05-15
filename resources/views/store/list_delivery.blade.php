@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="css/list_delivery.css">
     </head>
-<div class="container contenus">
+<div class="container contient">
     <div class="row justify-content-between">
         <div class="delivery">Deliveries {{ $deliveries->count() }}</div>
         <div><a class="btn btn-primary add" href="/add_delivery">+ Add delivery</a></div>
