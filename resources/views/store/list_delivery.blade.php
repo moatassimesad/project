@@ -27,8 +27,8 @@
             <td>{{$element->address}}</td>
             <td>{{$element->phone}}</td>
             <td>
-                <span><a href="/delivery_info/{{$element->id}}" class="fa fa-edit btn btn-warning mr-2"></a></span>
-                <span><a href="/delete_delivery/{{$element->id}}" class="fa fa-trash btn btn-danger mr-2"></a></span>
+                <span><a href="/delivery_info/{{$element->id}}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a></span>
+                <span><a href="/delete_delivery/{{$element->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
             </td>
         </tr>
         @endforeach

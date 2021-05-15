@@ -49,7 +49,7 @@
             <div class="error">{{ $message }}</div>
             @enderror
             <div style="height: 100px;" class="row justify-content-center mt-4">
-                <div><button type="submit" id="submit" name="submit"   class="fa fa-edit btn btn-warning">&emsp;&emsp;Save&emsp;&emsp;</button></div>
+                <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <div><button type="submit" id="submit" name="submit"   class="fa fa-edit btn btn-warning">&emsp;&emsp;Save&emsp;&emsp;</button></div>
+                    <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
                 </div>
 
             </div>
@@ -166,7 +166,7 @@
                 </div>
                 @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <div><button type="submit" id="submit" name="submit"   class="fa fa-edit btn btn-warning">&emsp;&emsp;Save&emsp;&emsp;</button></div>
+                    <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
                 </div>
             </div>
         </div>

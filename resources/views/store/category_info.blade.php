@@ -72,9 +72,9 @@
                 @enderror
 
                 <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <span><a href="/list_category" class="fa fa-arrow-left btn btn-secondary mr-2"></a></span>
-                    <span><a href="/delete_category/{{ $id }}" class="fa fa-trash btn btn-danger mr-2"></a></span>
-                    <span><button type="submit" class="fa fa-edit btn btn-warning mr-2"></button></span>
+                    <span><a href="/list_category" class="btn btn-secondary mr-2"><i class="fas fa-arrow-left "></i></a></span>
+                    <span><a href="/delete_category/{{ $id }}" class="btn btn-danger mr-2"><i class="fas fa-trash "></i></a></span>
+                    <span><button type="submit" class="btn btn-warning mr-2"><i class="fas fa-edit "></i></button></span>
                 </div>
 
             </div>

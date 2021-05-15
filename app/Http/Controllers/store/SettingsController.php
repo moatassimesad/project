@@ -70,11 +70,13 @@ class SettingsController extends Controller
         ]);
 
         if ($request->hasfile('images')) {
+            $i=1;
             foreach ($request->file('images') as $file) {
                 $extension = $file->getClientOriginalExtension();
-                $name = time().$extension;
+                $name = $i.time().'.'.$extension;
                 $file->move('images/',$name);
                 $imgData[] = $name;
+                $i++;
             }
             $user = User::find(auth()->user()->id);
             $store = $user->store;

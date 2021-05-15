@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <title>index 4</title>
+
+    <title>MyStore</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
     <!-- Font Awesome JS -->
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
 
@@ -25,75 +26,66 @@
 
     <nav   id="sidebar">
         <div class="sidebar-header">
-            <h3>Mystore</h3>
-            <strong>MS</strong>
+            <h3><a href="/stats">MyStore</a></h3>
+            <strong><a href="/stats">MS</a></strong>
         </div>
 
         <ul class="list-unstyled components">
+
             <li class="active">
-                <a   href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fa fa-bar-chart"></i>
-                    Dashboard
+                <a href="/stats">
+                    <i class="fas fa-home"></i>
+                    &emsp;Dashboard
                 </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a class="white fa fa-bar-chart" href=""> Dashboard 1</a>
-                    </li>
-                    <li>
-                        <a class="white fa fa-bar-chart" href=""> Adshboard 2</a>
-                    </li>
-                    <li>
-                        <a class="white fa fa-bar-chart" href=""> Dashboard 3</a>
-                    </li>
-                </ul>
             </li>
             <li>
                 <a href="">
-                    <i class="fa fa-calendar-check-o"></i>
-                    Orders
+                    <i class="fas fa-shopping-bag"></i>
+                    &emsp;Orders
                 </a>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fa fa-archive"></i>
-                    Products
+                    <i class="fas fa-box"></i>
+                    &emsp;Products
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a class="fa fa-archive" href="">Products</a></li>
-                    <li><a class="fa fa-folder-open" href="/list_category">Categories</a></li>
-                    <li><a class="fa fa-envelope-o" href="">Providers</a></li>
+                    <li><a href=""><i class="fas fa-box"></i>&emsp;Products</a></li>
+                    <li><a href="/list_category"><i class="fas fa-folder-open"></i>&emsp;Categories</a></li>
+                    <li><a href=""><i class="fas fa-shipping-fast"></i>&emsp;Providers</a></li>
                 </ul>
             </li>
             <li>
                 <a href="">
-                    <i class="fa fa-group"></i>
-                    Customers
+                    <i class="fas fa-users"></i>
+                    &emsp;Customers
                 </a>
             </li>
             <li>
                 <a href="">
-                    <i class="fa fa-paint-brush"></i>
-                    Templates
+                    <i class="fas fa-paint-brush"></i>
+                    &emsp;Templates
                 </a>
             </li>
             <li>
                 <a href="/list_delivery">
-                    <i class="fa fa-paper-plane"></i>
-                    Delivery
+                    <i class="fas fa-shipping-fast"></i>
+                    &emsp;Delivery
                 </a>
             </li>
             <li>
-                <a href="">
-                    <i class="fa fa-eye"></i>
-                    View store
+                <a href="" id="showstore">
+                    <i class="fas fa-eye"></i>
+                    &emsp;ShowStore
                 </a>
             </li>
-        </ul>
-        <br><br><br>
 
-        <ul class="list-unstyled">
+        </ul>
+        <br>
+
+        <ul class="list-unstyled ">
             <li>
-                <a href="/settings" class="download">
-                    <i class="fa fa-gears"></i>
-                    Settings
+                <a href="/settings" class="settings">
+                    <i class="fas fa-cogs"></i>
+                    &emsp;Settings
                 </a>
             </li>
 
@@ -104,50 +96,54 @@
     <div id="content">
 
         <!--  navbar  -->
+        <div id="content1">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="container-fluid">
 
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container-fluid">
+                    <!--first btn-->
+                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                        <i class="fas fa-align-left"></i>
 
-                <!--first btn-->
-                <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                    <i class="fa fa-bars"></i>
+                    </button>
+                    <!--second btn-->
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-right"></i>
+                    </button>
 
-                </button>
-                <!--second btn-->
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Dashboard</a>
-                        </li>
-
-
-                        <div class="navbar-nav my-2 my-lg-0">
-                            <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ auth()->user()->firstName }} {{ auth()->user()->lastName }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Condition of use</a>
-                                    <a class="dropdown-item" href="#">Your contact</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/logout">Logout</a>
-                                </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="">Dashboard</a>
                             </li>
 
-                        </div>
-                    </ul>
+
+                            <div class="navbar-nav " id="userid">
+                                <li class="nav-item dropdown " >
+                                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span id="usericon"><i class="fas fa-user-circle"></i></span>
+                                        {{ auth()->user()->firstName }} {{ auth()->user()->lastName }}
+                                        <i class="fas fa-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="">Condition of use</a>
+                                        <a class="dropdown-item" href="#">Your contact</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/logout">Logout</a>
+                                    </div>
+                                </li>
+
+                            </div>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
 
         <!--/navbar-->
         @yield('content1')
 
     </div>
+
 </div>
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -169,5 +165,3 @@
 
 </html>
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
