@@ -33,7 +33,7 @@
             <a class="list-group-item list-group-item-action bg-dark fa fa-paint-brush" id="templates" href="#!" style="color: white; margin-top: 20px;"><span style="font-family: 'SF Mono' "> Templates</span></a>
             <a class="list-group-item list-group-item-action bg-dark fa fa-paper-plane" id="delivery" href="/list_delivery" style="color: white; margin-top: 20px;"><span style="font-family: 'SF Mono' "> Delivery</span></a>
             <a class="list-group-item list-group-item-action bg-dark fa fa-eye" id="dashboard" href="#!" style="color: white; margin-top: 20px;"><span style="font-family: 'SF Mono' "> Show store</span></a>
-            <a class="list-group-item list-group-item-action bg-dark fa fa-gears" id="settings" href="#!" style="color: white; margin-top: 100px;"><span style="font-family: 'SF Mono' "> Settings</span></a>
+            <a class="list-group-item list-group-item-action bg-dark fa fa-gears" id="settings" href="/settings" style="color: white; margin-top: 100px;"><span style="font-family: 'SF Mono' "> Settings</span></a>
         </div>
     </div>
     <!-- Page Content-->
@@ -41,7 +41,7 @@
         <nav class="navbar fixed-top navbar-dark bg-light">
             <div>
                 <a href="/" style="font-size: x-large; font-family: 'Geneva';">MyStore</a>
-                <span id="title" style="color: dimgrey; font-size: large; color: lightslategrey; margin-left: 160px;"></span>
+                <span id="title" style="color: dimgrey; font-size: large; margin-left: 160px;"></span>
             </div>
             <div>
 

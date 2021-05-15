@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\store\categoryController;
 use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\store\DeliveryController;
+use App\Http\Controllers\store\SettingsController;
 use App\Http\Controllers\welcome\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,16 @@ Route::get('/add_delivery', [DeliveryController::class,'index_add'])->name('add_
 Route::post('/add_delivery', [DeliveryController::class,'store']);
 
 Route::get('/list_delivery', [DeliveryController::class,'index_list'])->name('list_delivery');
+
+Route::get('/delivery_info/{id}', [DeliveryController::class,'index_delivery_info'])->name('delivery_info');
+
+Route::post('/edit_delivery', [DeliveryController::class,'edit'])->name('edit_delivery');
+
+Route::get('/delete_delivery/{id}', [DeliveryController::class,'delete']);
+
+Route::get('/settings', [SettingsController::class,'index'])->name('settings');
+
+
+Route::post('/edit_basic_info', [SettingsController::class,'edit_basic_info'])->name('edit_basic_info');
+Route::post('/edit_login_info', [SettingsController::class,'edit_login_info'])->name('edit_login_info');
 

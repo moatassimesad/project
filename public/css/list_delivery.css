@@ -1,3 +1,14 @@
 .contenus{
     margin-top: 150px;
 }
+.add{
+    font-family: "PT Mono";
+    font-size: large;
+    margin-right: 20px;
+}
+.delivery{
+    margin-left: 20px;
+    font-size: large;
+    font-family: "PT Mono";
+    color: dimgrey;
+}

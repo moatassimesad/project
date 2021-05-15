@@ -20,7 +20,7 @@
     <br> <br> <br>
 </div>
     @if(session('status'))
-        <div class="status">{{ session('status') }}</div>
+        <div class="alert alert-danger status" role="alert">{{ session('status') }}</div>
 
 @endif
 <div style="height: 100px;" class="align-items-center row justify-content-center">

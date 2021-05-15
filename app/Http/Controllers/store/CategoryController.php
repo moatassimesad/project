@@ -58,6 +58,10 @@ class CategoryController extends Controller
         return redirect()->route('list_category');
     }
     public function edit(Request $request){
+        $this->validate($request,[
+            'name'=>'required|max:255',
+            'reference'=>'required|max:255',
+        ]);
 
         $category = Category::find($request->id);
         $category->name = $request->name;

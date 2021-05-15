@@ -28,7 +28,8 @@ a {
 }
 .status{
     text-align: center;
-    color: red;
+    width: 50vw;
+    margin-left: 25vw;
 }
 .email{
     width: 60%;

@@ -59,12 +59,17 @@
                 <hr>
                 <input type="hidden" name="id" value="{{$id}}">
                 <div  class="infos row justify-content-center align-items-center">
-                    <input class="name"  name="name" type="text" placeholder="name" value="{{$category->name}}">
+                    <input class="name" style="@error('name') border-bottom:1px solid red; @enderror"  name="name" type="text" placeholder="name" value="{{$category->name}}">
                 </div>
-
+                @error('name')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
                 <div  class="infos row justify-content-center align-items-center">
-                    <input class="reference"  name="reference" type="text"  placeholder="reference" value="{{$category->reference}}">
+                    <input class="reference" style="@error('reference') border-bottom:1px solid red; @enderror" name="reference" type="text"  placeholder="reference" value="{{$category->reference}}">
                 </div>
+                @error('reference')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
 
                 <div style="height: 100px;" class="row justify-content-center mt-4">
                     <span><a href="/list_category" class="fa fa-arrow-left btn btn-secondary mr-2"></a></span>

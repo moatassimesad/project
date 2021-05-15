@@ -47,7 +47,7 @@
             @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
                     <div><button type="submit" id="submit" name="submit"   class="bouton btn btn-dark">&emsp;&emsp;Save&emsp;&emsp;</button></div>
-                    <div><button type="reset" id="reset" class="btn btn-secondary ">&emsp;&emsp;Cancel&emsp;&emsp;</button></div>
+                    <div><a href="/list_delivery" class="btn btn-secondary ">&emsp;&emsp;Cancel&emsp;&emsp;</a></div>
                 </div>
             </div>
             </div>

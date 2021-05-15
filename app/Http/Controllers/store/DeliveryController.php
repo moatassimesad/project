@@ -43,4 +43,30 @@ class DeliveryController extends Controller
         return redirect()->route('list_delivery');
 
     }
+    public function index_delivery_info($id){
+        $delivery = Delivery::find($id);
+        return view('store.delivery_info',compact('delivery','id'));
+    }
+    public function edit(Request $request){
+        $this->validate($request,[
+           'name'=>'required',
+           'reference'=>'required',
+           'address'=>'required',
+           'phone'=>'required',
+        ]);
+
+
+        $delivery = Delivery::find($request->id);
+        $delivery->name = $request->name;
+        $delivery->reference = $request->reference;
+        $delivery->address = $request->address;
+        $delivery->phone = $request->phone;
+        $delivery->save();
+        return redirect()->route('list_delivery');
+    }
+    public function delete($id){
+        $delivery = Delivery::find($id);
+        $delivery->delete();
+        return redirect()->route('list_delivery');
+    }
 }
