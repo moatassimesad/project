@@ -200,4 +200,14 @@ input{
     font-family: "SF Mono";
     height: 50px;
 }
-
+.ajax{
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px black;
+}
+.text_area{
+    margin-right: 2vw;
+    margin-left: 2vw;
+}

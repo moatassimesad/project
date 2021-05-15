@@ -69,3 +69,10 @@ select{
     text-align: center;
     margin-bottom: 20px;
 }
+.logout{
+    margin-right: 40px;
+    margin-top: 20px;
+    font-size: large;
+    font-family: "PT Mono";
+    color: white;
+}

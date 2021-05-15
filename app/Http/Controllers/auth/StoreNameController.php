@@ -31,6 +31,7 @@ class StoreNameController extends Controller
         Store::create([
         'name'=>$request->storeName,
         'storeActivityType'=>$request->storeActivityType,
+        'designName'=>$request->storeActivityType,
         'user_id'=>auth()->user()->id,
         ]);
         /*auth()->user()->stores->create([
