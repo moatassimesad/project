@@ -22,6 +22,19 @@ class SettingsController extends Controller
         $store = $user->store;
         return view('store.settings',compact('store'));
     }
+    public function index_condition(){
+        return view('store.condition_of_use');
+    }
+
+    public function index_contact(){
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
+        return view('store.contact',compact('store'));
+    }
+
+    public function index_templates(){
+        return view('store.templates');
+    }
 
 
     public function edit_basic_info(Request $request)
@@ -103,5 +116,29 @@ class SettingsController extends Controller
         $store->textLayer = $request->textLayer;
         $store->save();
         return back()->with('status3', 'Informations have been updated successfully');
+    }
+
+    public function save_condition_of_use(Request $request){
+        $this->validate($request,[
+            'conditionOfUse'=>'required',
+        ]);
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
+        $store->conditionOfUse = $request->conditionOfUse;
+        $store->save();
+        return back()->with('status', 'Saved successfully');
+    }
+
+    public function save_contact(Request $request){
+        $this->validate($request,[
+            'facebookLink'=>'required',
+            'twitterLink'=>'required',
+        ]);
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
+        $store->facebookLink = $request->facebookLink;
+        $store->twitterLink = $request->twitterLink;
+        $store->save();
+        return back()->with('status', 'Saved successfully');
     }
 }

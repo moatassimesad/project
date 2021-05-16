@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="/templates">
                     <i class="fas fa-paint-brush"></i>
                     &emsp;Templates
                 </a>
@@ -101,10 +101,9 @@
                 <div class="container-fluid">
 
                     <!--first btn-->
-                    <button type="button" id="sidebarCollapse" class="btn btn-dark">
-                        <i class="fas fa-align-left"></i>
 
-                    </button>
+                        <a class="nav-link" href="">Dashboard</a>
+
                     <!--second btn-->
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-right"></i>
@@ -112,9 +111,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Dashboard</a>
-                            </li>
+
 
 
                             <div class="navbar-nav " id="userid">
@@ -125,8 +122,8 @@
                                         <i class="fas fa-angle-down"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="">Condition of use</a>
-                                        <a class="dropdown-item" href="#">Your contact</a>
+                                        <a class="dropdown-item" href="/condition_of_use">Condition of use</a>
+                                        <a class="dropdown-item" href="/contact">Your contact</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/logout">Logout</a>
                                     </div>

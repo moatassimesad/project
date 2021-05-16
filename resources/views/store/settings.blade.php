@@ -131,11 +131,11 @@
                 <div  class="category_info row justify-content-center align-items-center cat_info">Store informations</div>
                 <hr>
                 @if(session('status3'))
-                    <div class="success alert alert-success" role="alert">{{ session('status') }}</div>
+                    <div class="success alert alert-success" role="alert">{{ session('status3') }}</div>
 
                 @endif
                 <div style="height: 100px;" class="align-items-center row justify-content-center">
-                    <input name="storeName" class="name" style=" @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off">
+                    <input name="storeName" class="name" style=" @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off" value="{{ $store->name }}">
 
                 </div>
                 @error('storeName')
@@ -158,7 +158,7 @@
                 </div>
                 @enderror
                 <div class="text_area align-items-center row justify-content-center">
-                    <textarea class="form-control" style="  @error('textLayer') border:1px solid red;  @enderror" placeholder="Enter a text layer for your store..." name="textLayer" rows="3"></textarea>
+                    <textarea class="form-control" style="  @error('textLayer') border:1px solid red;  @enderror" placeholder="Enter a text layer for your store..." name="textLayer" rows="3">{{ $store->textLayer }}</textarea>
                 </div>
                 @error('textLayer')
                 <div style="color: red; text-align: center; margin-top: 50px;">

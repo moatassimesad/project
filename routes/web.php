@@ -59,6 +59,7 @@ Route::get('/delete_delivery/{id}', [DeliveryController::class,'delete']);
 Route::get('/settings', [SettingsController::class,'index'])->name('settings');
 
 
+
 Route::post('/edit_basic_info', [SettingsController::class,'edit_basic_info'])->name('edit_basic_info');
 
 Route::post('/edit_login_info', [SettingsController::class,'edit_login_info'])->name('edit_login_info');
@@ -67,3 +68,12 @@ Route::post('/edit_store_info', [SettingsController::class,'edit_store_info'])->
 
 Route::post('/add_store_images', [SettingsController::class,'add_store_images'])->name('add_store_images');
 
+Route::get('/condition_of_use', [SettingsController::class,'index_condition'])->name('condition_of_use');
+
+Route::post('/save_condition_of_use', [SettingsController::class,'save_condition_of_use'])->name('save_condition_of_use');
+
+Route::get('/contact', [SettingsController::class,'index_contact'])->name('contact');
+
+Route::post('/save_contact', [SettingsController::class,'save_contact'])->name('save_contact');
+
+Route::get('/templates', [SettingsController::class,'index_templates'])->name('templates');
