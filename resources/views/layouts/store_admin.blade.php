@@ -32,13 +32,14 @@
 
         <ul class="list-unstyled components">
 
-            <li class="active">
+            <li class="{{'stats'==request()->path()?'active':''}}" >
                 <a href="/stats">
                     <i class="fas fa-home"></i>
-                    &emsp;Dashboard
+                    Dashboard
                 </a>
             </li>
-            <li>
+
+            <li class="{{''==request()->path()? 'active':''}}" >
                 <a href="">
                     <i class="fas fa-shopping-bag"></i>
                     &emsp;Orders
@@ -48,12 +49,13 @@
                     &emsp;Products
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href=""><i class="fas fa-box"></i>&emsp;Products</a></li>
-                    <li><a href="/list_category"><i class="fas fa-folder-open"></i>&emsp;Categories</a></li>
-                    <li><a href=""><i class="fas fa-shipping-fast"></i>&emsp;Providers</a></li>
+                    <li><a href="">&emsp;Products</a></li>
+                    <li><a href="/list_category">&emsp;Categories</a></li>
+                    <li><a href="">&emsp;Providers</a></li>
                 </ul>
             </li>
-            <li>
+
+            <li class="{{''==request()->path()? 'active':''}}" >
                 <a href="">
                     <i class="fas fa-users"></i>
                     &emsp;Customers
@@ -65,13 +67,13 @@
                     &emsp;Templates
                 </a>
             </li>
-            <li>
+            <li class="{{'list_delivery'==request()->path()?'active':''}}" >
                 <a href="/list_delivery">
                     <i class="fas fa-shipping-fast"></i>
                     &emsp;Delivery
                 </a>
             </li>
-            <li>
+            <li class="{{''==request()->path()? 'active':''}}">
                 <a href="" id="showstore">
                     <i class="fas fa-eye"></i>
                     &emsp;ShowStore
@@ -96,7 +98,7 @@
     <div id="content">
 
         <!--  navbar  -->
-        <div id="content1">
+        <div id="navbarcontent">
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
 
@@ -114,7 +116,7 @@
 
 
 
-                            <div class="navbar-nav " id="userid">
+                            <div class="navbar-nav " id="userhoverffect">
                                 <li class="nav-item dropdown " >
                                     <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span id="usericon"><i class="fas fa-user-circle"></i></span>
@@ -156,8 +158,12 @@
             $('#sidebar').toggleClass('active');
             $('#content').toggleClass('active');
         });
+
+
     });
 </script>
+
+
 </body>
 
 </html>

@@ -24,6 +24,17 @@ a:focus {
     transition: all 0.3s;
 }
 
+#userhoverffect li a:hover
+{
+    color: red;
+    background:none ;
+}
+#userhoverffect li a:focus{
+    color: red;
+    background:inherit ;
+}
+
+
 .navbar {
     padding: 15px 10px;
 
@@ -195,6 +206,8 @@ a.article:hover {
     color: #fff !important;
 }
 
+
+
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -327,7 +340,7 @@ input{
     outline-offset: -10px;
     -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
     transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    padding: 120px 0px 85px 35%;
+    padding: 120px 0 85px 35%;
     text-align: center !important;
     margin: 0;
     width: 100% !important;
