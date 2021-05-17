@@ -35,11 +35,11 @@
             <li class="{{'stats'==request()->path()?'active':''}}" >
                 <a href="/stats">
                     <i class="fas fa-home"></i>
-                    Dashboard
+                    &emsp;Dashboard
                 </a>
             </li>
 
-            <li class="{{''==request()->path()? 'active':''}}" >
+            <li class="{{'#'==request()->path()? 'active':''}}" >
                 <a href="">
                     <i class="fas fa-shopping-bag"></i>
                     &emsp;Orders
@@ -49,19 +49,19 @@
                     &emsp;Products
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="">&emsp;Products</a></li>
-                    <li><a href="/list_category">&emsp;Categories</a></li>
-                    <li><a href="">&emsp;Providers</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="">&emsp;Products</a></li>
+                    <li class="{{'list_category'==request()->path()? 'active':''}}"><a href="/list_category">&emsp;Categories</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="">&emsp;Providers</a></li>
                 </ul>
             </li>
 
-            <li class="{{''==request()->path()? 'active':''}}" >
+            <li class="{{'#'==request()->path()? 'active':''}}" >
                 <a href="">
                     <i class="fas fa-users"></i>
                     &emsp;Customers
                 </a>
             </li>
-            <li>
+            <li class="{{'#'==request()->path()? 'active':''}}">
                 <a href="/templates">
                     <i class="fas fa-paint-brush"></i>
                     &emsp;Templates
@@ -73,7 +73,7 @@
                     &emsp;Delivery
                 </a>
             </li>
-            <li class="{{''==request()->path()? 'active':''}}">
+            <li class="{{'#'==request()->path()? 'active':''}}">
                 <a href="" id="showstore">
                     <i class="fas fa-eye"></i>
                     &emsp;ShowStore
@@ -84,7 +84,7 @@
         <br>
 
         <ul class="list-unstyled ">
-            <li>
+            <li class="{{'settings'==request()->path()? 'active':''}}">
                 <a href="/settings" class="settings">
                     <i class="fas fa-cogs"></i>
                     &emsp;Settings
