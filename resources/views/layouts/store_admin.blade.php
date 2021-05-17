@@ -50,7 +50,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="#">&emsp;Products</a></li>
-                    <li class="{{'list_category'==request()->path()? 'active':''}}"><a href="/list_category">&emsp;Categories</a></li>
+                    <li class="{{'list_collection'==request()->path()? 'active':''}}"><a href="/list_collection">&emsp;Collections</a></li>
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="#">&emsp;Providers</a></li>
                 </ul>
             </li>

@@ -46,8 +46,8 @@ class User extends Authenticatable
     public function store(){
         return $this->hasOne(Store::class);
     }
-    public function categories(){
-        return $this->hasMany(Category::class);
+    public function collections(){
+        return $this->hasMany(Collection::class);
     }
     public function deliveries(){
         return $this->hasMany(Delivery::class);

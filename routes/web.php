@@ -5,7 +5,7 @@ use App\Http\Controllers\auth\logOutController;
 use App\Http\Controllers\auth\SignInController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
-use App\Http\Controllers\store\categoryController;
+use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\store\DeliveryController;
 use App\Http\Controllers\store\SettingsController;
@@ -33,16 +33,16 @@ Route::get('/logout', [logOutController::class,'logout'])->name('logout');
 Route::get('/stats', [DashboardController::class,'index'])
     ->name('stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
 
-Route::get('/add_category', [CategoryController::class,'index_add'])->name('add_category');
-Route::post('/add_category', [CategoryController::class,'store']);
+Route::get('/add_collection', [CollectionController::class,'index_add'])->name('add_collection');
+Route::post('/add_collection', [CollectionController::class,'store']);
 
-Route::get('/list_category', [CategoryController::class,'index_list'])->name('list_category');
+Route::get('/list_collection', [CollectionController::class,'index_list'])->name('list_collection');
 
-Route::get('/category_info/{id}', [CategoryController::class,'index_category_info'])->name('category_info');
+Route::get('/collection_info/{id}', [CollectionController::class,'index_collection_info'])->name('collection_info');
 
-Route::get('/delete_category/{id}', [CategoryController::class,'delete']);
+Route::get('/delete_collection/{id}', [CollectionController::class,'delete']);
 
-Route::post('/edit_category', [CategoryController::class,'edit'])->name('edit_category');
+Route::post('/edit_collection', [CollectionController::class,'edit'])->name('edit_collection');
 
 Route::get('/add_delivery', [DeliveryController::class,'index_add'])->name('add_delivery');
 

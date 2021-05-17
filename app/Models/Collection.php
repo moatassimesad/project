@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class Collection extends Model
 {
+    use HasFactory;
     use HasFactory;
     /**
      * The attributes that are mass assignable.
@@ -17,6 +18,6 @@ class category extends Model
         'reference',
         'name',
         'image',
-        'user_id'
+        'user_id',
     ];
 }

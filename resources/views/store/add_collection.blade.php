@@ -1,14 +1,14 @@
 @extends('layouts.store_admin')
 @section('content1')
-<head>
-    <link rel="stylesheet" href="css/add_category.css">
-</head>
-<form action="{{ route('add_category') }}" method="post" enctype="multipart/form-data">
-    @csrf
+    <head>
+        <link rel="stylesheet" href="css/add_collection.css">
+    </head>
+    <form action="{{ route('add_collection') }}" method="post" enctype="multipart/form-data">
+        @csrf
 
         <div class="container">
             <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Category info</div>
+                <div  class="collection_info row justify-content-center align-items-center cat_info">Collection info</div>
                 <hr>
 
                 <div  class="row justify-content-center files" style="@error('image') border:1px solid red; @enderror">
@@ -37,10 +37,10 @@
             </div>
 
         </div>
-</form>
+    </form>
 
-<script src="jquery-3.5.1.min.js"></script>
-<script>
-    $('.file-upload').file_upload();
-</script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $('.file-upload').file_upload();
+    </script>
 @endsection
