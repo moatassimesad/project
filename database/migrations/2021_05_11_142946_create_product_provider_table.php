@@ -15,6 +15,8 @@ class CreateProductProviderTable extends Migration
     {
         Schema::create('product_provider', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->foreignId('provider_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
