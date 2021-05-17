@@ -40,7 +40,7 @@
             </li>
 
             <li class="{{'#'==request()->path()? 'active':''}}" >
-                <a href="">
+                <a href="#">
                     <i class="fas fa-shopping-bag"></i>
                     &emsp;Orders
                 </a>
@@ -49,14 +49,14 @@
                     &emsp;Products
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="">&emsp;Products</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="#">&emsp;Products</a></li>
                     <li class="{{'list_category'==request()->path()? 'active':''}}"><a href="/list_category">&emsp;Categories</a></li>
-                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="">&emsp;Providers</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="#">&emsp;Providers</a></li>
                 </ul>
             </li>
 
             <li class="{{'#'==request()->path()? 'active':''}}" >
-                <a href="">
+                <a href="#">
                     <i class="fas fa-users"></i>
                     &emsp;Customers
                 </a>
@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="{{'#'==request()->path()? 'active':''}}">
-                <a href="" id="showstore">
+                <a href="#" id="showstore">
                     <i class="fas fa-eye"></i>
                     &emsp;ShowStore
                 </a>
