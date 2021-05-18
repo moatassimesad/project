@@ -77,8 +77,9 @@
                     @foreach($providers as $provider)
                     <div class="col-md-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                            <input class="form-check-input" type="checkbox" value="" id="">
                             <label class="form-check-label" for="defaultCheck2">
+                                <input class="city sm"  name="shippingCost" type="number" style="@error('shippingCost') border-bottom:1px solid red; @enderror" placeholder="Shipping" value="{{ old('shippingCost') }}" disabled>
                                 {{ $provider->name }}
                             </label>
                         </div>
