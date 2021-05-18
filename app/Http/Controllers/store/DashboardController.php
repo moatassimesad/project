@@ -16,8 +16,6 @@ class DashboardController extends Controller
     }
 
     public function index(){
-
-
         $chart = new SaleProductChart();
         $chart->labels(['One', 'Two', 'Three', 'Four']);
         $chart->dataset('products sale', 'bar', [1, 2, 3, 4]);
