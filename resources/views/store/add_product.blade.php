@@ -68,6 +68,13 @@
                 @error('collection_name')
                 <div class="error">{{ $message }}</div>
                 @enderror
+
+
+                {{-- all the providers as a collection of checkboxes --}}
+
+
+
+
                 <div class="text_area align-items-center row justify-content-center">
                     <textarea class="form-control" style="  @error('description') border:1px solid red;  @enderror" placeholder="Description..." name="description" rows="3"></textarea>
                 </div>
@@ -77,7 +84,7 @@
                 </div>
                 @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
+                    <div><button type="submit" id="submit" name="submit"   class="btn btn-primary"><i class="fas fa-save"></i>&emsp;&emsp;Save&emsp;&emsp;</button></div>
                 </div>
 
 
