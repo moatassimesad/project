@@ -2,7 +2,6 @@
 @extends('layouts.store_admin')
 @section('content1')
 
-
     <head>
 
         <style>
@@ -50,12 +49,13 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    @if($collection->user_id==auth()->user()->id)
+
+    @if($collection->store->id==auth()->user()->store->id)
         <form action="{{ route('edit_collection') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="container">
                 <div class="contenu bg-light">
-                    <div  class=" row justify-content-center align-items-center cat_info">Change Category info</div>
+                    <div  class=" row justify-content-center align-items-center cat_info">Change collection info</div>
                     <hr>
                     <input type="hidden" name="id" value="{{$id}}">
                     <div  class="infos row justify-content-center align-items-center">

@@ -8,6 +8,8 @@ use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\store\DeliveryController;
+use App\Http\Controllers\store\ProductController;
+use App\Http\Controllers\store\ProviderController;
 use App\Http\Controllers\store\SettingsController;
 use App\Http\Controllers\welcome\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -77,3 +79,9 @@ Route::get('/contact', [SettingsController::class,'index_contact'])->name('conta
 Route::post('/save_contact', [SettingsController::class,'save_contact'])->name('save_contact');
 
 Route::get('/templates', [SettingsController::class,'index_templates'])->name('templates');
+
+Route::get('/add_product', [ProductController::class,'index_add'])->name('add_product');
+Route::post('/add_product', [ProductController::class,'store']);
+
+Route::get('/add_provider', [ProviderController::class,'index_add'])->name('add_provider');
+Route::post('/add_provider', [ProviderController::class,'store']);

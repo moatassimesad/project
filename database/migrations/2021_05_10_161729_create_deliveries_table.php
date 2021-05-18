@@ -19,7 +19,7 @@ class CreateDeliveriesTable extends Migration
             $table->string('reference')->unique();
             $table->string('address');
             $table->string('phone')->unique();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

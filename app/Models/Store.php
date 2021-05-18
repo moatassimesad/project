@@ -23,4 +23,14 @@ class Store extends Model
         'image',
         'user_id',
     ];
+    public function collections(){
+
+        return $this->hasMany(Collection::class);
+    }
+    public function deliveries(){
+        return $this->hasMany(Delivery::class);
+    }
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

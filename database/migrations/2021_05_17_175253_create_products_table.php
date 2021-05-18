@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->mediumText('image');
             $table->foreignId('collection_id')->unique()->constrained()->onDelete('cascade');
+            $table->foreignId('store_id')->unique()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

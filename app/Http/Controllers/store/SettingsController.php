@@ -83,7 +83,7 @@ class SettingsController extends Controller
         ]);
 
         if ($request->hasfile('images')) {
-            $i=1;
+            $i = rand(1,10000);
             foreach ($request->file('images') as $file) {
                 $extension = $file->getClientOriginalExtension();
                 $name = $i.time().'.'.$extension;

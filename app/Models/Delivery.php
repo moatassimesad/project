@@ -17,7 +17,10 @@ class Delivery extends Model
         'reference',
         'name',
         'address',
-        'user_id',
+        'store_id',
         'phone',
     ];
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }

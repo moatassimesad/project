@@ -18,7 +18,7 @@ class CreateCollectionsTable extends Migration
             $table->string('reference')->unique();
             $table->string('name');
             $table->mediumText('image');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class DashboardController extends Controller
 
     public function index(){
         $chart = new SaleProductChart();
-        $chart->labels(['One', 'Two', 'Three', 'Four']);
-        $chart->dataset('products sale', 'line', [3, 2, 3, 5])->backgroundColor('#ADD8E6');
+        $chart->labels(['Monday', 'Tuesday', 'Wednesday', 'thursday','Friday','Saturday','Sunday']);
+        $chart->dataset('products sale', 'bar', [9,3,5,1,9,6,8])->backgroundColor('#ADD8E6');
         return view('store.stats',compact('chart'));
 
     }

@@ -18,5 +18,9 @@ class Provider extends Model
         'reference',
         'phone',
         'address',
+        'store_id',
     ];
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
 }

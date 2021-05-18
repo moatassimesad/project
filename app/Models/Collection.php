@@ -17,6 +17,12 @@ class Collection extends Model
         'reference',
         'name',
         'image',
-        'user_id',
+        'store_id',
     ];
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }

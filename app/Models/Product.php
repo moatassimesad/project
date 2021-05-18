@@ -24,5 +24,15 @@ class Product extends Model
         'description',
         'image',
         'collection_id',
+        'store_id'
     ];
+    public function providers(){
+        return $this->belongsToMany(Provider::class);
+    }
+    public function collection(){
+        return $this->belongsTo(Collection::class);
+    }
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }

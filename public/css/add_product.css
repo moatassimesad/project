@@ -1,0 +1,213 @@
+.contenus{
+    border: solid 1px grey;
+    border-radius: 15px;
+    margin-top: 150px;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+img {
+    max-width: 100%; height: auto;
+}
+input{
+    text-align:center;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+.infos{
+    height: 150px;
+}
+.bouton{
+    margin-right: 20px;
+}
+input{
+    background: none;
+}
+
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+}
+.cat_info{
+    font-size: x-large;
+    font-family: "SF Mono";
+    height: 50px;
+}
+.code_div{
+    height: 100px;
+}
+.code{
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+    background: none;
+}
+.phone{
+    width :250px;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.error{
+    text-align: center;
+    color: red;
+}
+.fn_ln{
+    height: 100px;
+}
+.fn_and_ln{
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+.city_div{
+    height: 100px;
+}
+.city{
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+    background: none;
+}
+.success{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenus{
+    border: solid 1px grey;
+    border-radius: 15px;
+    margin-top: 150px;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+
+.name,.reference{
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px;
+}
+img {
+    max-width: 100%; height: auto;
+}
+input{
+    text-align:center;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+a, u {
+    text-decoration: none; !important;
+}
+a {
+    text-decoration: none !important;
+}
+.infos{
+    height: 150px;
+}
+.bouton{
+    margin-right: 20px;
+}
+input{
+    background: none;
+}
+
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+}
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.color input{ background-color:#f1f1f1;}
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+.files{
+    width: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.fl{
+    border-radius: 15px;
+}
+.cat_info{
+    font-size: x-large;
+    font-family: "SF Mono";
+    height: 50px;
+}
+.ajax{
+    text-align: center;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-bottom: solid 1px black;
+}
+.text_area{
+    margin-right: 2vw;
+    margin-left: 2vw;
+}

@@ -21,7 +21,8 @@ class CollectionController extends Controller
     }
     public function index_list(){
         $user = User::find(auth()->user()->id);
-        $collections = $user->collections;
+        $store = $user->store;
+        $collections = $store->collections;
         return view('store.list_collection',compact('collections'));
     }
     public function store(Request $request){
@@ -33,7 +34,9 @@ class CollectionController extends Controller
         $collection = new Collection();
         $collection->name = $request->name;
         $collection->reference = $request->reference;
-        $collection->user_id = auth()->user()->id;
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
+        $collection->store_id = $store->id;
         if($request->hasFile('image')){
             $file = $request->file('image');
             $extesion = $file->getClientOriginalExtension();
@@ -52,10 +55,15 @@ class CollectionController extends Controller
 
     public function delete($id){
         $collection = Collection::find($id);
+        if ($collection->store->id==auth()->user()->store->id){
         $collection->delete();
-        $path = 'images/'.$collection->image;
+        $path = 'images/' . $collection->image;
         File::delete($path);
         return redirect()->route('list_collection');
+    }
+        else{
+            dd("Hehe maybe next time");
+        }
     }
     public function edit(Request $request){
         $this->validate($request,[

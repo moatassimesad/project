@@ -19,6 +19,7 @@ class CreateProvidersTable extends Migration
             $table->string('reference');
             $table->string('phone');
             $table->string('address');
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

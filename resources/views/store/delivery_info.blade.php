@@ -6,7 +6,7 @@
         </style>
         <link rel="stylesheet" href="{{ asset('css/add_delivery.css') }}">
     </head>
-    @if($delivery->user_id==auth()->user()->id)
+    @if($delivery->store->id==auth()->user()->store->id)
     <form action="{{ route('edit_delivery') }}" method="post" enctype="multipart/form-data">
         @csrf
 

@@ -21,7 +21,8 @@ class DeliveryController extends Controller
 
     public function index_list(){
         $user = User::find(auth()->user()->id);
-        $deliveries = $user->deliveries;
+        $store = $user->store;
+        $deliveries = $store->deliveries;
         return view('store.list_delivery',compact('deliveries'));
     }
     public function store(Request $request){
@@ -32,13 +33,15 @@ class DeliveryController extends Controller
             'address'=>'required|max:255',
             'phone'=>'required|max:255',
         ]);
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
         //store data
         Delivery::create([
             'name'=>$request->name,
             'reference'=>$request->reference,
             'address'=>$request->address,
             'phone'=>$request->phone,
-            'user_id'=>auth()->user()->id,
+            'store_id'=>$store->id,
         ]);
         return redirect()->route('list_delivery');
 
@@ -66,7 +69,12 @@ class DeliveryController extends Controller
     }
     public function delete($id){
         $delivery = Delivery::find($id);
-        $delivery->delete();
-        return redirect()->route('list_delivery');
+        if($delivery->store->id==auth()->user()->store->id) {
+            $delivery->delete();
+            return redirect()->route('list_delivery');
+        }
+        else{
+            dd("Hehe maybe next time");
+        }
     }
 }
