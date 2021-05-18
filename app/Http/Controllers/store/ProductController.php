@@ -5,6 +5,7 @@ namespace App\Http\Controllers\store;
 use App\Http\Controllers\Controller;
 use App\Models\Collection;
 use App\Models\Product;
+use App\Models\Provider;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class ProductController extends Controller
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $collections = $store->collections;
-        return view('store.add_product', compact('collections'));
+        $providers = Provider::all();
+        return view('store.add_product', compact('collections','providers'));
     }
 
     public function store(Request $request)

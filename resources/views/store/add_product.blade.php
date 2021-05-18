@@ -71,7 +71,20 @@
 
 
                 {{-- all the providers as a collection of checkboxes --}}
-
+                <br><br><div style="text-align: center"><p><i>Here's all the providers as a collection of checkboxes</i></p></div>
+                <br><br><br>
+                <div class="row">
+                    @foreach($providers as $provider)
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                            <label class="form-check-label" for="defaultCheck2">
+                                {{ $provider->name }}
+                            </label>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
 
 
 
