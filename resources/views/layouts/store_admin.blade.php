@@ -53,9 +53,9 @@
                     &emsp;Products
                 </a>
                 <ul class="collapse list-unstyled" id="product-menu">
-                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/add_product">&emsp;Products</a></li>
+                    <li class="{{'list_product'==request()->path()? 'active':''}}"><a href="/list_product">&emsp;Products</a></li>
                     <li class="{{'list_collection'==request()->path()? 'active':''}}"><a href="/list_collection">&emsp;Collections</a></li>
-                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/add_provider">&emsp;Providers</a></li>
+                    <li class="{{'list_provider'==request()->path()? 'active':''}}"><a href="/list_provider">&emsp;Providers</a></li>
                 </ul>
             </li>
 

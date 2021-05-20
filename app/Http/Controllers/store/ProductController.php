@@ -27,10 +27,17 @@ class ProductController extends Controller
         return view('store.add_product', compact('collections','providers'));
     }
 
+    public function index_list(){
+        $user = User::find(auth()->user()->id);
+        $store = $user->store;
+        $products = $store->products;
+        return view('store.list_product',compact('products'));
+    }
+
     public function store(Request $request)
     {
 
-        /*$this->validate($request, [
+        $this->validate($request, [
             'images' => 'required',
             'name' => 'required',
             'reference' => 'required',
@@ -39,7 +46,7 @@ class ProductController extends Controller
             'shippingCost' => 'required',
             'collection_name' => 'required',
             'description' => 'required',
-        ]);*/
+        ]);
         $collection = Collection::where('name', $request->collection_name)->first();
         $user = User::find(auth()->user()->id);
         $store = $user->store;

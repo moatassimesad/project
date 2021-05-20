@@ -6,7 +6,7 @@
         </style>
         <link rel="stylesheet" href="{{ asset('css/add_delivery.css') }}">
     </head>
-    @if($delivery->store->id==auth()->user()->store->id)
+    @if($delivery->store->id ?? ''==auth()->user()->store->id ?? '')
     <form action="{{ route('edit_delivery') }}" method="post" enctype="multipart/form-data">
         @csrf
 
@@ -57,7 +57,7 @@
     </form>
     @else
         <div class="container">
-            <div class="row mt-5 justify-content-center text-muted"><h1 style="margin-top: 100px;">No such category to edit</h1></div>
+            <div class="row mt-5 justify-content-center text-muted"><h1 style="margin-top: 100px;">No such delivery to edit</h1></div>
         </div>
     @endif
 

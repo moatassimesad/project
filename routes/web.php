@@ -82,10 +82,18 @@ Route::post('/save_contact', [SettingsController::class,'save_contact'])->name('
 Route::get('/store-menu', [SettingsController::class,'index_templates'])->name('templates');
 
 Route::get('/add_product', [ProductController::class,'index_add'])->name('add_product');
+
+Route::get('/list_product', [ProductController::class,'index_list'])->name('list_product');
+
 Route::post('/add_product', [ProductController::class,'store']);
+
+Route::get('/list_provider', [ProviderController::class,'index_list'])->name('list_provider');
 
 Route::get('/add_provider', [ProviderController::class,'index_add'])->name('add_provider');
 Route::post('/add_provider', [ProviderController::class,'store']);
+
+Route::get('/provider_info/{id}', [ProviderController::class,'index_provider_info'])->name('provider_info');
+Route::post('/edit_provider', [ProviderController::class,'edit'])->name('edit_provider');
 
 Route::get('/themes', [StoreController::class,'index_themes'])->name('themes');
 Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('edit_store');

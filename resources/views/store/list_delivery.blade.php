@@ -11,7 +11,7 @@
     <br><br>
     <table class="table table-striped table-borderless">
         <thead>
-        <tr>
+        <tr class="table-info">
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">ADDRESS</th>

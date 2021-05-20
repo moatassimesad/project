@@ -1,9 +1,7 @@
 @extends('layouts.store_admin')
 @section('content1')
     <head>
-        <style>
 
-        </style>
         <link rel="stylesheet" href="css/add_delivery.css">
     </head>
 

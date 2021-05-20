@@ -23,4 +23,7 @@ class Provider extends Model
     public function products(){
         return $this->belongsToMany(Product::class)->withPivot('quantity','unitCost')->withTimestamps();
     }
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }
