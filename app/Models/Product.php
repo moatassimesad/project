@@ -27,7 +27,7 @@ class Product extends Model
         'store_id'
     ];
     public function providers(){
-        return $this->belongsToMany(Provider::class);
+        return $this->belongsToMany(Provider::class)->withPivot('quantity','unitCost')->withTimestamps();
     }
     public function collection(){
         return $this->belongsTo(Collection::class);

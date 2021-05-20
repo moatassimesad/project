@@ -9,7 +9,7 @@
 
         <div class="container">
             <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Delivery info</div>
+                <div  class="category_info row justify-content-center align-items-center cat_info">Provider info</div>
                 <hr>
                 <div  class="infos row justify-content-center align-items-center">
                     <input class="name"  name="name" type="text" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="name" value="{{old('name')}}">

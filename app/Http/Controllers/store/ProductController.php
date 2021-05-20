@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Provider;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Nonstandard\Uuid;
 
 
 class ProductController extends Controller
@@ -28,7 +29,8 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+        /*$this->validate($request, [
             'images' => 'required',
             'name' => 'required',
             'reference' => 'required',
@@ -37,7 +39,7 @@ class ProductController extends Controller
             'shippingCost' => 'required',
             'collection_name' => 'required',
             'description' => 'required',
-        ]);
+        ]);*/
         $collection = Collection::where('name', $request->collection_name)->first();
         $user = User::find(auth()->user()->id);
         $store = $user->store;
@@ -64,6 +66,13 @@ class ProductController extends Controller
             $product->image = json_encode($imgData);
         }
         $product->save();
+        //$product->providers()->sync(array_keys($request->providers),[]);
+        $unitCosts = $request->providers_unitCost;
+        foreach ($request->providers_quantity as $key => $quantity){
+            $product->providers()->attach($key,['quantity'=>$quantity,'unitCost'=>$unitCosts[$key]]);
+        }
+
+
         return redirect()->route('stats');
 
     }

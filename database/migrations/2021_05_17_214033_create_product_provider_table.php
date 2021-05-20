@@ -14,9 +14,10 @@ class CreateProductProviderTable extends Migration
     public function up()
     {
         Schema::create('product_provider', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->foreignId('provider_id')->constrained()->onDelete('cascade');
+            $table->float('quantity');
+            $table->float('unitCost');
             $table->timestamps();
         });
     }

@@ -71,25 +71,32 @@
 
 
                 {{-- all the providers as a collection of checkboxes --}}
-                <br><br><div style="text-align: center"><p><i>Here's all the providers as a collection of checkboxes</i></p></div>
-                <br><br><br>
-                <div class="row">
-                    @foreach($providers as $provider)
-                    <div class="col-md-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="">
-                            <label class="form-check-label" for="defaultCheck2">
-                                <input class="city sm"  name="shippingCost" type="number" style="@error('shippingCost') border-bottom:1px solid red; @enderror" placeholder="Shipping" value="{{ old('shippingCost') }}" disabled>
-                                {{ $provider->name }}
-                            </label>
-                        </div>
+                <div style="text-align: center"><p><i>Select providers for your product</i></p></div>
+
+
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+                        <table>
+                            @foreach($providers as $provider)
+                                {{$provider->value}}
+                                <tr class="mb-3">
+                                    <td class="pt-3 pb-3"><input {{ $provider->value ? 'checked' : null }} data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
+                                    <td>{{ $provider->name }}</td>
+                                    <td><input value="{{ $provider->value ?? null }}" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="Quantity"></td>
+                                    <td><input value="{{ $provider->value ?? null }}" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="unitCost"></td>
+                                </tr>
+                            @endforeach
+                        </table>
                     </div>
-                    @endforeach
+
                 </div>
 
 
 
-                <div class="text_area align-items-center row justify-content-center">
+
+                <div class="text_area align-items-center row justify-content-center mt-5">
                     <textarea class="form-control" style="  @error('description') border:1px solid red;  @enderror" placeholder="Description..." name="description" rows="3"></textarea>
                 </div>
                 @error('description')
@@ -103,9 +110,21 @@
 
 
             </div>
-
         </div>
+
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 
+
+    <script>
+        $('document').ready(function () {
+            $('.provider-enable').on('click', function () {
+                let id = $(this).attr('data-id')
+                let enabled = $(this).is(":checked")
+                $('.provider-amount[data-id="' + id + '"]').attr('disabled', !enabled)
+                $('.provider-amount[data-id="' + id + '"]').val(null)
+            })
+        });
+    </script>
 @endsection
