@@ -76,7 +76,7 @@
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/edit_store">&emsp;Edit Store</a></li>
                 </ul>
             </li>
-            <li class="{{'list_delivery'==request()->path()?'active':''}}" >
+            <li class="{{'list_delivery'==request()->path()?'active':''}}" id="delivery" >
                 <a href="/list_delivery">
                     <i class="fas fa-shipping-fast"></i>
                     &emsp;Delivery
@@ -113,7 +113,7 @@
 
                     <!--first btn-->
 
-                        <a class="nav-link" href="">Dashboard</a>
+                        <a class="nav-link" href="" id="title"></a>
 
                     <!--second btn-->
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

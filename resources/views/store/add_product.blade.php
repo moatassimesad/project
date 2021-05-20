@@ -119,6 +119,7 @@
 
     <script>
         $('document').ready(function () {
+            $("#title").html("Product");
             $('.provider-enable').on('click', function () {
                 let id = $(this).attr('data-id')
                 let enabled = $(this).is(":checked")
