@@ -7,6 +7,7 @@ use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\DashboardController;
+use App\Http\Controllers\store\StoreController;
 use App\Http\Controllers\store\DeliveryController;
 use App\Http\Controllers\store\ProductController;
 use App\Http\Controllers\store\ProviderController;
@@ -78,10 +79,14 @@ Route::get('/contact', [SettingsController::class,'index_contact'])->name('conta
 
 Route::post('/save_contact', [SettingsController::class,'save_contact'])->name('save_contact');
 
-Route::get('/templates', [SettingsController::class,'index_templates'])->name('templates');
+Route::get('/store-menu', [SettingsController::class,'index_templates'])->name('templates');
 
 Route::get('/add_product', [ProductController::class,'index_add'])->name('add_product');
 Route::post('/add_product', [ProductController::class,'store']);
 
 Route::get('/add_provider', [ProviderController::class,'index_add'])->name('add_provider');
 Route::post('/add_provider', [ProviderController::class,'store']);
+
+Route::get('/themes', [StoreController::class,'index_themes'])->name('themes');
+Route::get('/templates', [StoreController::class,'index_templates_1'])->name('templates');
+Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('edit_store');

@@ -46,11 +46,13 @@
                     <i class="fas fa-shopping-bag"></i>
                     &emsp;Orders
                 </a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            </li>
+            <li>
+                <a href="#product-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-box"></i>
                     &emsp;Products
                 </a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+                <ul class="collapse list-unstyled" id="product-menu">
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/add_product">&emsp;Products</a></li>
                     <li class="{{'list_collection'==request()->path()? 'active':''}}"><a href="/list_collection">&emsp;Collections</a></li>
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/add_provider">&emsp;Providers</a></li>
@@ -63,11 +65,16 @@
                     &emsp;Customers
                 </a>
             </li>
-            <li class="{{'#'==request()->path()? 'active':''}}">
-                <a href="/templates">
+            <li>
+                <a href="#store-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-paint-brush"></i>
-                    &emsp;Templates
+                    &emsp;Store
                 </a>
+                <ul class="collapse list-unstyled" id="store-menu">
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/themes">&emsp;Themes</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/templates">&emsp;Templates</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/edit_store">&emsp;Edit Store</a></li>
+                </ul>
             </li>
             <li class="{{'list_delivery'==request()->path()?'active':''}}" >
                 <a href="/list_delivery">

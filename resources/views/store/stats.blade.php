@@ -2,7 +2,7 @@
 @section('content1')
     <head>
         <link rel="stylesheet" href="css/stats.css">
-        <script src="js/dashboard.js"></script>
+
     </head>
     <div class="content">
         <div class="container-fluid">
