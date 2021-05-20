@@ -72,7 +72,6 @@
                 </a>
                 <ul class="collapse list-unstyled" id="store-menu">
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/themes">&emsp;Themes</a></li>
-                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/templates">&emsp;Templates</a></li>
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/edit_store">&emsp;Edit Store</a></li>
                 </ul>
             </li>

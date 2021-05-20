@@ -88,5 +88,4 @@ Route::get('/add_provider', [ProviderController::class,'index_add'])->name('add_
 Route::post('/add_provider', [ProviderController::class,'store']);
 
 Route::get('/themes', [StoreController::class,'index_themes'])->name('themes');
-Route::get('/templates', [StoreController::class,'index_templates_1'])->name('templates');
 Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('edit_store');
