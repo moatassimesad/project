@@ -60,5 +60,13 @@
             <div class="row mt-5 justify-content-center text-muted"><h1 style="margin-top: 100px;">No such provider to edit</h1></div>
         </div>
     @endif
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
+
+
+    <script>
+        $('document').ready(function () {
+            $("#title").html("Providers");
+        });
+    </script>
 @endsection

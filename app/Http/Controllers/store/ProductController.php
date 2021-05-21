@@ -23,7 +23,7 @@ class ProductController extends Controller
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $collections = $store->collections;
-        $providers = Provider::all();
+        $providers = $store->providers;
         return view('store.add_product', compact('collections','providers'));
     }
 
@@ -38,7 +38,7 @@ class ProductController extends Controller
     {
 
         $this->validate($request, [
-            'images' => 'required',
+            'image' => 'required',
             'name' => 'required',
             'reference' => 'required',
             'price' => 'required',
@@ -59,18 +59,12 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->collection_id = $collection->id;
         $product->store_id = $store->id;
-        if ($request->hasfile('images')) {
-            $i = rand(1,10000);
-            foreach ($request->file('images') as $file) {
-                $extension = $file->getClientOriginalExtension();
-                $name = $i . time() . '.' . $extension;
-                $file->move('images/', $name);
-                $imgData[] = $name;
-                $i++;
-            }
-
-
-            $product->image = json_encode($imgData);
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extesion = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extesion;
+            $file->move('images/',$fileName);
+            $product->image = $fileName;
         }
         $product->save();
         //$product->providers()->sync(array_keys($request->providers),[]);

@@ -68,5 +68,15 @@ class ProviderController extends Controller
         $provider->save();
         return redirect()->route('list_provider');
     }
+    public function delete($id){
+        $provider = Provider::find($id);
+        if($provider->store->id==auth()->user()->store->id) {
+            $provider->delete();
+            return redirect()->route('list_provider');
+        }
+        else{
+            dd("Hehe maybe next time");
+        }
+    }
 
 }

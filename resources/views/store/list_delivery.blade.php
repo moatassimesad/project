@@ -9,7 +9,7 @@
         <div><a class="btn btn-primary add" href="/add_delivery">+ Add delivery</a></div>
     </div>
     <br><br>
-    <table class="table table-striped table-borderless">
+    <table class="table table-striped table-sm table-borderless">
         <thead>
         <tr class="table-info">
             <th scope="col">NAME</th>
@@ -35,4 +35,13 @@
         </tbody>
     </table>
 </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+
+    <script>
+        $('document').ready(function () {
+            $("#title").html("Deliveries");
+        });
+    </script>
 @endsection

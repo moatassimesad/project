@@ -11,7 +11,7 @@
                 <div  class="category_info row justify-content-center align-items-center cat_info">Add your product's pictures</div>
                 <hr>
                 <div  class="row justify-content-center files mt-2" style="@error('images') border:1px solid red; @enderror">
-                    <input type="file" class="bg-light fl" id="image" name="images[]" multiple="multiple">
+                    <input type="file" class="bg-light fl" id="image" name="image">
                 </div>
                 @error('images')
                 <div style="color: red; text-align: center; margin-top: 50px;">{{ $message }}</div>

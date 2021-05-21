@@ -94,6 +94,7 @@ Route::post('/add_provider', [ProviderController::class,'store']);
 
 Route::get('/provider_info/{id}', [ProviderController::class,'index_provider_info'])->name('provider_info');
 Route::post('/edit_provider', [ProviderController::class,'edit'])->name('edit_provider');
+Route::get('/delete_provider/{id}', [ProviderController::class,'delete']);
 
 Route::get('/themes', [StoreController::class,'index_themes'])->name('themes');
 Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('edit_store');

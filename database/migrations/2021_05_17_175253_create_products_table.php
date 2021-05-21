@@ -22,8 +22,8 @@ class CreateProductsTable extends Migration
             $table->float('shippingCost');
             $table->string('description');
             $table->mediumText('image');
-            $table->foreignId('collection_id')->unique()->constrained()->onDelete('cascade');
-            $table->foreignId('store_id')->unique()->constrained()->onDelete('cascade');
+            $table->foreignId('collection_id')->constrained()->onDelete('cascade');
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
