@@ -38,7 +38,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <p class="card-category">PRODUCTS</p>
-                            <h3 class="card-title">{{ $products->count() }}</h3>
+                            <h3 class="card-title">75</h3>
                         </div>
 
                     </div>
@@ -88,15 +88,7 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-
-
-    <script>
-        $('document').ready(function () {
-            $("#title").html("Dashboard");
-        });
-    </script>
 @endsection
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\logOutController;
 use App\Http\Controllers\auth\SignInController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
+use App\Http\Controllers\shop\HomeController;
 use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\store\StoreController;
@@ -98,3 +99,12 @@ Route::get('/delete_provider/{id}', [ProviderController::class,'delete']);
 
 Route::get('/themes', [StoreController::class,'index_themes'])->name('themes');
 Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('edit_store');
+
+
+
+
+/**********************************shop***********************************/
+
+
+
+Route::get('/home/{id}', [HomeController::class,'index'])->name('home');

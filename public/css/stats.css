@@ -54,7 +54,7 @@
 .card .card-header-info .card-icon,
 .card .card-header-info:not(.card-header-icon):not(.card-header-text),
 .card .card-header-info .card-text {
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
 }
 
 .card [class*="card-header-"] .card-icon
@@ -87,8 +87,7 @@
 }
 
 .chart-wrapper {
-    width: 100%;
-    max-width: 1000px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
