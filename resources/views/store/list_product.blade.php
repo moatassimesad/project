@@ -2,18 +2,18 @@
 @section('content1')
     <head>
         <style>
-            td {
-                vertical-align: center;
-            }
             .images{
                 border-radius: 10px;
-                height: 10vh;
+                height: 7vw;
                 width: 7vw;
+            }
+            .cssTable td{
+                vertical-align: middle;
             }
         </style>
     </head>
 
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-sm cssTable">
         <thead>
         <tr class="table-info">
             <th scope="col">IMAGE</th>

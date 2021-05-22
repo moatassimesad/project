@@ -20,7 +20,8 @@ class Store extends Model
         'storeActivityType',
         'createdAt',
         'designName',
-        'image',
+        'image_top',
+        'image_bottom',
         'user_id',
     ];
     public function collections(){

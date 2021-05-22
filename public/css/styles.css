@@ -7,6 +7,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
 }
+.title{
+    font-size: x-large;
+}
 
 p {
     font-family: 'Poppins', sans-serif;

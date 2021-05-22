@@ -67,9 +67,9 @@ Route::post('/edit_basic_info', [SettingsController::class,'edit_basic_info'])->
 
 Route::post('/edit_login_info', [SettingsController::class,'edit_login_info'])->name('edit_login_info');
 
-Route::post('/edit_store_info', [SettingsController::class,'edit_store_info'])->name('edit_store_info');
+Route::post('/edit_store_info', [StoreController::class,'edit_store_info'])->name('edit_store_info');
 
-Route::post('/add_store_images', [SettingsController::class,'add_store_images'])->name('add_store_images');
+Route::post('/add_store_images', [StoreController::class,'add_store_images'])->name('add_store_images');
 
 Route::get('/condition_of_use', [SettingsController::class,'index_condition'])->name('condition_of_use');
 

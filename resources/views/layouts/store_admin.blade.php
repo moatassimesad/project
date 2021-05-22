@@ -28,8 +28,7 @@
 
     <nav   id="sidebar">
         <div class="sidebar-header">
-            <h3><a href="/stats">MyStore</a></h3>
-            <strong><a href="/stats">MS</a></strong>
+            <a class="title" href="/stats">MyStore</a>
         </div>
 
         <ul class="list-unstyled components">

@@ -1,94 +1,236 @@
-@extends('layouts.app')
-@section('content')
-    <head>
-<title>MyStore</title>
-        <link rel="stylesheet" href="css/welcome.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    </head>
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-        <div>
-            <a href="/"><span class="my">My</span><span class="store">Store</span></a>
-        </div>
-        <div>
-            <span><a href="{{ route('sign_up') }}" class="signup">Sign up</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
-            <span><a href="{{{ route('sign_in') }}}" class="signin">Sign in</a> &ensp;<span style="color: dimgrey">|</span>&ensp;</span>
-            <span><a href="#bottom" class="contactus">Contact us</a>  &ensp; </span>
-        </div>
-    </nav>
-    <div class="backgrou">
-        <div class="container-fluid">
-            <div class="row align-items-center" style="height: 100vh">
-                <div class="offset-1">
-                    <div class="createyourown" data-aos="zoom-in-down">CREATE YOUR OWN<br>
-                        STORE IN FEW<br>
-                        MINUTES!<br><br> </div>
-                    &ensp;<div class="offset-3 create_div" ><a href="{{ route('sign_up') }}" class="create_a">Create your store</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row justify-content-between align-items-center offset-1 centre">
-            <div data-aos="fade-down-left" data-aos-duration="1000">
-            <span class="beautiful">
-            Beautiful themes<br>
-            that are responsive<br>
-            and customizable<br><br>
-            </span>
-                <span class="nodesign">
-            No design skills needed.<br>
-            You have complete<br>
-            control over the look and feel<br>
-            of your website<br>
-            from its layout<br>
-            to content and colors.
-            </span>
-            </div>
-            <div data-aos="fade-down-right" data-aos-duration="1000">
-                <img class="ecommerceimage mr-4" src="images/ecommerce.jpg" alt="">
-            </div>
-        </div>
-    </div>
-    <hr>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <meta name="description" content="Home">
+    <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+    <!-- custom.css -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- bootstrap.min.css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <div class="pentagon" data-aos="fade-up" data-aos-duration="1000">
-        <div class="container-fluid">
-            <div class="row p-5">
-                <div class="col-md-5 col-sm-5 col-lg-5">
-                    <span class="titles">About</span><br><br>
-                    <span style="font-size: 10px; font-family: 'SF Mono'; color: white">MyStore is a result of many years of experience<br>
-                    of creating Web Sites and online  stores.<br>
-                    We build this application to make it easy<br>
-                    for clients to get their own store<br>
-                    without contacting a software engineer.</span>
+
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="css/aos.css">
+</head>
+
+<body>
+<!-- banner -->
+<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(images/banner-bk.jpg);">
+    <div class="container text-center text-md-left">
+        <header>
+            <div class="row justify-content-between">
+                <div class="col-2">
+                    <img src="images/logo.png" alt="logo">
                 </div>
-                <div class="col-md-4 col-sm-4 col-lg-4">
-                    <span class="titles">Social Media</span><br><br>
-                    <span style="font-size: 10px; font-family: 'SF Mono'"><a href="https://mail.google.com/" target="_blank"><span style="color: white">saadounmtsm@gmail.com</span></a><br>
-<a href="https://mail.google.com/" target="_blank"><span style="color: white">yahyaelfarci@gmail.com</span></a><br>
-<a href="https://facebook.com/saadmtsm" target="_blank"><span style="color: white">Facebook : SAAD MTSM</span></a><br>
-<a href="https://facebook.com/yahyaelfarci" target="_blank"><span style="color: white"> Facebook : YAHYA ELFARCI</span></a></span>
-                </div>
-                <div class="col-md-3 col-sm-3 col-lg-3">
-                    <span id="bottom" class="titles">Contact us</span><br><br>
-                    <span style="font-size: 10px; font-family: 'SF Mono'; color: white;">Sciences and technologies<br>
-Faculty Marrakech-Gueliz<br>
- <u>+ 212 6 61 38 21 42</u><br>
-                    <u>+ 212 6 61 37 28 52</u> <br>
-                    <u>support@MyStore.ma</u></span>
+                <div class="col-6 align-self-center text-right">
+                    <a href="/sign_in" class="text-white lead">Already have an account ?</a>
                 </div>
             </div>
-            <div class="row justify-content-center" style="font-size: 15px; color: white">Copyright © 2020 MyStore. All rights reserved.</div>
-
+        </header>
+        <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+            A New Way<br>
+            To Start Business
+        </h1>
+        <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
+            Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
+            <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
+        </p>
+        <a href="/sign_up" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
+    </div>
+</div>
+<!-- three-blcok -->
+<div class="container my-5 py-2">
+    <h2 class="text-center font-weight-bold my-5">Smartest protection for your site</h2>
+    <div class="row">
+        <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="images/smart-protect-1.jpg" alt="Anti-spam" class="mx-auto">
+            <h4>Anti-spam</h4>
+            <p>Lorem ipsum dolor sit amet porro his no his deleniti</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="images/smart-protect-2.jpg" alt="Phishing Detect" class="mx-auto">
+            <h4>Phishing Detect</h4>
+            <p>Ne error antiopam usu. Sed vocen concludaturque ea</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
+            <img src="images/smart-protect-3.jpg" alt="Smart Scan" class="mx-auto">
+            <h4>Smart Scan</h4>
+            <p>Et usu ocurreret elaboraret doctus prodesse assueverit.</p>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript">
-        AOS.init({
-            duration : 3000,
-        });
-    </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-@endsection
+</div>
+<!-- feature (skew background) -->
+<div class="jumbotron jumbotron-fluid feature" id="feature-first">
+    <div class="container my-5">
+        <div class="row justify-content-between text-center text-md-left">
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
+                <h2 class="font-weight-bold">Take a look inside</h2>
+                <p class="my-4">Te iisque labitur eos, nec sale argumentum scribentur no,
+                    <br> augue disputando in vim. Erat fugit sit at, ius lorem deserunt deterruisset no.</p>
+                <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
+                <img src="images/feature-1.png" alt="Take a look inside" class="mx-auto d-block">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- feature (green background) -->
+<div class="jumbotron jumbotron-fluid feature" id="feature-last">
+    <div class="container">
+        <div class="row justify-content-between text-center text-md-left">
+            <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
+                <h2 class="font-weight-bold">Safe and reliable</h2>
+                <p class="my-4">
+                    Duo suas detracto maiestatis ad, commodo lucilius invenire nec ad,
+                    <br> eum et oratio disputationi. Falli lobortis his ad
+                </p>
+                <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
+            </div>
+            <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
+                <img src="images/feature-2.png" alt="Safe and reliable" class="mx-auto d-block">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- price table -->
+<div class="container my-5 py-2" id="price-table">
+    <h2 class="text-center font-weight-bold d-block mb-3">Check our pricing</h2>
+    <div class="row">
+        <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
+            <h4 class="my-4">STARTUP</h4>
+            <p class="font-weight-bold">$ <span class="display-2 font-weight-bold">0</span> / MO.</p>
+            <ul class="list-unstyled">
+                <li>Up to 5 Documents</li>
+                <li>Up to 3 Reviews</li>
+                <li>5 team Members</li>
+                <li>Limited Support</li>
+            </ul>
+            <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-ghost">Get Free</a>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5 rounded" id="price-table__premium">
+            <h4 class="my-4">PREMIUM</h4>
+            <p class="font-weight-bold">$ <span class="display-2 font-weight-bold">10</span> / MO.</p>
+            <ul class="list-unstyled">
+                <li>Up to 15 Documents</li>
+                <li>Up to 10 Reviews</li>
+                <li>25 team Members</li>
+                <li>Limited Support</li>
+            </ul>
+            <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Free</a>
+        </div>
+        <div data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
+            <h4 class="my-4">PROFESSIONAL</h4>
+            <p class="font-weight-bold">$ <span class="display-2 font-weight-bold">30</span> / MO.</p>
+            <ul class="list-unstyled">
+                <li>Unlimited Documents</li>
+                <li>Unlimited Reviews</li>
+                <li>Unlimited Members</li>
+                <li>Unlimited Support</li>
+            </ul>
+            <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-ghost">Get Free</a>
+        </div>
+    </div>
+</div>
+<!-- client -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-1.png" class="mx-auto d-block">
+            </div>
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-2.png" class="mx-auto d-block">
+            </div>
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-3.png" class="mx-auto d-block">
+            </div>
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-4.png" class="mx-auto d-block">
+            </div>
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-5.png" class="mx-auto d-block">
+            </div>
+            <div class="col-sm-4 col-md-2 py-2 align-self-center">
+                <img src="images/client-6.png" class="mx-auto d-block">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- contact -->
+<div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(images/contact-bk.jpg);">
+    <div class="container my-5">
+        <div class="row justify-content-between">
+            <div class="col-md-6 text-white">
+                <h2 class="font-weight-bold">Contact Us</h2>
+                <p class="my-4">
+
+                    <br>
+                </p>
+                <ul class="list-unstyled">
+                    <li>Email : saadounmtsm@gmail.com</li>
+                    <li>Phone : +212 6 71 79 94 21</li>
+                    <li>Address : 112 Boulevard Abdelkrim Al Khattabi, Marrakech 40000.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <form>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name</label>
+                            <input type="name" class="form-control" id="name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Email">Your Email</label>
+                            <input type="email" class="form-control" id="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn font-weight-bold atlas-cta atlas-cta-wide cta-green my-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- copyright -->
+<div class="jumbotron jumbotron-fluid" id="copyright">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-6 text-white align-self-center text-center text-md-left my-2">
+                Copyright © 2021 All rights reserved.
+            </div>
+            <div class="col-md-6 align-self-center text-center text-md-right my-2" id="social-media">
+                <a href="https://www.facebook.com/saad.moatassime" target="_blank" class="d-inline-block text-center ml-2">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/saadmotsm" target="_blank" class="d-inline-block text-center ml-2">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/saad-moatassime-688853188?fbclid=IwAR0vfUelcjIKxNq53CvwKRPMUv-F0uhYzgus370D_eY4WLl1pVMo_I9BjGk" target="_blank" class="d-inline-block text-center ml-2">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AOS -->
+<script src="js/aos.js"></script>
+<script>
+    AOS.init({
+    });
+</script>
+</body>
+
+</html>
