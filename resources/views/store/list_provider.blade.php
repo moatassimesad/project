@@ -13,7 +13,7 @@
         <br><br>
         <table class="table table-striped table-sm table-borderless">
             <thead>
-            <tr class="table_info">
+            <tr class="table-info">
                 <th scope="col">NAME</th>
                 <th scope="col">REFERENCE</th>
                 <th scope="col">ADDRESS</th>

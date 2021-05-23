@@ -10,9 +10,28 @@
             .cssTable td{
                 vertical-align: middle;
             }
+            .add{
+                font-family: "PT Mono";
+                font-size: large;
+                margin-right: 20px;
+            }
+            .delivery{
+                margin-left: 20px;
+                font-size: large;
+                font-family: "PT Mono";
+                color: dimgrey;
+            }
+            .contient{
+                margin-top: 100px;
+            }
         </style>
     </head>
-
+    <div class="container contient">
+    <div class="row justify-content-between">
+        <div class="delivery">Products {{ $products->count() }}</div>
+        <div><a class="btn btn-primary add" href="/add_product">+ Add Product</a></div>
+    </div>
+    <br><br>
     <table class="table table-striped table-sm cssTable">
         <thead>
         <tr class="table-info">
@@ -20,7 +39,7 @@
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">PRICE</th>
-            <th scope="col">PROVIDERS</th>
+            <th scope="col">Date</th>
             <th scope="col">ACTION</th>
         </tr>
         </thead>
@@ -42,6 +61,7 @@
 
         </tbody>
     </table>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 

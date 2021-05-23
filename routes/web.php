@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [WelcomeController::class,'index'])->name('welcome');
+Route::post('/', [WelcomeController::class,'feedback'])->name('feedback');
 
 Route::get('/store_name', [StoreNameController::class,'index'])->name('store_name');
 Route::post('/store_name', [StoreNameController::class,'store']);
@@ -86,6 +87,14 @@ Route::get('/add_product', [ProductController::class,'index_add'])->name('add_pr
 
 Route::get('/list_product', [ProductController::class,'index_list'])->name('list_product');
 
+Route::get('/delete_product/{id}', [ProductController::class,'delete'])->name('delete');
+
+Route::get('/product_info/{id}', [ProductController::class,'index_product_info'])->name('index_product_info');
+
+Route::get('/product_providers_info/{id}', [ProductController::class,'index_product_providers_info'])->name('index_product_providers_info');
+
+Route::post('/edit_product', [ProductController::class,'edit'])->name('edit_product');
+
 Route::post('/add_product', [ProductController::class,'store']);
 
 Route::get('/list_provider', [ProviderController::class,'index_list'])->name('list_provider');
@@ -108,3 +117,12 @@ Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('
 
 
 Route::get('/home/{id}', [HomeController::class,'index'])->name('home');
+
+
+Route::get('/shop/{id}', [HomeController::class,'index_shop'])->name('shop');
+
+Route::get('/product_preview/{store_id}/{product_id}', [HomeController::class,'product_preview'])->name('product_preview');
+
+Route::post('/add_to_card', [HomeController::class,'add_to_card'])->name('add_to_card');
+
+

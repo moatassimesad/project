@@ -160,3 +160,23 @@ button {
         font-size: 3.6rem;
     }
 }
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+.error{
+    text-align: center;
+    color: red;
+}
+

@@ -10,13 +10,15 @@
         @for($i=0;$i<$collections->count();$i++)
             <div class="row justify-content-around">
 
-                <div class="mt-5">
+                <div class="mt-5 flex-column">
                     <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
+                    <div>{{$collections->getNth($i)->name}}</div>
                 </div>
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5">
+                    <div class="mt-5 flex-column">
                         <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                        <div>{{$collections->getNth($i)->name}}</div>
                     </div>
                 @else
                     <input type="hidden" value="{{ $j=1 }}">
@@ -26,8 +28,9 @@
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5">
+                    <div class="mt-5 flex-column">
                         <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                        <div>{{$collections->getNth($i)->name}}</div>
                     </div>
                 @elseif($j==0)
                     <a href="/add_collection">

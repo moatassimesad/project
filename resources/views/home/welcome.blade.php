@@ -24,6 +24,12 @@
 <div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(images/banner-bk.jpg);">
     <div class="container text-center text-md-left">
         <header>
+            @if(session('status'))
+                <div class="alert alert-success">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>{{ session('status') }}</strong>
+                </div>
+            @endif
             <div class="row justify-content-between">
                 <div class="col-2">
                     <img src="images/logo.png" alt="logo">
@@ -181,21 +187,28 @@
                 </ul>
             </div>
             <div class="col-md-6">
-                <form>
+                <form action="{{ route('feedback') }}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name">Your Name</label>
-                            <input type="name" class="form-control" id="name">
+                            <input type="name" class="form-control" id="name" name="name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Email">Your Email</label>
-                            <input type="email" class="form-control" id="Email">
+                            <input type="email" class="form-control" id="Email" name="email">
                         </div>
                     </div>
+                    @error('email')
+                    <div class="error">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea class="form-control" id="message" rows="3"></textarea>
+                        <textarea class="form-control" id="message" rows="3" name="message"></textarea>
                     </div>
+                    @error('message')
+                    <div class="error">{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="btn font-weight-bold atlas-cta atlas-cta-wide cta-green my-3">Submit</button>
                 </form>
             </div>

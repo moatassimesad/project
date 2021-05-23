@@ -45,12 +45,6 @@
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div  class="infos row justify-content-center align-items-center">
-                    <input class="name"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{ old('quantity') }}">
-                </div>
-                @error('quantity')
-                <div style="color: red; text-align: center;">{{ $message }}</div>
-                @enderror
-                <div  class="infos row justify-content-center align-items-center">
                     <input class="reference"  name="shippingCost" type="number" style="@error('shippingCost') border-bottom:1px solid red; @enderror" placeholder="Shipping" value="{{ old('shippingCost') }}">
                 </div>
                 @error('shippingCost')
@@ -80,12 +74,11 @@
                     <div class="row justify-content-center">
                         <table>
                             @foreach($providers as $provider)
-                                {{$provider->value}}
                                 <tr class="mb-3">
-                                    <td class="pt-3 pb-3"><input {{ $provider->value ? 'checked' : null }} data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
+                                    <td class="pt-3 pb-3"><input  data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
                                     <td>{{ $provider->name }}</td>
-                                    <td><input value="{{ $provider->value ?? null }}" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="Quantity"></td>
-                                    <td><input value="{{ $provider->value ?? null }}" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="unitCost"></td>
+                                    <td><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="Quantity"></td>
+                                    <td><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="unitCost"></td>
                                 </tr>
                             @endforeach
                         </table>

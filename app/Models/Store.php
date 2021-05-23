@@ -37,4 +37,7 @@ class Store extends Model
     public function providers(){
         return $this->hasMany(Provider::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

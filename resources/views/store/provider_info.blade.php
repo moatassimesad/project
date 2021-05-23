@@ -6,7 +6,7 @@
         </style>
         <link rel="stylesheet" href="{{ asset('css/add_provider.css') }}">
     </head>
-    @if($provider->store->id ?? ''==auth()->user()->store->id ?? '')
+    @if($provider->store->id==auth()->user()->store->id)
         <form action="{{ route('edit_provider') }}" method="post" enctype="multipart/form-data">
             @csrf
 

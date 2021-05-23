@@ -50,7 +50,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
-    @if($collection->store->id ?? ''==auth()->user()->store->id ?? '')
+    @if($collection->store->id==auth()->user()->store->id)
         <form action="{{ route('edit_collection') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="container">
