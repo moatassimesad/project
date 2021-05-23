@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/logo.png" sizes="32x32" type="image/png">
 
 
     <title>MyStore</title>
@@ -28,7 +29,7 @@
 
     <nav   id="sidebar">
         <div class="sidebar-header">
-            <a class="title" href="/stats">MyStore</a>
+             <div class="row flex-row"><img class="logo ml-2 mt-2 mr-3" src="images/logo.png" alt="logo"><a class="title" href="/stats">MyStore</a></div>
         </div>
 
         <ul class="list-unstyled components">

@@ -405,3 +405,7 @@ a, u {
 a {
     text-decoration: none !important;
 }
+.logo{
+    height: 20px;
+    width: 20px;
+}
