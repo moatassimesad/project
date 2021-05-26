@@ -13,7 +13,9 @@ class HomeController extends Controller
     public function index($id){
         $store = Store::find($id);
         $collections = $store->collections;
-        return view('shop.home',compact('collections'));
+        $user = $store->user;
+
+        return view('shop.home',compact('collections','store','user'));
 
     }
     public function index_shop($id){
