@@ -169,28 +169,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-clean mt-5">
-        <footer>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>About Us</h3>
-                        <ul>
-                            <li> Address :{{ $user->city }}</li>
-                            <li>Phone : +212 {{ $user->phone }}</li>
-                            <li>Email :{{ $user->email }}</li>
-                        </ul>
-                    </div>
 
-
-                    <div class="col-lg-3 item social">
-                        <a href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
-                        <p class="copyright">Company Name © 2021</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
 
 
 

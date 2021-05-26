@@ -10,6 +10,9 @@
             width: 200px;
         }
 
+
+
+
     </style>
 </head>
 
@@ -70,24 +73,8 @@
             </div>
         @endfor
 
-            <br><br><br>
-            <div class="row justify-content-between">
-               <div class="flex-column ml-5 mb-1 mt-5">
-                   <div style="font-weight: bold; font-size: large"><i style="margin-bottom: 1px;" class="fa fa-commenting"></i> Contact us</div>
-                   <pre>Address : {{ $user->city }}</pre>
-                   <pre>Phone   : +212 {{ $user->phone }}</pre>
-                   <pre>Email   : {{ $user->email }}</pre>
-               </div>
-                <div class="flex-column mr-5 ml-5 mt-5">
-                    <div style="font-weight: bold; font-size: large"><i class="fa fa-share-alt"></i> community</div>
-                    <div><a href="{{ $store->facebookLink }}" target="_blank">
-                            <i class="fa fa-facebook-official" style="font-size:30px;color:blue"></i>
-                        </a></div>
-                    <div><a href="/{{ $store->twitterLink }}" target="_blank">
-                            <i class="fa fa-twitter" style="font-size:30px;color:blue"></i>
-                        </a></div>
-                </div>
-            </div>
+
+
     </div>
 <!-- jQuery CDN - Slim version (=without AJAX) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
