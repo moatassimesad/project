@@ -7,8 +7,14 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Http\Request;
+
+
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+
+    }
 
     public function index($id){
         $store = Store::find($id);
@@ -28,9 +34,26 @@ class HomeController extends Controller
         $product = Product::find($product_id);
         $store = Store::find($store_id);
         $user = $store->user;
-        return view('shop.product_preview',compact('product','store','user'));
+        $colors = explode(",",$product->colors);
+        array_pop($colors);
+        return view('shop.product_preview',compact('product','store','user','colors'));
     }
+
+    public function index_cart(){
+        return view('shop.cart');
+    }
+
+
+
     public function add_to_card(Request $request){
-        dd($request);
+        $product = Product::find($request->product_id);
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = new Cart();
+        }
+        $cart->add($product,$request->color,$request->quantity);
+        session()->put('cart', $cart);
+        return back()->with('status', 'Added successfully');
     }
 }

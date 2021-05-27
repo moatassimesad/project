@@ -13,7 +13,7 @@
                             <div class="card-icon">
                                 <i class="fas fa-user-circle"></i>
                             </div>
-                            <p class="card-category">TOTAL VISITOR</p>
+                            <p class="card-category">TOTAL CLIENTS</p>
                             <h3 class="card-title">555</h3>
                         </div>
 
@@ -38,7 +38,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <p class="card-category">PRODUCTS</p>
-                            <h3 class="card-title">75</h3>
+                            <h3 class="card-title">{{ $products->count() }}</h3>
                         </div>
 
                     </div>

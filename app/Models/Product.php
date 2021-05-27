@@ -24,7 +24,8 @@ class Product extends Model
         'description',
         'image',
         'collection_id',
-        'store_id'
+        'store_id',
+        'colors',
     ];
     public function providers(){
         return $this->belongsToMany(Provider::class)->withPivot('quantity','unitCost')->withTimestamps();

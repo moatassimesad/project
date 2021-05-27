@@ -53,12 +53,13 @@ class ProductController extends Controller
 
     public function index_product_providers_info($id){
         $product = Product::find($id);
-        return view('store.product_providers',compact('product'));
+        $colors = explode(",",$product->colors);
+        array_pop($colors);
+        return view('store.product_providers',compact('product','colors'));
     }
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'image' => 'required',
             'name' => 'required',
@@ -75,6 +76,12 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->reference = $request->reference;
         $product->price = $request->price;
+        $item = "";
+         foreach ($request->colors as $color){
+             $item .=$color;
+             $item .= ",";
+    }
+         $product->colors = $item;
 
         $product->shippingCost = $request->shippingCost;
         $product->description = $request->description;
@@ -123,7 +130,12 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->reference = $request->reference;
         $product->price = $request->price;
-
+        $item = "";
+        foreach ($request->colors as $color){
+            $item .=$color;
+            $item .= ",";
+        }
+        $product->colors = $item;
         $product->shippingCost = $request->shippingCost;
         $product->description = $request->description;
         $product->collection_id = $collection->id;

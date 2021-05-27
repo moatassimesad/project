@@ -50,6 +50,14 @@
                 @error('shippingCost')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+                <div class="text-center mb-3">
+                    Pick the colors
+                </div>
+                <div class="align-items-center row justify-content-center">
+                    <select id="colors" multiple class="commits2 bg-dark" size="4" style="width: 30%; text-align: center; color: white; border-radius: 10px;" name="colors[]">
+
+                    </select>
+                </div>
                 <div  class="city_div align-items-center row justify-content-center">
                     <select id="city" name="collection_name" class="city" style="@error('collection_name') border-bottom:solid 1px red; @enderror" required value="{{ old('collection_name') }}">
                         <option value="Pick a collection" disabled selected>Pick a collection</option>
@@ -97,6 +105,7 @@
                     {{$message}}
                 </div>
                 @enderror
+
                 <div style="height: 100px;" class="row justify-content-center mt-4">
                     <div><button type="submit" id="submit" name="submit"   class="btn btn-primary"><i class="fas fa-save"></i>&emsp;&emsp;Save&emsp;&emsp;</button></div>
                 </div>
@@ -108,7 +117,17 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-
+    <script>
+        let tab=["red","green","yellow","black","blue","white","orange"];
+        for(let i =1; i<=tab.length;i++){
+            let option= document.createElement("option");
+            option.value=tab[i-1];
+            option.classList.add("mb-1");
+            let text=document.createTextNode(tab[i-1]);
+            option.appendChild(text);
+            document.getElementById("colors").appendChild(option);
+        }
+    </script>
 
     <script>
         $('document').ready(function () {
@@ -121,4 +140,12 @@
             })
         });
     </script>
+    <script>
+        $('option').mousedown(function(e) {
+            e.preventDefault();
+            $(this).prop('selected', $(this).prop('selected') ? false : true);
+            return false;
+        });
+    </script>
+
 @endsection

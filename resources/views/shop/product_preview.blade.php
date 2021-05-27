@@ -7,8 +7,8 @@
             height: 50vh;
         }
         .link{
-            margin-left: 18vw;
-            margin-right: 18vw;
+            margin-left: 19vw;
+            margin-right: 19vw;
         }
         .name{
             width: 120px;
@@ -29,37 +29,76 @@
     </style>
 </head>
 
-<div class="container pl-5">
+<div class="container">
+    @if(session('status'))
+        <div class="link alert alert-success mb-4 text-center" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
     <pre class="row link">
-        <pre style="color: dimgrey;">Home</pre> / Shop
+    <pre style="color: dimgrey;">Home</pre><pre> / Shop</pre>
     </pre>
-    <div class="row justify-content-center">
+    <div class="row link">
         <img src="../../images/{{ $product->image }}" alt="image" class="image">
     </div>
-    <div class="row link justify-content-between">
-        <div class="mt-3 flex-column">
+    <div class="row link">
+        <div class="mt-3 col-md-9 flex-column">
             <div>{{$product->name}}</div>
             <div class="mt-3">{{$product->description}}</div>
         </div>
-        <div class="mt-3">
-            <div>{{$product->price}} MAD</div>
+        <div class="mt-3 col-md-3">
+            <div style="text-align: end;">{{$product->price}} MAD</div>
         </div>
     </div>
         <form action="{{ route('add_to_card') }}" method="post">
             @csrf
             <div  class="row justify-content-center align-items-center mt-5">
                 <input type="hidden" name="product_id" value="{{$product->id}}">
+                <input type="hidden" id="couleur" name="color" value="">
                 <input class="name"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{old('quantity')}}">
             </div>
             @error('quantity')
             <div style="color: red; text-align: center;">{{ $message }}</div>
             @enderror
+            <div class="row justify-content-center mt-5">
+                <div style="text-align: center;">pick a color</div>
+            </div>
+            <div class="row justify-content-center">
+                @foreach($colors as $color)
+                <input type="button" class="color mt-3 mr-2" style="border : none;width: 20px; height: 20px; border-radius: 50%; background-color: {{$color}};" name="{{$color}}">
+                @endforeach
+            </div>
             <div  class="row justify-content-center align-items-center mt-5">
                 <button type="submit" name="submit" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Add to card</button>
             </div>
         </form>
-</div>
 
+
+
+
+
+
+
+    <br><br><br>
+    <div class="row justify-content-between">
+        <div class="flex-column ml-5 mb-1 mt-5">
+            <div style="font-weight: bold; font-size: large"><i style="margin-bottom: 1px;" class="fa fa-commenting"></i> Contact us</div>
+            <pre>Address : {{ $user->city }}</pre>
+            <pre>Phone   : +212 {{ $user->phone }}</pre>
+            <pre>Email   : {{ $user->email }}</pre>
+        </div>
+        <div class="flex-column mr-5 ml-5 mt-5">
+            <div style="font-weight: bold; font-size: large"><i class="fa fa-share-alt"></i> community</div>
+            <div><a href="{{ $store->facebookLink }}" target="_blank">
+                    <i class="fa fa-facebook-official" style="font-size:30px;color:blue"></i>
+                </a></div>
+            <div><a href="/{{ $store->twitterLink }}" target="_blank">
+                    <i class="fa fa-twitter" style="font-size:30px;color:blue"></i>
+                </a></div>
+        </div>
+    </div>
+</div>
+</div>
 
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -70,7 +109,27 @@
 
 
     <script type="text/javascript">
+
         $(document).ready(function () {
+          $(".color").on("click",function (){
+              if ($(this).css("border")==="1px solid rgb(0, 0, 0)"){
+                  $(this).css("border","none");
+                  $(this).css("width","20px");
+                  $(this).css("height","20px");
+                  $("#couleur").val("");
+              }
+              else{
+                  $(".color").css("border","none");
+                  $(".color").css("width","20px");
+                  $(".color").css("height","20px");
+                  $(this).css("border","1px solid black");
+                  $(this).css("width","25px");
+                  $(this).css("height","25px");
+                  let color = this.name;
+                  $("#couleur").val(color);
+              }
+
+          });
             $(".shop").css("background-color","#2E8AD0");
         });
     </script>

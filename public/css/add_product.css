@@ -214,3 +214,6 @@ input{
 .sm{
     width: 90px;
 }
+.commits2{
+    overflow-y: auto;
+}

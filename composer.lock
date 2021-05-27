@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24ea6fcfb1dd8ced86e594dfddba71ea",
+    "content-hash": "934647b57a1fa58ae1532f5b63a81dcf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1545,6 +1545,59 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
+        },
+        {
+            "name": "munna/shopping-cart",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MunnaAhmed/ShoppingCart.git",
+                "reference": "a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MunnaAhmed/ShoppingCart/zipball/a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1",
+                "reference": "a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1",
+                "shasum": ""
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Munna\\ShoppingCart\\ShoppingCartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Munna\\ShoppingCart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Munna\\ShoppingCart\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Munna",
+                    "email": "munnawb9@gmail.com"
+                }
+            ],
+            "description": "Simple Laravel Shopping Cart Package. Store Your Cart Items On Local. No Need To Any Migration Or Database Query/Relation. Its More Flexible. Happy Laravel Coding...",
+            "keywords": [
+                "Ecommerce Shopping Cart",
+                "Laravel shopping cart",
+                "ecommerce",
+                "shopping cart"
+            ],
+            "support": {
+                "issues": "https://github.com/MunnaAhmed/ShoppingCart/issues",
+                "source": "https://github.com/MunnaAhmed/ShoppingCart/tree/v1.0.0"
+            },
+            "time": "2021-01-14T23:07:01+00:00"
         },
         {
             "name": "nesbot/carbon",

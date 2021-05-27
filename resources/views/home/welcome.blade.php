@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Home</title>
+    <title>MyStore</title>
     <meta name="description" content="Home">
     <link rel="icon" href="images/logo.png" sizes="32x32" type="image/png">
     <!-- custom.css -->
@@ -39,13 +39,13 @@
                 </div>
             </div>
         </header>
-        <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
+        <h1 data-aos="fade" data-aos-easing="linear" data-aos-duration="3000" data-aos-once="true" class="display-3 text-white font-weight-bold my-5">
             A New Way<br>
             To Start Business
         </h1>
-        <p data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="lead text-white my-4">
-            Lorem ipsum dolor sit amet, id nec enim autem oblique, ei dico mentitum duo.
-            <br> Illum iusto laoreet his te. Lorem partiendo mel ex. Ad vitae admodum voluptatum per.
+        <p data-aos="fade" data-aos-easing="linear" data-aos-duration="3000" data-aos-once="true" class="lead text-white my-4">
+            Create your own store in few minutes!
+            <br><br> You can also choose between many designs to style your site. 👽
         </p>
         <a href="/sign_up" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
     </div>
@@ -57,17 +57,17 @@
         <div data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
             <img src="images/smart-protect-1.jpg" alt="Anti-spam" class="mx-auto">
             <h4>Anti-spam</h4>
-            <p>Lorem ipsum dolor sit amet porro his no his deleniti</p>
+            <p>--</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
             <img src="images/smart-protect-2.jpg" alt="Phishing Detect" class="mx-auto">
             <h4>Phishing Detect</h4>
-            <p>Ne error antiopam usu. Sed vocen concludaturque ea</p>
+            <p>--</p>
         </div>
         <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center">
             <img src="images/smart-protect-3.jpg" alt="Smart Scan" class="mx-auto">
             <h4>Smart Scan</h4>
-            <p>Et usu ocurreret elaboraret doctus prodesse assueverit.</p>
+            <p>--</p>
         </div>
     </div>
 </div>
@@ -77,8 +77,8 @@
         <div class="row justify-content-between text-center text-md-left">
             <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6">
                 <h2 class="font-weight-bold">Take a look inside</h2>
-                <p class="my-4">Te iisque labitur eos, nec sale argumentum scribentur no,
-                    <br> augue disputando in vim. Erat fugit sit at, ius lorem deserunt deterruisset no.</p>
+                <p class="my-4">A great dashbord for you with many features,
+                    <br> to manage your store and to trace the evolution of your orders.</p>
                 <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
             </div>
             <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center">
@@ -92,10 +92,15 @@
     <div class="container">
         <div class="row justify-content-between text-center text-md-left">
             <div data-aos="fade-left" data-aos-duration="1000" data-aos-once="true" class="col-md-6 flex-md-last">
-                <h2 class="font-weight-bold">Safe and reliable</h2>
+                <h2 class="font-weight-bold">Beautiful themes
+                    that are responsive
+                    and customizable</h2>
                 <p class="my-4">
-                    Duo suas detracto maiestatis ad, commodo lucilius invenire nec ad,
-                    <br> eum et oratio disputationi. Falli lobortis his ad
+                    No design skills needed. You have complete
+                    <br>
+                    control over the look and feel of your website,
+                    <br>
+                    from its layout, to content and colors.
                 </p>
                 <a href="#" class="btn my-4 font-weight-bold atlas-cta cta-blue">Learn More</a>
             </div>
@@ -107,7 +112,7 @@
 </div>
 
 <!-- price table -->
-<div class="container my-5 py-2" id="price-table">
+{{--<div class="container my-5 py-2" id="price-table">
     <h2 class="text-center font-weight-bold d-block mb-3">Check our pricing</h2>
     <div class="row">
         <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
@@ -169,9 +174,9 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 <!-- contact -->
-<div class="jumbotron jumbotron-fluid" id="contact" style="background-image: url(images/contact-bk.jpg);">
+<div class="jumbotron jumbotron-fluid mt-5" id="contact" style="background-image: url(images/contact-bk.jpg);">
     <div class="container my-5">
         <div class="row justify-content-between">
             <div class="col-md-6 text-white">

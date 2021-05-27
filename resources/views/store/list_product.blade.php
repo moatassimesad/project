@@ -32,14 +32,14 @@
         <div><a class="btn btn-primary add" href="/add_product">+ Add Product</a></div>
     </div>
     <br><br>
-    <table class="table table-striped table-sm cssTable">
+    <table class="table table-sm cssTable">
         <thead>
         <tr class="table-info">
             <th scope="col">IMAGE</th>
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">PRICE</th>
-            <th scope="col">Date</th>
+            <th scope="col">DATE</th>
             <th scope="col">ACTION</th>
         </tr>
         </thead>

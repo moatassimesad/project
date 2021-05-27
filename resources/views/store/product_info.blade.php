@@ -1,7 +1,7 @@
 @extends('layouts.store_admin')
 @section('content1')
 <head>
-    <link rel="stylesheet" href="css/product_info.css">
+    <link href="{{ asset('css/product_info.css') }}" rel="stylesheet">
 </head>
 @if($product->store->id == auth()->user()->store->id)
     <form action="{{ route('edit_product') }}" method="post" enctype="multipart/form-data">
@@ -51,6 +51,14 @@
                 @error('shippingCost')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+                <div class="text-center mb-3">
+                    Pick the colors
+                </div>
+                <div class="align-items-center row justify-content-center">
+                    <select id="colors" multiple class="commits2 bg-dark" size="4" style="width: 30%; text-align: center; color: white; border-radius: 10px;" name="colors[]">
+
+                    </select>
+                </div>
                 <div  class=" align-items-center row justify-content-center" style="height: 100px">
                     <select id="city" name="collection_name" style="height: 30px; border: none; border-bottom: solid 1px; background: none;@error('collection_name') border-bottom:solid 1px red; @enderror" required value="{{ old('collection_name') }}">
                         <option value="{{$product->collection->name}}" selected>{{$product->collection->name}}</option>
@@ -103,6 +111,7 @@
                 @error('description')
                 <div style="color: red; text-align: center; margin-top: 50px;">
                     {{$message}}
+
                 </div>
                 @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
@@ -119,5 +128,23 @@
         <div class="row mt-5 justify-content-center text-muted"><h1 style="margin-top: 100px;">No such product to edit</h1></div>
     </div>
 @endif
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+    let tab=["red","green","yellow","black","blue","white","orange"];
+    for(let i =1; i<=tab.length;i++){
+        let option= document.createElement("option");
+        option.value=tab[i-1];
+        option.classList.add("mb-1");
+        let text=document.createTextNode(tab[i-1]);
+        option.appendChild(text);
+        document.getElementById("colors").appendChild(option);
+    }
+</script>
+<script>
+    $('option').mousedown(function(e) {
+        e.preventDefault();
+        $(this).prop('selected', $(this).prop('selected') ? false : true);
+        return false;
+    });
+</script>
 @endsection
