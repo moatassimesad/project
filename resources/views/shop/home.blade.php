@@ -119,9 +119,20 @@
 
     <div class="wrapper">
 
+
+        @if($collections)
+            @for($i=0;$i<4;$i++)
+
+                    <div class="mt-5 flex-column">
+                        <a href="/product_collection/{{ $store->id }}}"> <img src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
+                        <div  style="text-align: center">Collection Name</div>
+                    </div>
+            @endfor
+        @endif
+
+
         @for($i=0;$i<$collections->count();$i++)
             <div class="row justify-content-around">
-
                 @if($collections->getNth($i)!=null)
                     <div class="mt-5 flex-column">
                         <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
