@@ -10,68 +10,113 @@
             width: 200px;
         }
 
+        .img-product img{
+            width: 170px;
+            height: 170px;
+        }
+
+        #allProducts{
+            margin-top: 1rem;
+            margin-left: 2rem;
+            font-family: Helvetica, sans-serif;
+            letter-spacing: 2px;
+            color: #413C3C;
+
+        }
+        .price{
+            color: #413C3C;
+            font-size: small;
+            font-family: Helvetica, sans-serif;
+        }
+        .productName{
+            font-size: medium;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            color: #413C3C;
+        }
+
+
+
 
 
 
     </style>
 </head>
 
+
     <div class="container">
-        <div class="row ml-5">
-            <i class="fa fa-cubes"></i>
-            <div class="ml-1">All products</div>
+
+        <div class="row " id="allProducts">
+            <div class="col-12">
+                <h5 >Products</h5>
+            </div>
         </div>
-    </div>
-    <div class="container">
 
-
+        @if($products->count())
         @for($i=0;$i<$products->count();$i++)
-            <div class="row justify-content-around">
+            <div class="row img-product">
                 @if($products->getNth($i)!=null)
-                <div class="mt-5 flex-column">
+                <div class="col-md-3 col-sm-6 col-12 text-center mt-2 productInfo">
                     <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image }}" alt="" class="images"></a>
-                    <div  style="text-align: center">{{$products->getNth($i)->name}}</div>
-                    <div  style="text-align: center">{{$products->getNth($i)->price}} MAD</div>
-                    <div style="margin-left: 17%">
+                    <div  class="productName">{{$products->getNth($i)->name}}</div>
+                    <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                    <div>
                     <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     </div>
                 </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
-                        <div  style="text-align: center">{{$products->getNth($i)->name}}</div>
-                        <div  style="text-align: center">{{$products->getNth($i)->price}} MAD</div>
-                        <div style="margin-left: 17%">
+                        <div class="productName" >{{$products->getNth($i)->name}}</div>
+                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div >
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
-                        <div  style="text-align: center">{{$products->getNth($i)->name}}</div>
-                        <div  style="text-align: center">{{$products->getNth($i)->price}} MAD</div>
-                        <div style="margin-left: 17%">
+                        <div class="productName" >{{$products->getNth($i)->name}}</div>
+                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div>
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
-                        <div  style="text-align: center">{{$products->getNth($i)->name}}</div>
-                        <div  style="text-align: center">{{$products->getNth($i)->price}} MAD</div>
-                        <div style="margin-left: 17%">
+                        <div class="productName" >{{$products->getNth($i)->name}}</div>
+                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div >
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
                 @endif
             </div>
         @endfor
+
+        @else
+            <div class="row img-product">
+                @for($i=0;$i<4;$i++)
+
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2 ">
+                        <a href="/product_preview/{{ $store->id }}}"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
+                        <div class="productName">Product Name</div>
+                        <div class="price" >MAD 1.00</div>
+                        <div >
+                            <a href="/product_preview/{{ $store->id }}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                        </div>
+                    </div>
+
+                @endfor
+            </div>
+        @endif
 
 
 
