@@ -208,8 +208,8 @@
             </div>
             <div class="col-md-3  col-sm-3 col-3">
                 <div class="text-center">
-                    <a href="#">
-                        <img class="panier-logo " src="../images/panier_logo.png" alt="ShopCrad">
+                    <a href="/cart/{{$store->id}}">
+                        <img class="panier-logo " src="{{ asset('images/panier_logo.png') }}" alt="ShopCrad">
                     </a>
                 </div>
             </div>
