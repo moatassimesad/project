@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
-    <link rel="icon" href="images/logo.png" sizes="32x32" type="image/png">
+
+    <link rel="icon" href="{{ asset('images/logo.png') }}" sizes="32x32" type="image/png">
 
     <title>Store/home</title>
 
@@ -136,6 +137,13 @@
             font-size:13px;
             opacity:0.6;
         }
+
+        .logo{
+            max-width: 40px;
+            max-height: 40px;
+            min-width: 20px;
+            min-height: 20px;
+        }
     </style>
 
 </head>
@@ -146,10 +154,18 @@
 <div class="content">
 
     <div class="container-fluid">
-
-        <div class="row justify-content-center mt-4 mb-2" id="store-name">
-            {{ $store->name }}
+        <div class="row mt-4 mb-2">
+            <div class="col-md-3 col-sm-3 col-3">
+                <img class="logo " src="{{ asset('images/logo.png') }}" alt="logo">
+            </div>
+            <div class="col-md-6  col-sm-6 col-6" >
+                <div class="text-center" id="store-name">
+                    {{ $store->name }}
+                </div>
+            </div>
+           <div class="col-md-3 col-sm-3 col-3"></div>
         </div>
+
         <div id="nav_line">
             <hr class="mb-2">
         </div>
