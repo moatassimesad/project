@@ -110,7 +110,7 @@
                         <div class="productName">Product Name</div>
                         <div class="price" >MAD 1.00</div>
                         <div >
-                            <a href="/product_preview/{{ $store->id }}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="/product_preview/{{ $store->id }}" class="btn btn-dark mt-1 disabled"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
 

@@ -26,6 +26,12 @@
         .bouton{
             width: 150px;
         }
+        .color{
+            border : none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
@@ -34,6 +40,7 @@
         <div class="link alert alert-success mb-4 text-center" role="alert">
             {{ session('status') }}
         </div>
+
     @endif
     <pre class="row link">
     <pre style="color: dimgrey;">Home</pre><pre> / Shop</pre>
@@ -48,7 +55,7 @@
             <div class="mt-3">{{ $product->description }}</div>
         </div>
         <div class="mt-3 col-md-3">
-            <div style="text-align: end;">{{$product->price}} MAD</div>
+            <div style="text-align: end;">MAD {{$product->price}} </div>
         </div>
     </div>
         <form action="{{ route('add_to_card') }}" method="post">
@@ -56,7 +63,7 @@
             <div  class="row justify-content-center align-items-center mt-5">
                 <input type="hidden" name="product_id" value="{{$product->id}}">
                 <input type="hidden" id="couleur" name="color" value="">
-                <input class="name"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{old('quantity')}}">
+                <input class="name" min="1" max="{{$product->quantity}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{old('quantity')}}">
             </div>
             @error('quantity')
             <div style="color: red; text-align: center;">{{ $message }}</div>
@@ -66,11 +73,17 @@
             </div>
             <div class="row justify-content-center">
                 @foreach($colors as $color)
-                <input type="button" class="color mt-3 mr-2" style="border : none;width: 20px; height: 20px; border-radius: 50%; background-color: {{$color}};" name="{{$color}}">
+                <input type="button" class="color mt-3 mr-2" style="background-color: {{$color}};" name="{{$color}}">
                 @endforeach
             </div>
+            @error('color')
+            <div style="color: red; text-align: center;">Please pick a color</div>
+            @enderror
             <div  class="row justify-content-center align-items-center mt-5">
-                <button type="submit" name="submit" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Add to card</button>
+                <button type="submit" name="submit" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+            </div>
+            <div  class="row justify-content-center align-items-center mt-2">
+                <a  href="/cart/{{$store->id}}" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Cart</a>
             </div>
         </form>
         @endif

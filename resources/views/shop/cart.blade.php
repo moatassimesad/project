@@ -10,7 +10,7 @@
         }
     </style>
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             @if($cart)
                 <div class="col-md-8">
                     @foreach( $cart->items as $product)
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     @endforeach
-                    <p><strong>Total : MAD {{$cart->totalPrice}}</strong></p>
+
 
                 </div>
 
@@ -53,18 +53,19 @@
                             </h3>
                             <div class="card-text">
                                 <p>
-                                    Total Amount is MAD {{$cart->totalPrice}}
+                                    Total : MAD {{$cart->totalPrice}}
                                 </p>
                                 <p>
-                                    Total Quantities is {{$cart->totalQty}}
+                                    Total Quantities  {{$cart->totalQty}}
                                 </p>
-                                <a href="" class="btn btn-info">Checkout</a>
+                                <a href="" class="btn btn-info">Buy</a>
                             </div>
                         </div>
                     </div>
                 </div>
             @else
                 <p>There are no items in the cart</p>
+
 
             @endif
         </div>
