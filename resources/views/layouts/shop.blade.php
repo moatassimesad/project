@@ -164,6 +164,12 @@
                 height: 25px;
             }
         }
+        a, u {
+            text-decoration: none; !important;
+        }
+        a {
+            text-decoration: none !important;
+        }
 
     </style>
 
