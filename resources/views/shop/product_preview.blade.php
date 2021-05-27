@@ -37,6 +37,7 @@
     @endif
     <pre class="row link">
     <pre style="color: dimgrey;">Home</pre><pre> / Shop</pre>
+        @if($product->store->id == $store->id)
     </pre>
     <div class="row link">
         <img src="../../images/{{ $product->image }}" alt="image" class="image">
@@ -72,7 +73,7 @@
                 <button type="submit" name="submit" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Add to card</button>
             </div>
         </form>
-
+        @endif
 </div>
 
 

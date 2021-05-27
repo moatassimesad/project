@@ -148,7 +148,7 @@
     <div class="container-fluid">
 
         <div class="row justify-content-center mt-4 mb-2" id="store-name">
-            STORE NAME
+            {{ $store->name }}
         </div>
         <div id="nav_line">
             <hr class="mb-2">

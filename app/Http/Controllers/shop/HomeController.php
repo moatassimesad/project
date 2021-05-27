@@ -11,10 +11,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
 
-    }
 
     public function index($id){
         $store = Store::find($id);
