@@ -15,90 +15,24 @@
                 font-weight: bold !important;
             }
 
-            .footer-clean {
-                padding:50px 0;
-                color:#4b4c4d;
-            }
+           #allCollections{
+               margin-top: 1rem;
+               margin-left: 2rem;
+               font-family: Helvetica, sans-serif;
+               letter-spacing: 2px;
+               color: #413C3C;
 
-            .footer-clean h3 {
-                margin-top:0;
-                margin-bottom:12px;
-                font-weight:bold;
-                font-size:16px;
-            }
+           }
 
-            .footer-clean ul {
-                padding:0;
-                list-style:none;
-                line-height:1.6;
-                font-size:14px;
-                margin-bottom:0;
-            }
+           #collectionName{
+               text-align: center;
+               margin-top: 0.5rem;
+           }
+           .img-collection img{
+               width: 9vw;
+               height: 9vw;
+           }
 
-            .footer-clean ul a {
-                color:inherit;
-                text-decoration:none;
-                opacity:0.8;
-            }
-
-            .footer-clean ul a:hover {
-                opacity:1;
-            }
-
-            .footer-clean .item.social {
-                text-align:right;
-            }
-
-            @media (max-width:767px) {
-                .footer-clean .item {
-                    text-align:center;
-                    padding-bottom:20px;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .footer-clean .item.social {
-                    text-align:center;
-                }
-            }
-
-            .footer-clean .item.social > a {
-                font-size:24px;
-                width:40px;
-                height:40px;
-                line-height:40px;
-                display:inline-block;
-                text-align:center;
-                border-radius:50%;
-                border:1px solid #ccc;
-                margin-left:10px;
-                margin-top:22px;
-                color:inherit;
-                opacity:0.75;
-            }
-
-            .footer-clean .item.social > a:hover {
-                opacity:0.9;
-            }
-
-            @media (max-width:991px) {
-                .footer-clean .item.social > a {
-                    margin-top:40px;
-                }
-            }
-
-            @media (max-width:767px) {
-                .footer-clean .item.social > a {
-                    margin-top:10px;
-                }
-            }
-
-            .footer-clean .copyright {
-                margin-top:14px;
-                margin-bottom:0;
-                font-size:13px;
-                opacity:0.6;
-            }
         </style>
     </head>
 
@@ -119,12 +53,19 @@
 
     <div class="wrapper">
 
+       <div class="row " id="allCollections">
+           <div class="col-12">
+               <h4 >All Collections</h4>
+           </div>
+       </div>
 
         @if($collections->count())
         @for($i=0;$i<$collections->count();$i++)
-            <div class="row justify-content-around">
+
+
+            <div class="row img-collection ">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
                         <div  style="text-align: center">{{$collections->getNth($i)->name}}</div>
                     </div>
@@ -133,21 +74,21 @@
 
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div  style="text-align: center">{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
-                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
+                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images" ></a>
                         <div  style="text-align: center">{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
                         <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div  style="text-align: center">{{$collections->getNth($i)->name}}</div>
                     </div>
@@ -156,14 +97,17 @@
         @endfor
 
         @else
-            @for($i=0;$i<4;$i++)
+            <div class="row">
+                @for($i=0;$i<4;$i++)
 
-                <div class="mt-5 flex-column">
-                    <a href="/product_collection/{{ $store->id }}}"> <img src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
-                    <div  style="text-align: center">Collection Name</div>
-                </div>
-            @endfor
-            @endif
+                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2 ">
+                        <a href="/product_collection/{{ $store->id }}}"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
+                        <div id="collectionName">Collection Name</div>
+                    </div>
+
+                @endfor
+            </div>
+        @endif
     </div>
 
     <div class="container-fluid mt-5">

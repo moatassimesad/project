@@ -144,8 +144,8 @@
         }
 
         .logo{
-            max-width: 40px;
-            max-height: 40px;
+            max-width: 45px;
+            max-height: 45px;
 
         }
         .panier-logo{
@@ -160,8 +160,8 @@
                 height: 25px;
             }
             .logo{
-                width: 25px;
-                height: 25px;
+                width: 30px;
+                height: 30px;
             }
         }
         a, u {
@@ -228,17 +228,18 @@
         <footer>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
+                    <div class="col-sm-6 col-md-4 item">
                         <h3>About Us</h3>
                         <ul>
-                            <li> Address :{{ $user->city }}</li>
-                            <li>Phone : +212 {{ $user->phone }}</li>
-                            <li>Email :{{ $user->email }}</li>
+                            <li> Address :&ensp;{{ $user->city }}</li>
+                            <li>Phone &ensp;:&ensp;+212 {{ $user->phone }}</li>
+                            <li>Email &ensp;:&ensp; {{ $user->email }}</li>
                         </ul>
                     </div>
+                    <div class="col-md-4"></div>
 
 
-                    <div class="col-lg-3 item social">
+                    <div class=" col-md-4 col-sm-6 item social">
                         <a href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
                         <p class="copyright">Company Name © 2021</p>
                     </div>
