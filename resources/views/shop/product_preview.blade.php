@@ -7,8 +7,8 @@
             height: 50vh;
         }
         .link{
-            margin-left: 19vw;
-            margin-right: 19vw;
+            margin-left: 7vw;
+            margin-right: 7vw;
         }
         .name{
             width: 120px;
@@ -44,7 +44,7 @@
     <div class="row link">
         <div class="mt-3 col-md-9 flex-column">
             <div>{{$product->name}}</div>
-            <div class="mt-3">{{$product->description}}</div>
+            <div class="mt-3">On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).</div>
         </div>
         <div class="mt-3 col-md-3">
             <div style="text-align: end;">{{$product->price}} MAD</div>
@@ -73,32 +73,8 @@
             </div>
         </form>
 
-
-
-
-
-
-
-    <br><br><br>
-    <div class="row justify-content-between">
-        <div class="flex-column ml-5 mb-1 mt-5">
-            <div style="font-weight: bold; font-size: large"><i style="margin-bottom: 1px;" class="fa fa-commenting"></i> Contact us</div>
-            <pre>Address : {{ $user->city }}</pre>
-            <pre>Phone   : +212 {{ $user->phone }}</pre>
-            <pre>Email   : {{ $user->email }}</pre>
-        </div>
-        <div class="flex-column mr-5 ml-5 mt-5">
-            <div style="font-weight: bold; font-size: large"><i class="fa fa-share-alt"></i> community</div>
-            <div><a href="{{ $store->facebookLink }}" target="_blank">
-                    <i class="fa fa-facebook-official" style="font-size:30px;color:blue"></i>
-                </a></div>
-            <div><a href="/{{ $store->twitterLink }}" target="_blank">
-                    <i class="fa fa-twitter" style="font-size:30px;color:blue"></i>
-                </a></div>
-        </div>
-    </div>
 </div>
-</div>
+
 
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
