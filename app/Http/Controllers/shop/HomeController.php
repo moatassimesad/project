@@ -36,8 +36,15 @@ class HomeController extends Controller
         return view('shop.product_preview',compact('product','store','user','colors'));
     }
 
-    public function index_cart(){
-        return view('shop.cart');
+    public function index_cart($store_id){
+        $store = Store::find($store_id);
+        $user = $store->user;
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('shop.cart',compact('cart','store','user'));
     }
 
 

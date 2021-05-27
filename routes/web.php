@@ -125,6 +125,6 @@ Route::get('/product_preview/{store_id}/{product_id}', [HomeController::class,'p
 
 Route::post('/add_to_card', [HomeController::class,'add_to_card'])->name('add_to_card');
 
-Route::get('/cart', [HomeController::class,'index_cart'])->name('cart');
+Route::get('/cart/{id}', [HomeController::class,'index_cart'])->name('cart');
 
 

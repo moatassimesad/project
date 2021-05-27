@@ -3,7 +3,7 @@
 <head>
     <style>
         .image{
-            width : 60vw;
+            width : 100%;
             height: 50vh;
         }
         .link{
