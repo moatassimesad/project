@@ -69,6 +69,12 @@
             @endif
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
+
+
+    <script>
+        $("#shoplink").css("border-bottom","2px solid #2E8AD0");
+    </script>
 @endsection
 

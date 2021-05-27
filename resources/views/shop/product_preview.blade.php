@@ -110,4 +110,11 @@
             $(".shop").css("background-color","#2E8AD0");
         });
     </script>
+
+
+
+
+<script>
+    $("#shoplink").css("border-bottom","2px solid #2E8AD0");
+</script>
 @endsection

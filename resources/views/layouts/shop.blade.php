@@ -55,7 +55,6 @@
         }
 
         #homelink, #shoplink{
-            border-bottom: 2px solid #2E8AD0;
             padding-bottom: 3px;
         }
 
@@ -196,10 +195,10 @@
             <div class="col-md-6  col-sm-6 col-6 mt-2">
                 <div class="text-center">
 
-                        <a class="mr-2" id="homelink" href="#">
+                        <a class="mr-2" style="border: none;" id="homelink" href="/home/{{$store->id}}">
                             Home
                         </a>
-                        <a class="ml-2" id="shoplink" href="#">
+                        <a class="ml-2" style="border: none;" id="shoplink" href="/shop/{{$store->id}}">
                             Shop
                         </a>
 
@@ -252,23 +251,5 @@
 <!-- jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-<!--
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#nav-link').on('click', function () {
-            $('#homelink').css({border-bottom: '2px solid #2E8AD0',
-            padding-bottom: '3px'});
-            $('#shoplink').css('');
-        });
-
-
-
-
-    });
-</script>
--->
-
-
 </body>
 </html>
