@@ -127,4 +127,14 @@ Route::post('/add_to_card', [HomeController::class,'add_to_card'])->name('add_to
 
 Route::get('/cart/{id}', [HomeController::class,'index_cart'])->name('cart');
 
+Route::get('/cart_change_color/{id}/{old_color}/{new_color}', [HomeController::class,'change_color'])->name('cart_change_color');
+
+
+Route::put('/cart_change_quantity', [HomeController::class,'change_quantity'])->name('cart_change_quantity');
+
+Route::delete('/cart_delete', [HomeController::class,'delete'])->name('cart_delete');
+
+
+
+
 

@@ -31,8 +31,7 @@ class HomeController extends Controller
         $product = Product::find($product_id);
         $store = Store::find($store_id);
         $user = $store->user;
-        $colors = explode(",",$product->colors);
-        array_pop($colors);
+        $colors = $product->getColors();
         return view('shop.product_preview',compact('product','store','user','colors'));
     }
 
@@ -64,4 +63,38 @@ class HomeController extends Controller
         session()->put('cart', $cart);
         return back()->with('status', 'Added successfully');
     }
+    public function change_color($id,$old_color,$new_color){
+        $cart = new Cart(session()->get('cart'));
+        $response = $cart->update_color($id,$old_color,$new_color);
+        session()->put('cart', $cart);
+        if($response == -1){
+            return back()->with('status', 'Already exist');
+        }
+        return back()->with('status1', 'Color changed successfully');
+
+    }
+
+    public function change_quantity(Request $request){
+        $this->validate($request,[
+            'quantity'=>'required'
+        ]);
+        $cart = new Cart(session()->get('cart'));
+        $cart->update_quantity($request->product_id,$request->color, $request->quantity);
+        session()->put('cart', $cart);
+        return back()->with('status2', 'Quantity updated successfully');
+    }
+
+    public function delete(Request $request){
+        $cart = new Cart(session()->get('cart'));
+        $cart->remove($request->product_id,$request->color);
+
+        if ($cart->totalQty <= 0) {
+            session()->forget('cart');
+        } else {
+            session()->put('cart', $cart);
+        }
+        return back()->with('status3', 'Product was removed successfully');
+
+}
+
 }

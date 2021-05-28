@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Cart
 {
@@ -37,12 +35,12 @@ class Cart
 
         if( !array_key_exists($product->id.$color, $this->items)) {
             $this->items[$product->id.$color] = $item ;
-            $this->totalQty += 1;
+            $this->totalQty += $quantity;
             $this->totalPrice += ($product->price)*$quantity;
 
         } else {
             $this->items[$product->id.$color]['quantity']  += $quantity ;
-            $this->totalQty +=1 ;
+            $this->totalQty +=$quantity ;
             $this->totalPrice += ($product->price)*$quantity;
         }
 
@@ -50,14 +48,38 @@ class Cart
 
     }
 
-    public function remove($id) {
+    public function remove($id,$color) {
 
-        if( array_key_exists($id, $this->items)) {
-            $this->totalQty -= $this->items[$id]['qty'];
-            $this->totalPrice -= $this->items[$id]['qty'] * $this->items[$id]['price'];
-            unset($this->items[$id]);
+        if( array_key_exists($id.$color, $this->items)) {
+            $this->totalQty -= $this->items[$id.$color]['quantity'];
+            $this->totalPrice -= $this->items[$id.$color]['quantity'] * $this->items[$id.$color]['price'];
+            unset($this->items[$id.$color]);
 
         }
+
+    }
+    public function update_color($id,$old_color,$new_color){
+        if(array_key_exists($id.$new_color, $this->items)){
+            return -1;
+        }
+        else{
+            $this->items[$id.$old_color]['color'] = $new_color;
+            $this->items[$id.$new_color] = $this->items[$id.$old_color];
+            unset($this->items[$id.$old_color]);
+        }
+            return 1;
+    }
+    public function update_quantity($id,$color,$quantity) {
+
+        //reset qty and price in the cart ,
+        $this->totalQty -= $this->items[$id.$color]['quantity'] ;
+        $this->totalPrice -= $this->items[$id.$color]['price'] * $this->items[$id.$color]['quantity']   ;
+        // add the item with new qty
+        $this->items[$id.$color]['quantity'] = $quantity;
+
+        // total price and total qty in cart
+        $this->totalQty += $quantity ;
+        $this->totalPrice += $this->items[$id.$color]['price'] * $quantity ;
 
     }
 }
