@@ -47,7 +47,11 @@
                                                 <p class="mb-2 text-muted text-uppercase small">Color: {{ $product['color'] }}</p>
                                                 <div class="mb-2 text-muted text-uppercase small">
                                                     @foreach($produit->getColors() as $color)
-                                                        <a type="button" href="/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}" class="color mt-3 mr-2" style="background-color: {{$color}};"></a>
+                                                        @if($color == "none")
+                                                            <div class="mt-3">No available colors for this product</div>
+                                                        @else
+                                                            <a type="button" href="/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}" class="color mt-3 mr-2" style="background-color: {{$color}};"></a>
+                                                        @endif
                                                     @endforeach
                                                 </div>
 

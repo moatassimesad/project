@@ -16,11 +16,17 @@
             <pre>DESCRIPTION :</pre>
             <div class="p-2" style="border-radius: 10px; border: 1px solid #76d7d7;">{{$product->description}}</div>
         <br>
+
         <pre >Available colors :</pre>
         <br>
         <div class="row">
             @foreach($colors as $color)
-                <div class="ml-2 mr-2" style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color}}"></div>
+                @if($color == "none")
+                    <div> This product has no colors </div>
+                @else
+                    <div class="ml-2 mr-2" style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color}}"></div>
+                @endif
+
             @endforeach
         </div>
         </div>

@@ -73,7 +73,11 @@
             </div>
             <div class="row justify-content-center">
                 @foreach($colors as $color)
-                <input type="button" class="color mt-3 mr-2" style="background-color: {{$color}};" name="{{$color}}">
+                    @if($color == "none")
+                        <div class="mt-3">No colors to pick </div>
+                    @else
+                        <input type="button" class="color mt-3 mr-2" style="background-color: {{$color}};" name="{{$color}}">
+                    @endif
                 @endforeach
             </div>
             @error('color')

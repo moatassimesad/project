@@ -77,6 +77,9 @@ class ProductController extends Controller
         $product->reference = $request->reference;
         $product->price = $request->price;
         $item = "";
+        if ($request->colors==null){
+            $request->colors = ["none"];
+        }
          foreach ($request->colors as $color){
              $item .=$color;
              $item .= ",";

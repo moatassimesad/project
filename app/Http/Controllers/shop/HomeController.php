@@ -61,10 +61,20 @@ class HomeController extends Controller
 
 
     public function add_to_card(Request $request){
+        $product = Product::find($request->product_id);
+
         $this->validate($request,[
-            'color'=>'required',
             'quantity'=>'required',
         ]);
+        if ($product->colors != "none,"){
+            $this->validate($request,[
+                'color'=>'required',
+            ]);
+        }
+        else{
+            $request->color = "none";
+        }
+
         $product = Product::find($request->product_id);
         if (session()->has('cart')) {
             $cart = new Cart(session()->get('cart'));
