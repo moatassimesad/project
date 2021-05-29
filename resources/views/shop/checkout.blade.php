@@ -147,7 +147,8 @@
                             </li>
                         </ul>
 
-                        <button type="button" class="btn btn-primary btn-block waves-effect waves-light">Make purchase</button>
+                        <a href="/checkout/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-2 ">Cash on delivery</button></a>
+                        <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Pay with paypal</button></a>
 
                     </div>
                 </div>

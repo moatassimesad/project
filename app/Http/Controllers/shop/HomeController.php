@@ -59,6 +59,18 @@ class HomeController extends Controller
     }
 
 
+    public function index_order_details($id){
+        $store = Store::find($id);
+        $user = $store->user;
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('shop.order_details',compact('cart','store','user'));
+    }
+
+
 
     public function add_to_card(Request $request){
         $product = Product::find($request->product_id);

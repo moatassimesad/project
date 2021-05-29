@@ -21,7 +21,7 @@
 
 <body>
 <!-- banner -->
-<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(images/banner-bk.jpg);">
+<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(/images/banner-bk.jpg);">
     <div class="container text-center text-md-left">
         <header>
             @if(session('status'))
@@ -234,9 +234,6 @@
                 </a>
                 <a href="https://twitter.com/saadmotsm" target="_blank" class="d-inline-block text-center ml-2">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/saad-moatassime-688853188?fbclid=IwAR0vfUelcjIKxNq53CvwKRPMUv-F0uhYzgus370D_eY4WLl1pVMo_I9BjGk" target="_blank" class="d-inline-block text-center ml-2">
-                    <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
             </div>
         </div>

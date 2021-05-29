@@ -138,6 +138,9 @@ Route::put('/cart_change_quantity', [HomeController::class,'change_quantity'])->
 Route::delete('/cart_delete', [HomeController::class,'delete'])->name('cart_delete');
 
 
+Route::get('/order_details/{id}', [HomeController::class,'index_order_details'])->name('order_details');
+
+
 
 
 

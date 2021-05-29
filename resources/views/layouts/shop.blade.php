@@ -148,11 +148,7 @@
             max-height: 45px;
 
         }
-        .panier-logo{
-            max-width: 40px;
-            max-height: 40px;
 
-        }
 
         @media (max-width:767px) {
             .panier-logo{
@@ -169,6 +165,29 @@
         }
         a {
             text-decoration: none !important;
+        }
+
+        .fa-stack[data-count]:after{
+            position:absolute;
+            right:0%;
+            top:0%;
+            content: attr(data-count);
+            font-size:50%;
+            padding:.6em;
+            border-radius:999px;
+            line-height:.70em;
+            color:#2E8AD0;
+            text-align:center;
+            min-width:2em;
+            font-weight:bold;
+            background: #F7F5EE;
+            border-style:solid;
+        }
+
+
+        .panier-logo {
+            color: #2E8AD0;
+            background:#F7F5EE;
         }
 
 
@@ -216,7 +235,15 @@
             <div class="col-md-3  col-sm-3 col-3">
                 <div class="text-center">
                     <a href="/cart/{{$store->id}}">
-                        <img class="panier-logo " src="{{ asset('images/panier_logo.png') }}" alt="ShopCrad">
+{{--                        <img class="panier-logo " src="{{ asset('images/panier_logo.png') }}" alt="ShopCrad">--}}
+{{--                        <i class="fas fa-shopping-bag fa-lg"></i>--}}
+{{--                        <span class="cart-basket d-flex align-items-center justify-content-center">--}}
+{{--                             0--}}
+{{--                        </span>--}}
+                        <span class="fa-stack fa-sm has-badge" data-count="5">
+                            <i class="fas fa-stack-sm "></i>
+                            <i style="" class="fas fa-shopping-bag fa-stack-2x panier-logo"></i>
+                        </span>
                     </a>
                 </div>
             </div>
