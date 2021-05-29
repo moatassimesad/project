@@ -135,6 +135,7 @@
                                     <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/condition_of_use">Condition of use</a>
                                         <a class="dropdown-item" href="/contact">Your contact</a>
+                                        <a class="dropdown-item" href="/home/{{auth()->user()->store->id}}">Your store</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="/logout">Logout</a>
                                     </div>
