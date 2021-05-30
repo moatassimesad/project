@@ -11,15 +11,16 @@
         }
 
         .img-product img{
-            width: 170px;
-            height: 170px;
+            width: 200px;
+            height: 200px;
         }
 
         #allProducts{
-            margin-top: 1rem;
+            margin-top: 3rem;
             margin-left: 2rem;
             font-family: Helvetica, sans-serif;
-            letter-spacing: 2px;
+            font-weight: 400;
+            letter-spacing: 1px;
             color: #413C3C;
 
         }
@@ -37,6 +38,25 @@
 
 
 
+        @media (max-width:992px) {
+            .img-product img{
+                width: 170px;
+                height: 170px;
+            }
+
+            .productName{
+                font-size: 15px;
+            }
+
+            .price{
+                font-size: 13px;
+            }
+        }
+
+
+
+
+
 
 
 
@@ -48,7 +68,7 @@
 
         <div class="row " id="allProducts">
             <div class="col-12">
-                <h5 >Products</h5>
+                <h4 >Products</h4>
             </div>
         </div>
 
@@ -56,7 +76,7 @@
         @for($i=0;$i<$products->count();$i++)
             <div class="row img-product">
                 @if($products->getNth($i)!=null)
-                <div class="col-md-3 col-sm-6 col-12 text-center mt-2 productInfo">
+                <div class="col-md-3 col-sm-6 col-6 text-center mt-3 productInfo">
                     <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image }}" alt="" class="images"></a>
                     <div  class="productName">{{$products->getNth($i)->name}}</div>
                     <div class="price" >MAD {{$products->getNth($i)->price}} </div>
@@ -67,7 +87,7 @@
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
+                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
@@ -78,18 +98,18 @@
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
+                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
                         <div>
-                            <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="  btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2">
+                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
@@ -105,12 +125,12 @@
             <div class="row img-product">
                 @for($i=0;$i<4;$i++)
 
-                    <div class="col-md-3 col-sm-6 col-12 text-center mt-2 ">
+                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
                         <a href="/product_preview/{{ $store->id }}}"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
                         <div class="productName">Product Name</div>
                         <div class="price" >MAD 1.00</div>
                         <div >
-                            <a href="/product_preview/{{ $store->id }}" class="btn btn-dark mt-1 disabled"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="/product_preview/{{ $store->id }}" class=" btn btn-dark mt-1 disabled"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
                     </div>
 
