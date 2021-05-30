@@ -17,11 +17,12 @@
 
         #allProducts{
             margin-top: 3rem;
-            margin-left: 2rem;
+            margin-left: 1rem;
             font-family: Helvetica, sans-serif;
             font-weight: 400;
             letter-spacing: 1px;
             color: #413C3C;
+
 
         }
         .price{

@@ -32,6 +32,8 @@
         #store-name{
             font-size: x-large;
             font-family: "Times New Roman", Times, serif;
+            font-variant-caps: petite-caps;
+            text-transform: capitalize;
             letter-spacing: 2px;
             color: #413C3C;
         }
@@ -154,6 +156,7 @@
             margin-bottom:0;
             font-size:13px;
             opacity:0.6;
+            font-variant-caps: petite-caps;
         }
 
         .logo{
@@ -164,7 +167,7 @@
 
 
         @media (max-width:767px) {
-           
+
             .logo{
                 width: 30px;
                 height: 30px;
@@ -281,7 +284,7 @@
 
                     <div class=" col-md-4 col-sm-6 item social ">
                         <a class="fbicon" href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a class="twicon" href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
-                        <p class="copyright">Company Name © 2021</p>
+                        <p class="copyright">{{ $store->name }} © 2021</p>
                     </div>
                 </div>
             </div>
