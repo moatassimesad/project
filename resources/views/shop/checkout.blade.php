@@ -147,9 +147,8 @@
                             </li>
                         </ul>
 
-                        <a href="/checkout/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-2 ">Cash on delivery</button></a>
-                        <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Pay with paypal</button></a>
-
+                        <a href="/order_details/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-1 ">Cash on delivery</button></a>
+                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=lemhamid@gmail.com&amp;tax=0&amp;currency=USD&amp;item_name=CODKIT873&amp;item_number=873&amp;quantity=1&amp;amount=19" target="_blank"><img src="https://miro.medium.com/max/624/1*MqdZnOy5ySk8PIUbUtt5Cg.png" height="70"></a>
                     </div>
                 </div>
                 <!-- Card -->

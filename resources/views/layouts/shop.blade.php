@@ -86,6 +86,16 @@
 
         .footer-clean ul a:hover {
             opacity:1;
+
+
+        }
+
+        .fbicon i:hover{
+            color: #4267B2;
+        }
+
+        .twicon i:hover{
+            color: #1DA1F2;
         }
 
         .footer-clean .item.social {
@@ -124,6 +134,9 @@
             opacity:0.9;
         }
 
+
+
+
         @media (max-width:991px) {
             .footer-clean .item.social > a {
                 margin-top:40px;
@@ -151,10 +164,7 @@
 
 
         @media (max-width:767px) {
-            .panier-logo{
-                width: 25px;
-                height: 25px;
-            }
+           
             .logo{
                 width: 30px;
                 height: 30px;
@@ -187,6 +197,7 @@
 
         .panier-logo {
             color: #2E8AD0;
+            opacity: 0.8;
             background:#F7F5EE;
         }
 
@@ -268,8 +279,8 @@
                     <div class="col-md-4"></div>
 
 
-                    <div class=" col-md-4 col-sm-6 item social">
-                        <a href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
+                    <div class=" col-md-4 col-sm-6 item social ">
+                        <a class="fbicon" href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a class="twicon" href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
                         <p class="copyright">Company Name © 2021</p>
                     </div>
                 </div>
