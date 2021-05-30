@@ -14,11 +14,12 @@ use App\Http\Controllers\store\ProductController;
 use App\Http\Controllers\store\ProviderController;
 use App\Http\Controllers\store\SettingsController;
 use App\Http\Controllers\welcome\WelcomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 
-
+Auth::routes(['verify'=>true]);
 
 Route::get('/', [WelcomeController::class,'index'])->name('welcome');
 Route::post('/', [WelcomeController::class,'feedback'])->name('feedback');
@@ -140,7 +141,6 @@ Route::delete('/cart_delete', [HomeController::class,'delete'])->name('cart_dele
 
 Route::get('/order_details/{id}', [HomeController::class,'index_order_details'])->name('order_details');
 
+Auth::routes();
 
-
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "934647b57a1fa58ae1532f5b63a81dcf",
+    "content-hash": "4426dc796255a4fa3c2d47f8decc1793",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1199,6 +1199,63 @@
             "time": "2021-03-02T16:53:12+00:00"
         },
         {
+            "name": "laravel/ui",
+            "version": "v3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "e2478cd0342a92ec1c8c77422553bda8ee004fd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/e2478cd0342a92ec1c8c77422553bda8ee004fd0",
+                "reference": "e2478cd0342a92ec1c8c77422553bda8ee004fd0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.0",
+                "illuminate/filesystem": "^8.0",
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.2.1"
+            },
+            "time": "2021-04-27T18:17:41+00:00"
+        },
+        {
             "name": "league/commonmark",
             "version": "1.6.2",
             "source": {
@@ -1545,59 +1602,6 @@
                 }
             ],
             "time": "2020-12-14T13:15:25+00:00"
-        },
-        {
-            "name": "munna/shopping-cart",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MunnaAhmed/ShoppingCart.git",
-                "reference": "a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MunnaAhmed/ShoppingCart/zipball/a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1",
-                "reference": "a23917c1e4bcb03166b0b2d9c5f1bfcd3a50a7e1",
-                "shasum": ""
-            },
-            "type": "package",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Munna\\ShoppingCart\\ShoppingCartServiceProvider"
-                    ],
-                    "aliases": {
-                        "Cart": "Munna\\ShoppingCart\\Facades\\Cart"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Munna\\ShoppingCart\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Munna",
-                    "email": "munnawb9@gmail.com"
-                }
-            ],
-            "description": "Simple Laravel Shopping Cart Package. Store Your Cart Items On Local. No Need To Any Migration Or Database Query/Relation. Its More Flexible. Happy Laravel Coding...",
-            "keywords": [
-                "Ecommerce Shopping Cart",
-                "Laravel shopping cart",
-                "ecommerce",
-                "shopping cart"
-            ],
-            "support": {
-                "issues": "https://github.com/MunnaAhmed/ShoppingCart/issues",
-                "source": "https://github.com/MunnaAhmed/ShoppingCart/tree/v1.0.0"
-            },
-            "time": "2021-01-14T23:07:01+00:00"
         },
         {
             "name": "nesbot/carbon",
