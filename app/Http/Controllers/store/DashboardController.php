@@ -16,7 +16,7 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        $values = [9,3,5,1,9,6,8];
+        $values = [19,3,5,1,19,6,19];
         $days = ['Monday', 'Tuesday', 'Wednesday', 'thursday','Friday','Saturday','Sunday'];
         $user = auth()->user();
         $store = $user->store;
