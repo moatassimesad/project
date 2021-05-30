@@ -144,3 +144,7 @@ Route::get('/order_details/{id}', [HomeController::class,'index_order_details'])
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
