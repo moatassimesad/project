@@ -6,9 +6,15 @@
     .clr{
         color: #000000;
     }
+    .error{
+        text-align: center;
+        color: red;
+    }
 </style>
 
 <div class="container">
+    <form action="{{ route('pay') }}" method="post">
+        @csrf
     <section>
 
         <!--Grid row-->
@@ -32,7 +38,8 @@
                                 <!-- First name -->
                                 <div class="clr md-form md-outline mb-0 mb-lg-2">
                                     <label for="firstName">First name</label>
-                                    <input type="text" id="firstName" class="form-control mb-0 mb-lg-2">
+                                    <input type="text" style="@error('firstName') border:solid 1px red; @enderror" id="firstName" name="firstName" value="{{old('firstName')}}" class="form-control mb-0 mb-lg-2">
+                                    <input type="hidden"  name="store_id" value="{{$store->id}}">
 
                                 </div>
 
@@ -45,7 +52,7 @@
                                 <!-- Last name -->
                                 <div class="clr md-form md-outline">
                                     <label for="lastName">Last name</label>
-                                    <input type="text" id="lastName" class="form-control">
+                                    <input type="text" name="lastName" style="@error('lastName') border:solid 1px red; @enderror" value="{{old('lastName')}}" id="lastName" class="form-control">
 
                                 </div>
 
@@ -54,52 +61,74 @@
 
                         </div>
                         <!-- Grid row -->
+                        @error('firstName')
+                        <div class="error">{{ $message }}</div>
+                        @enderror
 
+                        @error('lastName')
+                        <div class="error">{{ $message }}</div>
+                        @enderror
 
 
 
                         <!-- Address Part 1 -->
                         <div class="clr md-form md-outline mb-lg-2">
                             <label for="form1">Address</label>
-                            <input type="text" id="form14" placeholder="House number and street name" class="form-control">
+                            <input type="text"  style="@error('address') border:solid 1px red; @enderror" id="form14" name="address" value="{{old('address')}}" placeholder="House number and street name" class="form-control">
 
                         </div>
+                        @error('address')
+                        <div class="error">{{ $message }}</div>
+                        @enderror
 
                         <!-- Address Part 2 -->
                         <div class=" clr md-form md-outline mb-lg-2">
                             <label for="form2">Address</label>
-                            <input type="text" id="form15" placeholder="Apartment, suite, unit etc. (optional)"
+                            <input type="text" name="optionalAddress" value="{{old('optionalAddress')}}" placeholder="Apartment, suite, unit etc. (optional)"
                                    class="form-control">
 
                         </div>
 
+
                         <!-- Postcode / ZIP -->
                         <div class="clr md-form md-outline mb-lg-2">
-                            <label for="form3">Postcode / ZIP</label>
-                            <input type="text" id="form16" class="form-control">
+                            <label for="form3">Post code / ZIP</label>
+                            <input type="text" style="@error('postCode') border:solid 1px red; @enderror" name="postCode" value="{{old('postCode')}}" id="form16" class="form-control">
 
                         </div>
+                        @error('postCode')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
 
                         <!-- Town / City -->
                         <div class="clr md-form md-outline mb-lg-2">
                             <label for="form4">Town / City</label>
-                            <input type="text" id="form17" class="form-control">
+                            <input type="text" style="@error('city') border:solid 1px red; @enderror" name="city" value="{{old('city')}}" id="form17" class="form-control">
 
                         </div>
+                        @error('city')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
 
                         <!-- Phone -->
                         <div class="clr md-form md-outline mb-lg-2">
                             <label for="form5">Phone</label>
-                            <input type="number" id="form18" class="form-control">
+                            <input type="number" style="@error('phone') border:solid 1px red; @enderror" id="form18" name="phone" value="{{old('phone')}}" class="form-control">
 
                         </div>
+                        @error('phone')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
 
                         <!-- Email address -->
                         <div class="clr md-form md-outline">
                             <label for="form6">Email address</label>
-                            <input type="email" id="form19" class="form-control">
+                            <input type="email" style="@error('email') border:solid 1px red; @enderror" id="form19" name="email" value="{{old('email')}}" class="form-control">
 
                         </div>
+                        @error('email')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
 
                         <!-- Additional information -->
 
@@ -147,7 +176,7 @@
                             </li>
                         </ul>
 
-                        <a href="/order_details/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-1 ">Cash on delivery</button></a>
+                       <button type="submit" class="btn btn-primary btn-block waves-effect waves-light mb-1 @if($cart == null) disabled @endif">Cash on delivery</button>
                         <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=lemhamid@gmail.com&amp;tax=0&amp;currency=USD&amp;item_name=CODKIT873&amp;item_number=873&amp;quantity=1&amp;amount=19" target="_blank"><img src="https://miro.medium.com/max/624/1*MqdZnOy5ySk8PIUbUtt5Cg.png" height="70"></a>
                     </div>
                 </div>
@@ -162,6 +191,7 @@
         <!--Grid row-->
 
     </section>
+    </form>
 </div>
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->

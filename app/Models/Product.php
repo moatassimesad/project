@@ -36,6 +36,9 @@ class Product extends Model
     public function store(){
         return $this->belongsTo(Store::class);
     }
+    public function orders(){
+        return $this->belongsToMany(Order::class)->withPivot('quantity','unitCost','shippingCost','color')->withTimestamps();
+    }
     public function getColors(){
         $colors = explode(",",$this->colors);
         array_pop($colors);

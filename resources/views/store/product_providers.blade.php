@@ -54,7 +54,7 @@
                     <td>{{ $provider->phone }}</td>
                     <td>{{ $provider->pivot->quantity }}</td>
                     <td>{{ $provider->pivot->unitCost }}</td>
-                    <td>{{ $provider->pivot->created_at }}</td>
+                    <td>{{ $provider->pivot->created_at}}</td>
                 </tr>
             @endforeach
             </tbody>

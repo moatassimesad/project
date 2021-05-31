@@ -8,6 +8,7 @@ use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\shop\HomeController;
 use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\DashboardController;
+use App\Http\Controllers\store\OrderController;
 use App\Http\Controllers\store\StoreController;
 use App\Http\Controllers\store\DeliveryController;
 use App\Http\Controllers\store\ProductController;
@@ -131,20 +132,16 @@ Route::get('/cart/{id}', [HomeController::class,'index_cart'])->name('cart');
 Route::get('/cart_change_color/{id}/{old_color}/{new_color}', [HomeController::class,'change_color'])->name('cart_change_color');
 
 
-Route::get('/checkout/{id}', [HomeController::class,'index_checkout'])->name('checkout');
+
 
 
 Route::put('/cart_change_quantity', [HomeController::class,'change_quantity'])->name('cart_change_quantity');
 
 Route::delete('/cart_delete', [HomeController::class,'delete'])->name('cart_delete');
 
+Route::get('/checkout/{id}', [OrderController::class,'index_checkout'])->name('checkout');
 
-Route::get('/order_details/{id}', [HomeController::class,'index_order_details'])->name('order_details');
 
-Auth::routes();
+Route::post('/checkout', [OrderController::class,'store'])->name('pay');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

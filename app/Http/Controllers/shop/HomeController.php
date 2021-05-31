@@ -47,28 +47,10 @@ class HomeController extends Controller
     }
 
 
-    public function index_checkout($id){
-        $store = Store::find($id);
-        $user = $store->user;
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
-        } else {
-            $cart = null;
-        }
-        return view('shop.checkout',compact('cart','store','user'));
-    }
 
 
-    public function index_order_details($id){
-        $store = Store::find($id);
-        $user = $store->user;
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
-        } else {
-            $cart = null;
-        }
-        return view('shop.order_details',compact('cart','store','user'));
-    }
+
+
 
 
 
