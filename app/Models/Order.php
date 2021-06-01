@@ -23,4 +23,13 @@ class Order extends Model
     public function products(){
         return $this->belongsToMany(Product::class)->withPivot('quantity','unitCost','shippingCost','color')->withTimestamps();
     }
+    public function delivery(){
+        return $this->belongsTo(Delivery::class);
+    }
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }

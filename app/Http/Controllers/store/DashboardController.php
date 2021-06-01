@@ -20,11 +20,17 @@ class DashboardController extends Controller
         $days = ['Monday', 'Tuesday', 'Wednesday', 'thursday','Friday','Saturday','Sunday'];
         $user = auth()->user();
         $store = $user->store;
+        $orders = $store->orders;
+        $total = 0;
+        foreach ($orders as $order){
+            $total+=$order->payedTotal;
+        }
+        $clients = $store->clients;
         $products = $store->products;
         $chart = new SaleProductChart();
         $chart->labels($days);
         $chart->dataset('products sale', 'line', $values)->backgroundColor('rgba(52, 130, 255, 0.2)');
-        return view('store.stats',compact('chart','products'));
+        return view('store.stats',compact('chart','products','orders','clients','total'));
 
     }
 }

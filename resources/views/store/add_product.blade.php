@@ -50,6 +50,10 @@
                 @error('shippingCost')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+                <div  class="infos row justify-content-center align-items-center">
+                    <input class="reference" name="quantity" type="number" placeholder="Quantity (No providers)" value="{{ old('quantity') }}">
+                </div>
+
                 <div class="text-center mb-3">
                     Pick the colors
                 </div>

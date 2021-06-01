@@ -14,7 +14,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <p class="card-category">TOTAL CLIENTS</p>
-                            <h3 class="card-title">555</h3>
+                            <h3 class="card-title">{{$clients->count()}}</h3>
                         </div>
 
                     </div>
@@ -26,7 +26,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <p class="card-category">ORDERS</p>
-                            <h3 class="card-title">343</h3>
+                            <h3 class="card-title">{{$orders->count()}}</h3>
                         </div>
 
                     </div>
@@ -50,7 +50,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </div>
                             <p class="card-category">TOTAL SALE</p>
-                            <h3 class="card-title">$245</h3>
+                            <h3 class="card-title">MAD {{$total}}</h3>
                         </div>
 
                     </div>

@@ -19,6 +19,7 @@ class CreateOrderProductTable extends Migration
             $table->float('quantity');
             $table->float('unitCost');
             $table->float('shippingCost');
+            $table->string('color');
             $table->timestamps();
         });
     }

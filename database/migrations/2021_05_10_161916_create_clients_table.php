@@ -18,6 +18,12 @@ class CreateClientsTable extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('address');
+            $table->string('optionalAddress');
+            $table->string('postCode');
+            $table->string('city');
+            $table->string('phone');
+            $table->string('email');
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

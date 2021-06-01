@@ -53,8 +53,7 @@ class ProductController extends Controller
 
     public function index_product_providers_info($id){
         $product = Product::find($id);
-        $colors = explode(",",$product->colors);
-        array_pop($colors);
+        $colors = $product->getColors();
         return view('store.product_providers',compact('product','colors'));
     }
 
@@ -102,8 +101,12 @@ class ProductController extends Controller
             foreach ($request->providers_quantity as $key => $quantity) {
                 $quantityTotal += $quantity;
             }
+            $product->quantity = $quantityTotal;
         }
-        $product->quantity = $quantityTotal;
+        else{
+            $product->quantity = $request->quantity;
+        }
+
         $product->save();
         //$product->providers()->sync(array_keys($request->providers),[]);
         $unitCosts = $request->providers_unitCost;

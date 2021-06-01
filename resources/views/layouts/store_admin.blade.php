@@ -42,8 +42,8 @@
                 </a>
             </li>
 
-            <li class="{{'#'==request()->path()? 'active':''}}" >
-                <a href="#">
+            <li class="{{'list_order'==request()->path()? 'active':''}}" >
+                <a href="/list_order">
                     <i class="fas fa-shopping-bag"></i>
                     &emsp;Orders
                 </a>

@@ -22,5 +22,6 @@ class Client extends Model
         'optionalAddress',
         'address',
         'postCode',
+        'store_id',
     ];
 }

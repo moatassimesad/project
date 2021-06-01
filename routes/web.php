@@ -114,6 +114,13 @@ Route::get('/edit_store', [StoreController::class,'index_edit_store_1'])->name('
 
 
 
+Route::get('/list_order', [OrderController::class,'index_list'])->name('list_order');
+
+Route::get('/order_products_info/{id}', [OrderController::class,'index_order_products_info'])->name('index_order_products_info');
+
+Route::get('/delete_order/{id}', [OrderController::class,'delete'])->name('delete_order');
+
+Route::post('/edit_order', [OrderController::class,'edit'])->name('edit_order');
 /**********************************shop***********************************/
 
 
