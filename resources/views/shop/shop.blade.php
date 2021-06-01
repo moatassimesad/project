@@ -54,6 +54,11 @@
                 font-size: 13px;
             }
         }
+        select{
+            background: none;
+            border: none;
+            outline: none;
+        }
 
 
 
@@ -115,14 +120,12 @@
                 font-size: 13px;
             }
         }
-
-
-
-
-
-
-
-
+        select{
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+        }
     </style>
         @endif
 </head>
@@ -141,13 +144,14 @@
                     <select name="status" id="status" onchange="location = this.value;">
 
                         <option disabled selected>@if($selectedCollection == 'all') All @else {{$selectedCollection}} @endif</option>
+                        @if($selectedCollection != 'all')
+                            <option value="/shop/{{$store->id}}/all">All</option>
+                        @endif
                         @foreach($collections as $collection)
                             @continue($selectedCollection == $collection->name)
                             <option value="/shop/{{$store->id}}/{{$collection->name}}">{{$collection->name}}</option>
                         @endforeach
-                        @if($selectedCollection != 'all')
-                            <option value="/shop/{{$store->id}}/all">All</option>
-                        @endif
+
 
                     </select>
                 </form>

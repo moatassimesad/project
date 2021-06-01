@@ -7,6 +7,7 @@ use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
 use App\Http\Controllers\shop\HomeController;
 use App\Http\Controllers\store\CollectionController;
+use App\Http\Controllers\store\CustomerController;
 use App\Http\Controllers\store\DashboardController;
 use App\Http\Controllers\store\OrderController;
 use App\Http\Controllers\store\StoreController;
@@ -122,7 +123,9 @@ Route::get('/delete_order/{id}', [OrderController::class,'delete'])->name('delet
 
 Route::post('/edit_order', [OrderController::class,'edit'])->name('edit_order');
 
+Route::get('/list_customer', [CustomerController::class,'index_list'])->name('list_customer');
 
+Route::get('/delete_customer/{id}', [CustomerController::class,'delete'])->name('delete_customer');
 
 /**********************************theme***********************************/
 

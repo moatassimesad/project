@@ -60,8 +60,8 @@
                 </ul>
             </li>
 
-            <li class="{{'#'==request()->path()? 'active':''}}" >
-                <a href="#">
+            <li class="{{'list_customer'==request()->path()? 'active':''}}" >
+                <a href="/list_customer">
                     <i class="fas fa-users"></i>
                     &emsp;Customers
                 </a>

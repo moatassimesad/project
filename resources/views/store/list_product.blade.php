@@ -52,9 +52,9 @@
             <td>{{ $product->price }}</td>
             <td>{{ $product->created_at }}</td>
             <td>
-                <span><a href="/product_providers_info/{{$product->id}}" class=" mr-2"><i class="fas fa-eye"></i></a></span>
-                <span><a href="/product_info/{{$product->id}}" class=" mr-2"><i class="fas fa-edit"></i></a></span>
-                <span><a href="/delete_product/{{$product->id}}" class=" mr-2"><i class="fas fa-trash"></i></a></span>
+                <span><a href="/product_providers_info/{{$product->id}}" class="btn btn-secondary mr-2"><i class="fas fa-eye"></i></a></span>
+                <span><a href="/product_info/{{$product->id}}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a></span>
+                <span><a href="/delete_product/{{$product->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
             </td>
         </tr>
         @endforeach

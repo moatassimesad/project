@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\File;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
 
     public function index_list(){
         $user = User::find(auth()->user()->id);

@@ -24,4 +24,10 @@ class Client extends Model
         'postCode',
         'store_id',
     ];
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
 }

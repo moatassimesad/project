@@ -79,8 +79,8 @@
                     <td>{{ $order->created_at }}</td>
                     <td>{{ $order->updated_at }}</td>
                     <td>
-                        <span><a href="/order_products_info/{{$order->id}}" class=" mr-2"><i class="fas fa-eye"></i></a></span>
-                        <span><a href="/delete_order/{{$order->id}}" class=" mr-2"><i class="fas fa-trash"></i></a></span>
+                        <span><a href="/order_products_info/{{$order->id}}" class="btn btn-secondary mr-2"><i class="fas fa-eye"></i></a></span>
+                        <span><a href="/delete_order/{{$order->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
                     </td>
                 </tr>
 

@@ -52,7 +52,7 @@
                     <h3>YOUR CART IS EMPTY.</h3>
                 </div>
                 <div class="row mt-3 justify-content-center">
-                    <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
+                    <a href="/shop/{{$store->id}}/all" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
                 </div>
 
         @else
@@ -70,7 +70,6 @@
                     <div class="card wish-list mb-3">
                         <div class="card-body">
 
-                            @if($cart)
                                 <h5 class="mb-4">Cart (<span>{{$cart->totalQty}}</span> items)</h5>
                                 @foreach( $cart->items as $product)
                                     <div style="display: none;">{{$produit = \App\Models\Product::find($product['id'])}}</div>
@@ -95,6 +94,7 @@
                                                         @if($color == "none")
                                                             <div class="mt-3">No available colors for this product</div>
                                                         @else
+                                                            @continue($color == $product['color'])
                                                             <a type="button" href="/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}" class="color mt-3 mr-2" style="background-color: {{$color}};"></a>
                                                         @endif
                                                     @endforeach
@@ -145,11 +145,6 @@
                             </div>
                             <hr class="mb-4">
                                 @endforeach
-                            @else
-                                <p>There are no items in the cart</p>
-
-
-                            @endif
 
 
 
@@ -243,7 +238,7 @@
 
 
                             <a href="/checkout/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-2 ">Go to checkout</button></a>
-                            <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
+                            <a href="/shop/{{$store->id}}/all" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
 
 
                         </div>
