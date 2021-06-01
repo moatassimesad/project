@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: #edeef2;
 }
 .title{
     font-size: x-large;
@@ -40,8 +40,8 @@ a:focus {
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    background: #6d7fcc;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+    background-color: #354861;
 
 
 }
@@ -64,6 +64,10 @@ span {
     display: inline-block;
 }
 
+.Msname a{
+    color: #cad4df;
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -78,7 +82,7 @@ span {
     min-width: 250px;
     max-width: 250px;
     height: 100%;
-    background: #141720;
+    background: #354861;
     color: #fff;
     transition: all 0.3s;
     z-index: 1;
@@ -131,7 +135,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #141720;
+    background: #2a3a4f;
 }
 
 #sidebar .sidebar-header strong {
@@ -151,18 +155,18 @@ span {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #a1a9b2;
+    /*background: #2a3b4e;*/
 }
 
-#sidebar ul li a i {
-    margin-right: 10px;
-}
+
+
+
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
+    color: #ffffff;
+    background: #2a3b4e;
 }
 
 a[data-toggle="collapse"] {
@@ -175,12 +179,18 @@ a[data-toggle="collapse"] {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+
 }
+
+
+
+
 
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    color: #2a3b4e;
+    background: #cad4df;
 }
 
 ul.CTAs {
@@ -284,6 +294,9 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+
+
+
     #content {
         margin-left: 0 ;
         width: 100%;
@@ -402,6 +415,6 @@ a {
     text-decoration: none !important;
 }
 .logo{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
 }

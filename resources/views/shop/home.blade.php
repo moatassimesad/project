@@ -130,7 +130,11 @@
 
     <div class="container-fluid mt-5">
         <div class="card  text-center" >
+            @if($store->image_top)
+                <img class="card-img" src="/images/{{$store->image_top}}" style="height: 60vh; " alt="Card image">
+                @else
             <img class="card-img" src="/images/shop_main_page.png" style="height: 60vh; " alt="Card image">
+            @endif
             <div class="card-img-overlay mt-5 txt-ovr" style="padding-top: 10vh; letter-spacing:2px"  >
                 <h1 class="card-title" style="font-weight: bold; ">IMAGE WITH TEXT LAYER</h1>
                 <h5 class="card-text">
@@ -203,7 +207,11 @@
 
     <div class="container-fluid mt-5">
         <div class="card  text-center" >
-            <img class="card-img" src="/images/shop_main_page.png" style="height: 60vh; " alt="Card image">
+            @if($store->image_bottom)
+                <img class="card-img" src="/images/{{$store->image_bottom}}" style="height: 60vh; " alt="Card image">
+            @else
+                <img class="card-img" src="/images/shop_main_page.png" style="height: 60vh; " alt="Card image">
+            @endif
             <div class="card-img-overlay mt-5 txt-ovr " style="padding-top: 10vh; letter-spacing:2px"  >
                 <h1 class="card-title" style="font-weight: bold; ">IMAGE WITH TEXT LAYER</h1>
                 <h5 class="card-text">

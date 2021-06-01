@@ -10,8 +10,7 @@
     <title>MyStore</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    <!-- Our Custom CSS -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
     <!-- Font Awesome JS -->
@@ -27,7 +26,7 @@
     <!-- Sidebar  -->
     <nav   id="sidebar">
         <div class="sidebar-header">
-             <div class="row flex-row">
+             <div class="row flex-row Msname">
                  <img class="logo ml-2 mt-2 mr-3" src="{{ asset('images/logo.png') }}" alt="logo">
                  <a class="title" href="/stats">MyStore</a>
              </div>
@@ -53,10 +52,10 @@
                     <i class="fas fa-box"></i>
                     &emsp;Products
                 </a>
-                <ul class="collapse list-unstyled" id="product-menu">
-                    <li class="{{'list_product'==request()->path()? 'active':''}}"><a href="/list_product">&emsp;Products</a></li>
-                    <li class="{{'list_collection'==request()->path()? 'active':''}}"><a href="/list_collection">&emsp;Collections</a></li>
-                    <li class="{{'list_provider'==request()->path()? 'active':''}}"><a href="/list_provider">&emsp;Providers</a></li>
+                <ul class="collapse list-unstyled hveffect" id="product-menu">
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/list_product">&emsp;Products</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/list_collection">&emsp;Collections</a></li>
+                    <li class="{{'#'==request()->path()? 'active':''}}"><a href="/list_provider">&emsp;Providers</a></li>
                 </ul>
             </li>
 
@@ -113,7 +112,7 @@
 
                     <!--first btn-->
 
-                        <a class="nav-link" href="" id="title"></a>
+                        <a class="nav-link"  href="" id="title" style="color:#cad4df "></a>
 
                     <!--second btn-->
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
