@@ -157,7 +157,7 @@
             <div class="row my-4 img-collection " >
                 @if($collections->getNth($i)!=null)
                     <div class=" col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
+                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
                         <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
@@ -166,21 +166,21 @@
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
-                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
-                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images" ></a>
+                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images" ></a>
                         <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/product_collection/{{ $store->id }}/{{$collections->getNth($i)->id}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
                     </div>
                 @endif
@@ -192,7 +192,7 @@
                 @for($i=0;$i<4;$i++)
 
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
-                        <a href="/product_collection/{{ $store->id }}}"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
+                        <a href="#"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
                         <div class="collectionName">Collection Name</div>
                     </div>
 

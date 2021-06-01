@@ -24,6 +24,7 @@ class HomeController extends Controller
     }
     public function index_shop($id,$collection){
         $store = Store::find($id);
+        $selectedCollection = $collection;
         if ($collection == 'all') {
             $products = $store->products;
         }
@@ -31,8 +32,9 @@ class HomeController extends Controller
             $coll = DB::table('collections')->where('name', $collection)->first();
             $products = DB::table('products')->where('collection_id', $coll->id)->get();
         }
+        $collections = $store->collections;
         $user = $store->user;
-        return view('shop.shop',compact('products','user','store'));
+        return view('shop.shop',compact('products','user','store','collections','selectedCollection'));
     }
     public function product_preview($store_id,$product_id){
         $product = Product::find($product_id);

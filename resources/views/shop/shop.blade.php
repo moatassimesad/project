@@ -137,11 +137,18 @@
             <div class="col-6 text-center">
 
                 <form action="" method="post" name="myFormName">
-{{--                    @csrf--}}
 
-                    <input type="hidden" name="order_id" value="">
-                    <select name="status" id="status" >
-                        <option><a href="/shop/{{$store->id}}/al">al</a></option>
+                    <select name="status" id="status" onchange="location = this.value;">
+
+                        <option disabled selected>{{$selectedCollection}}</option>
+                        @foreach($collections as $collection)
+                            @continue($selectedCollection == $collection->name)
+                            <option value="/shop/{{$store->id}}/{{$collection->name}}">{{$collection->name}}</option>
+                        @endforeach
+                        @if($selectedCollection != 'all')
+                            <option value="/shop/{{$store->id}}/all">All</option>
+                        @endif
+
                     </select>
                 </form>
 
