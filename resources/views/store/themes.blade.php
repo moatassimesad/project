@@ -11,7 +11,7 @@
 
 
 
-        <div class="titlepage">
+        <div class="titlepage justify-content-center">
             <h1>Pick your favorite homepage design</h1>
             <p>These fonts & colors will be used to design your site.</p>
         </div>
@@ -34,7 +34,7 @@
                     <div class="info">
                         <h1>Night Sky</h1>
                         <p> A highly approachable feel</p>
-                        <a href="/edit_theme/{{auth()->user()->store->id}}/dark">Pick</a>
+                        <a href="/edit_theme/{{auth()->user()->store->id}}/dark"><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Pick</button></a>
                     </div>
                 </div>
             </div>

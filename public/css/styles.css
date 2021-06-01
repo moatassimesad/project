@@ -25,12 +25,17 @@ a:focus {
 
 #userhoverffect li a:hover
 {
-    color: red;
+    color: #a1a9b2;
     background:none ;
 }
 #userhoverffect li a:focus{
-    color: red;
+    color: #a1a9b2;
     background:inherit ;
+}
+
+
+.nav-link{
+    text-transform: capitalize;
 }
 
 
@@ -106,6 +111,8 @@ span {
 #sidebar ul li a {
     text-align: left;
 }
+
+
 
 #sidebar.active ul li a {
     padding: 20px 10px;
@@ -223,6 +230,7 @@ a.article:hover {
 
 #content {
     margin-left: 250px;
+
     width: 100%;
     padding: 20px;
     min-height: 100vh;
@@ -301,6 +309,7 @@ a.article:hover {
         margin-left: 0 ;
         width: 100%;
         padding: 20px;
+
         min-height: 100vh;
         transition: all 0.3s;
         z-index: 7;

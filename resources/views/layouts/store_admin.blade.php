@@ -27,7 +27,8 @@
     <nav   id="sidebar">
         <div class="sidebar-header">
              <div class="row flex-row Msname">
-                 <img class="logo ml-2 mt-2 mr-3" src="{{ asset('images/logo.png') }}" alt="logo">
+
+                 <a class="title" href="/stats"><img class="logo ml-2 mt-2 mr-3" src="{{ asset('images/logo.png') }}" alt="logo"></a>
                  <a class="title" href="/stats">MyStore</a>
              </div>
         </div>
@@ -37,20 +38,22 @@
             <li class="{{'stats'==request()->path()?'active':''}}" >
                 <a href="/stats">
                     <i class="fas fa-home"></i>
-                    &emsp;Dashboard
+                    <span class="ml-0">&emsp;Dashboard</span>
                 </a>
             </li>
 
             <li class="{{'list_order'==request()->path()? 'active':''}}" >
                 <a href="/list_order">
                     <i class="fas fa-shopping-bag"></i>
-                    &emsp;Orders
+
+                    <span class="ml-1">&emsp;Orders</span>
                 </a>
             </li>
             <li>
                 <a href="#product-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-box"></i>
-                    &emsp;Products
+                    <span class="ml-1">&emsp;Products</span>
+
                 </a>
                 <ul class="collapse list-unstyled hveffect" id="product-menu">
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/list_product">&emsp;Products</a></li>
@@ -62,13 +65,15 @@
             <li class="{{'list_customer'==request()->path()? 'active':''}}" >
                 <a href="/list_customer">
                     <i class="fas fa-users"></i>
-                    &emsp;Customers
+                    <span style="margin-left: 0">&emsp;Customers</span>
+
                 </a>
             </li>
             <li>
                 <a href="#store-menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <i class="fas fa-paint-brush"></i>
-                    &emsp;Store
+                    <span class="ml-1">&emsp;Store</span>
+
                 </a>
                 <ul class="collapse list-unstyled" id="store-menu">
                     <li class="{{'#'==request()->path()? 'active':''}}"><a href="/themes">&emsp;Themes</a></li>
@@ -84,7 +89,8 @@
             <li class="{{'#'==request()->path()? 'active':''}}">
                 <a href="/home/{{auth()->user()->store->id}}" target="_blank" id="showstore">
                     <i class="fas fa-eye"></i>
-                    &emsp;ShowStore
+                    <span class="ml-1">&emsp;ShowStore</span>
+
                 </a>
             </li>
 
@@ -95,7 +101,8 @@
             <li class="{{'settings'==request()->path()? 'active':''}}">
                 <a href="/settings" class="settings">
                     <i class="fas fa-cogs"></i>
-                    &emsp;Settings
+                    <span class="ml-0">&emsp;Settings</span>
+
                 </a>
             </li>
 
@@ -106,8 +113,8 @@
     <div id="content">
 
         <!--  navbar  -->
-        <div id="navbarcontent">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+        <div id="navbarcontent" >
+            <nav class="navbar navbar-expand-lg navbar-light py-2">
                 <div class="container-fluid">
 
                     <!--first btn-->
@@ -126,17 +133,17 @@
 
                             <div class="navbar-nav " id="userhoverffect">
                                 <li class="nav-item dropdown " >
-                                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span id="usericon"><i class="fas fa-user-circle"></i></span>
+                                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:#cad4df " >
+                                        <span id="usericon"><i class="fas fa-user-circle fa-lg"></i></span>
                                         {{ auth()->user()->firstName }} {{ auth()->user()->lastName }}
                                         <i class="fas fa-angle-down"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right"  aria-labelledby="navbarDropdown" style="background-color: #cad4df ;color: #2a3b4e">
                                         <a class="dropdown-item" href="/condition_of_use">Condition of use</a>
                                         <a class="dropdown-item" href="/contact">Your contact</a>
                                         <a class="dropdown-item" href="/home/{{auth()->user()->store->id}}" target="_blank">Your store</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="/logout">Logout</a>
+                                        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i>&emsp;Logout</a>
                                     </div>
                                 </li>
 
