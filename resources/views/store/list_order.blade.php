@@ -53,7 +53,8 @@
                 <th scope="col">NUMBER</th>
                 <th scope="col">STATUS</th>
                 <th scope="col">PAYED TOTAL</th>
-                <th scope="col">DATE</th>
+                <th scope="col">CONFIRMATION DATE</th>
+                <th scope="col">STATUS UPDATED AT</th>
                 <th scope="col">ACTION</th>
             </tr>
             </thead>
@@ -76,6 +77,7 @@
                     </td>
                     <td>{{ $order->payedTotal }}</td>
                     <td>{{ $order->created_at }}</td>
+                    <td>{{ $order->updated_at }}</td>
                     <td>
                         <span><a href="/order_products_info/{{$order->id}}" class=" mr-2"><i class="fas fa-eye"></i></a></span>
                         <span><a href="/delete_order/{{$order->id}}" class=" mr-2"><i class="fas fa-trash"></i></a></span>

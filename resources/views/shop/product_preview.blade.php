@@ -2,161 +2,163 @@
 @section('content2')
 <head>
 
-{{--    <style>--}}
-{{--        .image{--}}
-{{--            width : 100%;--}}
-{{--            height: 400px;--}}
-{{--        }--}}
-{{--        .link{--}}
-{{--            margin-left: 6vw;--}}
-{{--            margin-right: 6vw;--}}
-{{--        }--}}
-{{--        .name{--}}
-{{--            width: 120px;--}}
-{{--            height: 30px;--}}
-{{--            border: solid 1px #707070;--}}
-{{--            border-radius: 15px;;--}}
-{{--            background: none;--}}
-{{--        }--}}
-{{--        input{--}}
-{{--            text-align:center;--}}
-{{--        }--}}
-{{--        input:focus, textarea:focus, select:focus{--}}
-{{--            outline: none;--}}
-{{--        }--}}
-{{--        .bouton{--}}
-{{--            width: 150px;--}}
-{{--        }--}}
-{{--        .color{--}}
-{{--            border : none;--}}
-{{--            width: 20px;--}}
-{{--            height: 20px;--}}
-{{--            border-radius: 50%;--}}
-{{--        }--}}
+    @if($store->designName == 'sand')
+    <style>
+        .image{
+            width : 100%;
+            height: 400px;
+        }
+        .link{
+            margin-left: 6vw;
+            margin-right: 6vw;
+        }
+        .name{
+            width: 120px;
+            height: 30px;
+            border: solid 1px #707070;
+            border-radius: 15px;;
+            background: none;
+        }
+        input{
+            text-align:center;
+        }
+        input:focus, textarea:focus, select:focus{
+            outline: none;
+        }
+        .bouton{
+            width: 150px;
+        }
+        .color{
+            border : none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
 
-{{--        .mtop{--}}
-{{--            margin-top: 0;--}}
-{{--        }--}}
+        .mtop{
+            margin-top: 0;
+        }
 
-{{--        @media (max-width:1200px) {--}}
-{{--            .image{--}}
-{{--                width : 100%;--}}
-{{--                height: 290px;--}}
-{{--            }--}}
-
-
-{{--        }--}}
-
-{{--        @media (max-width:992px) {--}}
-
-{{--            .image{--}}
-{{--                width : 100%;--}}
-{{--                height: 450px;--}}
-{{--            }--}}
-{{--            .link{--}}
-{{--                margin-left: 2%;--}}
-{{--                margin-right: 2%;--}}
-{{--            }--}}
-
-{{--            .mtop{--}}
-{{--                margin-top: 10px;--}}
-{{--            }--}}
-{{--        }--}}
-
-{{--        @media (max-width:576px) {--}}
-{{--            .image{--}}
-{{--                width : 100%;--}}
-{{--                height: 400px;--}}
-{{--            }--}}
-{{--            .link{--}}
-{{--                margin-left: 2vw;--}}
-{{--                margin-right: 2vw;--}}
-{{--            }--}}
-
-{{--            .mtop{--}}
-{{--                margin-top: 10px;--}}
-{{--            }--}}
-{{--        }--}}
-
-{{--        .productName{--}}
-{{--            font-size: large;--}}
-{{--            font-family: Helvetica, sans-serif;--}}
-{{--            font-weight: bold;--}}
-{{--            color: #413C3C;--}}
-{{--            text-transform: capitalize;--}}
-{{--        }--}}
-
-{{--        .collection{--}}
-{{--            color: #413C3C;--}}
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 12px;--}}
-{{--            font-weight: 500;--}}
-{{--            text-transform: uppercase;--}}
-{{--        }--}}
-
-{{--        .price{--}}
-{{--            color: #413C3C;--}}
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 15px;--}}
-{{--            font-weight: 500;--}}
-{{--            line-height: 24px;--}}
-
-{{--        }--}}
-
-{{--        .description{--}}
-
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 16px;--}}
-{{--            font-weight: 300;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
-
-{{--        .hmlink{--}}
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 13px;--}}
-{{--            font-weight: 300;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
-
-{{--        .splink{--}}
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 13px;--}}
-{{--            font-weight: 500;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
-{{--        .lnlink{--}}
-{{--            font-size: 13px;--}}
-{{--        }--}}
-
-{{--        .pickcolor{--}}
-{{--            font-family: Roboto, sans-serif;--}}
-{{--            font-size: 16px;--}}
-{{--            font-weight: 550;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
-
-{{--        #nav_line2{--}}
-
-{{--        }--}}
-
-{{--        .hrproduct{--}}
-{{--            border-top: 1.5px solid #707070;--}}
-{{--            opacity: 0.3;--}}
-{{--        }--}}
-
-    {{--    /* Chrome, Safari, Edge, Opera */--}}
-    {{--    input::-webkit-outer-spin-button,--}}
-    {{--    input::-webkit-inner-spin-button {--}}
-    {{--    -webkit-appearance: none;--}}
-    {{--    margin: 0;--}}
-    {{--    }--}}
-
-    {{--    /* Firefox */--}}
-    {{--    input[type=number] {--}}
-    {{--    -moz-appearance: textfield;}--}}
+        @media (max-width:1200px) {
+            .image{
+                width : 100%;
+                height: 290px;
+            }
 
 
-{{--    </style>--}}
+        }
+
+        @media (max-width:992px) {
+
+            .image{
+                width : 100%;
+                height: 450px;
+            }
+            .link{
+                margin-left: 2%;
+                margin-right: 2%;
+            }
+
+            .mtop{
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width:576px) {
+            .image{
+                width : 100%;
+                height: 400px;
+            }
+            .link{
+                margin-left: 2vw;
+                margin-right: 2vw;
+            }
+
+            .mtop{
+                margin-top: 10px;
+            }
+        }
+
+        .productName{
+            font-size: large;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            color: #413C3C;
+            text-transform: capitalize;
+        }
+
+        .collection{
+            color: #413C3C;
+            font-family: Roboto, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .price{
+            color: #413C3C;
+            font-family: Roboto, sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 24px;
+
+        }
+
+        .description{
+
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #413C3C;
+        }
+
+        .hmlink{
+            font-family: Roboto, sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            color: #413C3C;
+        }
+
+        .splink{
+            font-family: Roboto, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #413C3C;
+        }
+        .lnlink{
+            font-size: 13px;
+        }
+
+        .pickcolor{
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            font-weight: 550;
+            color: #413C3C;
+        }
+
+        #nav_line2{
+
+        }
+
+        .hrproduct{
+            border-top: 1.5px solid #707070;
+            opacity: 0.3;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;}
+
+
+    </style>
+    @else
 
 
     <style>
@@ -320,6 +322,7 @@
 
 
     </style>
+    @endif
 </head>
 
 <div class="container">

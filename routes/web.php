@@ -121,6 +121,13 @@ Route::get('/order_products_info/{id}', [OrderController::class,'index_order_pro
 Route::get('/delete_order/{id}', [OrderController::class,'delete'])->name('delete_order');
 
 Route::post('/edit_order', [OrderController::class,'edit'])->name('edit_order');
+
+
+
+/**********************************theme***********************************/
+
+Route::get('/edit_theme/{id}/{theme}', [StoreNameController::class,'edit_theme'])->name('edit_theme');
+
 /**********************************shop***********************************/
 
 
@@ -128,7 +135,7 @@ Route::post('/edit_order', [OrderController::class,'edit'])->name('edit_order');
 Route::get('/home/{id}', [HomeController::class,'index'])->name('home');
 
 
-Route::get('/shop/{id}', [HomeController::class,'index_shop'])->name('shop');
+Route::get('/shop/{id}/{collection_id}', [HomeController::class,'index_shop'])->name('shop');
 
 Route::get('/product_preview/{store_id}/{product_id}', [HomeController::class,'product_preview'])->name('product_preview');
 

@@ -3,66 +3,67 @@
 
 @section('content2')
 <head>
-{{--    <style>--}}
-{{--        .images{--}}
-{{--            border-radius: 10px;--}}
-{{--            height: 200px;--}}
-{{--            width: 200px;--}}
-{{--        }--}}
+    @if($store->designName == 'sand')
+    <style>
+        .images{
+            border-radius: 10px;
+            height: 200px;
+            width: 200px;
+        }
 
-{{--        .img-product img{--}}
-{{--            width: 200px;--}}
-{{--            height: 200px;--}}
-{{--        }--}}
+        .img-product img{
+            width: 200px;
+            height: 200px;
+        }
 
-{{--        #allProducts{--}}
-{{--            margin-top: 3rem;--}}
-{{--            margin-left: 1rem;--}}
-{{--            font-family: Helvetica, sans-serif;--}}
-{{--            font-weight: 400;--}}
-{{--            letter-spacing: 1px;--}}
-{{--            color: #413C3C;--}}
-
-
-{{--        }--}}
-{{--        .price{--}}
-{{--            color: #413C3C;--}}
-{{--            font-size: small;--}}
-{{--            font-family: Helvetica, sans-serif;--}}
-{{--        }--}}
-{{--        .productName{--}}
-{{--            font-size: medium;--}}
-{{--            font-family: Helvetica, sans-serif;--}}
-{{--            font-weight: bold;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
+        #allProducts{
+            margin-top: 3rem;
+            margin-left: 1rem;
+            font-family: Helvetica, sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #413C3C;
 
 
-
-{{--        @media (max-width:992px) {--}}
-{{--            .img-product img{--}}
-{{--                width: 170px;--}}
-{{--                height: 170px;--}}
-{{--            }--}}
-
-{{--            .productName{--}}
-{{--                font-size: 15px;--}}
-{{--            }--}}
-
-{{--            .price{--}}
-{{--                font-size: 13px;--}}
-{{--            }--}}
-{{--        }--}}
+        }
+        .price{
+            color: #413C3C;
+            font-size: small;
+            font-family: Helvetica, sans-serif;
+        }
+        .productName{
+            font-size: medium;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            color: #413C3C;
+        }
 
 
 
+        @media (max-width:992px) {
+            .img-product img{
+                width: 170px;
+                height: 170px;
+            }
+
+            .productName{
+                font-size: 15px;
+            }
+
+            .price{
+                font-size: 13px;
+            }
+        }
 
 
 
 
 
-{{--    </style>--}}
 
+
+
+    </style>
+    @else
 
     <style>
         .images{
@@ -123,6 +124,7 @@
 
 
     </style>
+        @endif
 </head>
 
 
@@ -139,7 +141,7 @@
             <div class="row img-product">
                 @if($products->getNth($i)!=null)
                 <div class="col-md-3 col-sm-6 col-6 text-center mt-3 productInfo">
-                    <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image }}" alt="" class="images"></a>
+                    <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image }}" alt="" class="images"></a>
                     <div  class="productName">{{$products->getNth($i)->name}}</div>
                     <div class="price" >MAD {{$products->getNth($i)->price}} </div>
                     <div>
@@ -150,7 +152,7 @@
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
+                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
                         <div >
@@ -161,7 +163,7 @@
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
+                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
                         <div>
@@ -172,7 +174,7 @@
                 <input type="hidden" value="{{ $i++ }}">
                 @if($products->getNth($i)!=null)
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
+                        <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
                         <div class="price" >MAD {{$products->getNth($i)->price}} </div>
                         <div >

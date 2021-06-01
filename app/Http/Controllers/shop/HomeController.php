@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -21,9 +22,15 @@ class HomeController extends Controller
         return view('shop.home',compact('collections','store','user'));
 
     }
-    public function index_shop($id){
+    public function index_shop($id,$collection){
         $store = Store::find($id);
-        $products = $store->products;
+        if ($collection == 'all') {
+            $products = $store->products;
+        }
+        else{
+            $coll = DB::table('collections')->where('name', $collection)->first();
+            $products = DB::table('products')->where('collection_id', $coll->id)->get();
+        }
         $user = $store->user;
         return view('shop.shop',compact('products','user','store'));
     }

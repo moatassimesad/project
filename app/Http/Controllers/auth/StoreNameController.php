@@ -11,20 +11,12 @@ class StoreNameController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth']);
     }
 
     public function index(){
         if(auth()->user()->store){
-            $values = [19,3,5,1,19,6,19];
-            $days = ['Monday', 'Tuesday', 'Wednesday', 'thursday','Friday','Saturday','Sunday'];
-            $user = auth()->user();
-            $store = $user->store;
-            $products = $store->products;
-            $chart = new SaleProductChart();
-            $chart->labels($days);
-            $chart->dataset('products sale', 'line', $values)->backgroundColor('rgba(52, 130, 255, 0.2)');
-            return view('store.stats',compact('chart','products'));
+            return redirect()->route('stats');
         }
         else {
             return view('sign.store_name');
@@ -40,7 +32,7 @@ class StoreNameController extends Controller
         Store::create([
         'name'=>$request->storeName,
         'storeActivityType'=>$request->storeActivityType,
-        'designName'=>$request->storeActivityType,
+        'designName'=>'sand',
         'user_id'=>auth()->user()->id,
         ]);
         /*auth()->user()->stores->create([
@@ -48,5 +40,11 @@ class StoreNameController extends Controller
         ]);*/
 
         return redirect()->route('stats');
+    }
+    public function edit_theme($id,$theme){
+        $store = Store::find($id);
+        $store->designName = $theme;
+        $store->save();
+        return back()->with('status','Theme changed successfully');
     }
 }

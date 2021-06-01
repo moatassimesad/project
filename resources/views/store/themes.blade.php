@@ -24,7 +24,7 @@
                 <div class="info">
                     <h1>Sand</h1>
                     <p> A highly approachable feel</p>
-                    <button>Pick</button>
+                    <a href="/edit_theme/{{auth()->user()->store->id}}/sand">Pick</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <div class="info">
                         <h1>Night Sky</h1>
                         <p> A highly approachable feel</p>
-                        <button>Pick</button>
+                        <a href="/edit_theme/{{auth()->user()->store->id}}/dark">Pick</a>
                     </div>
                 </div>
             </div>

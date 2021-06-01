@@ -41,8 +41,11 @@
         @if($cart == null)
 
                 <div class="row cartempty justify-content-center">
-{{--                     <img  src="{{ asset('images/emptycart.png') }}" alt="empty cart">--}}
+                    @if($store->designName == 'sand')
+                     <img  src="{{ asset('images/emptycart.png') }}" alt="empty cart">
+                    @else
                     <img  src="{{ asset('images/emptycart2.png') }}" alt="empty cart">
+                    @endif
 
                 </div>
                 <div class="row mt-3 cartempty2  justify-content-center">

@@ -26,190 +26,192 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
-{{--    <style>--}}
+    @if($store->designName == 'sand')
+    <style>
 
-{{--        body{--}}
-{{--            background-color: #F7F5EE;--}}
-{{--        }--}}
+        body{
+            background-color: #F7F5EE;
+        }
 
-{{--        #store-name{--}}
-{{--            font-size: x-large;--}}
-{{--            font-family: "Times New Roman", Times, serif;--}}
-{{--            font-variant-caps: petite-caps;--}}
-{{--            text-transform: capitalize;--}}
-{{--            letter-spacing: 2px;--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
+        #store-name{
+            font-size: x-large;
+            font-family: "Times New Roman", Times, serif;
+            font-variant-caps: petite-caps;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+            color: #413C3C;
+        }
 
-{{--        #nav_line{--}}
-{{--            margin-left: 10vw;--}}
-{{--            margin-right: 10vw;--}}
-{{--        }--}}
+        #nav_line{
+            margin-left: 10vw;
+            margin-right: 10vw;
+        }
 
-{{--        hr{--}}
-{{--            border-top: 1px solid #707070;--}}
-{{--        }--}}
+        hr{
+            border-top: 1px solid #707070;
+        }
 
-{{--        #nav-link{--}}
-{{--            font-size: medium;--}}
-{{--            font-family: "Times New Roman", Times, serif;--}}
+        #nav-link{
+            font-size: medium;
+            font-family: "Times New Roman", Times, serif;
 
-{{--        }--}}
-{{--        a{--}}
-{{--            color: #413C3C;--}}
-{{--        }--}}
+        }
+        a{
+            color: #413C3C;
+        }
 
-{{--        #homelink, #shoplink{--}}
-{{--            padding-bottom: 3px;--}}
-{{--        }--}}
+        #homelink, #shoplink{
+            padding-bottom: 3px;
+        }
 
-{{--        .footer-clean {--}}
-{{--            padding:50px 0;--}}
-{{--            color:#4b4c4d;--}}
-{{--        }--}}
+        .footer-clean {
+            padding:50px 0;
+            color:#4b4c4d;
+        }
 
-{{--        .footer-clean h3 {--}}
-{{--            margin-top:0;--}}
-{{--            margin-bottom:12px;--}}
-{{--            font-weight:bold;--}}
-{{--            font-size:16px;--}}
-{{--        }--}}
+        .footer-clean h3 {
+            margin-top:0;
+            margin-bottom:12px;
+            font-weight:bold;
+            font-size:16px;
+        }
 
-{{--        .footer-clean ul {--}}
-{{--            padding:0;--}}
-{{--            list-style:none;--}}
-{{--            line-height:1.6;--}}
-{{--            font-size:14px;--}}
-{{--            margin-bottom:0;--}}
-{{--        }--}}
+        .footer-clean ul {
+            padding:0;
+            list-style:none;
+            line-height:1.6;
+            font-size:14px;
+            margin-bottom:0;
+        }
 
-{{--        .footer-clean ul a {--}}
-{{--            color:inherit;--}}
-{{--            text-decoration:none;--}}
-{{--            opacity:0.8;--}}
-{{--        }--}}
+        .footer-clean ul a {
+            color:inherit;
+            text-decoration:none;
+            opacity:0.8;
+        }
 
-{{--        .footer-clean ul a:hover {--}}
-{{--            opacity:1;--}}
-
-
-{{--        }--}}
-
-{{--        .fbicon i:hover{--}}
-{{--            color: #4267B2;--}}
-{{--        }--}}
-
-{{--        .twicon i:hover{--}}
-{{--            color: #1DA1F2;--}}
-{{--        }--}}
-
-{{--        .footer-clean .item.social {--}}
-{{--            text-align:right;--}}
-{{--        }--}}
-
-{{--        @media (max-width:767px) {--}}
-{{--            .footer-clean .item {--}}
-{{--                text-align:center;--}}
-{{--                padding-bottom:20px;--}}
-{{--            }--}}
-{{--        }--}}
-
-{{--        @media (max-width: 768px) {--}}
-{{--            .footer-clean .item.social {--}}
-{{--                text-align:center;--}}
-{{--            }--}}
-{{--        }--}}
-
-{{--        .footer-clean .item.social > a {--}}
-{{--            font-size:24px;--}}
-{{--            width:40px;--}}
-{{--            height:40px;--}}
-{{--            line-height:40px;--}}
-{{--            display:inline-block;--}}
-{{--            text-align:center;--}}
-{{--            border-radius:50%;--}}
-{{--            border:1px solid #ccc;--}}
-{{--            margin-left:10px;--}}
-{{--            margin-top:22px;--}}
-{{--            color:inherit;--}}
-{{--            opacity:0.75;--}}
-{{--        }--}}
-
-{{--        .footer-clean .item.social > a:hover {--}}
-{{--            opacity:0.9;--}}
-{{--        }--}}
+        .footer-clean ul a:hover {
+            opacity:1;
 
 
+        }
 
+        .fbicon i:hover{
+            color: #4267B2;
+        }
 
-{{--        @media (max-width:991px) {--}}
-{{--            .footer-clean .item.social > a {--}}
-{{--                margin-top:40px;--}}
-{{--            }--}}
-{{--        }--}}
+        .twicon i:hover{
+            color: #1DA1F2;
+        }
 
-{{--        @media (max-width:767px) {--}}
-{{--            .footer-clean .item.social > a {--}}
-{{--                margin-top:10px;--}}
-{{--            }--}}
-{{--        }--}}
+        .footer-clean .item.social {
+            text-align:right;
+        }
 
-{{--        .footer-clean .copyright {--}}
-{{--            margin-top:14px;--}}
-{{--            margin-bottom:0;--}}
-{{--            font-size:13px;--}}
-{{--            opacity:0.6;--}}
-{{--            font-variant-caps: petite-caps;--}}
-{{--        }--}}
+        @media (max-width:767px) {
+            .footer-clean .item {
+                text-align:center;
+                padding-bottom:20px;
+            }
+        }
 
-{{--        .logo{--}}
-{{--            max-width: 45px;--}}
-{{--            max-height: 45px;--}}
+        @media (max-width: 768px) {
+            .footer-clean .item.social {
+                text-align:center;
+            }
+        }
 
-{{--        }--}}
+        .footer-clean .item.social > a {
+            font-size:24px;
+            width:40px;
+            height:40px;
+            line-height:40px;
+            display:inline-block;
+            text-align:center;
+            border-radius:50%;
+            border:1px solid #ccc;
+            margin-left:10px;
+            margin-top:22px;
+            color:inherit;
+            opacity:0.75;
+        }
 
-
-{{--        @media (max-width:767px) {--}}
-
-{{--            .logo{--}}
-{{--                width: 30px;--}}
-{{--                height: 30px;--}}
-{{--            }--}}
-{{--        }--}}
-{{--        a, u {--}}
-{{--            text-decoration: none; !important;--}}
-{{--        }--}}
-{{--        a {--}}
-{{--            text-decoration: none !important;--}}
-{{--        }--}}
-
-{{--        .fa-stack[data-count]:after{--}}
-{{--            position:absolute;--}}
-{{--            right:0%;--}}
-{{--            top:0%;--}}
-{{--            content: attr(data-count);--}}
-{{--            font-size:50%;--}}
-{{--            padding:.6em;--}}
-{{--            border-radius:999px;--}}
-{{--            line-height:.75em;--}}
-{{--            color:#2E8AD0;--}}
-{{--            text-align:center;--}}
-{{--            min-width:2em;--}}
-{{--            font-weight:bold;--}}
-{{--            background: #F7F5EE;--}}
-{{--            border-style:solid;--}}
-{{--        }--}}
-
-
-{{--        .panier-logo {--}}
-{{--            color: #2E8AD0;--}}
-{{--            opacity: 0.8;--}}
-{{--            background:#F7F5EE;--}}
-{{--        }--}}
+        .footer-clean .item.social > a:hover {
+            opacity:0.9;
+        }
 
 
 
-{{--    </style>--}}
+
+        @media (max-width:991px) {
+            .footer-clean .item.social > a {
+                margin-top:40px;
+            }
+        }
+
+        @media (max-width:767px) {
+            .footer-clean .item.social > a {
+                margin-top:10px;
+            }
+        }
+
+        .footer-clean .copyright {
+            margin-top:14px;
+            margin-bottom:0;
+            font-size:13px;
+            opacity:0.6;
+            font-variant-caps: petite-caps;
+        }
+
+        .logo{
+            max-width: 45px;
+            max-height: 45px;
+
+        }
+
+
+        @media (max-width:767px) {
+
+            .logo{
+                width: 30px;
+                height: 30px;
+            }
+        }
+        a, u {
+            text-decoration: none; !important;
+        }
+        a {
+            text-decoration: none !important;
+        }
+
+        .fa-stack[data-count]:after{
+            position:absolute;
+            right:0%;
+            top:0%;
+            content: attr(data-count);
+            font-size:50%;
+            padding:.6em;
+            border-radius:999px;
+            line-height:.75em;
+            color:#2E8AD0;
+            text-align:center;
+            min-width:2em;
+            font-weight:bold;
+            background: #F7F5EE;
+            border-style:solid;
+        }
+
+
+        .panier-logo {
+            color: #2E8AD0;
+            opacity: 0.8;
+            background:#F7F5EE;
+        }
+
+
+
+    </style>
+    @else
 
 
     <style>
@@ -402,6 +404,7 @@
 
 
     </style>
+    @endif
 
 </head>
 
@@ -434,7 +437,7 @@
                         <a class="mr-2" style="border: none;" id="homelink" href="/home/{{$store->id}}">
                             Home
                         </a>
-                        <a class="ml-2" style="border: none;" id="shoplink" href="/shop/{{$store->id}}">
+                        <a class="ml-2" style="border: none;" id="shoplink" href="/shop/{{$store->id}}/all">
                             Shop
                         </a>
 
