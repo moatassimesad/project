@@ -83,7 +83,7 @@
                 </a>
             </li>
             <li class="{{'#'==request()->path()? 'active':''}}">
-                <a href="#" id="showstore">
+                <a href="/home/{{auth()->user()->store->id}}" target="_blank" id="showstore">
                     <i class="fas fa-eye"></i>
                     &emsp;ShowStore
                 </a>

@@ -131,8 +131,21 @@
     <div class="container">
 
         <div class="row " id="allProducts">
-            <div class="col-12">
+            <div class="col-6 text-left">
                 <h4 >Products</h4>
+            </div>
+            <div class="col-6 text-center">
+
+                <form action="" method="post" name="myFormName">
+{{--                    @csrf--}}
+
+                    <input type="hidden" name="order_id" value="">
+                    <select name="status" id="status" >
+                        <option><a href="/shop/{{$store->id}}/al">al</a></option>
+                    </select>
+                </form>
+
+
             </div>
         </div>
 
