@@ -140,7 +140,7 @@
 
                     <select name="status" id="status" onchange="location = this.value;">
 
-                        <option disabled selected>{{$selectedCollection}}</option>
+                        <option disabled selected>@if($selectedCollection == 'all') All @else {{$selectedCollection}} @endif</option>
                         @foreach($collections as $collection)
                             @continue($selectedCollection == $collection->name)
                             <option value="/shop/{{$store->id}}/{{$collection->name}}">{{$collection->name}}</option>
