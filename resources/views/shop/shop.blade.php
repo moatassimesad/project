@@ -3,6 +3,67 @@
 
 @section('content2')
 <head>
+{{--    <style>--}}
+{{--        .images{--}}
+{{--            border-radius: 10px;--}}
+{{--            height: 200px;--}}
+{{--            width: 200px;--}}
+{{--        }--}}
+
+{{--        .img-product img{--}}
+{{--            width: 200px;--}}
+{{--            height: 200px;--}}
+{{--        }--}}
+
+{{--        #allProducts{--}}
+{{--            margin-top: 3rem;--}}
+{{--            margin-left: 1rem;--}}
+{{--            font-family: Helvetica, sans-serif;--}}
+{{--            font-weight: 400;--}}
+{{--            letter-spacing: 1px;--}}
+{{--            color: #413C3C;--}}
+
+
+{{--        }--}}
+{{--        .price{--}}
+{{--            color: #413C3C;--}}
+{{--            font-size: small;--}}
+{{--            font-family: Helvetica, sans-serif;--}}
+{{--        }--}}
+{{--        .productName{--}}
+{{--            font-size: medium;--}}
+{{--            font-family: Helvetica, sans-serif;--}}
+{{--            font-weight: bold;--}}
+{{--            color: #413C3C;--}}
+{{--        }--}}
+
+
+
+{{--        @media (max-width:992px) {--}}
+{{--            .img-product img{--}}
+{{--                width: 170px;--}}
+{{--                height: 170px;--}}
+{{--            }--}}
+
+{{--            .productName{--}}
+{{--                font-size: 15px;--}}
+{{--            }--}}
+
+{{--            .price{--}}
+{{--                font-size: 13px;--}}
+{{--            }--}}
+{{--        }--}}
+
+
+
+
+
+
+
+
+{{--    </style>--}}
+
+
     <style>
         .images{
             border-radius: 10px;
@@ -21,12 +82,12 @@
             font-family: Helvetica, sans-serif;
             font-weight: 400;
             letter-spacing: 1px;
-            color: #413C3C;
+            color: #e3dede;
 
 
         }
         .price{
-            color: #413C3C;
+            color: #e3dede;
             font-size: small;
             font-family: Helvetica, sans-serif;
         }
@@ -34,7 +95,7 @@
             font-size: medium;
             font-family: Helvetica, sans-serif;
             font-weight: bold;
-            color: #413C3C;
+            color: #e3dede;
         }
 
 

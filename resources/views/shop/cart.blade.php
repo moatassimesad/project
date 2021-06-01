@@ -10,13 +10,55 @@
             height: 20px;
             border-radius: 50%;
         }
+
+        .cartempty{
+            margin-top: 45px;
+        }
+        .cartempty img{
+            width: 120px;
+            height: 120px;
+        }
+
+        .cartempty2 h3{
+            color: #707070;
+
+
+        }
+
+        @media (max-width:768px) {
+            .cartempty img{
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
     <div class="container">
         <section>
 
+
+            <!--Cart empty-->
+        @if($cart == null)
+
+                <div class="row cartempty justify-content-center">
+{{--                     <img  src="{{ asset('images/emptycart.png') }}" alt="empty cart">--}}
+                    <img  src="{{ asset('images/emptycart2.png') }}" alt="empty cart">
+
+                </div>
+                <div class="row mt-3 cartempty2  justify-content-center">
+                    <h3>YOUR CART IS EMPTY.</h3>
+                </div>
+                <div class="row mt-3 justify-content-center">
+                    <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
+                </div>
+
+        @else
+
             <!--Grid row-->
             <div class="row mt-4">
+
+
+
 
                 <!--Grid column-->
                 <div class="col-lg-8">
@@ -212,6 +254,8 @@
 
             </div>
             <!--Grid row-->
+
+            @endif
 
         </section>
     </div>

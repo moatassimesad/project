@@ -2,6 +2,13 @@
 
 
 @section('content2')
+
+    <head>
+        <link rel="stylesheet"   href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+
+        <link rel="stylesheet" href="css/intlTelInput.css">
+    </head>
+
 <style>
     .clr{
         color: #000000;
@@ -113,12 +120,15 @@
                         <!-- Phone -->
                         <div class="clr md-form md-outline mb-lg-2">
                             <label for="form5">Phone</label>
-                            <input type="number" style="@error('phone') border:solid 1px red; @enderror" id="form18" name="phone" value="{{old('phone')}}" class="form-control">
+                            <input  type="tel"  style="@error('phone') border:solid 1px red; @enderror" id="phoneNo" name="phone" value="{{old('phone')}}" class="form-control">
 
                         </div>
                         @error('phone')
                         <div class="error">{{ $message }}</div>
-                    @enderror
+                        @enderror
+
+
+
 
                         <!-- Email address -->
                         <div class="clr md-form md-outline">
@@ -199,8 +209,24 @@
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
-<script>
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
+{{--    <script src="js/intlTelInput.js"></script>--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+
+    <script>
     $("#shoplink").css("border-bottom","2px solid #2E8AD0");
+
+
+</script>
+
+<script>
+    const phoneInputField = document.querySelector("#phoneNo");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
 </script>
 
 

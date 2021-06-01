@@ -47,16 +47,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-//        if (session()->has('cart')) {
-//            $cart = new Cart(session()->get('cart'));
-//        }
-//        foreach ($cart->items as $item){
-//           dd($item['id']);
-//        }
+
+//
         $this->validate($request, [
             'firstName' => 'required',
             'lastName' => 'required',
             'address' => 'required',
+            'optionalAddress' => 'nullable',
             'postCode' => 'required',
             'city' => 'required',
             'phone' => 'required',

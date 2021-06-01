@@ -5,6 +5,62 @@
     <head>
 
         <title>unti</title>
+{{--        <style>--}}
+{{--            img{--}}
+
+{{--            }--}}
+
+{{--            .card  .card-img-overlay h1{--}}
+{{--                letter-spacing: 3px;--}}
+{{--                font-weight: bold !important;--}}
+{{--            }--}}
+
+{{--            .txt-ovr{--}}
+{{--                color: #413C3C;--}}
+{{--            }--}}
+
+{{--           #allCollections{--}}
+{{--               margin-top: 5rem;--}}
+{{--               font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;--}}
+{{--               text-transform: uppercase;--}}
+{{--               letter-spacing: 1px;--}}
+{{--               color: #413C3C;--}}
+{{--               text-align: center;--}}
+
+{{--           }--}}
+
+
+{{--           .collectionName{--}}
+{{--               padding-top: 0.5rem;--}}
+{{--               text-align: center;--}}
+{{--               font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;--}}
+{{--               font-weight: bold;--}}
+{{--               font-size: medium;--}}
+
+{{--           }--}}
+{{--           .img-collection img{--}}
+{{--               width: 220px;--}}
+{{--               height: 220px;--}}
+{{--               border: 1px solid #707070;--}}
+
+{{--           }--}}
+
+{{--            @media (max-width:992px) {--}}
+{{--                .img-collection img{--}}
+{{--                    width: 170px;--}}
+{{--                    height: 170px;--}}
+
+{{--                }--}}
+{{--                .collectionName{--}}
+{{--                    font-size: 15px;--}}
+{{--                }--}}
+{{--            }--}}
+
+
+
+{{--        </style>--}}
+
+
         <style>
             img{
 
@@ -19,31 +75,32 @@
                 color: #413C3C;
             }
 
-           #allCollections{
-               margin-top: 5rem;
-               font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-               text-transform: uppercase;
-               letter-spacing: 1px;
-               color: #413C3C;
-               text-align: center;
+            #allCollections{
+                margin-top: 5rem;
+                font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color:#e3dede;
+                text-align: center;
 
-           }
+            }
 
 
-           .collectionName{
-               padding-top: 0.5rem;
-               text-align: center;
-               font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
-               font-weight: bold;
-               font-size: medium;
+            .collectionName{
+                padding-top: 0.5rem;
+                text-align: center;
+                font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+                font-weight: bold;
+                font-size: medium;
+                color: #e3dede;
 
-           }
-           .img-collection img{
-               width: 220px;
-               height: 220px;
-               border: 1px solid #707070;
+            }
+            .img-collection img{
+                width: 220px;
+                height: 220px;
+                border: 1px solid #e3dede;
 
-           }
+            }
 
             @media (max-width:992px) {
                 .img-collection img{

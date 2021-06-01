@@ -2,6 +2,45 @@
 @section('content2')
 
 
+{{--    <style>--}}
+{{--        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');--}}
+
+
+
+{{--        .card {--}}
+{{--            border: none--}}
+{{--        }--}}
+
+{{--        .card-title{--}}
+{{--            background: #2E8AD0;--}}
+{{--            opacity: 0.7;--}}
+{{--        }--}}
+
+
+
+{{--        .totals tr td {--}}
+{{--            font-size: 13px--}}
+{{--        }--}}
+
+{{--        .footer {--}}
+{{--            background-color: #eeeeeea8--}}
+{{--        }--}}
+
+{{--        .footer span {--}}
+{{--            font-size: 12px--}}
+{{--        }--}}
+
+{{--        .product-qty span {--}}
+{{--            font-size: 12px;--}}
+{{--            color: #dedbdb--}}
+{{--        }--}}
+
+{{--        .cltname{--}}
+{{--            text-transform: capitalize;--}}
+{{--        }--}}
+{{--    </style>--}}
+
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
@@ -12,7 +51,7 @@
         }
 
         .card-title{
-            background: #2E8AD0;
+            background: #1d2125;
             opacity: 0.7;
         }
 
@@ -34,6 +73,10 @@
             font-size: 12px;
             color: #dedbdb
         }
+
+        .cltname{
+            text-transform: capitalize;
+        }
     </style>
 
     <div class="container mt-4">
@@ -44,7 +87,7 @@
                         <div class="text-left logo p-2 px-5"><img src="{{ asset('images/logo.png') }}" width="35"></div>
                     </div>
                     <div class="invoice pt-2 px-5 pb-5">
-                        <h5>Your order Confirmed!</h5> <span class="font-weight-bold d-block mt-4">Hello, Client {{$client->lastName}} {{$client->firstName}}</span> <span>You order has been confirmed and will be shipped in next two days!</span>
+                        <h5>Your order Confirmed!</h5> <span class="font-weight-bold d-block cltname mt-4">Hello,  {{$client->lastName}} {{$client->firstName}}</span> <span>You order has been confirmed and will be shipped in next two days!</span>
                         <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                             <table class="table table-borderless">
                                 <tbody>
@@ -100,7 +143,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text-left"> <span class="text-muted">Shipping Free</span> </div>
+                                            <div class="text-left"> <span class="text-muted">Shipping Fee</span> </div>
                                         </td>
                                         <td>
                                             <div class="text-right"> <span>Free</span> </div>
@@ -128,7 +171,7 @@
                             </div>
                         </div>
                         <p>We will be sending shipping confirmation email when the item shipped successfully!</p>
-                        <p class="font-weight-bold mb-0">Thank you for shopping with us!</p> <span>{{$store->name}} Team</span>
+                        <p class="font-weight-bold mb-0">Thank you for shopping with us!</p> <span class="cltname">{{$store->name}} Team</span>
                     </div>
                     <div class="d-flex justify-content-between footer p-3"> <span>{{$order->created_at}}</span> </div>
                     <div class="d-flex justify-content-between footer p-3"> <span>After two days {{ \Carbon\Carbon::now()->addDays(2)}}</span> </div>
