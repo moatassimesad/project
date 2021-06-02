@@ -63,6 +63,7 @@
             <th scope="col">IMAGE</th>
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
+            <th scope="col">QUANTITY</th>
             <th scope="col">PRICE</th>
             <th scope="col">DATE</th>
             <th scope="col">ACTION</th>
@@ -74,6 +75,7 @@
             <th scope="row"><img src="images/{{$product->image}}" alt="" class="images"></th>
             <td>{{ $product->name }}</td>
             <td>{{ $product->reference }}</td>
+            <td>{{ $product->quantity }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->created_at }}</td>
             <td>
