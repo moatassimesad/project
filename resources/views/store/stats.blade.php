@@ -2,7 +2,12 @@
 @section('content1')
     <head>
         <link rel="stylesheet" href="css/stats.css">
-
+        <style>
+            .chart{
+                height: 100% !important;
+                width: 100% !important;
+            }
+        </style>
     </head>
     <div class="content">
         <div class="container-fluid">
@@ -56,25 +61,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-chart">
-                        <div class="card-header card-header-success">
+            <div class="row chart">
 
-
-                        </div>
-                        <div class="card-body">
-                            <div class="container">
                                 {!! $chart->container() !!}
                                 {!! $chart->script() !!}
                             </div>
-
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <i class="material-icons"></i> updated 4 minutes ago
-                            </div>
-                        </div>
                     </div>
                 </div>
 
