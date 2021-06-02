@@ -46,7 +46,7 @@
             <div class="row justify-content-around">
                 <a href="/add_collection">
                     <div class="row mt-5 bg-primary align-items-center justify-content-center plus">
-                        <h1 class="white">+ Add Category</h1>
+                        <h1 class="white">+ Add Categoryy</h1>
 
                     </div>
                 </a>
