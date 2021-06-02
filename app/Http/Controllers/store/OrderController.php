@@ -10,7 +10,7 @@ use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -57,25 +57,33 @@ class OrderController extends Controller
             'firstName' => 'required',
             'lastName' => 'required',
             'address' => 'required',
-            'optionalAddress' => 'nullable',
             'postCode' => 'required',
             'city' => 'required',
             'phone' => 'required',
             'email' => 'required|email',
         ]);
-
-        $client = new Client();
-        $client->firstName = $request->firstName;
-        $client->lastName = $request->lastName;
-        $client->address = $request->address;
-        $client->optionalAddress = $request->optionalAddress;
-        $client->postCode = $request->postCode;
-        $client->city = $request->city;
-        $client->phone = $request->phone;
-        $client->email = $request->email;
-        $client->store_id = $request->store_id;
-        $client->save();
-
+        $client = DB::table('clients')->where([
+            ['firstName', '=', $request->firstName],
+            ['lastName', '=', $request->lastName],
+            ['address', '=', $request->address],
+            ['postCode', '=', $request->postCode],
+            ['city', '=', $request->city],
+            ['phone', '=', $request->phone],
+            ['email', '=', $request->email],
+            ])->first();
+        if ($client == null) {
+            $client = new Client();
+            $client->firstName = $request->firstName;
+            $client->lastName = $request->lastName;
+            $client->address = $request->address;
+            $client->optionalAddress = $request->optionalAddress;
+            $client->postCode = $request->postCode;
+            $client->city = $request->city;
+            $client->phone = $request->phone;
+            $client->email = $request->email;
+            $client->store_id = $request->store_id;
+            $client->save();
+        }
 
         if (session()->has('cart')) {
             $cart = new Cart(session()->get('cart'));
@@ -90,6 +98,9 @@ class OrderController extends Controller
 
             foreach ($cart->items as $item) {
                 $order->products()->attach($item['id'], ['quantity' => $item['quantity'], 'unitCost' => $item['price'], 'shippingCost' => 0, 'color' => $item['color']]);
+                $product = Product::find($item['id']);
+                $product->quantity -= $item['quantity'];
+                $product->save();
             }
             session()->forget('cart');
 
