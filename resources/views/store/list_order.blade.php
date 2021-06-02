@@ -31,6 +31,10 @@
             .success{
                 text-align: center;
             }
+            select{
+                border: none;
+                outline: none;
+            }
         </style>
     </head>
     <div class="container contient">
