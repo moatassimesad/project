@@ -71,9 +71,17 @@
                 </div>
                 @enderror
                 <div class="text_area align-items-center row justify-content-center">
-                    <textarea class="form-control" style="  @error('textLayer') border:1px solid red;  @enderror" placeholder="Enter a text layer for your store..." name="textLayer" rows="3">{{ $store->textLayer }}</textarea>
+                    <textarea class="form-control" style="  @error('textLayer_top') border:1px solid red;  @enderror" placeholder="Enter a text layer top for your store..." name="textLayer_top" rows="3">{{ $store->textLayer }}</textarea>
                 </div>
-                @error('textLayer')
+                @error('textLayer_top')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+                <div class="text_area align-items-center row justify-content-center mt-4">
+                    <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom top for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer }}</textarea>
+                </div>
+                @error('textLayer_bottom')
                 <div style="color: red; text-align: center; margin-top: 50px;">
                     {{$message}}
                 </div>

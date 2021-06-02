@@ -24,7 +24,8 @@ class CreateStoresTable extends Migration
             $table->mediumText('image_top'); // it will store the link of the image here not the image itself!
             $table->mediumText('image_bottom'); // it will store the link of the image here not the image itself!
             //the image will be stored inside one of our application's folders.
-            $table->mediumText('textLayer');
+            $table->mediumText('textLayer_top');
+            $table->mediumText('textLayer_bottom');
             $table->foreignId('user_id')->unique()->constrained()->onDelete('cascade');
             $table->timestamps();
         });

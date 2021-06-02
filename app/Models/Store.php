@@ -22,6 +22,8 @@ class Store extends Model
         'designName',
         'image_top',
         'image_bottom',
+        'textLayer_top',
+        'textLayer_bottom',
         'user_id',
     ];
     public function collections(){

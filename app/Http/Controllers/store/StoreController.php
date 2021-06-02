@@ -63,14 +63,13 @@ class StoreController extends Controller
         $this->validate($request,[
             'storeName'=>'required',
             'storeActivityType'=>'required',
-            'textLayer'=>'required',
         ]);
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $store->name = $request->storeName;
         $store->storeActivityType = $request->storeActivityType;
-        $store->designName = $request->storeActivityType;
-        $store->textLayer = $request->textLayer;
+        $store->textLayer_top = $request->textLayer_top;
+        $store->textLayer_bottom = $request->textLayer_bottom;
         $store->save();
         return back()->with('status3', 'Informations have been updated successfully');
     }
