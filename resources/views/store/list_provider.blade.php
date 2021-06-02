@@ -5,6 +5,7 @@
     <head>
         <link rel="stylesheet" href="css/list_provider.css">
     </head>
+
     <div class="container contient">
         <div class="row justify-content-between">
             <div class="provider">providers {{ $providers->count() }}</div>

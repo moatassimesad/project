@@ -22,9 +22,9 @@
             <div class="card">
                 <img src="../images/homepage.png"  alt="theme night"/>
                 <div class="info">
-                    <h1>Sand</h1>
-                    <p> A highly approachable feel</p>
-                    <a href="/edit_theme/{{auth()->user()->store->id}}/sand">Pick</a>
+                    <h1 >Sand</h1>
+                    <p> Like a calm and clear day at the beach</p>
+                    <a href="/edit_theme/{{auth()->user()->store->id}}/sand"><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Pick</button></a>
                 </div>
             </div>
         </div>

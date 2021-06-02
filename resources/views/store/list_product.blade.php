@@ -24,6 +24,31 @@
             .contient{
                 margin-top: 100px;
             }
+
+
+            th{
+                font-size: 16px;
+            }
+
+            @media (max-width: 992px) {
+
+                th{
+                    font-size: 14px;
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                th{
+                    font-size: 13px;
+                }
+            }
+            @media (max-width: 576px) {
+
+                th{
+                    font-size: 11px;
+                }
+            }
         </style>
     </head>
     <div class="container contient">

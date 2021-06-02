@@ -9,11 +9,16 @@ a {
     height: 200px;
     width: 200px;
 }
+
+
 .plus{
     border-radius: 10px;
     width: 200px;
     height: 200px;
 }
 .white{
+    font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+    font-variant: small-caps;
+    letter-spacing: 1px;
     color: white;
 }

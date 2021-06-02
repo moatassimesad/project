@@ -13,7 +13,8 @@
 }
 .titlepage h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    font-variant: small-caps;
+    font-size: 40px;
 }
 .card {
     max-width: 400px;
@@ -27,7 +28,7 @@
     box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
 }
 .card:hover {
-    transform: translateY(20px);
+    transform: translateY(10px);
 }
 .card:hover:before {
     opacity: 1;
@@ -72,17 +73,27 @@
 .card .info h1 {
     margin: 0;
     text-align: center;
+    font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+    font-variant: small-caps;
+    font-size: large;
+    letter-spacing: 1px;
+    color: white;
 }
 .card .info p {
 
-    letter-spacing: 1px;
-    font-size: 15px;
+
+
     margin-top: 8px;
+    font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+    font-variant: small-caps;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: white;
 
 }
 .card .info button {
-    margin-top: 60px;
-    margin-left: 30%;
+    margin-top: 70%;
+    margin-left: 0;
     padding: 0.6rem 2rem;
     outline: none;
     border: none;

@@ -23,7 +23,7 @@
 
            #allCollections{
                margin-top: 5rem;
-               font-family: Helvetica,"Helvetica Neue",Arial,"Lucida Grande",sans-serif;
+               font-family: Helvetica,"Helvetica Neue",sans-serif;
                text-transform: uppercase;
                letter-spacing: 1px;
                color: #413C3C;

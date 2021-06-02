@@ -35,6 +35,31 @@
                 border: none;
                 outline: none;
             }
+
+            th{
+                font-size: 15px;
+            }
+
+            @media (max-width: 992px) {
+
+                th{
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 768px) {
+
+                th{
+                    font-size: 12px;
+                }
+            }
+            @media (max-width: 576px) {
+
+                th{
+                    font-size: 10px;
+                }
+            }
+
         </style>
     </head>
     <div class="container contient">
