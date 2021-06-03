@@ -15,6 +15,9 @@
                 color: #212629;
 
             }
+            .madmarg{
+                margin-left: 75%;
+            }
 
 
         </style>
@@ -79,12 +82,16 @@
                                 <i class="fas fa-chart-line fa-lg ml-3" style="color: #fb8c00"></i><span class="charttitle1">&ensp;Sales</span>
                                 <form action="{{route('chart_search')}}" method="post">
                                     @csrf
-                                    <input type="date" class="" name="date">
-                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    <input type="date" class="ml-3"  min="2021-01-01" max="2024-01-01" name="date" style="border: 1px solid #212629">
+                                    <button type="submit" class="btn btn-primary py-1 ">Search</button>
                                     @if($bigTotal??'')
-                                        <span>MAD </span>
+                                        <span class="madmarg">MAD </span>
+                                        <span>{{$bigTotal ??''}}</span>
+                                    @else
+                                        <span class="madmarg">MAD 0</span>
+
                                     @endif
-                                    <span>{{$bigTotal ??''}}</span>
+
                                 </form>
                             </div>
                             <div class="card-body " style="background: linear-gradient(60deg, #fea321, #fb8c00);">
