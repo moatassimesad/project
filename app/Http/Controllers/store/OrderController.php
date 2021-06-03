@@ -74,6 +74,7 @@ class OrderController extends Controller
             ['city', '=', $request->city],
             ['phone', '=', $request->phone],
             ['email', '=', $request->email],
+            ['store_id', '=', $request->store_id],
             ])->first();
         if ($client == null) {
             $client = new Client();
@@ -106,11 +107,10 @@ class OrderController extends Controller
                 $product->quantity -= $item['quantity'];
                 $product->save();
             }
-            session()->forget('cart');
-
             $store = Store::find($request->store_id);
             $user = $store->user;
             Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address));
+            session()->forget('cart');
             return view('shop.order_details', compact('order', 'store', 'user','client'));
         }
     }
