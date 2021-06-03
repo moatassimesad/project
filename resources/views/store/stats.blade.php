@@ -77,6 +77,15 @@
                         <div class="card" style="border-radius: 15px">
                             <div class="card-header" style="background-color: white">
                                 <i class="fas fa-chart-line fa-lg ml-3" style="color: #fb8c00"></i><span class="charttitle1">&ensp;Sales</span>
+                                <form action="{{route('chart_search')}}" method="post">
+                                    @csrf
+                                    <input type="date" class="" name="date">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    @if($bigTotal??'')
+                                        <span>MAD </span>
+                                    @endif
+                                    <span>{{$bigTotal ??''}}</span>
+                                </form>
                             </div>
                             <div class="card-body " style="background: linear-gradient(60deg, #fea321, #fb8c00);">
                                 {!! $chart->container() !!}
@@ -91,7 +100,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-header" style="background-color: white">
-                            <i class="fas fa-chart-bar fa-lg ml-3 " style="color:  #02adc1;"></i><span class="charttitle1">&ensp;Sales</span>
+                            <i class="fas fa-chart-bar fa-lg ml-3 " style="color:  #02adc1;"></i><span class="charttitle1">&ensp;Client subscriptions (current week)</span>
                         </div>
                         <div class="card-body " style="background: linear-gradient(60deg, #26c5d9, #02adc1);">
                             {!! $chart1->container() !!}
@@ -104,7 +113,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-header" style="background-color: white">
-                            <i class="fas fa-chart-bar fa-lg ml-3" style="color: #43a047"></i><span class="charttitle1">&ensp;Sales</span>
+                            <i class="fas fa-chart-bar fa-lg ml-3" style="color: #43a047"></i><span class="charttitle1">&ensp;Revenue (current week) <span style="font-size: 10px;">(shipped & payed)</span></span>
                         </div>
                         <div class="card-body " style="background: linear-gradient(60deg, #65ba69, #43a047);">
                             {!! $chart2->container() !!}

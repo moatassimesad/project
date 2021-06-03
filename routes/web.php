@@ -41,6 +41,8 @@ Route::get('/logout', [logOutController::class,'logout'])->name('logout');
 Route::get('/stats', [DashboardController::class,'index'])
     ->name('stats')/*->middleware('auth');*/; //to be accessible just for authenticated users. check the authenticate.php in middleware.
 
+Route::post('chart_search',[DashboardController::class,'search'])->name('chart_search');
+
 Route::get('/add_collection', [CollectionController::class,'index_add'])->name('add_collection');
 Route::post('/add_collection', [CollectionController::class,'store']);
 
