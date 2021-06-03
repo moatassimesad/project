@@ -21,7 +21,7 @@
 }
 
 .card-stats .card-header .card-category:not([class*="text-"]) {
-    color: red;
+
     font-size: 14px;
 }
 
@@ -48,7 +48,33 @@
 .card.bg-info,
 .card.card-rotate.bg-info .front,
 .card.card-rotate.bg-info .back {
-    background: linear-gradient(60deg, #26c6da, #00acc1);
+    background: linear-gradient(60deg, #26c6da, #54ad58);
+}
+
+.card .card-header-info1 .card-icon,
+.card .card-header-info1 .card-text,
+.card .card-header-info1:not(.card-header-icon):not(.card-header-text),
+.card.bg-info1,
+.card.card-rotate.bg-info1 .front,
+.card.card-rotate.bg-info1 .back {
+    background: linear-gradient(60deg, #26c6da, #02adc1);
+}
+.card .card-header-info2 .card-icon,
+.card .card-header-info2 .card-text,
+.card .card-header-info2:not(.card-header-icon):not(.card-header-text),
+.card.bg-info2,
+.card.card-rotate.bg-info2 .front,
+.card.card-rotate.bg-info2 .back {
+    background: linear-gradient(60deg, #ffa525, #fb8c00);
+}
+
+.card .card-header-info3 .card-icon,
+.card .card-header-info3 .card-text,
+.card .card-header-info3:not(.card-header-icon):not(.card-header-text),
+.card.bg-info3,
+.card.card-rotate.bg-info3 .front,
+.card.card-rotate.bg-info3 .back {
+    background: linear-gradient(60deg, #322514, #e75874);
 }
 
 .card .card-header-info .card-icon,
@@ -84,6 +110,36 @@
 .card-chart .card-body+.card-footer,
 .card-product .card-body+.card-footer {
     border-top: 1px solid ;
+}
+
+
+@media (max-width: 1202px) {
+    .card-stats .card-header.card-header-icon i {
+        font-size: 15px;
+        line-height: 15px;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+    }
+    .card-stats .card-header .card-category:not([class*="text-"]) {
+
+        font-size: 9px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .card-stats .card-header.card-header-icon i {
+        font-size: 37px;
+        line-height: 37px;
+        width: 37px;
+        height: 37px;
+        text-align: center;
+    }
+    .card-stats .card-header .card-category:not([class*="text-"]) {
+
+        font-size: 14px;
+    }
 }
 
 

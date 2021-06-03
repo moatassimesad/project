@@ -182,7 +182,7 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <a href="/shop/{{$store->id}}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
+            <a href="/shop/{{$store->id}}/all" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
         </div>
 
     </div>

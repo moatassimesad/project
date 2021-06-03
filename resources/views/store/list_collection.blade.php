@@ -23,7 +23,7 @@
                 @else
                     <input type="hidden" value="{{ $j=1 }}">
                     <a href="/add_collection">
-                        <div class="row mt-5 bg-secondary align-items-center justify-content-center plus"><h1 class="white">+</h1></div>
+                        <div class="row mt-5 bg-primary align-items-center justify-content-center plus"><h1 class="white">+ Add Category</h1></div>
                     </a>
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
@@ -34,7 +34,7 @@
                     </div>
                 @elseif($j==0)
                     <a href="/add_collection">
-                        <div class="row mt-5 bg-secondary align-items-center justify-content-center plus"><h1 class="white">+</h1></div>
+                        <div class="row mt-5 bg-primary align-items-center justify-content-center plus"><h1 class="white">+ Add Category</h1></div>
                     </a>
                     <input type="hidden" value="{{ $j=1 }}">
                 @else
@@ -46,7 +46,7 @@
             <div class="row justify-content-around">
                 <a href="/add_collection">
                     <div class="row mt-5 bg-primary align-items-center justify-content-center plus">
-                        <h1 class="white">+ Add Categoryy</h1>
+                        <h1 class="white">+ Add Category</h1>
 
                     </div>
                 </a>

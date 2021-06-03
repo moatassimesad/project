@@ -7,9 +7,13 @@
                 height: 7vw;
                 width: 7vw;
             }
-            .cssTable td{
+            .cssTable
+            td,
+            th {
                 vertical-align: middle;
             }
+
+
             .add{
                 font-family: "PT Mono";
                 font-size: large;
@@ -26,29 +30,36 @@
             }
 
 
-            th{
+            th,tr{
                 font-size: 16px;
+
+            }
+            img{
+                vertical-align: middle;
             }
 
             @media (max-width: 992px) {
 
-                th{
+                th,tr{
                     font-size: 14px;
                 }
             }
 
             @media (max-width: 768px) {
 
-                th{
+                th,tr{
                     font-size: 13px;
                 }
             }
             @media (max-width: 576px) {
 
-                th{
+                th,tr{
                     font-size: 11px;
                 }
             }
+
+
+
         </style>
     </head>
     <div class="container contient">
@@ -57,10 +68,10 @@
         <div><a class="btn btn-primary add" href="/add_product">+ Add Product</a></div>
     </div>
     <br><br>
-    <table class="table table-sm cssTable">
+    <table class="table table-sm cssTable " >
         <thead>
         <tr class="table-info">
-            <th scope="col">IMAGE</th>
+            <th scope="col" >IMAGE</th>
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">QUANTITY</th>
@@ -72,16 +83,16 @@
         <tbody>
         @foreach($products as $product)
         <tr>
-            <th scope="row"><img src="images/{{$product->image}}" alt="" class="images"></th>
+            <th scope="row" style="vertical-align: middle"><img src="images/{{$product->image}}" alt="" class="images"></th>
             <td>{{ $product->name }}</td>
             <td>{{ $product->reference }}</td>
             <td>{{ $product->quantity }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->created_at }}</td>
             <td>
-                <span><a href="/product_providers_info/{{$product->id}}" class="btn btn-secondary mr-2"><i class="fas fa-eye"></i></a></span>
-                <span><a href="/product_info/{{$product->id}}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a></span>
-                <span><a href="/delete_product/{{$product->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
+                <span><a href="/product_providers_info/{{$product->id}}" class="  mr-2"><i class="fas fa-eye "></i></a></span>
+                <span><a href="/product_info/{{$product->id}}" class=" mr-2"><i class="fas fa-edit"></i></a></span>
+                <span><a href="/delete_product/{{$product->id}}" class=" mr-2"><i class="fas fa-trash"></i></a></span>
             </td>
         </tr>
         @endforeach

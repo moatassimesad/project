@@ -36,26 +36,26 @@
                 outline: none;
             }
 
-            th{
+            th,tr{
                 font-size: 15px;
             }
 
             @media (max-width: 992px) {
 
-                th{
+                th,tr{
                     font-size: 13px;
                 }
             }
 
             @media (max-width: 768px) {
 
-                th{
+                th,tr{
                     font-size: 12px;
                 }
             }
             @media (max-width: 576px) {
 
-                th{
+                th,tr{
                     font-size: 10px;
                 }
             }
