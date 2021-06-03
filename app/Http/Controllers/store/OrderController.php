@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\store;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderDetails;
 use App\Models\Cart;
+
 use App\Models\Client;
 use App\Models\Order;
 use App\Models\Product;
@@ -11,6 +13,7 @@ use App\Models\Store;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -62,6 +65,7 @@ class OrderController extends Controller
             'phone' => 'required',
             'email' => 'required|email',
         ]);
+
         $client = DB::table('clients')->where([
             ['firstName', '=', $request->firstName],
             ['lastName', '=', $request->lastName],
@@ -106,6 +110,7 @@ class OrderController extends Controller
 
             $store = Store::find($request->store_id);
             $user = $store->user;
+            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address));
             return view('shop.order_details', compact('order', 'store', 'user','client'));
         }
     }
