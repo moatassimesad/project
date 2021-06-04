@@ -24,20 +24,32 @@
 
         <div class="container">
             <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Product informations</div>
+
+
+
+                <div  class="category_info row justify-content-center align-items-center cat_info">Product info</div>
                 <hr>
+
+
                 <div  class="infos row justify-content-center align-items-center">
+                    <span class="mr-2">Name</span>
                     <input class="name"  name="name" type="text" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="Untitled product" value="{{ old('name') }}">
                 </div>
                 @error('name')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+
+
                 <div  class="infos row justify-content-center align-items-center">
+                    <span class="mr-2">Price</span>
                     <input class="name"  name="reference" type="text" style="@error('reference') border-bottom:1px solid red; @enderror" placeholder="Reference" value="{{ old('reference') }}">
                 </div>
                 @error('reference')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+
+
+
                 <div  class="infos row justify-content-center align-items-center">
                     <input class="name"  name="price" type="number" style="@error('price') border-bottom:1px solid red; @enderror" placeholder="Price" value="{{ old('price') }}">
                 </div>

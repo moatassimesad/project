@@ -7,9 +7,16 @@
                 height: 7vw;
                 width: 7vw;
             }
-            .cssTable td{
+            .cssTable td img, .cssTable td{
                 vertical-align: middle;
             }
+            /*td img {*/
+            /*    display: block;*/
+            /*    margin-left: auto;*/
+            /*    margin-right: auto;*/
+            /*
+            /*}*/
+
             .add{
                 font-family: "PT Mono";
                 font-size: large;
@@ -32,12 +39,28 @@
 
             @media (max-width: 992px) {
 
+
+                /*.images{*/
+                /*    border-radius: 10px;*/
+                /*    height: 7vw;*/
+                /*    width: 7vw;*/
+                /*    margin-top: 30%;*/
+                /*}*/
+
                 th{
                     font-size: 14px;
                 }
             }
 
             @media (max-width: 768px) {
+
+
+                .images{
+                    border-radius: 10px;
+                    height: 7vw;
+                    width: 7vw;
+                    margin-top: 80%;
+                }
 
                 th{
                     font-size: 13px;
@@ -57,13 +80,13 @@
         <div><a class="btn btn-primary add" href="/add_product">+ Add Product</a></div>
     </div>
     <br><br>
-    <table class="table table-sm cssTable">
+    <table class="table table-sm table-striped cssTable">
         <thead>
         <tr class="table-info">
             <th scope="col">IMAGE</th>
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
-            <th scope="col">QUANTITY</th>
+            <th scope="col">STOCK</th>
             <th scope="col">PRICE</th>
             <th scope="col">DATE</th>
             <th scope="col">ACTION</th>
@@ -71,8 +94,8 @@
         </thead>
         <tbody>
         @foreach($products as $product)
-        <tr>
-            <th scope="row"><img src="images/{{$product->image}}" alt="" class="images"></th>
+        <tr >
+            <th scope="row"><img src="images/{{$product->image}}" alt="" class="images" ></th>
             <td>{{ $product->name }}</td>
             <td>{{ $product->reference }}</td>
             <td>{{ $product->quantity }}</td>

@@ -25,9 +25,10 @@
 
         <div class="container">
             <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Product informations</div>
+                <div  class="category_info row justify-content-center align-items-center cat_info">Product info</div>
                 <hr>
                 <div  class="infos row justify-content-center align-items-center">
+                    <label>Name</label>
                     <input class="name"  name="name" type="text" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="Untitled product" value="{{ $product->name }}">
                 </div>
                 @error('name')

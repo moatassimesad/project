@@ -387,6 +387,7 @@
                         @error('quantity')
                         <div style="color: red; text-align: center;">Please enter a quantity</div>
                         @enderror
+
                         <div class="row justify-content-center mt-4">
                             <div style="text-align: center;" class="pickcolor" >Pick a color</div>
                         </div>

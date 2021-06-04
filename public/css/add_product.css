@@ -115,7 +115,7 @@ input{
     width: 60%;
     height: 30px;
     border: none;
-    border-bottom: solid 1px;
+    border: solid 1px black;
 }
 img {
     max-width: 100%; height: auto;

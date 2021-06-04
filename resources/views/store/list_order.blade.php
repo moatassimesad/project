@@ -3,19 +3,11 @@
 
     <head>
         <style>
-            .images{
-                border-radius: 10px;
-                height: 7vw;
-                width: 7vw;
-            }
+
             .cssTable td{
                 vertical-align: middle;
             }
-            .add{
-                font-family: "PT Mono";
-                font-size: large;
-                margin-right: 20px;
-            }
+
             .delivery{
                 margin-left: 20px;
                 font-size: large;
@@ -76,7 +68,7 @@
 
         </div>
         <br><br>
-        <table class="table table-sm cssTable">
+        <table class="table table-sm table-striped cssTable">
             <thead>
             <tr class="table-info">
                 <th scope="col">NUMBER</th>

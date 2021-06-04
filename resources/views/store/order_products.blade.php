@@ -41,7 +41,8 @@
             .orderdetailscss{
                 font-size: large;
                 font-family: Helvetica, sans-serif;
-                font-weight: bold;
+                font-weight: 600;
+                font-variant: small-caps;
                 color: #354861;
                 text-transform: capitalize;
             }
@@ -52,26 +53,21 @@
 
 
 
-
-
-
-
-
     <div class="container">
 
 
+
         <div class="row ml-4 mb-4">
-            <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss ">
-                Order No      : {{$order->id}}
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss ">
-                Status     : {{$order->status}}
+            <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss">
+                Order No : {{$order->id}}
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss">
-                 Total Payed : MAD {{$order->payedTotal}}
+               Order Status : {{$order->status}}
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss">
+                Total Payed : {{$order->payedTotal}}
             </div>
         </div>
-
 
 
 
@@ -82,7 +78,7 @@
                 Products informations
             </div>
         </div>
-        <table class="table  table-striped table-sm cssTable">
+        <table class="table  table-sm table-striped  cssTable">
             <thead>
             <tr class="table-info">
             <th scope="col">IMAGE</th>
