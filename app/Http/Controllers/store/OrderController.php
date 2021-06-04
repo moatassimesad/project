@@ -26,7 +26,7 @@ class OrderController extends Controller
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $orders = $store->orders;
-        $status = ['Confirmed','Shipped','Payed'];
+        $status = ['Confirmed','Shipped','Payed','Delivered'];
         return view('store.list_order', compact('orders','status'));
     }
 

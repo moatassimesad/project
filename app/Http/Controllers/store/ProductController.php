@@ -137,11 +137,11 @@ class ProductController extends Controller
         $product->reference = $request->reference;
         $product->price = $request->price;
         $item = "";
-        if ($request->colors==null){
+        if ($request->colors == null) {
             $request->colors = ["none"];
         }
-        foreach ($request->colors as $color){
-            $item .=$color;
+        foreach ($request->colors as $color) {
+            $item .= $color;
             $item .= ",";
         }
         $product->colors = $item;
@@ -159,14 +159,16 @@ class ProductController extends Controller
         }
         $quantityTotal = 0;
         $unitCosts = $request->providers_unitCost;
-        if (array_values($request->providers_quantity)[0]) {
-        foreach ($request->providers_quantity as $key => $quantity) {
-            if ($unitCosts[$key] == null) {
-                continue;
+        if ($request->providers_quantity){
+            if (array_values($request->providers_quantity)[0]) {
+                foreach ($request->providers_quantity as $key => $quantity) {
+                    if ($unitCosts[$key] == null) {
+                        continue;
+                    }
+                    $quantityTotal += $quantity;
+                }
+                $product->quantity = $quantityTotal;
             }
-            $quantityTotal += $quantity;
-        }
-            $product->quantity = $quantityTotal;
     }
         else{
             $product->quantity = $request->quantity;
