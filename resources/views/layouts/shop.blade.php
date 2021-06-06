@@ -452,7 +452,7 @@
 {{--                        <span class="cart-basket d-flex align-items-center justify-content-center">--}}
 {{--                             0--}}
 {{--                        </span>--}}
-                        <span class="fa-stack fa-sm has-badge" data-count="5">
+                        <span class="fa-stack fa-sm has-badge" data-count="@if($cart??''){{$cart->totalQty}}@else 0 @endif">
                             <i class="fas fa-stack-sm "></i>
                             <i style="" class="fas fa-shopping-bag fa-stack-2x panier-logo"></i>
                         </span>

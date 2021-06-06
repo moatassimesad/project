@@ -94,8 +94,7 @@
                                                         @if($color == "none")
                                                             <div class="mt-3">No available colors for this product</div>
                                                         @else
-                                                            @continue($color == $product['color'])
-                                                            <a type="button" href="/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}" class="color mt-3 mr-2" style="background-color: {{$color}};"></a>
+                                                            <a type="button" href="@if($color == $product['color']) @else/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}@endif" class="color mt-3 mr-2" style="background-color: {{$color}}; @if($color == $product['color']) width: 25px; height: 25px;@endif"></a>
                                                         @endif
                                                     @endforeach
                                                 </div>

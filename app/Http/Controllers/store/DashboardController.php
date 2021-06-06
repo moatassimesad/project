@@ -28,12 +28,14 @@ class DashboardController extends Controller
         $orders = $store->orders;
         //  /////////////////////////// logic for the sales chart
         $payedTotal = 0;
+        $biggestTotal = 0;
         for ($i = 30 ; $i>=0 ; $i--) {
             foreach ($orders as $order) {
                 if($order->created_at->toDateString() == date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day'))){
                     $payedTotal += $order->payedTotal;
                 }
             }
+            $biggestTotal += $payedTotal;
             array_push($values, $payedTotal);
             array_push($days, date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day')));
             $payedTotal = 0;
@@ -41,6 +43,7 @@ class DashboardController extends Controller
         // ////////////////////////// logic for revenue chart
 
         $payedTotal = 0;
+        $bigTotal = 0;
         for ($i = 30 ; $i>=0 ; $i--) {
             foreach ($orders as $order) {
                 if ($order->status == 'Confirmed'){
@@ -50,6 +53,7 @@ class DashboardController extends Controller
                     $payedTotal += $order->payedTotal;
                 }
             }
+            $bigTotal += $payedTotal;
             array_push($values2, $payedTotal);
             array_push($days2, date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day')));
             $payedTotal = 0;
@@ -65,13 +69,14 @@ class DashboardController extends Controller
         $clients = $store->clients;
 
         //            logic for client chart !!
-
+        $bigTotalClients = 0;
         $totalClients = 0;
         for ($i = 30; $i>=0; $i--) {
             foreach ($clients as $client) {
                 if ($client->created_at->toDateString() == date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day')))
                     $totalClients += 1;
             }
+            $bigTotalClients += $totalClients;
             array_push($values1, $totalClients);
             array_push($days1, date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day')));
             $totalClients = 0;
@@ -89,7 +94,7 @@ class DashboardController extends Controller
         $chart2 = new SaleProductChart();
         $chart2->labels($days2);
         $chart2->dataset('Revenue chart', 'bar', $values2)->options(['fill'=>'true','borderColor'=>'#51C1C0'])->backgroundcolor('#f8fcf9');
-        return view('store.stats',compact('chart','chart1','chart2','products','orders','clients','total'));
+        return view('store.stats',compact('chart','chart1','chart2','products','orders','clients','total','biggestTotal','bigTotal','bigTotalClients'));
 
     }
 
@@ -101,6 +106,9 @@ class DashboardController extends Controller
 
 
     public function search(Request $request){
+        if($request->date_start > $request->date_end){
+            return redirect()->route('stats')->with('status','invalid date');
+        }
         $values = [];
         $days = [];
         $values1 = [];
@@ -161,13 +169,14 @@ class DashboardController extends Controller
 
         //                   logic for client chart !!
 
-        $i = 0;
+        $bigTotalClients = 0;
         $totalClients = 0;
         for ($i = 0; date('Y-m-d', strtotime($request->date_start. ' + '.$i .' day'))  <= $request->date_end; $i++) {
             foreach ($clients as $client) {
-                if ($client->created_at->toDateString() == date('Y-m-d',strtotime($this_week_sd."+".$i." days")))
+                if ($client->created_at->toDateString() == date('Y-m-d',strtotime($request->date_start."+".$i." days")))
                     $totalClients += 1;
             }
+            $bigTotalClients += $totalClients;
             array_push($values1, $totalClients);
             array_push($days1,date('m/d h:m',strtotime($request->date_start."+".$i." days")));
             $totalClients = 0;
@@ -189,7 +198,7 @@ class DashboardController extends Controller
         $chart2->dataset('Revenue chart', 'bar', $values2)->options(['fill'=>'true','borderColor'=>'#51C1C0'])->backgroundcolor('#f8fcf9');
 
 
-        return view('store.stats',compact('chart','chart1','chart2','products','orders','clients','total','biggestTotal','bigTotal'));
+        return view('store.stats',compact('chart','chart1','chart2','products','orders','clients','total','biggestTotal','bigTotal','bigTotalClients'));
 
     }
 }

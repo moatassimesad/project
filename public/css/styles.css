@@ -1,4 +1,11 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+.contenus{
+    border: solid 1px grey;
+    border-radius: 15px;
+    margin-top: 150px;
+    margin-right: 15%;
+    margin-left: 15%;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: #edeef2;
@@ -317,13 +324,7 @@ a.article:hover {
 
     }
 }
-.contenus{
-    border: solid 1px grey;
-    border-radius: 15px;
-    margin-top: 150px;
-    margin-right: 15%;
-    margin-left: 15%;
-}
+
 
 .name,.reference{
     width: 60%;

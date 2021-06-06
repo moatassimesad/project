@@ -74,21 +74,32 @@
                     </div>
                 </div>
             </div>
+            @if(session('status'))
+            <div class="alert alert-danger" style="text-align: center;">
+                {{session('status')}}
+            </div>
+            @endif
+            <div class="row mt-4 ml-1">
+                <form action="{{route('chart_search')}}" method="post">
+                    @csrf
+                    <input type="date" class="ml-3" name="date_start" style="border: 1px solid #212629; border-radius: 10px">
+                    <label for="date_end">Start date</label>
+                    <input type="date" class="ml-3" name="date_end" style="border: 1px solid #212629; border-radius: 10px">
+                    <label for="date_start">End date</label>
+                    <button type="submit" class="btn btn-primary py-1 ">Search</button>
+                </form>
+            </div>
+
+
+@if($biggestTotal != 0)
             <div class="row chart ml-1 mt-3">
                 <div class="justify-content-around">
-                    <form action="{{route('chart_search')}}" method="post">
-                        @csrf
-                        <input type="date" class="ml-3" name="date_start" style="border: 1px solid #212629; border-radius: 10px">
-                        <label for="date_end">Start date</label>
-                        <input type="date" class="ml-3" name="date_end" style="border: 1px solid #212629; border-radius: 10px">
-                        <label for="date_start">End date</label>
-                        <button type="submit" class="btn btn-primary py-1 ">Search</button>
-                    </form>
+
                 </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 ">
                         <div class="card" style="border-radius: 15px">
                             <div class="card-header" style="background-color: white">
-                                <i class="fas fa-chart-line fa-lg ml-3" style="color: #fb8c00"></i><span class="charttitle1">&ensp;Sales</span>
+                                <i class="fas fa-chart-line fa-lg ml-3" style="color: #fb8c00"></i><span class="charttitle1">&ensp;Sales (<span style="color: green;">MAD {{$biggestTotal}}</span>)</span>
                             </div>
                             <div class="card-body " style="background: linear-gradient(60deg, #fea321, #fb8c00);">
                                 {!! $chart->container() !!}
@@ -98,12 +109,13 @@
 
                     </div>
             </div>
+            @endif
             <div class="row chart ml-1 mt-3">
-
+                @if($bigTotalClients != 0)
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-header" style="background-color: white">
-                            <i class="fas fa-chart-bar fa-lg ml-3 " style="color:  #02adc1;"></i><span class="charttitle1">&ensp;Client subscriptions</span>
+                            <i class="fas fa-chart-bar fa-lg ml-3 " style="color:  #02adc1;"></i><span class="charttitle1">&ensp;Client subscriptions (<span style="color: green;">{{$bigTotalClients}}</span>)</span>
                         </div>
                         <div class="card-body " style="background: linear-gradient(60deg, #26c5d9, #02adc1);">
                             {!! $chart1->container() !!}
@@ -112,11 +124,12 @@
                     </div>
 
                 </div>
-
+                @endif
+                    @if($bigTotal != 0)
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-3 ">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-header" style="background-color: white">
-                            <i class="fas fa-chart-bar fa-lg ml-3" style="color: #43a047"></i><span class="charttitle1">&ensp;Revenue  <span style="font-size: 10px;">(shipped & payed)</span></span>
+                            <i class="fas fa-chart-bar fa-lg ml-3" style="color: #43a047"></i><span class="charttitle1">&ensp;Revenue  (<span style="color: green;">MAD {{$bigTotal}}</span>) <span style="font-size: 10px;">(shipped & payed & delivered)</span> </span>
                         </div>
                         <div class="card-body " style="background: linear-gradient(60deg, #65ba69, #43a047);">
                             {!! $chart2->container() !!}
@@ -125,7 +138,9 @@
                     </div>
 
                 </div>
+                    @endif
             </div>
+
         </div>
     </div>
 

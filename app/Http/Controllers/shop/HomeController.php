@@ -18,8 +18,13 @@ class HomeController extends Controller
         $store = Store::find($id);
         $collections = $store->collections;
         $user = $store->user;
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('shop.home',compact('collections','store','user','cart'));
 
-        return view('shop.home',compact('collections','store','user'));
 
     }
     public function index_shop($id,$collection){
@@ -34,14 +39,24 @@ class HomeController extends Controller
         }
         $collections = $store->collections;
         $user = $store->user;
-        return view('shop.shop',compact('products','user','store','collections','selectedCollection'));
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('shop.shop',compact('products','user','store','collections','selectedCollection','cart'));
     }
     public function product_preview($store_id,$product_id){
         $product = Product::find($product_id);
         $store = Store::find($store_id);
         $user = $store->user;
         $colors = $product->getColors();
-        return view('shop.product_preview',compact('product','store','user','colors'));
+        if (session()->has('cart')) {
+            $cart = new Cart(session()->get('cart'));
+        } else {
+            $cart = null;
+        }
+        return view('shop.product_preview',compact('product','store','user','colors','cart'));
     }
 
     public function index_cart($store_id){

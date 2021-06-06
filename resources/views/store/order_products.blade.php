@@ -85,6 +85,7 @@
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">PRICE</th>
+            <th scope="col">QUANTITY</th>
             <th scope="col">DATE</th>
 
             </tr>
@@ -97,6 +98,7 @@
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->reference }}</td>
                 <td>{{ $product->price }}</td>
+                <td>{{ $product->pivot->quantity }}</td>
                 <td>{{ $product->created_at }}</td>
             </tr>
         @endforeach

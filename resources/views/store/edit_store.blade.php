@@ -5,6 +5,73 @@
         <link rel="stylesheet" href="css/edit_store.css">
     </head>
 
+
+    <form action="{{ route('edit_store_info') }}" method="post" enctype="multipart/form-data">
+        @csrf
+
+        <div class="container">
+            @if(session('status2'))
+                <div class="success alert alert-success" style="text-align: center;" role="alert">{{ session('status2') }}</div>
+
+            @endif
+                @if(session('status3'))
+                    <div class="success alert alert-success" style="text-align: center;" role="alert">{{ session('status3') }}</div>
+
+                @endif
+            <div class="contenus bg-light">
+                <div  class="category_info row justify-content-center align-items-center cat_info">Store informations</div>
+                <hr>
+                <div class="form-group m-5">
+                    <label for="name">Store name</label>
+                    <input name="storeName" class="form-control" style=" @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off" value="{{ $store->name }}">
+
+                </div>
+                @error('storeName')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+                <div class="align-items-center row justify-content-center">
+                    <span style="border-bottom: 1px solid black;" id="show"></span>
+
+                </div>
+                <div class="form-group m-4">
+                    <label for="storeActivityType">Store activity type</label>
+                    <select class="form-control" id="storeActivityType" name="storeActivityType" style="@error('storeActivityType') border:solid 1px red; @enderror">
+                        <option value="{{$store->storeActivityType}}" selected>{{$store->storeActivityType}}</option>
+                    </select>
+                </div>
+                @error('storeActivityType')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+                <div class="align-items-center row justify-content-center mt-5 mr-2 ml-2">
+                    <label for="textLayer_top">Enter a text layer that will displayed at the top of the picture in the top</label>
+                    <textarea class="form-control" style="  @error('textLayer_top') border:1px solid red;  @enderror" placeholder="Enter a text layer top for your store..." name="textLayer_top" rows="3">{{ $store->textLayer_top }}</textarea>
+                </div>
+                @error('textLayer_top')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+                <div class="align-items-center row justify-content-center mt-4 mr-2 ml-2">
+                    <label for="textLayer_bottom">Enter a text layer that will displayed at the bottom of the picture in the bottom</label>
+                    <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom top for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer_bottom }}</textarea>
+                </div>
+                @error('textLayer_bottom')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+                <div style="height: 100px;" class="row justify-content-center mt-4">
+                    <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
     <form action="{{ route('add_store_images') }}" method="post" enctype="multipart/form-data">
         @csrf
 
@@ -12,10 +79,6 @@
             <div class="contenus bg-light">
                 <div  class="category_info row justify-content-center align-items-center cat_info">Add pictures to your store</div>
                 <hr>
-                @if(session('status2'))
-                    <div class="success alert alert-success" role="alert">{{ session('status2') }}</div>
-
-                @endif
                 <div  class="row justify-content-center files" style="@error('image_top') border:1px solid red; @enderror">
                     <input type="file" class="bg-light fl" id="image_top" name="image_top">
                 </div>
@@ -35,64 +98,6 @@
             </div>
 
         </div>
-    </form>
-    <form action="{{ route('edit_store_info') }}" method="post" enctype="multipart/form-data">
-        @csrf
-
-        <div class="container">
-            <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Store informations</div>
-                <hr>
-                @if(session('status3'))
-                    <div class="success alert alert-success" role="alert">{{ session('status3') }}</div>
-
-                @endif
-                <div style="height: 100px;" class="align-items-center row justify-content-center">
-                    <input name="storeName" class="name" style=" @error('storeName') border-bottom:1px solid red;  @enderror " type="text" id="storeName" placeholder="Store Name" autocomplete="off" value="{{ $store->name }}">
-
-                </div>
-                @error('storeName')
-                <div style="color: red; text-align: center; margin-top: 50px;">
-                    {{$message}}
-                </div>
-                @enderror
-                <div style="height: 100px;" class="align-items-center row justify-content-center">
-                    <span class="ajax" id="show"></span>
-
-                </div>
-                <div style="height: 100px;" class="align-items-center row justify-content-center">
-                    <select name="storeActivityType" class="city"  style="  @error('storeActivityType') border-bottom:1px solid red;  @enderror" id="storeActivityType" >
-                        <option selected value="{{$store->storeActivityType}}">{{$store->storeActivityType}}</option>
-                    </select>
-                </div>
-                @error('storeActivityType')
-                <div style="color: red; text-align: center; margin-top: 50px;">
-                    {{$message}}
-                </div>
-                @enderror
-                <div class="text_area align-items-center row justify-content-center">
-                    <textarea class="form-control" style="  @error('textLayer_top') border:1px solid red;  @enderror" placeholder="Enter a text layer top for your store..." name="textLayer_top" rows="3">{{ $store->textLayer }}</textarea>
-                </div>
-                @error('textLayer_top')
-                <div style="color: red; text-align: center; margin-top: 50px;">
-                    {{$message}}
-                </div>
-                @enderror
-                <div class="text_area align-items-center row justify-content-center mt-4">
-                    <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom top for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer }}</textarea>
-                </div>
-                @error('textLayer_bottom')
-                <div style="color: red; text-align: center; margin-top: 50px;">
-                    {{$message}}
-                </div>
-                @enderror
-                <div style="height: 100px;" class="row justify-content-center mt-4">
-                    <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
-                </div>
-            </div>
-        </div>
-
-
     </form>
 
 

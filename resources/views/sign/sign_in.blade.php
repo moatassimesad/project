@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V5</title>
+    <link rel="icon" href="images/logo.png" sizes="32x32" type="image/png">
+    <title>Sign in</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -28,10 +29,6 @@
     <!--===============================================================================================-->
 </head>
 <body>
-@if(session('status'))
-    <div class="alert alert-danger status" role="alert">{{ session('status') }}</div>
-
-@endif
 <form action="{{route('sign_in')}}" method="post">
     @csrf
     <div class="limiter">
@@ -41,6 +38,10 @@
 					<span class="login100-form-title p-b-53">
 						Sign In
 					</span>
+                    @if(session('status'))
+                        <div class="alert alert-danger status" role="alert">{{ session('status') }}</div>
+
+                    @endif
                     <form action=""></form>
                     <div class="p-t-31 p-b-9">
 						<span class="txt1">

@@ -71,9 +71,21 @@ class CollectionController extends Controller
             'reference'=>'required|max:255',
         ]);
 
+
         $collection = Collection::find($request->id);
         $collection->name = $request->name;
         $collection->reference = $request->reference;
+
+
+        if ($request->hasFile('image')) {
+            $path = 'images/' . $collection->image;
+            File::delete($path);
+            $file = $request->file('image');
+            $extesion = $file->getClientOriginalExtension();
+            $fileName = time() . '.' . $extesion;
+            $file->move('images/', $fileName);
+            $collection->image = $fileName;
+        }
         $collection->save();
         return redirect()->route('list_collection');
     }

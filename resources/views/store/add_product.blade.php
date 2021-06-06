@@ -1,16 +1,100 @@
 @extends('layouts.store_admin')
 @section('content1')
     <head>
-        <link rel="stylesheet" href="css/add_product.css">
+
     </head>
     <form action="{{route('add_product')}}" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="container">
-            <div class="contenus pb-5 bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Add your product's pictures</div>
+            <div class="contenus bg-light">
+                <div  class="row justify-content-center align-items-center cat_info">Product informations</div>
                 <hr>
-                <div  class="row justify-content-center files mt-2" style="@error('image') border:1px solid red; @enderror">
+                <div class="form-group m-5">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Untitled product" value="{{old('name')}}">
+                </div>
+                @error('name')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
+                <div class="form-group m-5">
+                    <label for="reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" style="@error('reference') border:1px solid red; @enderror" placeholder="Reference" value="{{old('reference')}}">
+                </div>
+                @error('reference')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
+                <div class="form-group m-5">
+                    <label for="name">Price</label>
+                    <input type="text" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{old('price')}}">
+                </div>
+                @error('price')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
+                <div class="form-group m-5">
+                    <label for="name">Shipping cost</label>
+                    <input type="text" class="form-control" name="shippingCost" style="@error('shippingCost') border:1px solid red; @enderror" placeholder="Shipping cost" value="{{old('shippingCost')}}">
+                </div>
+                @error('shippingCost')
+                <div style="color: red; text-align: center;">{{ $message }}</div>
+                @enderror
+                <div class="form-group m-5">
+                    <label for="name">Quantity</label>
+                    <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="{{old('quantity')}}">
+                </div>
+                <div class="mb-3">
+                    <div style="text-align: center"><p><i>Select colors you have for your product</i></p></div>
+                </div>
+                <div class="align-items-center row justify-content-center">
+                    <select id="colors" multiple class="bg-dark" style="width: 30%; text-align: center; color: white; border-radius: 10px;" name="colors[]">
+
+                    </select>
+                </div>
+                <div class="form-group m-4">
+                    <label for="collection_name">Collection</label>
+                    <select class="form-control" id="city" name="collection_name" style="@error('collection_name') border:solid 1px red; @enderror">
+                        <option value="Pick a collection" disabled selected>Pick a collection</option>
+                        @foreach($collections as $collection)
+                            <option value="{{ $collection->name }}">{{ $collection->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @error('collection_name')
+                <div class="error">{{ $message }}</div>
+                @enderror
+
+
+                {{-- all the providers as a collection of checkboxes --}}
+                <div style="text-align: center"><p><i>Select providers for your product</i></p></div>
+
+
+
+                <div class="container">
+
+                    <div class="row justify-content-center">
+                        <table class="table table-sm table-borderless mr-1 ml-1 mt-4">
+                            <thead>
+                            <tr>
+                                <th style="font-size: smaller" scope="col">SELECT</th>
+                                <th style="font-size: smaller" scope="col">NAME</th>
+                                <th style="font-size: smaller" scope="col">QUANTITY</th>
+                                <th style="font-size: smaller" scope="col">UNIT COST</th>
+                            </tr>
+                            </thead>
+                            @foreach($providers as $provider)
+                                <tr class="mb-3">
+                                    <td style="font-size: smaller"><input  data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
+                                    <td style="font-size: smaller">{{ $provider->name }}</td>
+                                    <td style="font-size: smaller"><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="Quantity"></td>
+                                    <td style="font-size: smaller"><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="unitCost"></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
+
+                </div>
+
+                <div  class="row justify-content-center files mt-3" style="@error('image') border:1px solid red; @enderror">
                     <input type="file" class="bg-light fl" id="image" name="image">
                 </div>
                 @error('image')
@@ -18,182 +102,31 @@
                 @enderror
 
 
-            </div>
 
+                <div class="align-items-center row justify-content-center mt-5 ml-3 mr-3">
+                    <textarea class="form-control" style="  @error('description') border:1px solid red;  @enderror" placeholder="Description..." name="description" rows="3"></textarea>
+                </div>
+                @error('description')
+                <div style="color: red; text-align: center; margin-top: 50px;">
+                    {{$message}}
+                </div>
+                @enderror
+
+                <div style="height: 100px;" class="row justify-content-center mt-4">
+                    <div><button type="submit" id="submit" name="submit"   class="btn btn-primary"><i class="fas fa-save"></i>&emsp;&emsp;Save&emsp;&emsp;</button></div>
+                </div>
+
+
+            </div>
         </div>
 
-        <div class="container">
-
-            <section class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Product info</h3>
-                </div>
-                <div class="panel-body">
-
-
-
-
-
-
-                        <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" id="name" style="@error('name') border-bottom:1px solid red; @enderror"  placeholder="Untitled product" value="{{ old('name') }}">
-                            </div>
-                            @error('name')
-                            <div style="color: red; text-align: center;">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-
-
-                        <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Reference</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="reference" id="name"  style="@error('name') border-bottom:1px solid red; @enderror" placeholder="Reference" value="{{ old('reference') }}">
-                            </div>
-                            @error('reference')
-                            <div style="color: red; text-align: center;">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-                        <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Price</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="price" id="name" placeholder="Price" style="@error('name') border-bottom:1px solid red; @enderror" value="{{ old('price') }}">
-                            </div>
-                            @error('price')
-                            <div style="color: red; text-align: center;">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-                        <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Quantity </label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" name="quantity" id="name" placeholder="quantity" style="@error('quantity') border-bottom:1px solid red; @enderror" value="{{ old('quantity') }}">
-                            </div>
-                        </div> <!-- form-group // -->
-
-
-                        <div class="form-group">
-                            <label for="about" class="col-sm-3 control-label">Description</label>
-                            <div class="col-sm-9">
-                                <textarea class="form-control"  name="description" placeholder="Description"  style="@error('name') border-bottom:1px solid red; @enderror" value="{{ old('description') }}"></textarea>
-                            </div>
-                            @error('description')
-                            <div style="color: red; text-align: center;">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-
-
-                        <div class="text-center mb-3">
-                            Pick the colors
-                        </div>
-                        <div class="align-items-center row justify-content-center">
-                            <select id="colors" multiple class="commits2 bg-dark" size="4" style="width: 30%; text-align: center; color: white; border-radius: 10px;" name="colors[]">
-
-                            </select>
-                        </div>
-
-
-
-
-
-
-
-
-                        {{--                    <div class="form-group">--}}
-                        {{--                        <label for="name" class="col-sm-3 control-label">Загрузить</label>--}}
-                        {{--                        <div class="col-sm-3">--}}
-                        {{--                            <label class="control-label small" for="file_img">Картинка (jpg/png):</label> <input type="file" name="file_img">--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-sm-3">--}}
-                        {{--                            <label class="control-label small" for="file_img">Файлы:</label>  <input type="file" name="file_archive">--}}
-                        {{--                        </div>--}}
-                        {{--                    </div> <!-- form-group // -->--}}
-
-
-
-
-
-                        {{-- all the providers as a collection of checkboxes --}}
-                        <div style="text-align: center"><p><i>Select providers for your product</i></p></div>
-                        <div class="row justify-content-center">
-                            <table>
-                                @foreach($providers as $provider)
-                                    <tr class="mb-3">
-                                        <td class="pt-3 pb-3"><input  data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
-                                        <td>{{ $provider->name }}</td>
-                                        <td><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="Quantity"></td>
-                                        <td><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount sm city ml-2 mr-2" placeholder="unitCost"></td>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tech" class="col-sm-3 control-label">Category</label>
-                            <div class="col-sm-3">
-                                <select class="form-control" name="collection_name"  style="@error('collection_name') border-bottom:solid 1px red; @enderror" required value=" {{ old('collection_name') }} ">
-                                    <option value="Pick a category" disabled selected>Pick a category</option>
-                                    @foreach($collections as $collection)
-                                        <option value="{{ $collection->name }}">{{ $collection->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            @error('collection_name')
-                            <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-
-                        <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Shipping Cost</label>
-                            <div class="col-sm-9">
-                                <input type="number" class="form-control" name="shippingCost" id="name" placeholder="Shipping Cost"   style="@error('name') border-bottom:1px solid red; @enderror" value="{{ old('shippingCost') }}">
-                            </div>
-                            @error('shippingCost')
-                            <div style="color: red; text-align: center;">{{ $message }}</div>
-                            @enderror
-                        </div> <!-- form-group // -->
-
-
-
-                        <hr>
-                        <div style="height: 100px;" class="row justify-content-center mt-4">
-                            <div><button type="submit" id="submit" name="submit"   class="btn btn-primary"><i class="fas fa-save"></i>&emsp;&emsp;Save&emsp;&emsp;</button></div>
-                        </div>
-
-
-
-                </div><!-- panel-body // -->
-            </section><!-- panel// -->
-
-
-        </div> <!-- container// -->
-
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <script>
+
         let tab=["red","green","yellow","black","blue","white","orange"];
+        document.getElementById("colors").setAttribute("size",tab.length+1);
         for(let i =1; i<=tab.length;i++){
             let option= document.createElement("option");
             option.value=tab[i-1];

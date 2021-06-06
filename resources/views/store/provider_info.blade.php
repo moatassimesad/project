@@ -9,40 +9,36 @@
     @if($provider->store->id==auth()->user()->store->id)
         <form action="{{ route('edit_provider') }}" method="post" enctype="multipart/form-data">
             @csrf
-
+            <input type="hidden" name="id" value="{{$id}}">
             <div class="container">
                 <div class="contenus bg-light">
                     <div  class="category_info row justify-content-center align-items-center cat_info">Change provider info</div>
                     <hr>
-                    <div  class="infos row justify-content-center align-items-center">
-                        <input type="hidden" name="id" value="{{$id}}">
-                        <input class="name"  name="name" type="text" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="name" value="{{$provider->name}}">
+                    <div class="form-group m-5">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Untitled product" value="{{$provider->name}}">
                     </div>
                     @error('name')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
-                    <div  class="infos row justify-content-center align-items-center">
-                        <input class="reference"  name="reference" type="text" style="@error('reference') border-bottom:1px solid red; @enderror" placeholder="reference" value="{{$provider->reference}}">
+                    <div class="form-group m-5">
+                        <label for="name">Reference</label>
+                        <input type="text" class="form-control" name="reference" style="@error('reference') border:1px solid red; @enderror" placeholder="Reference" value="{{$provider->reference}}">
                     </div>
                     @error('reference')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
-                    <div  class="infos row justify-content-center align-items-center">
-                        <input class="address"  name="address" type="text" style="@error('address') border-bottom:1px solid red; @enderror" placeholder="address" value="{{$provider->address}}">
+                    <div class="form-group m-5">
+                        <label for="name">Address</label>
+                        <input type="text" class="form-control" name="address" style="@error('address') border:1px solid red; @enderror" placeholder="Address" value="{{$provider->address}}">
                     </div>
                     @error('address')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
-                    <div  class="code_div row align-items-center justify-content-center">
-                        <div><select class="code">
-                                <option value="0">+212</option>
-                            </select>
-                        </div>
-                        <div class="offset-1">
-                            <input class="phone" style="@error('phone') border-bottom:solid 1px red; @enderror" type="number" name="phone" id="phone" placeholder="6 xx xx xx xx" value="{{$provider->phone}}">
-                        </div>
+                    <div class="form-group m-5">
+                        <label for="name">Phone</label>
+                        <input type="text" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{$provider->phone}}">
                     </div>
-
                     @error('phone')
                     <div class="error">{{ $message }}</div>
                     @enderror

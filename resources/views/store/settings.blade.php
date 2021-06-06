@@ -8,46 +8,54 @@
     @csrf
 
     <div class="container">
-        <div class="contenus bg-light">
-            <div  class="category_info row justify-content-center align-items-center cat_info">Basic informations</div>
-            <hr>
-            @if(session('status'))
-                <div class="success alert alert-success" role="alert">{{ session('status') }}</div>
+        @if(session('status'))
+            <div class="success alert alert-success" role="alert">{{ session('status') }}</div>
 
+        @endif
+            @if(session('status1')=='Password changed successfully')
+                <div class="success alert alert-success" role="alert">{{ session('status1') }}</div>
+            @elseif(session('status1')=='Invalid password')
+                <div class="success alert alert-danger" role="alert">{{ session('status1') }}</div>
             @endif
+        <div class="contenus bg-light">
+            <div  class="row justify-content-center align-items-center cat_info">Basic informations</div>
+            <hr>
 
-            <div class="align-items-center row justify-content-between justify-content-around fn_ln">
-                <input class="fn_and_ln" style="@error('firstName') border-bottom:solid 1px red; @enderror" type="text" id="firstName" name="firstName" placeholder="First Name" value="{{auth()->user()->firstName}}">
-                <input class="fn_and_ln" style="@error('lastName') border-bottom:solid 1px red; @enderror" type="text" id="lastName" name="lastName" placeholder="Last Name" value="{{auth()->user()->lastName}}">
+
+            <div class="row mt-5 m-4">
+                <div class="col">
+                    <label for="">First name</label>
+                    <input type="text" class="form-control" style="@error('firstName') border:1px solid red; @enderror" placeholder="First name" name="firstName" value="{{auth()->user()->firstName}}">
+                </div>
+                <div class="col">
+                    <label for="">Last name</label>
+                    <input type="text" class="form-control" style="@error('lastName') border:1px solid red; @enderror" placeholder="Last name" name="lastName" value="{{auth()->user()->firstName}}">
+                </div>
             </div>
             @error('firstName')
-            <div class="error">{{ $message }}</div>
+            <div  style="text-align: center; color: red;">{{ $message }}</div>
             @enderror
             @error('lastName')
-            <div class="error">{{ $message }}</div>
+            <div style="text-align: center; color: red;">{{ $message }}</div>
             @enderror
-            <div  class="city_div align-items-center row justify-content-center">
-                <select id="city" name="city" class="city" style="@error('city') border-bottom:solid 1px red; @enderror" required>
+            <div class="form-group m-4">
+                <label for="city">Collection</label>
+                <select id="city" name="city" class="form-control" id="city">
                     <option value="{{auth()->user()->city}}" selected>{{auth()->user()->city}}</option>
                 </select>
-
             </div>
             @error('city')
-            <div class="error">{{ $message }}</div>
+            <div style="text-align: center; color: red;">{{ $message }}</div>
             @enderror
-            <div  class="code_div row align-items-center justify-content-center">
-                <div><select class="code">
-                        <option value="0">+212</option>
-                    </select>
-                </div>
-                <div class="offset-1">
-                    <input class="phone" style="@error('phone') border-bottom:solid 1px red; @enderror" type="number" name="phone" id="phone" placeholder="6 xx xx xx xx" value="{{auth()->user()->phone}}">
-                </div>
+            <div class="form-group m-5">
+                <label for="name">Phone</label>
+                <input type="text" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{auth()->user()->phone}}">
             </div>
-
             @error('phone')
-            <div class="error">{{ $message }}</div>
+            <div style="text-align: center; color: red;">{{ $message }}</div>
             @enderror
+
+
             <div style="height: 100px;" class="row justify-content-center mt-4">
                 <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit"></i>&emsp;&emsp;Edit&emsp;&emsp;</button></div>
             </div>
@@ -64,24 +72,19 @@
 
         <div class="container">
             <div class="contenus bg-light">
-                <div  class="category_info row justify-content-center align-items-center cat_info">Login informations</div>
+                <div  class="row justify-content-center align-items-center cat_info">Login informations</div>
                 <hr>
-                @if(session('status1')=='Password changed successfully')
-                    <div class="success alert alert-success" role="alert">{{ session('status1') }}</div>
-                @elseif(session('status1')=='Invalid password')
-                    <div class="success alert alert-danger" role="alert">{{ session('status1') }}</div>
-                @endif
-                <div  class="infos row justify-content-center align-items-center">
-                    <input class="name"  name="old_password" type="password" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="old password">
+                <div  class="form-group m-5">
+                    <input class="form-control"  name="old_password" type="password" style="@error('old_password') border:1px solid red; @enderror" placeholder="old password">
                 </div>
                 @error('old_password')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
-                <div  class="infos row justify-content-center align-items-center">
-                    <input class="name"  name="password" type="password" style="@error('name') border-bottom:1px solid red; @enderror" placeholder="new password">
+                <div  class="form-group m-5">
+                    <input class="form-control"  name="password" type="password" style="@error('password') border:1px solid red; @enderror" placeholder="new password">
                 </div>
-                <div  class="infos row justify-content-center align-items-center">
-                    <input class="reference"  name="password_confirmation" type="password" style="@error('reference') border-bottom:1px solid red; @enderror" placeholder="retype password">
+                <div  class="form-group m-5">
+                    <input class="form-control"  name="password_confirmation" type="password" style="@error('password') border:1px solid red; @enderror" placeholder="retype password">
                 </div>
                 @error('password')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
