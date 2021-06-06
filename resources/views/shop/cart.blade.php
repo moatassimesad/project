@@ -94,7 +94,7 @@
                                                         @if($color == "none")
                                                             <div class="mt-3">No available colors for this product</div>
                                                         @else
-                                                            <a type="button" href="@if($color == $product['color']) @else/cart_change_color/{{$product['id']}}/{{$product['color']}}/{{$color}}@endif" class="color mt-3 mr-2" style="background-color: {{$color}}; @if($color == $product['color']) width: 25px; height: 25px;@endif"></a>
+                                                            <a type="button" href="@if($color == $product['color']) @else/cart_change_color/{{$store->id}}/{{$product['id']}}/{{$product['color']}}/{{$color}}@endif" class="color mt-3 mr-2" style="background-color: {{$color}}; @if($color == $product['color']) width: 25px; height: 25px;@endif"></a>
                                                         @endif
                                                     @endforeach
                                                 </div>
@@ -108,6 +108,7 @@
                                                     @method('put')
                                                 <div class="form-group mb-0 w-100 ">
                                                     <input type="hidden" name="product_id" value="{{$product['id']}}">
+                                                    <input type="hidden" name="store_id" value="{{$store->id}}">
                                                     <input type="hidden" name="color" value="{{$product['color']}}">
                                                     <select name="quantity" class="form-control" id="exampleFormControlSelect1">
                                                         <option value="{{ $product['quantity'] }}" selected>{{ $product['quantity'] }}</option>
@@ -130,6 +131,7 @@
                                                 @method('delete')
                                             <div>
                                                 <input type="hidden" name="product_id" value="{{$product['id']}}">
+                                                <input type="hidden" name="store_id" value="{{$store->id}}">
                                                 <input type="hidden" name="color" value="{{$product['color']}}">
                                                 <button type="submit" style="background: none; border: none; padding: 0 !important;color: red" class="card-link-secondary small text-uppercase mr-3"><i
                                                         class="fas fa-trash-alt mr-1"></i> Remove item </button>

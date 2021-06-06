@@ -148,7 +148,7 @@ Route::post('/add_to_card', [HomeController::class,'add_to_card'])->name('add_to
 
 Route::get('/cart/{id}', [HomeController::class,'index_cart'])->name('cart');
 
-Route::get('/cart_change_color/{id}/{old_color}/{new_color}', [HomeController::class,'change_color'])->name('cart_change_color');
+Route::get('/cart_change_color/{store_id}/{id}/{old_color}/{new_color}', [HomeController::class,'change_color'])->name('cart_change_color');
 
 
 

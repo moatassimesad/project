@@ -381,6 +381,7 @@
                         @csrf
                         <div  class="row justify-content-center align-items-center mt-4">
                             <input type="hidden" name="product_id" value="{{$product->id}}">
+                            <input type="hidden" name="store_id" value="{{$store->id}}">
                             <input type="hidden" id="couleur" name="color" value="">
                             <input id="qtelb" class="name" min="1" max="{{$product->quantity}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{old('quantity')}}">
                         </div>

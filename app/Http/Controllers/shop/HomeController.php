@@ -18,8 +18,8 @@ class HomeController extends Controller
         $store = Store::find($id);
         $collections = $store->collections;
         $user = $store->user;
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
         }
@@ -39,8 +39,8 @@ class HomeController extends Controller
         }
         $collections = $store->collections;
         $user = $store->user;
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
         }
@@ -51,8 +51,8 @@ class HomeController extends Controller
         $store = Store::find($store_id);
         $user = $store->user;
         $colors = $product->getColors();
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
         }
@@ -62,8 +62,8 @@ class HomeController extends Controller
     public function index_cart($store_id){
         $store = Store::find($store_id);
         $user = $store->user;
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
         }
@@ -80,7 +80,7 @@ class HomeController extends Controller
 
     public function add_to_card(Request $request){
         $product = Product::find($request->product_id);
-
+        $store = Store::find($request->store_id);
         $this->validate($request,[
             'quantity'=>'required',
         ]);
@@ -94,19 +94,23 @@ class HomeController extends Controller
         }
 
         $product = Product::find($request->product_id);
-        if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = new Cart();
         }
         $cart->add($product,$request->color,$request->quantity);
-        session()->put('cart', $cart);
+        session()->put('cart'.$store->id, $cart);
         return back()->with('status', 'Added successfully');
     }
-    public function change_color($id,$old_color,$new_color){
-        $cart = new Cart(session()->get('cart'));
+
+
+    public function change_color($store_id,$id,$old_color,$new_color){
+        $store = Store::find($store_id);
+        $cart = new Cart(session()->get('cart'.$store->id));
         $response = $cart->update_color($id,$old_color,$new_color);
-        session()->put('cart', $cart);
+        session()->put('cart'.$store->id, $cart);
         if($response == -1){
             return back()->with('status', 'Already exist');
         }
@@ -118,20 +122,22 @@ class HomeController extends Controller
         $this->validate($request,[
             'quantity'=>'required'
         ]);
-        $cart = new Cart(session()->get('cart'));
+        $store = Store::find($request->store_id);
+        $cart = new Cart(session()->get('cart'.$store->id));
         $cart->update_quantity($request->product_id,$request->color, $request->quantity);
-        session()->put('cart', $cart);
+        session()->put('cart'.$store->id, $cart);
         return back()->with('status2', 'Quantity updated successfully');
     }
 
     public function delete(Request $request){
-        $cart = new Cart(session()->get('cart'));
+        $store = Store::find($request->store_id);
+        $cart = new Cart(session()->get('cart'.$store->id));
         $cart->remove($request->product_id,$request->color);
 
         if ($cart->totalQty <= 0) {
-            session()->forget('cart');
+            session()->forget('cart'.$store->id);
         } else {
-            session()->put('cart', $cart);
+            session()->put('cart'.$store->id, $cart);
         }
         return back()->with('status3', 'Product was removed successfully');
 
