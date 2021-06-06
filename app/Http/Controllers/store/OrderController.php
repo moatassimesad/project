@@ -19,37 +19,35 @@ class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth','verified'])->except('store','index_checkout');
     }
 
-    public function index_list()
-    {
+    public function index_list(){
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $orders = $store->orders;
-        $status = ['Confirmed', 'Shipped', 'Payed', 'Delivered'];
-        return view('store.list_order', compact('orders', 'status'));
+        $status = ['Confirmed','Shipped','Payed','Delivered'];
+        return view('store.list_order', compact('orders','status'));
     }
 
-    public function index_order_products_info($id)
-    {
+    public function index_order_products_info($id){
         $order = Order::find($id);
         $delivery = $order->delivery;
         $client = $order->client;
-        return view('store.order_products', compact('order', 'delivery', 'client'));
+        return view('store.order_products',compact('order','delivery','client'));
     }
 
 
-    public function index_checkout($id)
-    {
+
+    public function index_checkout($id){
         $store = Store::find($id);
         $user = $store->user;
-        if (session()->has('cart' . $store->id)) {
-            $cart = new Cart(session()->get('cart' . $store->id));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
         }
-        return view('shop.checkout', compact('cart', 'store', 'user'));
+        return view('shop.checkout',compact('cart','store','user'));
     }
 
 
@@ -77,7 +75,7 @@ class OrderController extends Controller
             ['phone', '=', $request->phone],
             ['email', '=', $request->email],
             ['store_id', '=', $request->store_id],
-        ])->first();
+            ])->first();
         if ($client == null) {
             $client = new Client();
             $client->firstName = $request->firstName;
@@ -93,8 +91,8 @@ class OrderController extends Controller
         }
         $store = Store::find($request->store_id);
 
-        if (session()->has('cart' . $store->id)) {
-            $cart = new Cart(session()->get('cart' . $store->id));
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
 
             $order = new Order();
             $order->status = "Confirmed";
@@ -111,11 +109,12 @@ class OrderController extends Controller
                 $product->save();
             }
             $user = $store->user;
-            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName, $client->lastName, $client->address));
+            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address));
             session()->forget('cart');
-            return view('shop.order_details', compact('order', 'store', 'user', 'client'));
+            return view('shop.order_details', compact('order', 'store', 'user','client'));
         }
     }
+
     public function edit(Request $request){
         $order = Order::find($request->order_id);
         $order->status = $request->status;

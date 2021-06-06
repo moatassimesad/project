@@ -17,7 +17,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth','verified']);
     }
 
     public function index_add()
@@ -64,7 +64,6 @@ class ProductController extends Controller
             'name' => 'required',
             'reference' => 'required',
             'price' => 'required',
-            'shippingCost' => 'required',
             'collection_name' => 'required',
             'description' => 'required',
         ]);
@@ -84,8 +83,6 @@ class ProductController extends Controller
              $item .= ",";
     }
          $product->colors = $item;
-
-        $product->shippingCost = $request->shippingCost;
         $product->description = $request->description;
         $product->collection_id = $collection->id;
         $product->store_id = $store->id;
@@ -126,7 +123,6 @@ class ProductController extends Controller
             'name' => 'required',
             'reference' => 'required',
             'price' => 'required',
-            'shippingCost' => 'required',
             'collection_name' => 'required',
             'description' => 'required',
         ]);
@@ -145,7 +141,6 @@ class ProductController extends Controller
             $item .= ",";
         }
         $product->colors = $item;
-        $product->shippingCost = $request->shippingCost;
         $product->description = $request->description;
         $product->collection_id = $collection->id;
         if ($request->hasFile('image')) {

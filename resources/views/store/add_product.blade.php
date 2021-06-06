@@ -32,13 +32,6 @@
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div class="form-group m-5">
-                    <label for="name">Shipping cost</label>
-                    <input type="text" class="form-control" name="shippingCost" style="@error('shippingCost') border:1px solid red; @enderror" placeholder="Shipping cost" value="{{old('shippingCost')}}">
-                </div>
-                @error('shippingCost')
-                <div style="color: red; text-align: center;">{{ $message }}</div>
-                @enderror
-                <div class="form-group m-5">
                     <label for="name">Quantity</label>
                     <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="{{old('quantity')}}">
                 </div>

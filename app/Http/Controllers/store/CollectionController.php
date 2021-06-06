@@ -13,7 +13,7 @@ class CollectionController extends Controller
     public function __construct()
     {
         // unaccessable without auth
-        $this->middleware(['auth']);
+        $this->middleware(['auth','verified']);
     }
 
     public function index_add(){

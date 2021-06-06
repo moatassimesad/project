@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('reference');
             $table->float('price');
             $table->float('quantity');
-            $table->float('shippingCost');
             $table->string('description');
             $table->mediumText('image');
             $table->mediumText("colors");

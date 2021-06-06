@@ -20,7 +20,6 @@ class Product extends Model
         'reference',
         'price',
         'quantity',
-        'shippingCost',
         'description',
         'image',
         'collection_id',
