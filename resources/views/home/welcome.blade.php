@@ -112,7 +112,7 @@
 </div>
 
 <!-- price table -->
-{{--<div class="container my-5 py-2" id="price-table">
+<div class="container my-5 py-2" id="price-table">
     <h2 class="text-center font-weight-bold d-block mb-3">Check our pricing</h2>
     <div class="row">
         <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" class="col-md-4 text-center py-4 mt-5">
@@ -151,30 +151,7 @@
     </div>
 </div>
 <!-- client -->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-1.png" class="mx-auto d-block">
-            </div>
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-2.png" class="mx-auto d-block">
-            </div>
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-3.png" class="mx-auto d-block">
-            </div>
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-4.png" class="mx-auto d-block">
-            </div>
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-5.png" class="mx-auto d-block">
-            </div>
-            <div class="col-sm-4 col-md-2 py-2 align-self-center">
-                <img src="images/client-6.png" class="mx-auto d-block">
-            </div>
-        </div>
-    </div>
-</div>--}}
+
 <!-- contact -->
 <div class="jumbotron jumbotron-fluid mt-5" id="contact" style="background-image: url(images/contact-bk.jpg);">
     <div class="container my-5">
