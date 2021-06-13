@@ -56,7 +56,7 @@
                 </div>
                 @enderror
                 <div class="align-items-center row justify-content-center mt-4 mr-2 ml-2">
-                    <label for="textLayer_bottom">Enter a text layer that will displayed at the bottom of the picture in the bottom</label>
+                    <label for="textLayer_bottom">Enter a text layer that will displayed at the top of the picture in the bottom</label>
                     <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom top for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer_bottom }}</textarea>
                 </div>
                 @error('textLayer_bottom')
@@ -134,6 +134,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Settings");
+            $(".edit_store").addClass('active');
+            $(".store_toggle").addClass('active');
         });
     </script>
 @endsection

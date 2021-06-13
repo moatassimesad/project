@@ -56,6 +56,7 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Deliveries");
+            $(".deliveries").addClass('active');
         });
     </script>
 

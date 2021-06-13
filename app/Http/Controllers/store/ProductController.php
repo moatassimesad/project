@@ -62,7 +62,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'image' => 'required',
             'name' => 'required',
-            'reference' => 'required',
+            'reference' => 'required|unique:products',
             'price' => 'required',
             'collection_name' => 'required',
             'description' => 'required',
@@ -94,16 +94,32 @@ class ProductController extends Controller
             $product->image = $fileName;
         }
         $quantityTotal = 0;
-        if($request->providers_quantity) {
-            foreach ($request->providers_quantity as $key => $quantity) {
-                $quantityTotal += $quantity;
+        $unitCosts = $request->providers_unitCost;
+        if ($request->providers_quantity){
+            if (array_values($request->providers_quantity)[0]) {
+                foreach ($request->providers_quantity as $key => $quantity) {
+                    if ($unitCosts[$key] == null) {
+                        continue;
+                    }
+                    $quantityTotal += $quantity;
+                }
+                $product->quantity = $quantityTotal;
             }
-            $product->quantity = $quantityTotal;
+            else{
+                $product->quantity = $request->quantity;
+            }
         }
         else{
             $product->quantity = $request->quantity;
         }
-
+        if ($request->providers_quantity) {
+            if ($product->quantity == 0 && array_values($request->providers_quantity)[0]) {
+                return back()->with('status1', 'you must enter the unit cost for every single provider you entered');
+            }
+        }
+        if ($product->quantity == null){
+            return back()->with('status','you must enter the quantity or select your providers with provided quantities');
+        }
         $product->save();
         //$product->providers()->sync(array_keys($request->providers),[]);
         $unitCosts = $request->providers_unitCost;
@@ -127,65 +143,152 @@ class ProductController extends Controller
             'description' => 'required',
         ]);
         $collection = Collection::where('name', $request->collection_name)->first();
-        $user = User::find(auth()->user()->id);
         $product = Product::find($request->product_id);
-        $product->name = $request->name;
-        $product->reference = $request->reference;
-        $product->price = $request->price;
-        $item = "";
-        if ($request->colors == null) {
-            $request->colors = ["none"];
-        }
-        foreach ($request->colors as $color) {
-            $item .= $color;
-            $item .= ",";
-        }
-        $product->colors = $item;
-        $product->description = $request->description;
-        $product->collection_id = $collection->id;
-        if ($request->hasFile('image')) {
-            $path = 'images/' . $product->image;
-            File::delete($path);
-            $file = $request->file('image');
-            $extesion = $file->getClientOriginalExtension();
-            $fileName = time() . '.' . $extesion;
-            $file->move('images/', $fileName);
-            $product->image = $fileName;
-        }
-        $quantityTotal = 0;
-        $unitCosts = $request->providers_unitCost;
-        if ($request->providers_quantity){
-            if (array_values($request->providers_quantity)[0]) {
+
+        $exist = DB::table('products')->where('reference', $request->reference)->first();
+        if ($exist) {
+            if ($product->id == $exist->id) {
+                $product->name = $request->name;
+                $product->reference = $request->reference;
+                $product->price = $request->price;
+                $item = "";
+                if ($request->colors == null) {
+                    $request->colors = ["none"];
+                }
+                foreach ($request->colors as $color) {
+                    $item .= $color;
+                    $item .= ",";
+                }
+                $product->colors = $item;
+                $product->description = $request->description;
+                $product->collection_id = $collection->id;
+                if ($request->hasFile('image')) {
+                    $path = 'images/' . $product->image;
+                    File::delete($path);
+                    $file = $request->file('image');
+                    $extesion = $file->getClientOriginalExtension();
+                    $fileName = time() . '.' . $extesion;
+                    $file->move('images/', $fileName);
+                    $product->image = $fileName;
+                }
+                $quantityTotal = 0;
+                $unitCosts = $request->providers_unitCost;
+                if ($request->providers_quantity) {
+                    if (array_values($request->providers_quantity)[0]) {
+                        foreach ($request->providers_quantity as $key => $quantity) {
+                            if ($unitCosts[$key] == null) {
+                                continue;
+                            }
+                            $quantityTotal += $quantity;
+                        }
+                        $product->quantity = $quantityTotal;
+                    } else {
+                        $product->quantity = $request->quantity;
+                    }
+                } else {
+                    $product->quantity = $request->quantity;
+                }
+                if ($request->providers_quantity) {
+                    if ($product->quantity == 0 && array_values($request->providers_quantity)[0]) {
+                        return back()->with('status1', 'you must enter the unit cost for every single provider you entering');
+                    }
+                }
+                if ($product->quantity == null) {
+                    return back()->with('status', 'you must enter the quantity or select your providers with provided quantities');
+                }
+
+
+                $product->save();
+                if ($product->providers) {
+                    foreach ($product->providers as $provider) {
+                        $provider->pivot->delete();
+                    }
+                }
+                if ($request->providers_quantity) {
+                    foreach ($request->providers_quantity as $key => $quantity) {
+                        if ($quantity == null || $unitCosts[$key] == null) {
+                            continue;
+                        }
+                        $product->providers()->attach($key, ['quantity' => $quantity, 'unitCost' => $unitCosts[$key]]);
+                    }
+                }
+
+
+                return redirect()->route('list_product');
+            } else {
+                return back()->with('duplicate', 'The reference has already been taken.');
+            }
+        } else {
+            $product->name = $request->name;
+            $product->reference = $request->reference;
+            $product->price = $request->price;
+            $item = "";
+            if ($request->colors == null) {
+                $request->colors = ["none"];
+            }
+            foreach ($request->colors as $color) {
+                $item .= $color;
+                $item .= ",";
+            }
+            $product->colors = $item;
+            $product->description = $request->description;
+            $product->collection_id = $collection->id;
+            if ($request->hasFile('image')) {
+                $path = 'images/' . $product->image;
+                File::delete($path);
+                $file = $request->file('image');
+                $extesion = $file->getClientOriginalExtension();
+                $fileName = time() . '.' . $extesion;
+                $file->move('images/', $fileName);
+                $product->image = $fileName;
+            }
+            $quantityTotal = 0;
+            $unitCosts = $request->providers_unitCost;
+            if ($request->providers_quantity) {
+                if (array_values($request->providers_quantity)[0]) {
+                    foreach ($request->providers_quantity as $key => $quantity) {
+                        if ($unitCosts[$key] == null) {
+                            continue;
+                        }
+                        $quantityTotal += $quantity;
+                    }
+                    $product->quantity = $quantityTotal;
+                } else {
+                    $product->quantity = $request->quantity;
+                }
+            } else {
+                $product->quantity = $request->quantity;
+            }
+            if ($request->providers_quantity) {
+                if ($product->quantity == 0 && array_values($request->providers_quantity)[0]) {
+                    return back()->with('status1', 'you must enter the unit cost for every single provider you entering');
+                }
+            }
+            if ($product->quantity == null) {
+                return back()->with('status', 'you must enter the quantity or select your providers with provided quantities');
+            }
+
+
+            $product->save();
+            if ($product->providers) {
+                foreach ($product->providers as $provider) {
+                    $provider->pivot->delete();
+                }
+            }
+            if ($request->providers_quantity) {
                 foreach ($request->providers_quantity as $key => $quantity) {
-                    if ($unitCosts[$key] == null) {
+                    if ($quantity == null || $unitCosts[$key] == null) {
                         continue;
                     }
-                    $quantityTotal += $quantity;
+                    $product->providers()->attach($key, ['quantity' => $quantity, 'unitCost' => $unitCosts[$key]]);
                 }
-                $product->quantity = $quantityTotal;
             }
-    }
-        else{
-            $product->quantity = $request->quantity;
-        }
 
-        $product->save();
-        if($product->providers) {
-            foreach ($product->providers as $provider) {
-                $provider->pivot->delete();
-            }
-        }
-        if($request->providers_quantity) {
-            foreach ($request->providers_quantity as $key => $quantity) {
-                if ($quantity == null || $unitCosts[$key] == null) {
-                    continue;
-                }
-                $product->providers()->attach($key, ['quantity' => $quantity, 'unitCost' => $unitCosts[$key]]);
-            }
+
+            return redirect()->route('list_product');
         }
 
 
-        return redirect()->route('list_product');
     }
 
     public function delete($id)

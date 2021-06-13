@@ -29,6 +29,7 @@
             <tbody>
             @foreach($clients as $element)
                 <tr>
+                    <input type="hidden" class="customer_id" value="{{ $element->id }}">
                     <th scope="row">{{$element->lastName}} {{$element->firstName}}</th>
                     <td>{{$element->email}}</td>
                     <td>{{$element->address}}</td>
@@ -36,7 +37,7 @@
                     <td>{{$element->orders->count()}}</td>
                     <td>{{$element->created_at}}</td>
                     <td>
-                        <span><a href="/delete_customer/{{$element->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
+                        <span><button type="button" class="show_alert btn btn-danger mr-2"><i class="fas fa-trash"></i></button></span>
                     </td>
                 </tr>
             @endforeach
@@ -50,6 +51,33 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Customers");
+            $(".customers").addClass('active');
+        });
+    </script>
+    <script>
+        $('document').ready(function () {
+            $(".show_alert").on('click',function (e){
+                e.preventDefault();
+                var customer_id = $(this).closest("tr").find('.customer_id').val();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this customer with all its orders!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            window.location.href = "/delete_customer/"+customer_id;
+                            swal("Poof! Customer has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Deleting canceled!");
+                        }
+                    });
+            });
         });
     </script>
 

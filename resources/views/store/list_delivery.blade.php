@@ -22,13 +22,14 @@
         <tbody>
         @foreach($deliveries as $element)
         <tr>
+            <input type="hidden" class="delivery_id" value="{{ $element->id }}">
             <th scope="row">{{$element->name}}</th>
             <td>{{$element->reference}}</td>
             <td>{{$element->address}}</td>
             <td>{{$element->phone}}</td>
             <td>
                 <span><a href="/delivery_info/{{$element->id}}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a></span>
-                <span><a href="/delete_delivery/{{$element->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
+                <span><button type="button" class="show_alert btn btn-danger mr-2"><i class="fas fa-trash"></i></button></span>
             </td>
         </tr>
         @endforeach
@@ -42,6 +43,33 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Deliveries");
+            $(".deliveries").addClass('active');
+        });
+    </script>
+    <script>
+        $('document').ready(function () {
+            $(".show_alert").on('click',function (e){
+                e.preventDefault();
+                var delivery_id = $(this).closest("tr").find('.delivery_id').val();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this delivery!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            window.location.href = "/delete_delivery/"+delivery_id;
+                            swal("Poof! Delivery has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Deleting canceled!");
+                        }
+                    });
+            });
         });
     </script>
 @endsection

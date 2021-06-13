@@ -31,7 +31,7 @@
                             <div class="card-icon">
                                 <i class="fas fa-users fa-lg"></i>
                             </div>
-                            <p class="card-category" style="color: #212629">TOTAL CLIENTS</p>
+                            <p class="card-category" style="color: #212629">CLIENTS</p>
                             <h5 class="card-title">{{$clients->count()}}</h5>
                         </div>
 
@@ -86,7 +86,7 @@
                     <label for="date_end">Start date</label>
                     <input type="date" class="ml-3" name="date_end" style="border: 1px solid #212629; border-radius: 10px">
                     <label for="date_start">End date</label>
-                    <button type="submit" class="btn btn-primary py-1 ">Search</button>
+                    <button type="submit" class="ml-3 btn btn-primary py-1 ">Search</button>
                 </form>
             </div>
 
@@ -154,6 +154,7 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Dashboard");
+            $(".dashboard").addClass('active');
         });
     </script>
 

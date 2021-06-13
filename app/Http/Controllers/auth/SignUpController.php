@@ -24,12 +24,12 @@ class SignUpController extends Controller
 
         //validation
         $this->validate($request, [
-            'firstName'=> 'required|max:255',
-            'lastName'=> 'required|max:255',
-            'email'=> 'required|email|max:255',
+            'firstName'=> 'required|max:255|string',
+            'lastName'=> 'required|max:255|string',
+            'email'=> 'required|email|max:255|string|unique:users',
             'city'=> 'required',
-            'phone'=> 'required|',
-            'password'=> 'required|confirmed',
+            'phone'=> 'required',
+            'password'=> 'required|confirmed|min:8|string',
         ]);
         //storing_data
 

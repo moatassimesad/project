@@ -241,6 +241,8 @@
 <script>
     $('document').ready(function () {
         $("#title").html("Product / Details");
+        $(".products").addClass('active');
+        $(".products_toggle").addClass('active');
     });
 </script>
 

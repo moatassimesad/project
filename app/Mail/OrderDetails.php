@@ -21,13 +21,14 @@ class OrderDetails extends Mailable
     public $firstName;
     public $lastName;
     public $address;
+    public $status;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $order, Store $store, User $user, string $firstName, string $lastName, string $address)
+    public function __construct(Order $order, Store $store, User $user, string $firstName, string $lastName, string $address,string $status)
     {
         $this->order = $order;
         $this->store = $store;
@@ -35,6 +36,7 @@ class OrderDetails extends Mailable
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->address = $address;
+        $this->status = $status;
     }
 
     /**

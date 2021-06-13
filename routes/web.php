@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\logOutController;
 use App\Http\Controllers\auth\SignInController;
 use App\Http\Controllers\auth\SignUpController;
 use App\Http\Controllers\auth\StoreNameController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\shop\HomeController;
 use App\Http\Controllers\store\CollectionController;
 use App\Http\Controllers\store\CustomerController;
@@ -50,7 +51,7 @@ Route::get('/list_collection', [CollectionController::class,'index_list'])->name
 
 Route::get('/collection_info/{id}', [CollectionController::class,'index_collection_info'])->name('collection_info');
 
-Route::get('/delete_collection/{id}', [CollectionController::class,'delete']);
+Route::get('/delete_collection/{id}', [CollectionController::class,'delete'])->name('delete_collection');
 
 Route::post('/edit_collection', [CollectionController::class,'edit'])->name('edit_collection');
 
@@ -142,6 +143,8 @@ Route::get('/home/{id}', [HomeController::class,'index'])->name('home');
 
 Route::get('/shop/{id}/{collection_id}', [HomeController::class,'index_shop'])->name('shop');
 
+Route::post('/shop/{id}/{collection_name}', [HomeController::class,'search_shop'])->name('searchshop');
+
 Route::get('/product_preview/{store_id}/{product_id}', [HomeController::class,'product_preview'])->name('product_preview');
 
 Route::post('/add_to_card', [HomeController::class,'add_to_card'])->name('add_to_card');
@@ -162,5 +165,22 @@ Route::get('/checkout/{id}', [OrderController::class,'index_checkout'])->name('c
 
 
 Route::post('/checkout', [OrderController::class,'store'])->name('pay');
+
+/**********************************paypal***********************************/
+Route::post('/save_paypal_credentials', [OrderController::class,'save_paypal_credentials'])->name('save_paypal_credentials');
+
+Route::post('/update_paypal_credentials', [OrderController::class,'update_paypal_credentials'])->name('update_paypal_credentials');
+
+Route::get('/index_paypal_credentials', [OrderController::class,'index_paypal_credentials'])->name('index_paypal_credentials');
+
+Route::get('/index_change_paypal_credentials', [OrderController::class,'index_change_paypal_credentials'])->name('index_change_paypal_credentials');
+
+
+
+Route::get('paypal/checkout/{order}', [PayPalController::class,'getExpressCheckout'])->name('paypal.checkout');
+
+Route::get('paypal/checkout-success/{order}',[PaypalController::class,'getExpressCheckoutSuccess'])->name('paypal.success');
+
+Route::get('paypal/checkout-cancel',[PaypalController::class,'cancelPage'])->name('paypal.cancel');
 
 

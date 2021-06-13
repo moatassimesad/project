@@ -110,6 +110,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Settings");
+            $(".settings").addClass('active');
+
         });
     </script>
     <script src="jquery-3.5.1.min.js"></script>

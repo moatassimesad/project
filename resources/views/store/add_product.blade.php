@@ -7,6 +7,14 @@
         @csrf
 
         <div class="container">
+            @if(session('status'))
+                <div class="success alert alert-danger" role="alert">{{ session('status') }}</div>
+
+            @endif
+                @if(session('status1'))
+                <div class="success alert alert-danger" role="alert">{{ session('status1') }}</div>
+
+            @endif
             <div class="contenus bg-light">
                 <div  class="row justify-content-center align-items-center cat_info">Product informations</div>
                 <hr>
@@ -58,6 +66,7 @@
 
 
                 {{-- all the providers as a collection of checkboxes --}}
+                @if($providers->count())
                 <div style="text-align: center"><p><i>Select providers for your product</i></p></div>
 
 
@@ -86,6 +95,7 @@
                     </div>
 
                 </div>
+                @endif
 
                 <div  class="row justify-content-center files mt-3" style="@error('image') border:1px solid red; @enderror">
                     <input type="file" class="bg-light fl" id="image" name="image">
@@ -97,7 +107,7 @@
 
 
                 <div class="align-items-center row justify-content-center mt-5 ml-3 mr-3">
-                    <textarea class="form-control" style="  @error('description') border:1px solid red;  @enderror" placeholder="Description..." name="description" rows="3"></textarea>
+                    <textarea class="form-control" style="  @error('description') border:1px solid red;  @enderror" placeholder="Description..." name="description" rows="3">{{old('description')}}</textarea>
                 </div>
                 @error('description')
                 <div style="color: red; text-align: center; margin-top: 50px;">
@@ -132,7 +142,9 @@
 
     <script>
         $('document').ready(function () {
-            $("#title").html("Product");
+            $("#title").html("Products");
+            $(".products").addClass('active');
+            $(".products_toggle").addClass('active');
             $('.provider-enable').on('click', function () {
                 let id = $(this).attr('data-id')
                 let enabled = $(this).is(":checked")

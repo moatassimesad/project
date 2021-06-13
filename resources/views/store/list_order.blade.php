@@ -82,6 +82,7 @@
             <tbody>
             @foreach($orders as $order)
                 <tr>
+                    <input type="hidden" class="order_id" value="{{ $order->id }}">
                     <td>{{ $order->id }}</td>
                     <td>
                         <form action="{{ route('edit_order') }}" method="post" name="myFormName{{$order->id}}">
@@ -101,7 +102,7 @@
                     <td>{{ $order->updated_at }}</td>
                     <td>
                         <span><a href="/order_products_info/{{$order->id}}" class="btn btn-secondary mr-2"><i class="fas fa-eye"></i></a></span>
-                        <span><a href="/delete_order/{{$order->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
+                        <span><button type="button" class="show_alert btn btn-danger mr-2"><i class="fas fa-trash"></i></button></span>
                     </td>
                 </tr>
 
@@ -117,6 +118,7 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Orders");
+            $(".orders").addClass('active');
         });
     </script>
     @foreach($orders as $order)
@@ -128,5 +130,31 @@
             });
         </script>
     @endforeach
+    <script>
+        $('document').ready(function () {
+            $(".show_alert").on('click',function (e){
+                e.preventDefault();
+                var order_id = $(this).closest("tr").find('.order_id').val();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this order!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            window.location.href = "/delete_order/"+order_id;
+                            swal("Poof! Order has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Deleting canceled!");
+                        }
+                    });
+            });
+        });
+    </script>
 
 @endsection

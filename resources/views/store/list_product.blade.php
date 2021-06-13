@@ -95,6 +95,7 @@
         <tbody>
         @foreach($products as $product)
         <tr >
+            <input type="hidden" class="product_id" value="{{ $product->id }}">
             <th scope="row"><img src="images/{{$product->image}}" alt="" class="images" ></th>
             <td>{{ $product->name }}</td>
             <td>{{ $product->reference }}</td>
@@ -104,7 +105,7 @@
             <td>
                 <span><a href="/product_providers_info/{{$product->id}}" class="btn btn-secondary mr-2"><i class="fas fa-eye"></i></a></span>
                 <span><a href="/product_info/{{$product->id}}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a></span>
-                <span><a href="/delete_product/{{$product->id}}" class="btn btn-danger mr-2"><i class="fas fa-trash"></i></a></span>
+                <span><button type="button" class="show_alert btn btn-danger mr-2"><i class="fas fa-trash"></i></button></span>
             </td>
         </tr>
         @endforeach
@@ -119,6 +120,34 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Products");
+            $(".products").addClass('active');
+            $(".products_toggle").addClass('active');
+        });
+    </script>
+    <script>
+        $('document').ready(function () {
+            $(".show_alert").on('click',function (e){
+                e.preventDefault();
+                var product_id = $(this).closest("tr").find('.product_id').val();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this product with orders that are including it!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            window.location.href = "/delete_product/"+product_id;
+                            swal("Poof! Product has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Deleting canceled!");
+                        }
+                    });
+            });
         });
     </script>
 @endsection

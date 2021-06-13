@@ -54,7 +54,10 @@ class Cart
     }
     public function update_color($id,$old_color,$new_color){
         if(array_key_exists($id.$new_color, $this->items)){
-            return -1;
+            $this->items[$id.$new_color]['quantity'] += $this->items[$id.$old_color]['quantity'];
+            $this->totalQty += $this->items[$id.$old_color]['quantity'];
+            $this->totalPrice += $this->items[$id.$old_color]['quantity'] * $this->items[$id.$old_color]['price'];
+            $this->remove($id,$old_color);
         }
         else{
             $this->items[$id.$old_color]['color'] = $new_color;

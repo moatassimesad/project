@@ -7,6 +7,7 @@ use App\Mail\OrderDetails;
 use App\Models\Cart;
 
 use App\Models\Client;
+use App\Models\Delivery;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Store;
@@ -55,6 +56,7 @@ class OrderController extends Controller
     {
 
 
+
 //
         $this->validate($request, [
             'firstName' => 'required',
@@ -97,7 +99,19 @@ class OrderController extends Controller
             $order = new Order();
             $order->status = "Confirmed";
             $order->payedTotal = $cart->totalPrice;
-            $order->delivery_id = 1;
+            if(Delivery::all()->count()!=0){
+                $order->delivery_id = Delivery::all()->first()->id;
+            }
+            else{
+                $delivery = new Delivery();
+                $delivery->name = 'Delivery 1';
+                $delivery->reference = 'Del 1';
+                $delivery->phone = '+212654438764';
+                $delivery->address = 'Gueliz';
+                $delivery->store_id = $store->id;
+                $delivery->save();
+                $order->delivery_id = $delivery->id;
+            }
             $order->store_id = $request->store_id;
             $order->client_id = $client->id;
             $order->save();
@@ -109,8 +123,11 @@ class OrderController extends Controller
                 $product->save();
             }
             $user = $store->user;
-            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address));
-            session()->forget('cart');
+            if($request->paypal){
+                return redirect()->route('paypal.checkout', $order->id);
+            }
+            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'confirmed'));
+            //session()->forget('cart'.$store->id);
             return view('shop.order_details', compact('order', 'store', 'user','client'));
         }
     }
@@ -132,4 +149,42 @@ class OrderController extends Controller
         }
     }
 
+    //*******************        set paypal credentials  ************************//
+
+    public function index_paypal_credentials(){
+        return view('payment.set_payment_credentials');
+    }
+
+    public function index_change_paypal_credentials(){
+        $store = auth()->user()->store;
+        return view('payment.change_paypal_credentials',compact('store'));
+    }
+
+
+    public function save_paypal_credentials(Request $request){
+        $this->validate($request,[
+            'client_id'=>'required|string',
+            'client_secret'=>'required|string',
+        ]);
+        $store = auth()->user()->store;
+        $store->client_id = $request->client_id;
+        $store->client_secret = $request->client_secret;
+        $store->save();
+        return back()->with('status','Saved successfully !');
+
+    }
+
+    public function update_paypal_credentials(Request $request){
+        $this->validate($request,[
+            'client_id'=>'required|string',
+            'client_secret'=>'required|string',
+        ]);
+        $store = auth()->user()->store;
+        $store->client_id = $request->client_id;
+        $store->client_secret = $request->client_secret;
+        $store->save();
+        return back()->with('status','Updated successfully');
+
+
+    }
 }

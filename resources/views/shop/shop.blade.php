@@ -132,18 +132,27 @@
 
 
     <div class="container">
+        @if(session('status'))
+            <div class="success alert alert-success" role="alert">{{ session('status') }}</div>
+
+        @endif
+            @if(session('status1'))
+            <div class="success alert alert-danger" role="alert">{{ session('status1') }}</div>
+
+        @endif
 
         <div class="row " id="allProducts">
-            <div class="col-6 text-left">
+            <div class="col-md-4 col-6 text-left">
                 <h4 >Products</h4>
             </div>
-            <div class="col-6 text-center">
+
+            <div class="col-md-4 col-6 text-center">
 
                 <form action="" method="post" name="myFormName">
 
                     <select name="status" id="status" onchange="location = this.value;">
 
-                        <option disabled selected>@if($selectedCollection == 'all') All @else {{$selectedCollection}} @endif</option>
+                        <option value="@if($selectedCollection == 'all') All @else {{$selectedCollection}} @endif" hidden selected>@if($selectedCollection == 'all') All @else {{$selectedCollection}} @endif</option>
                         @if($selectedCollection != 'all')
                             <option value="/shop/{{$store->id}}/all">All</option>
                         @endif
@@ -158,6 +167,20 @@
 
 
             </div>
+            <div class="col-md-4 col-6 text-center">
+                <form action="/shop/{{$store->id}}/@if($selectedCollection == 'all')all
+@else{{$selectedCollection}}@endif" method="post">
+                    @csrf
+                <div class="input-group">
+                    <input style="background: none;" class="mr-1 form-control border-end-0 border rounded-pill" type="text" name="product_name" placeholder="search" id="example-search-input" value="{{ $search }}">
+                    <span class="input-group-append">
+                <button style="outline: none; border: none;" class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+                </div>
+                </form>
+        </div>
         </div>
 
         @if($products->count())
@@ -233,9 +256,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!-- Popper.JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-
-
-
 
 
 

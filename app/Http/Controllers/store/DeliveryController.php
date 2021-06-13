@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Delivery;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DeliveryController extends Controller
 {
@@ -29,7 +30,7 @@ class DeliveryController extends Controller
         //validation
         $this->validate($request,[
             'name'=>'required|max:255',
-            'reference'=>'required|max:255',
+            'reference'=>'required|max:255|unique:deliveries',
             'address'=>'required|max:255',
             'phone'=>'required|max:255',
         ]);
@@ -60,6 +61,30 @@ class DeliveryController extends Controller
 
 
         $delivery = Delivery::find($request->id);
+
+        $exist = DB::table('deliveries')->where('reference',$request->reference)->first();
+        if ($exist) {
+            if ($delivery->id == $exist->id) {
+                $delivery->name = $request->name;
+                $delivery->reference = $request->reference;
+                $delivery->address = $request->address;
+                $delivery->phone = $request->phone;
+                $delivery->save();
+                return redirect()->route('list_delivery');
+            } else {
+                return back()->with('duplicate','The reference has already been taken.');
+            }
+        }
+        else{
+            $delivery->name = $request->name;
+            $delivery->reference = $request->reference;
+            $delivery->address = $request->address;
+            $delivery->phone = $request->phone;
+            $delivery->save();
+            return redirect()->route('list_delivery');
+        }
+
+
         $delivery->name = $request->name;
         $delivery->reference = $request->reference;
         $delivery->address = $request->address;

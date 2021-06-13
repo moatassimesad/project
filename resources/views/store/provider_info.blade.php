@@ -16,7 +16,7 @@
                     <hr>
                     <div class="form-group m-5">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Untitled product" value="{{$provider->name}}">
+                        <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Name" value="{{$provider->name}}">
                     </div>
                     @error('name')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
@@ -28,6 +28,9 @@
                     @error('reference')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
+                    @if(session('duplicate'))
+                        <div style="color: red; text-align: center;">{{ session('duplicate') }}</div>
+                    @endif
                     <div class="form-group m-5">
                         <label for="name">Address</label>
                         <input type="text" class="form-control" name="address" style="@error('address') border:1px solid red; @enderror" placeholder="Address" value="{{$provider->address}}">
@@ -63,6 +66,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Providers");
+            $(".providers").addClass('active');
+            $(".products_toggle").addClass('active');
         });
     </script>
 @endsection

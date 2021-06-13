@@ -21,6 +21,8 @@ class CreateStoresTable extends Migration
             $table->string('storeActivityType');
             $table->string('conditionOfUse');
             $table->string('designName');
+            $table->string('client_id');
+            $table->string('client_secret');
             $table->mediumText('image_top'); // it will store the link of the image here not the image itself!
             $table->mediumText('image_bottom'); // it will store the link of the image here not the image itself!
             //the image will be stored inside one of our application's folders.

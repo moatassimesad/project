@@ -28,6 +28,7 @@ class HomeController extends Controller
 
     }
     public function index_shop($id,$collection){
+        $search = '';
         $store = Store::find($id);
         $selectedCollection = $collection;
         if ($collection == 'all') {
@@ -44,8 +45,34 @@ class HomeController extends Controller
         } else {
             $cart = null;
         }
-        return view('shop.shop',compact('products','user','store','collections','selectedCollection','cart'));
+        return view('shop.shop',compact('products','user','store','collections','selectedCollection','cart','search'));
     }
+
+
+
+    public function search_shop($id,$collection_name,Request $request){
+        $search = $request->product_name;
+        $store = Store::find($id);
+        $selectedCollection = $collection_name;
+        if ($collection_name == 'all') {
+            $products = Product::query()->where('name','like',"%{$request->product_name}%")->get();
+        }
+        else{
+            $coll = DB::table('collections')->where('name', $collection_name)->first();
+            $products = Product::query()->where('collection_id','=',$coll->id)->where('name','like',"%{$request->product_name}%")->get();
+        }
+        $collections = $store->collections;
+        $user = $store->user;
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
+        } else {
+            $cart = null;
+        }
+        return view('shop.shop',compact('products','user','store','collections','selectedCollection','cart','search'));
+    }
+
+
+
     public function product_preview($store_id,$product_id){
         $product = Product::find($product_id);
         $store = Store::find($store_id);

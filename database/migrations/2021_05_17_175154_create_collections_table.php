@@ -15,7 +15,7 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->string('reference')->unique();
+            $table->string('reference');
             $table->string('name');
             $table->mediumText('image');
             $table->foreignId('store_id')->constrained()->onDelete('cascade');

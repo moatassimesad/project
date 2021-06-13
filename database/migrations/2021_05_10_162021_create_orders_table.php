@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('delivery_id')->constrained()->onDelete('cascade');
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->string('paypal_orderid')->nullable();
             $table->timestamps();
         });
     }

@@ -60,10 +60,11 @@
 						<span class="txt1">
 							Password
 						</span>
-
-                        <a href="#" class="txt2 bo1 m-l-5">
-                            Forgot?
-                        </a>
+                        @if (Route::has('password.request'))
+                            <a class="txt2 bo1 m-l-5" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a>
+                        @endif
                     </div>
                     <div class="wrap-input100 validate-input" data-validate = "Password is required">
                         <input class="input100" style="@error('password') border:solid 1px red; @enderror" name="password" type="password" placeholder="Password" >
@@ -72,6 +73,10 @@
                     @error('password')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
+                    <div class="form-check mt-4 ml-4">
+                        <input type="checkbox" name="remember" class="form-check-input">
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
 
                     <div class="container-login100-form-btn m-t-17">
                         <button class="login100-form-btn" style="font-family: Monaco, Times, serif" type="submit">

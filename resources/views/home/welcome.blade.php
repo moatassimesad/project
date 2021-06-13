@@ -21,7 +21,7 @@
 
 <body>
 <!-- banner -->
-<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(/images/banner-bk.jpg);">
+<div class="jumbotron jumbotron-fluid" id="banner" style="background-image: url(images/banner-bk.jpg);">
     <div class="container text-center text-md-left">
         <header>
             @if(session('status'))

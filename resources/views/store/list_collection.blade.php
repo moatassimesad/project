@@ -45,10 +45,7 @@
         @if($j==0)
             <div class="row justify-content-around">
                 <a href="/add_collection">
-                    <div class="row mt-5 bg-primary align-items-center justify-content-center plus">
-                        <h1 class="white">+ Add Category</h1>
-
-                    </div>
+                    <div class="row mt-5 bg-primary align-items-center justify-content-center plus"><h1 class="white">+ Add Category</h1></div>
                 </a>
                 <div class="mt-5 plus" ></div>
                 <div class="mt-5 plus" ></div>
@@ -64,6 +61,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Collections");
+            $(".collections").addClass('active');
+            $(".products_toggle").addClass('active');
         });
     </script>
 @endsection

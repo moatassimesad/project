@@ -10,7 +10,7 @@ class logOutController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        $this->middleware(['auth']);
     }
     public function logout(){
         return redirect()->route('welcome')->with(Auth::logout());

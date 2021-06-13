@@ -88,7 +88,9 @@
                                             <div>
                                                 <h5>{{ $product['name'] }}</h5>
                                                 <p class="mb-3 text-muted text-uppercase small">Category: {{ $collection->name }}</p>
+                                                @if($product['color']!='none')
                                                 <p class="mb-2 text-muted text-uppercase small">Color: {{ $product['color'] }}</p>
+                                                @endif
                                                 <div class="mb-2 text-muted text-uppercase small">
                                                     @foreach($produit->getColors() as $color)
                                                         @if($color == "none")
@@ -166,8 +168,8 @@
 
                             <h5 class="mb-4">Delivery</h5>
 
-                            <p class="mb-0"> Estimated shipping delivery: Thu., 12.03. - Mon., 16.03.</p>
-                            <p class="mb-0"> Company Name </p>
+                            <p class="mb-0"> Estimated shipping delivery: {{ \Carbon\Carbon::now()->addDays(2)->toDateString()}} - {{ \Carbon\Carbon::now()->addDays(3)->toDateString()}}.</p>
+                            <p class="mb-0"> {{$store->name}} </p>
                             <p class="mb-0"><strong>Free</strong></p>
 
                         </div>
@@ -175,22 +177,16 @@
                     <!-- Card -->
 
                     <!-- Card -->
+
                     <div class="card mb-3">
                         <div class="card-body">
 
                             <h5 class="mb-4">We accept</h5>
-
-                            <img class="mr-2" width="45px"
-                                 src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
-                                 alt="Visa">
-                            <img class="mr-2" width="45px"
-                                 src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
-                                 alt="American Express">
-                            <img class="mr-2" width="45px"
-                                 src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
-                                 alt="Mastercard">
+                            @if($store->client_id != "")
                             <img class="mr-2" width="45px"
                                  src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-small.png" alt="Buy now with PayPal" />
+                            @endif
+                            <div>Cash on delivery</div>
 
                         </div>
                     </div>
@@ -238,7 +234,8 @@
                             </ul>
 
 
-                            <a href="/checkout/{{ $store->id }}" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-2 ">Go to checkout</button></a>
+                            <a href="/checkout/{{ $store->id }}" target="_blank"><button type="button" class="btn btn-primary btn-block waves-effect waves-light mb-2 ">Go to checkout</button></a>
+
                             <a href="/shop/{{$store->id}}/all" ><button type="button" class="btn btn-primary btn-block waves-effect waves-light mt-2">Continue shopping</button></a>
 
 

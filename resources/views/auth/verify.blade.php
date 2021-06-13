@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .center{
-            position: center;
-        }
-    </style>
-<div class="container center">
+    <head>
+
+    </head>
+<div style="margin-top: 20vh" class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

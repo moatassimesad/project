@@ -16,9 +16,9 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('reference')->unique();
+            $table->string('reference');
             $table->string('address');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

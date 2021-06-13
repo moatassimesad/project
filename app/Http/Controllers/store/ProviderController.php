@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Provider;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProviderController extends Controller
 {
@@ -31,7 +32,7 @@ class ProviderController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'name'=>'required',
-            'reference'=>'required',
+            'reference'=>'required|unique:providers',
             'phone'=>'required',
             'address'=>'required',
         ]);
@@ -61,12 +62,32 @@ class ProviderController extends Controller
 
 
         $provider = Provider::find($request->id);
-        $provider->name = $request->name;
-        $provider->reference = $request->reference;
-        $provider->address = $request->address;
-        $provider->phone = $request->phone;
-        $provider->save();
-        return redirect()->route('list_provider');
+
+        $exist = DB::table('providers')->where('reference',$request->reference)->first();
+        if ($exist) {
+            if ($provider->id == $exist->id) {
+                $provider->name = $request->name;
+                $provider->reference = $request->reference;
+                $provider->address = $request->address;
+                $provider->phone = $request->phone;
+                $provider->save();
+                return redirect()->route('list_provider');
+            } else {
+                return back()->with('duplicate','The reference has already been taken.');
+            }
+        }
+        else{
+            $provider->name = $request->name;
+            $provider->reference = $request->reference;
+            $provider->address = $request->address;
+            $provider->phone = $request->phone;
+            $provider->save();
+            return redirect()->route('list_provider');
+        }
+
+
+
+
     }
     public function delete($id){
         $provider = Provider::find($id);

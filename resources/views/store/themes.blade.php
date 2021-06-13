@@ -50,6 +50,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Themes");
+            $(".themes").addClass('active');
+            $(".store_toggle").addClass('active');
         });
     </script>
 

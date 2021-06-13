@@ -31,6 +31,9 @@ class DashboardController extends Controller
         $biggestTotal = 0;
         for ($i = 30 ; $i>=0 ; $i--) {
             foreach ($orders as $order) {
+                if ($order->status == 'Paypal checkout failed'){
+                    continue;
+                }
                 if($order->created_at->toDateString() == date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day'))){
                     $payedTotal += $order->payedTotal;
                 }
@@ -46,7 +49,7 @@ class DashboardController extends Controller
         $bigTotal = 0;
         for ($i = 30 ; $i>=0 ; $i--) {
             foreach ($orders as $order) {
-                if ($order->status == 'Confirmed'){
+                if ($order->status == 'Confirmed' || $order->status == 'Paypal checkout failed'){
                     continue;
                 }
                 if($order->created_at->toDateString() == date('Y-m-d', strtotime(date('Y-m-d'). ' - '.$i .' day'))){
@@ -61,7 +64,7 @@ class DashboardController extends Controller
         //   //////////////// logic for the revenue total
         $total = 0;
         foreach ($orders as $order){
-            if($order->status == 'Confirmed'){
+            if($order->status == 'Confirmed' || $order->status == 'Paypal checkout failed'){
                 continue;
             }
             $total+=$order->payedTotal;

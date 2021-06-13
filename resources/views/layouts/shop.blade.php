@@ -472,9 +472,9 @@
                     <div class="col-sm-6 col-md-4 item">
                         <h3>About Us</h3>
                         <ul>
-                            <li> Address :&ensp;{{ $user->city }}</li>
-                            <li>Phone &ensp;:&ensp;+212 {{ $user->phone }}</li>
-                            <li>Email &ensp;:&ensp; {{ $user->email }}</li>
+                            <li><pre>Address :  {{ $user->city }}</pre></li>
+                            <li><pre>Phone   :  {{ $user->phone }}</pre></li>
+                            <li><pre>Email   :  {{ $user->email }}</pre></li>
                         </ul>
                     </div>
                     <div class="col-md-4"></div>

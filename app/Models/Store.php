@@ -19,6 +19,8 @@ class Store extends Model
         'twitterLink',
         'storeActivityType',
         'createdAt',
+        'client_id',
+        'client_secret',
         'designName',
         'image_top',
         'image_bottom',

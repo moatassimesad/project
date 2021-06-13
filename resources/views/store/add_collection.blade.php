@@ -46,6 +46,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Collections");
+            $(".collections").addClass('active');
+            $(".products_toggle").addClass('active');
         });
     </script>
 

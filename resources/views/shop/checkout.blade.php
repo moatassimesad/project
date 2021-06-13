@@ -186,8 +186,12 @@
                             </li>
                         </ul>
 
-                       <button type="submit" class="btn btn-primary btn-block waves-effect waves-light mb-1 @if($cart == null) disabled @endif">Cash on delivery</button>
-                        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=lemhamid@gmail.com&amp;tax=0&amp;currency=USD&amp;item_name=CODKIT873&amp;item_number=873&amp;quantity=1&amp;amount=19" target="_blank"><img src="https://miro.medium.com/max/624/1*MqdZnOy5ySk8PIUbUtt5Cg.png" height="70"></a>
+                       <button type="submit" name="cash" value="cash" class="btn btn-primary btn-block waves-effect waves-light mb-1 @if($cart == null) disabled @endif">Cash on delivery</button>
+                        @if($store->client_id != "")
+                        <button type="submit" name="paypal" value="paypal" style="border: none; outline: none; background: none;" href="/pay_with_paypal/{{ $store->id }}"><img src="https://miro.medium.com/max/624/1*MqdZnOy5ySk8PIUbUtt5Cg.png" height="70"></button>
+
+                        @endif
+
                     </div>
                 </div>
                 <!-- Card -->

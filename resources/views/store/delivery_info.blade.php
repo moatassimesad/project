@@ -22,6 +22,9 @@
                 @error('reference')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+                @if(session('duplicate'))
+                    <div style="color: red; text-align: center;">{{ session('duplicate') }}</div>
+                @endif
                 <div class="form-group m-5">
                     <label for="name">Address</label>
                     <input type="text" class="form-control" name="address" style="@error('address') border:1px solid red; @enderror" placeholder="Address" value="{{$delivery->address}}">
@@ -57,6 +60,7 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Deliveries");
+            $(".deliveries").addClass('active');
         });
     </script>
 @endsection

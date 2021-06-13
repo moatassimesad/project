@@ -181,6 +181,7 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Orders / Details");
+            $(".orders").addClass('active');
         });
     </script>
 

@@ -10,7 +10,7 @@
                 <hr>
                 <div class="form-group m-5">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Untitled product" value="{{old('name')}}">
+                    <input type="text" class="form-control" name="name" style="@error('name') border:1px solid red; @enderror" placeholder="Name" value="{{old('name')}}">
                 </div>
                 @error('name')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
@@ -50,6 +50,8 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Providers");
+            $(".providers").addClass('active');
+            $(".products_toggle").addClass('active');
         });
     </script>
 @endsection

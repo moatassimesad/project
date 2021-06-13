@@ -44,7 +44,10 @@
                     @error('reference')
                     <div style="color: red; text-align: center;">{{ $message }}</div>
                     @enderror
-                    <div  class="row justify-content-center files" style="@error('image') border:1px solid red; @enderror">
+                    @if(session('duplicate'))
+                    <div style="color: red; text-align: center;">{{ session('duplicate') }}</div>
+                    @endif
+                    <div  class="row justify-content-center files mt-3" style="@error('image') border:1px solid red; @enderror">
                         <input type="file" class="bg-light fl" id="image" name="image">
                     </div>
                     @error('image')
@@ -53,7 +56,7 @@
 
                     <div style="height: 100px;" class="row justify-content-center mt-4">
                         <span><a href="/list_collection" class="btn btn-secondary mr-2"><i class="fas fa-arrow-left "></i></a></span>
-                        <span><a href="/delete_collection/{{ $id }}" class="btn btn-danger mr-2"><i class="fas fa-trash "></i></a></span>
+                        <span><button type="button" class="show_alert btn btn-danger mr-2"><i class="fas fa-trash "></i></button></span>
                         <span><button type="submit" class="btn btn-warning mr-2"><i class="fas fa-edit "></i></button></span>
                     </div>
 
@@ -61,6 +64,7 @@
 
             </div>
         </form>
+
 
     @else
         <div class="container">
@@ -74,6 +78,33 @@
     <script>
         $('document').ready(function () {
             $("#title").html("Collections");
+            $(".collections").addClass('active');
+            $(".products_toggle").addClass('active');
+        });
+    </script>
+    <script>
+        $('document').ready(function () {
+            $(".show_alert").on('click',function (e){
+                e.preventDefault();
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this collection with all its products!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            window.location.href = "{{ route('delete_collection',['id'=>$collection->id])}}";
+                            swal("Poof! Collection has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Deleting canceled!");
+                        }
+                    });
+            });
         });
     </script>
 @endsection

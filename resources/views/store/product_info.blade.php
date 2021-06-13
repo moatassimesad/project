@@ -9,6 +9,14 @@
         <input type="hidden" name="product_id" value="{{ $product->id }}">
 
         <div class="container">
+            @if(session('status'))
+                <div class="success alert alert-danger" role="alert">{{ session('status') }}</div>
+
+            @endif
+            @if(session('status1'))
+                <div class="success alert alert-danger" role="alert">{{ session('status1') }}</div>
+
+            @endif
             <div class="contenus bg-light">
                 <div  class="row justify-content-center align-items-center cat_info">Product info</div>
                 <hr>
@@ -26,6 +34,9 @@
                 @error('reference')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
+                @if(session('duplicate'))
+                    <div style="color: red; text-align: center;">{{ session('duplicate') }}</div>
+                @endif
                 <div class="form-group m-5">
                     <label for="name">Price</label>
                     <input type="text" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{$product->price}}">
@@ -35,7 +46,7 @@
                 @enderror
                 <div class="form-group m-5">
                     <label for="name">Quantity</label>
-                    <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="{{old('quantity')}}">
+                    <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="@if($product->providers->count()==0)  {{ $product->quantity }}   @endif">
                 </div>
                 <div class="mb-3">
                     <div style="text-align: center"><p><i>Select colors you have for your product</i></p></div>
@@ -61,6 +72,7 @@
 
 
                 {{-- all the providers as a collection of checkboxes --}}
+                @if($product->providers->count() || $excluded_providers->count())
                 <div style="text-align: center"><p><i>Select providers for your product</i></p></div>
 
 
@@ -95,6 +107,7 @@
                     </div>
 
                 </div>
+                @endif
 
 
 
@@ -144,6 +157,8 @@
 <script>
     $('document').ready(function () {
         $("#title").html("Product");
+        $(".products").addClass('active');
+        $(".products_toggle").addClass('active');
         $('.provider-enable').on('click', function () {
             let id = $(this).attr('data-id')
             let enabled = $(this).is(":checked")
