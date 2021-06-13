@@ -151,7 +151,7 @@
 </div>
 
                                     @if(auth()->user()->store->client_id == "")
-                                        <div style="text-align: center;" class="success alert alert-warning" role="alert"><img style="position: absolute" class="mr-2" width="45px"
+                                        <div style="text-align: center;" class="success alert alert-warning" role="alert"><img style="float: left" class="mr-2" width="45px"
                                                                                                                                src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-small.png" alt="Buy now with PayPal" />
                                             set your paypal payment credentials
                                             <a style="color: blue;" href="/index_paypal_credentials">click here !</a></div>

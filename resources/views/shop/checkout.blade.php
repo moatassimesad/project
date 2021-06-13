@@ -78,7 +78,7 @@
 
 
 
-                        <!-- Address Part 1 -->
+                        <!-- Address -->
                         <div class="clr md-form md-outline mb-lg-2">
                             <label for="form1">Address</label>
                             <input type="text"  style="@error('address') border:solid 1px red; @enderror" id="form14" name="address" value="{{old('address')}}" placeholder="House number and street name" class="form-control">
@@ -87,14 +87,6 @@
                         @error('address')
                         <div class="error">{{ $message }}</div>
                         @enderror
-
-                        <!-- Address Part 2 -->
-                        <div class=" clr md-form md-outline mb-lg-2">
-                            <label for="form2">Address</label>
-                            <input type="text" name="optionalAddress" value="{{old('optionalAddress')}}" placeholder="Apartment, suite, unit etc. (optional)"
-                                   class="form-control">
-
-                        </div>
 
 
                         <!-- Postcode / ZIP -->

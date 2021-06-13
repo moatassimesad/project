@@ -383,7 +383,7 @@
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <input type="hidden" name="store_id" value="{{$store->id}}">
                             <input type="hidden" id="couleur" name="color" value="">
-                            <input id="qtelb" class="name" min="1" max="{{$product->quantity}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" value="{{old('quantity')}}">
+                            <input id="qtelb" class="name" min="1" max="{{$product->quantity}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" autocomplete="off" value="{{old('quantity')}}">
                         </div>
                         @error('quantity')
                         <div style="color: red; text-align: center;">Please enter a quantity</div>

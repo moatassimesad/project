@@ -89,7 +89,7 @@
                         <div class="text-left logo p-2 px-5"><img src="{{ asset('images/logo.png') }}" width="35"></div>
                     </div>
                     <div class="invoice pt-2 px-5 pb-5">
-                        <h5>Your order Confirmed!</h5> <span class="font-weight-bold d-block cltname mt-4">Hello,  {{$client->lastName}} {{$client->firstName}}</span> <span>You order has been confirmed and will be shipped at {{ \Carbon\Carbon::now()->addDays(2)->toDateString()}}</span>
+                        <h5>Your order was Confirmed, @if($status) <span style="color: red;">{{$status}}</span>  @endif</h5> <span class="font-weight-bold d-block cltname mt-4">Hello,  {{$client->lastName}} {{$client->firstName}}</span> <span>You order has been confirmed and will be shipped at {{ \Carbon\Carbon::now()->addDays(2)->toDateString()}}</span>
                         <div class="payment border-top mt-3 mb-3 border-bottom table-responsive">
                             <table class="table table-borderless">
                                 <tbody>
@@ -98,7 +98,7 @@
                                         <div class="py-2"> <span class="d-block text-muted">Order Date</span> <span>{{$order->created_at}}</span> </div>
                                     </td>
                                     <td>
-                                        <div class="py-2"> <span class="d-block text-muted">Order No</span> <span>{{$order->id}}</span> </div>
+                                        <div class="py-2"> <span class="d-block text-muted">Order No</span> <span>{{$order->number}}</span> </div>
                                     </td>
                                     <td>
                                         <div class="py-2"> <span class="d-block text-muted">Payment</span> <span><img src="https://img.icons8.com/color/48/000000/mastercard.png" width="20" /></span> </div>

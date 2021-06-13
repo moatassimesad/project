@@ -83,7 +83,6 @@ class OrderController extends Controller
             $client->firstName = $request->firstName;
             $client->lastName = $request->lastName;
             $client->address = $request->address;
-            $client->optionalAddress = $request->optionalAddress;
             $client->postCode = $request->postCode;
             $client->city = $request->city;
             $client->phone = $request->phone;
@@ -114,6 +113,7 @@ class OrderController extends Controller
             }
             $order->store_id = $request->store_id;
             $order->client_id = $client->id;
+            $order->number = rand(100,100000);
             $order->save();
 
             foreach ($cart->items as $item) {
@@ -126,9 +126,19 @@ class OrderController extends Controller
             if($request->paypal){
                 return redirect()->route('paypal.checkout', $order->id);
             }
-            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'confirmed'));
-            //session()->forget('cart'.$store->id);
-            return view('shop.order_details', compact('order', 'store', 'user','client'));
+            $status = 'but there s something wrong while sending you the confirmation email !';
+            try {
+                Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'confirmed'));
+            }
+            catch (\Exception $e){
+                session()->forget('cart'.$store->id);
+                return view('shop.order_details', compact('order', 'store', 'user','client','status'));
+            }
+
+            session()->forget('cart'.$store->id);
+            $status = '';
+            return view('shop.order_details', compact('order', 'store', 'user','client','status'));
+
         }
     }
 

@@ -60,14 +60,20 @@ class PaypalController extends Controller
             $client = $order->client;
             $store = $order->store;
             $user = $store->user;
-            //session()->forget('cart'.$store->id);
+            try {
+                Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'payed via paypal'));
+            }
+            catch (\Exception $e){
+                session()->forget('cart'.$store->id);
+                return redirect()->route('shop',['id'=>$store->id,'collection_id'=>'all'])->with('status','Payment successful, but there s something wrong with sending you the confirmation email!  ⚠️️️ ⚠️️ ⚠️️');
+            }
 
-            Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'payed via paypal'));
+            session()->forget('cart'.$store->id);
             return redirect()->route('shop',['id'=>$store->id,'collection_id'=>'all'])->with('status','Payment successful!');
 
         }
 
-        return redirect()->route('home')->withError('Payment UnSuccessful! Something went wrong!');
+        return view('payment.failed');
 
 
     }

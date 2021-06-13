@@ -19,7 +19,6 @@ class Client extends Model
         'city',
         'email',
         'phone',
-        'optionalAddress',
         'address',
         'postCode',
         'store_id',
