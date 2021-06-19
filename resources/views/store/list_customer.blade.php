@@ -14,7 +14,7 @@
             <div class="client">Customers {{ $clients->count() }}</div>
         </div>
         <br><br>
-        <table class="table table-striped table-sm table-borderless">
+        <table id="searching" class="table table-striped table-sm table-borderless">
             <thead>
             <tr class="table-info">
                 <th scope="col">FULL NAME</th>

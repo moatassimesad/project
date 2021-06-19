@@ -14,7 +14,7 @@
     /*===== Font and typography =====*/
     --body-font: 'Nunito', sans-serif;
     --normal-font-size: 1rem;
-  
+
     /*===== z index =====*/
     --z-fixed: 100;
 }
@@ -140,7 +140,6 @@ a{
 /*Active links*/
 .active{
     color: var(--white-color);
-    
     &::before{
         content: '';
         position: absolute;
@@ -164,7 +163,7 @@ a{
         &__img{
             width: 40px;
             height: 40px;
-    
+
             & img{
                 width: 45px;
             }

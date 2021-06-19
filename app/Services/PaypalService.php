@@ -35,6 +35,7 @@ class PaypalService
             return $this->client->execute($request);
         }
         catch(\Exception $e){
+            dd($e->getMessage());
             abort(500);
         }
     }
@@ -116,7 +117,7 @@ class PaypalService
                             'method' => 'United States Postal Service',
                             'name' =>
                                 [
-                                    'full_name' => 'John Doe',
+                                    'full_name' => $order->client->lastName.' '.$order->client->firstName,
                                 ],
                             'address' =>
                                 [

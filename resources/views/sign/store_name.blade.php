@@ -67,5 +67,6 @@
         $('#show').html($(this).val()+'.MyStore.ma');
     });
 </script>
+
 </body>
 @endsection

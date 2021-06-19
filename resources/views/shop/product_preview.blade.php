@@ -377,21 +377,24 @@
                 </div>
 
                 <div class="text-left ml-1 mt-1">
+                    @if($max != 0)
                     <form action="{{ route('add_to_card') }}" method="post">
                         @csrf
                         <div  class="row justify-content-center align-items-center mt-4">
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <input type="hidden" name="store_id" value="{{$store->id}}">
                             <input type="hidden" id="couleur" name="color" value="">
-                            <input id="qtelb" class="name" min="1" max="{{$product->quantity}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" autocomplete="off" value="{{old('quantity')}}">
+
+                            <input id="qtelb" class="name" min="1" max="{{$max}}"  name="quantity" type="number" style="@error('quantity') border-bottom:1px solid red; @enderror" placeholder="Quantity" autocomplete="off" value="{{old('quantity')}}" @if($max <= 0) disabled @endif>
                         </div>
                         @error('quantity')
                         <div style="color: red; text-align: center;">Please enter a quantity</div>
                         @enderror
-
+                        @if(array_values($colors)[0]!="none")
                         <div class="row justify-content-center mt-4">
                             <div style="text-align: center;" class="pickcolor" >Pick a color</div>
                         </div>
+                        @endif
                         <div class="row justify-content-center" >
                             @foreach($colors as $color)
                                 @if($color == "none")
@@ -411,6 +414,9 @@
                             <a  href="/cart/{{$store->id}}" class="bouton btn btn-dark"><i class="fa fa-shopping-cart"></i> Cart</a>
                         </div>
                     </form>
+                    @else
+                        <h4 style="font-family: 'Academy Engraved LET'; color: red">Sorry, this product isn't available !</h4>
+                    @endif
                 </div>
 
 

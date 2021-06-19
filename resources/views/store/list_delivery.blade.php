@@ -9,7 +9,7 @@
         <div><a class="btn btn-primary add" href="/add_delivery">+ Add delivery</a></div>
     </div>
     <br><br>
-    <table class="table table-striped table-sm table-borderless">
+    <table id="searching" class="table table-striped table-sm table-borderless">
         <thead>
         <tr class="table-info">
             <th scope="col">NAME</th>
@@ -53,7 +53,7 @@
                 var delivery_id = $(this).closest("tr").find('.delivery_id').val();
                 swal({
                     title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this delivery!",
+                    text: "Once deleted, you will not be able to recover this delivery with every order delivered by it!",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,

@@ -30,7 +30,7 @@
         </div>
             <div class="col-md-4 col-sm-6 ">
                 <div class="card">
-                    <img src="../images/homepage.png" alt="theme night"/>
+                    <img src="../images/homepage_dark.png" alt="theme night"/>
                     <div class="info">
                         <h1>Night Sky</h1>
                         <p> A highly approachable feel</p>

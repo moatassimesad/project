@@ -153,13 +153,15 @@ class ProductController extends Controller
                 $product->price = $request->price;
                 $item = "";
                 if ($request->colors == null) {
-                    $request->colors = ["none"];
+                    $request->colors = $product->colors;
                 }
-                foreach ($request->colors as $color) {
-                    $item .= $color;
-                    $item .= ",";
+                else {
+                    foreach ($request->colors as $color) {
+                        $item .= $color;
+                        $item .= ",";
+                    }
+                    $product->colors = $item;
                 }
-                $product->colors = $item;
                 $product->description = $request->description;
                 $product->collection_id = $collection->id;
                 if ($request->hasFile('image')) {

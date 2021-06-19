@@ -80,7 +80,7 @@
         <div><a class="btn btn-primary add" href="/add_product">+ Add Product</a></div>
     </div>
     <br><br>
-    <table class="table table-sm table-striped cssTable">
+    <table id="searching" class="table table-sm cssTable">
         <thead>
         <tr class="table-info">
             <th scope="col">IMAGE</th>

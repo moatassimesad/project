@@ -57,7 +57,6 @@ class OrderController extends Controller
 
 
 
-//
         $this->validate($request, [
             'firstName' => 'required',
             'lastName' => 'required',
@@ -185,10 +184,6 @@ class OrderController extends Controller
     }
 
     public function update_paypal_credentials(Request $request){
-        $this->validate($request,[
-            'client_id'=>'required|string',
-            'client_secret'=>'required|string',
-        ]);
         $store = auth()->user()->store;
         $store->client_id = $request->client_id;
         $store->client_secret = $request->client_secret;

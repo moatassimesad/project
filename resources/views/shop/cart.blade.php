@@ -34,6 +34,20 @@
     </style>
 </head>
     <div class="container">
+        @if(session('status2'))
+            <div class="link alert alert-success mb-4 text-center" role="alert">
+                {{ session('status2') }}
+            </div>
+
+        @endif
+
+        @if(session('status3'))
+            <div class="link alert alert-danger mb-4 text-center" role="alert">
+                {{ session('status3') }}
+            </div>
+
+        @endif
+
         <section>
 
 
@@ -109,7 +123,7 @@
                                                     @csrf
                                                     @method('put')
                                                 <div class="form-group mb-0 w-100 ">
-                                                    <input type="hidden" name="product_id" value="{{$product['id']}}">
+                                                    <input type="hidden" name="product_id" id="product_id" value="{{$product['id']}}">
                                                     <input type="hidden" name="store_id" value="{{$store->id}}">
                                                     <input type="hidden" name="color" value="{{$product['color']}}">
                                                     <select name="quantity" class="form-control" id="exampleFormControlSelect1">

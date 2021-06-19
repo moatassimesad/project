@@ -68,7 +68,7 @@
 
         </div>
         <br><br>
-        <table class="table table-sm table-striped cssTable">
+        <table id="searching" class="table table-sm table-striped cssTable">
             <thead>
             <tr class="table-info">
                 <th scope="col">NUMBER</th>

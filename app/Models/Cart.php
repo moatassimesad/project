@@ -66,6 +66,8 @@ class Cart
         }
             return 1;
     }
+
+
     public function update_quantity($id,$color,$quantity) {
 
         //reset qty and price in the cart ,

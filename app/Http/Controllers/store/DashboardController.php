@@ -6,6 +6,7 @@ namespace App\Http\Controllers\store;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Charts\SaleProductChart;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 

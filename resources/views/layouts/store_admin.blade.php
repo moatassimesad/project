@@ -26,6 +26,8 @@
     <!-- ===== CSS ===== -->
 
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
 
     <title>Dashboard</title>
 </head>
@@ -34,10 +36,10 @@
     <div class="header__toggle">
         <i class='bx bx-menu' id="header-toggle"></i>
     </div>
-    <a class="nav-link"  href="" id="title" style="color:blue"></a>
-    <div class="navbar-nav " id="userhoverffect">
+    <a class="nav-link"  href="" id="title" style="color:#3b3b3b;"></a>
+    <div class="navbar-nav" id="userhoverffect">
         <li class="nav-item dropdown " >
-            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:#cad4df " >
+            <a class="nav-link "  style="color: #3b3b3b;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#cad4df " >
                 <span id="usericon"><i class="fas fa-user-circle fa-lg"></i></span>
                 {{ auth()->user()->firstName }} {{ auth()->user()->lastName }}
                 <i class="fas fa-angle-down"></i>
@@ -60,7 +62,7 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div class="leftCol">
-            <a href="" class="nav__logo">
+            <a href="/stats" class="nav__logo">
                 <img class="logo" src="{{ asset('images/logo.png') }}" alt="logo">
                 <span class="nav__logo-name">MyStore</span>
             </a>
@@ -151,14 +153,16 @@
 </div>
 
                                     @if(auth()->user()->store->client_id == "")
-                                        <div style="text-align: center;" class="success alert alert-warning" role="alert"><img style="float: left" class="mr-2" width="45px"
+                                        <div style="text-align: center; margin-top: 70px;" class="success alert alert-warning" role="alert"><img style="float: left" class="mr-2" width="45px"
                                                                                                                                src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-small.png" alt="Buy now with PayPal" />
                                             set your paypal payment credentials
                                             <a style="color: blue;" href="/index_paypal_credentials">click here !</a></div>
                                     @endif
 
 
-@yield('content1')
+<div style="@if(auth()->user()->store->client_id != "") margin-top: 70px;@endif">
+    @yield('content1')
+</div>
 <!--===== SWEET ALERT =====-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--===== MAIN JS =====-->
@@ -172,6 +176,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#searching').DataTable();
+    } );
+</script>
 
 </body>
 </html>

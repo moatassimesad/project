@@ -78,12 +78,28 @@ class HomeController extends Controller
         $store = Store::find($store_id);
         $user = $store->user;
         $colors = $product->getColors();
+        $max = $product->quantity;
         if (session()->has('cart'.$store->id)) {
+            $max = 0;
             $cart = new Cart(session()->get('cart'.$store->id));
-        } else {
+            $colors = $product->getColors();
+            foreach ($colors as $color){
+                try {
+
+                    $max += $cart->items[$product->id.$color]['quantity'];
+
+                }
+            catch (\Exception $e){
+
+            }
+            }
+            $max = $product->quantity - $max;
+        }
+        else{
             $cart = null;
         }
-        return view('shop.product_preview',compact('product','store','user','colors','cart'));
+
+        return view('shop.product_preview',compact('product','store','user','colors','max','cart'));
     }
 
     public function index_cart($store_id){
@@ -149,8 +165,27 @@ class HomeController extends Controller
         $this->validate($request,[
             'quantity'=>'required'
         ]);
+
+
         $store = Store::find($request->store_id);
         $cart = new Cart(session()->get('cart'.$store->id));
+        $product = Product::find($request->product_id);
+        $colors = $product->getColors();
+        $max = 0;
+        foreach ($colors as $color){
+            try {
+                if ($color == $request->color){
+                    continue;
+                }
+                $max += $cart->items[$product->id.$color]['quantity'];
+
+            }
+            catch (\Exception $e){}
+        }
+        $max += $request->quantity;
+        if ($max > $product->quantity){
+            return back()->with('status3', 'Max quantity you can purchase is '.$product->quantity);
+        }
         $cart->update_quantity($request->product_id,$request->color, $request->quantity);
         session()->put('cart'.$store->id, $cart);
         return back()->with('status2', 'Quantity updated successfully');

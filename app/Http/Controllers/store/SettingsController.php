@@ -86,10 +86,6 @@ class SettingsController extends Controller
     }
 
     public function save_contact(Request $request){
-        $this->validate($request,[
-            'facebookLink'=>'required',
-            'twitterLink'=>'required',
-        ]);
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $store->facebookLink = $request->facebookLink;

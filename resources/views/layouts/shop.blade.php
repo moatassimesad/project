@@ -323,6 +323,9 @@
             color:inherit;
             opacity:0.75;
         }
+        pre{
+            color: white;
+        }
 
         .footer-clean .item.social > a:hover {
             opacity:0.9;
@@ -481,7 +484,7 @@
 
 
                     <div class=" col-md-4 col-sm-6 item social ">
-                        <a class="fbicon" href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a class="twicon" href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
+                        <a class="fbicon" target="_blank" href="{{ $store->facebookLink }}"><i class="icon ion-social-facebook"></i></a><a class="twicon" target="_blank" href="{{ $store->twitterLink }}"><i class="icon ion-social-twitter"></i></a>
                         <p class="copyright">{{ $store->name }} © 2021</p>
                     </div>
                 </div>

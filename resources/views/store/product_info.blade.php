@@ -1,8 +1,5 @@
 @extends('layouts.store_admin')
 @section('content1')
-<head>
-    <link href="{{ asset('css/product_info.css') }}" rel="stylesheet">
-</head>
 @if($product->store->id == auth()->user()->store->id)
     <form action="{{ route('edit_product') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -143,7 +140,7 @@
 @endif
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script>
-    let tab=["red","green","yellow","black","blue","white","orange"];
+    let tab=["red","green","yellow","black","blue","white","orange","pink"];
     document.getElementById("colors").setAttribute("size",tab.length+1);
     for(let i =1; i<=tab.length;i++){
         let option= document.createElement("option");
@@ -165,6 +162,13 @@
             $('.provider-amount[data-id="' + id + '"]').attr('disabled', !enabled)
             $('.provider-amount[data-id="' + id + '"]').val(null)
         })
+    });
+</script>
+<script>
+    $('option').mousedown(function(e) {
+        e.preventDefault();
+        $(this).prop('selected', $(this).prop('selected') ? false : true);
+        return false;
     });
 </script>
 @endsection

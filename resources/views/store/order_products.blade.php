@@ -78,7 +78,7 @@
                 Products informations
             </div>
         </div>
-        <table class="table  table-sm table-striped  cssTable">
+        <table class="table  table-sm  cssTable">
             <thead>
             <tr class="table-info">
             <th scope="col">IMAGE</th>
@@ -86,6 +86,7 @@
             <th scope="col">REFERENCE</th>
             <th scope="col">PRICE</th>
             <th scope="col">QUANTITY</th>
+            <th scope="col">COLOR</th>
             <th scope="col">DATE</th>
 
             </tr>
@@ -99,6 +100,7 @@
                 <td>{{ $product->reference }}</td>
                 <td>{{ $product->price }}</td>
                 <td>{{ $product->pivot->quantity }}</td>
+                <td>{{ $product->pivot->color }}</td>
                 <td>{{ $product->created_at }}</td>
             </tr>
         @endforeach

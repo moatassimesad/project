@@ -1,8 +1,5 @@
 @extends('layouts.store_admin')
 @section('content1')
-    <head>
-
-    </head>
     <form action="{{route('add_product')}}" method="post" enctype="multipart/form-data">
         @csrf
 
@@ -128,7 +125,7 @@
 
     <script>
 
-        let tab=["red","green","yellow","black","blue","white","orange"];
+        let tab=["red","green","yellow","black","blue","white","orange","pink"];
         document.getElementById("colors").setAttribute("size",tab.length+1);
         for(let i =1; i<=tab.length;i++){
             let option= document.createElement("option");

@@ -162,6 +162,9 @@
                 <div class="text-left ml-1 mt-2">
                     <div class="productqte" >   Stock    : {{$product->quantity}}</div>
                 </div>
+                <div class="text-left ml-1 mt-2">
+                    <div class="productqte" >   Collection    : {{$product->collection->name}}</div>
+                </div>
 
                 <span class="ml-1 mt-2 descriptionname">Description :</span>
                 <div class="text-left ml-1 mt-2 description">
@@ -173,7 +176,7 @@
                         @if($color == "none")
                             <div class="nocolor"> This product has no colors </div>
                         @else
-                            <div class="ml-2 mr-2" style="width: 30px; height: 30px; border-radius: 50%; background-color: {{$color}}"></div>
+                            <div class="ml-2 mr-2" style="border: 1px black solid;width: 30px; height: 30px; border-radius: 50%; background-color: {{$color}}"></div>
                         @endif
 
                     @endforeach
