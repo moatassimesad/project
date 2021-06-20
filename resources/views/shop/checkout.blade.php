@@ -20,6 +20,10 @@
 </style>
 
 <div class="container">
+    @if(session('status'))
+        <div class="success alert alert-danger" role="alert">{{ session('status') }}</div>
+
+    @endif
     <form action="{{ route('pay') }}" method="post">
         @csrf
     <section>

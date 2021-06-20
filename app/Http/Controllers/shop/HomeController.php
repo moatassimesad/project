@@ -184,7 +184,7 @@ class HomeController extends Controller
         }
         $max += $request->quantity;
         if ($max > $product->quantity){
-            return back()->with('status3', 'Max quantity you can purchase is '.$product->quantity);
+            return back()->with('status3', 'Max quantity you can purchase for this product is '.$product->quantity);
         }
         $cart->update_quantity($request->product_id,$request->color, $request->quantity);
         session()->put('cart'.$store->id, $cart);

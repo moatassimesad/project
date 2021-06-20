@@ -47,6 +47,12 @@
             </div>
 
         @endif
+            @if(session('status4'))
+            <div class="link alert alert-danger mb-4 text-center" role="alert">
+                {{ session('status4') }}
+            </div>
+
+        @endif
 
         <section>
 
@@ -119,7 +125,7 @@
                                             <div>
 
 
-                                                <form action="{{ route('cart_change_quantity') }}" method="post">
+                                                <form action="{{ route('cart_change_quantity') }}" method="post" id="quantityForm">
                                                     @csrf
                                                     @method('put')
                                                 <div class="form-group mb-0 w-100 ">

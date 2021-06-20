@@ -31,14 +31,14 @@
                 @enderror
                 <div class="form-group m-5">
                     <label for="name">Phone</label>
-                    <input type="text" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{old('phone')}}">
+                    <input type="number" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{old('phone')}}">
                 </div>
                 @error('phone')
                 <div class="error">{{ $message }}</div>
                 @enderror
                 <div style="height: 100px;" class="row justify-content-center mt-4">
                     <div><button type="submit" id="submit" name="submit"   class="bouton btn btn-dark">&emsp;&emsp;Save&emsp;&emsp;</button></div>
-                    <div><a href="/list_delivery" class="btn btn-secondary ">&emsp;&emsp;Cancel&emsp;&emsp;</a></div>
+                    <div><a href="/list_provider" class="btn btn-secondary ">&emsp;&emsp;Cancel&emsp;&emsp;</a></div>
                 </div>
             </div>
         </div>

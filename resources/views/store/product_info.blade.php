@@ -36,14 +36,14 @@
                 @endif
                 <div class="form-group m-5">
                     <label for="name">Price</label>
-                    <input type="text" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{$product->price}}">
+                    <input type="number" min="0" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{$product->price}}">
                 </div>
                 @error('price')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div class="form-group m-5">
                     <label for="name">Quantity</label>
-                    <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="@if($product->providers->count()==0)  {{ $product->quantity }}   @endif">
+                    <input type="number" min="0" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="@if($product->providers->count()==0)  {{ $product->quantity }}   @endif">
                 </div>
                 <div class="mb-3">
                     <div style="text-align: center"><p><i>Select colors you have for your product</i></p></div>
@@ -89,15 +89,15 @@
                                 <tr class="mb-3">
 
                                     <td style="font-size: smaller">{{ $provider->name }}</td>
-                                    <td style="font-size: smaller"><input style="width: 90px; height: 30px; border: none; border-bottom: solid 1px; background: none;" value="{{ $provider->pivot->quantity }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="form-control form-control-sm" placeholder="Quantity"></td>
-                                    <td style="font-size: smaller"><input style="width: 90px; height: 30px; border: none; border-bottom: solid 1px; background: none;" value="{{ $provider->pivot->unitCost }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="form-control form-control-sm" placeholder="unitCost"></td>
+                                    <td style="font-size: smaller"><input min="0" value="{{ $provider->pivot->quantity }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2"></td>
+                                    <td style="font-size: smaller"><input min="0" value="{{ $provider->pivot->unitCost }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2"></td>
                                 </tr>
                             @endforeach
                             @foreach($excluded_providers as $provider)
                                 <tr class="mb-3">
                                     <td style="font-size: smaller">{{ $provider->name }}</td>
-                                    <td style="font-size: smaller"><input value="" name="providers_quantity[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2" placeholder="Quantity"></td>
-                                    <td style="font-size: smaller"><input value="" name="providers_unitCost[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2" placeholder="unitCost"></td>
+                                    <td style="font-size: smaller"><input min="0" value="" name="providers_quantity[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2" placeholder="Quantity"></td>
+                                    <td style="font-size: smaller"><input min="0" value="" name="providers_unitCost[{{ $provider->id }}]" type="number" class="form-control form-control-sm ml-2 mr-2" placeholder="unitCost"></td>
                                 </tr>
                             @endforeach
                         </table>

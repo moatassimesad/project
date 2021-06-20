@@ -31,14 +31,14 @@
                 @enderror
                 <div class="form-group m-5">
                     <label for="name">Price</label>
-                    <input type="text" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{old('price')}}">
+                    <input type="number" min="0" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{old('price')}}">
                 </div>
                 @error('price')
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div class="form-group m-5">
                     <label for="name">Quantity</label>
-                    <input type="text" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="{{old('quantity')}}">
+                    <input type="number" min="0" class="form-control" name="quantity" placeholder="if you have any provider the quantity will be calculated automatically..." value="{{old('quantity')}}">
                 </div>
                 <div class="mb-3">
                     <div style="text-align: center"><p><i>Select colors you have for your product</i></p></div>
@@ -84,8 +84,8 @@
                                 <tr class="mb-3">
                                     <td style="font-size: smaller"><input  data-id="{{ $provider->id }}" type="checkbox" class="provider-enable mr-2"></td>
                                     <td style="font-size: smaller">{{ $provider->name }}</td>
-                                    <td style="font-size: smaller"><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="Quantity"></td>
-                                    <td style="font-size: smaller"><input value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="unitCost"></td>
+                                    <td style="font-size: smaller"><input min="0" value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_quantity[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="Quantity"></td>
+                                    <td style="font-size: smaller"><input min="0" value="" {{ $provider->value ? null : 'disabled' }} data-id="{{ $provider->id }}" name="providers_unitCost[{{ $provider->id }}]" type="number" class="provider-amount form-control form-control-sm" placeholder="unitCost"></td>
                                 </tr>
                             @endforeach
                         </table>

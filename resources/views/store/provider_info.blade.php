@@ -40,7 +40,7 @@
                     @enderror
                     <div class="form-group m-5">
                         <label for="name">Phone</label>
-                        <input type="text" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{$provider->phone}}">
+                        <input type="number" class="form-control" name="phone" style="@error('phone') border:1px solid red; @enderror" placeholder="+212 x xx xx xx xx" value="{{$provider->phone}}">
                     </div>
                     @error('phone')
                     <div class="error">{{ $message }}</div>
@@ -50,8 +50,6 @@
                         <div><button type="submit" id="submit" name="submit"   class="btn btn-warning"><i class="fas fa-edit "></i></button></div>
                     </div>
                 </div>
-            </div>
-
             </div>
         </form>
     @else

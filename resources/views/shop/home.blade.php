@@ -123,8 +123,26 @@
 
 
 
+
         </style>
         @endif
+        <style>
+            div.scrollmenu {
+                overflow: auto;
+                white-space: nowrap;
+
+            }
+
+            div.scrollmenu a {
+                display: inline-block;
+                text-align: center;
+                text-decoration: none;
+            }
+
+            div.scrollmenu a:hover {
+
+            }
+        </style>
     </head>
 
 
@@ -135,13 +153,10 @@
                 @else
             <img class="card-img" src="/images/shop_main_page.png" style="height: 60vh; " alt="Card image">
             @endif
-            <div class="card-img-overlay mt-5 txt-ovr" style="padding-top: 10vh; letter-spacing:2px"  >
-                <h1 class="card-title" style="font-weight: bold; ">IMAGE WITH TEXT LAYER</h1>
-                <h5 class="card-text">
-                    Use the text overlay to give your customers an overview of your brand.
-                    <br/>
-                    Use an image and text that relates to your brand’s style and story.
-                </h5>
+            <div class="card-img-overlay mt-5 txt-ovr" style="padding-top: 10vh; letter-spacing:2px; padding-left:25%; padding-right:25%;"  >
+                <h3 style="color: white; text-shadow: 0 0 8px #000;" class="card-text">
+                    {{ $store->textLayer_top }}
+                </h3>
             </div>
         </div>
     </div>
@@ -154,42 +169,16 @@
            </div>
        </div>
 
-        @if($collections->count())
-        @for($i=0;$i<$collections->count();$i++)
+        <div id="scrollmenu" class="scrollmenu img-collection mt-5 mb-5">
 
 
-            <div class="row my-4 img-collection " >
-                @if($collections->getNth($i)!=null)
-                    <div class=" col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
-                        <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
-                    </div>
-                @endif
+            @if($collections->count())
+                @for($i=0;$i<$collections->count();$i++)
+                    <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images" style="margin-right: 70px"> <div class="collectionName mr-5" >{{$collections->getNth($i)->name}}</div></a>
 
+                @endfor
+        </div>
 
-                <input type="hidden" value="{{ $i++ }}">
-                @if($collections->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
-                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
-                        <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
-                    </div>
-                @endif
-                <input type="hidden" value="{{ $i++ }}">
-                @if($collections->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
-                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images" ></a>
-                        <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
-                    </div>
-                @endif
-                <input type="hidden" value="{{ $i++ }}">
-                @if($collections->getNth($i)!=null)
-                    <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
-                        <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
-                        <div class="collectionName" >{{$collections->getNth($i)->name}}</div>
-                    </div>
-                @endif
-            </div>
-        @endfor
 
         @else
             <div class="row my-4 img-collection ">
@@ -205,6 +194,7 @@
         @endif
     </div>
 
+
     <div class="container-fluid mt-5">
         <div class="card  text-center" >
             @if($store->image_bottom)
@@ -212,13 +202,10 @@
             @else
                 <img class="card-img" src="/images/shop_main_page.png" style="height: 60vh; " alt="Card image">
             @endif
-            <div class="card-img-overlay mt-5 txt-ovr " style="padding-top: 10vh; letter-spacing:2px"  >
-                <h1 class="card-title" style="font-weight: bold; ">IMAGE WITH TEXT LAYER</h1>
-                <h5 class="card-text">
-                    Use the text overlay to give your customers an overview of your brand.
-                    <br/>
-                    Use an image and text that relates to your brand’s style and story.
-                </h5>
+            <div class="card-img-overlay mt-5 txt-ovr " style="padding-top: 10vh; letter-spacing:2px; padding-left:25%; padding-right:25%;"  >
+                <h3 style="color: white; text-shadow: 0 0 8px #000;" class="card-text">
+                    {{ $store->textLayer_bottom }}
+                </h3>
             </div>
         </div>
     </div>
@@ -231,6 +218,18 @@
 
     <script>
         $("#homelink").css("border-bottom","2px solid #2E8AD0");
+    </script>
+    <script>
+        var x = document.getElementById("scrollmenu").clientWidth;
+        const buttonRight = document.getElementById('slideRight');
+        const buttonLeft = document.getElementById('slideLeft');
+
+        buttonRight.onclick = function () {
+            document.getElementById('scrollmenu').scrollLeft += x;
+        };
+        buttonLeft.onclick = function () {
+            document.getElementById('scrollmenu').scrollLeft -= x;
+        };
     </script>
 
 

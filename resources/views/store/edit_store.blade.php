@@ -57,7 +57,7 @@
                 @enderror
                 <div class="align-items-center row justify-content-center mt-4 mr-2 ml-2">
                     <label for="textLayer_bottom">Enter a text layer that will displayed at the top of the picture in the bottom</label>
-                    <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom top for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer_bottom }}</textarea>
+                    <textarea class="form-control" style="  @error('textLayer_bottom') border:1px solid red;  @enderror" placeholder="Enter a text layer bottom for your store..." name="textLayer_bottom" rows="3">{{ $store->textLayer_bottom }}</textarea>
                 </div>
                 @error('textLayer_bottom')
                 <div style="color: red; text-align: center; margin-top: 50px;">
@@ -80,7 +80,7 @@
                 <div  class="category_info row justify-content-center align-items-center cat_info">Add pictures to your store</div>
                 <hr>
                 <div  class="row justify-content-center files" style="@error('image_top') border:1px solid red; @enderror">
-                    <input type="file" class="bg-light fl" id="image_top" name="image_top">
+                    <input type="file" class="bg-light fl" id="image_top" name="image_top" width="1800px">
                 </div>
                 @error('image_top')
                 <div style="color: red; text-align: center; margin-top: 50px;">{{ $message }}</div>

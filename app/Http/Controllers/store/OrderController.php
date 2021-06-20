@@ -47,7 +47,29 @@ class OrderController extends Controller
             $cart = new Cart(session()->get('cart'.$store->id));
         } else {
             $cart = null;
+            return back();
         }
+        $max = 0;
+        foreach( $cart->items as $item){
+            $product = Product::find($item['id']);
+            $colors = $product->getColors();
+            foreach ($colors as $color){
+                try {
+                    $max += $cart->items[$product->id.$color]['quantity'];
+                }
+                catch (\Exception $e){}
+            }
+
+            if ($product->quantity < $max){
+                if ($product->quantity == 0){
+                    return back()->with('status4','Sorry! the product titled "'.$product->name.'" is expired');
+                }
+                else{
+                    return back()->with('status4','Sorry! the quantity you wanna purchase for the product titled "'.$product->name.'" is out of stock, max is '.$product->quantity);
+                }
+            }
+            $max = 0;
+            }
         return view('shop.checkout',compact('cart','store','user'));
     }
 
@@ -66,6 +88,17 @@ class OrderController extends Controller
             'phone' => 'required',
             'email' => 'required|email',
         ]);
+        $store = Store::find($request->store_id);
+        if (session()->has('cart'.$store->id)) {
+            $cart = new Cart(session()->get('cart'.$store->id));
+            foreach ($cart->items as $item) {
+                $product = Product::find($item['id']);
+                if ($product->quantity < $item['quantity']){
+                    return back()->with('status','The quantity that you are picking for the product titled "'.$product->name.'" is out of stock');
+                }
+            }
+        }
+
 
         $client = DB::table('clients')->where([
             ['firstName', '=', $request->firstName],
@@ -89,7 +122,7 @@ class OrderController extends Controller
             $client->store_id = $request->store_id;
             $client->save();
         }
-        $store = Store::find($request->store_id);
+
 
         if (session()->has('cart'.$store->id)) {
             $cart = new Cart(session()->get('cart'.$store->id));

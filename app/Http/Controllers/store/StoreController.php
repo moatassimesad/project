@@ -32,7 +32,8 @@ class StoreController extends Controller
     public function add_store_images(Request $request)
     {
         $request->validate([
-            'image_top' => 'required',
+            'image_top' => '',
+            'image_bottom' => '',
         ]);
 
 
@@ -63,6 +64,8 @@ class StoreController extends Controller
         $this->validate($request,[
             'storeName'=>'required',
             'storeActivityType'=>'required',
+            'textLayer_top'=>'max:255',
+            'textLayer_bottom'=>'max:255',
         ]);
         $user = User::find(auth()->user()->id);
         $store = $user->store;
