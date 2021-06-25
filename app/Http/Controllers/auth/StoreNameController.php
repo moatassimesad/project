@@ -26,12 +26,10 @@ class StoreNameController extends Controller
         //validation
         $this->validate($request,[
             'storeName'=>'required|max:255',
-            'storeActivityType'=>'required',
         ]);
 
         Store::create([
         'name'=>$request->storeName,
-        'storeActivityType'=>$request->storeActivityType,
         'designName'=>'sand',
         'user_id'=>auth()->user()->id,
         ]);

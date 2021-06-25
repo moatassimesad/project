@@ -169,10 +169,10 @@
             </div>
             <div class="col-md-4 col-6 text-center">
                 <form action="/shop/{{$store->id}}/@if($selectedCollection == 'all')all
-@else{{$selectedCollection}}@endif" method="post">
+@else{{$selectedCollection}}@endif" id="form" method="post">
                     @csrf
                 <div class="input-group">
-                    <input style="background: none;" class="mr-1 form-control border-end-0 border rounded-pill" type="text" name="product_name" placeholder="search" id="example-search-input" value="{{ $search }}">
+                    <input style="background: none;" class="mr-1 form-control border-end-0 border rounded-pill" type="text" name="product_name" placeholder="search" id="search" value="{{ $search }}">
                     <span class="input-group-append">
                 <button style="outline: none; border: none;" class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="submit">
                     <i class="fa fa-search"></i>
@@ -190,7 +190,7 @@
                 <div class="col-md-3 col-sm-6 col-6 text-center mt-3 productInfo">
                     <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image }}" alt="" class="images"></a>
                     <div  class="productName">{{$products->getNth($i)->name}}</div>
-                    <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                    <div class="price" >$ {{$products->getNth($i)->price}} </div>
                     <div>
                     <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     </div>
@@ -201,7 +201,7 @@
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
-                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div class="price" >$ {{$products->getNth($i)->price}} </div>
                         <div >
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
@@ -212,7 +212,7 @@
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
-                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div class="price" >$ {{$products->getNth($i)->price}} </div>
                         <div>
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="  btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
@@ -223,7 +223,7 @@
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3">
                         <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}"> <img src="../../images/{{ $products->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="productName" >{{$products->getNth($i)->name}}</div>
-                        <div class="price" >MAD {{$products->getNth($i)->price}} </div>
+                        <div class="price" >$ {{$products->getNth($i)->price}} </div>
                         <div >
                             <a href="/product_preview/{{ $store->id }}/{{$products->getNth($i)->id}}" class="btn btn-dark mt-1"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>
@@ -239,7 +239,7 @@
                     <div class="col-md-3 col-sm-6 col-6 text-center mt-3 ">
                         <a href="/product_preview/{{ $store->id }}}"> <img style="border: 1px solid #707070" src="{{ asset('images/celloction_logo.png') }}" alt="" class="images"></a>
                         <div class="productName">Product Name</div>
-                        <div class="price" >MAD 1.00</div>
+                        <div class="price" >$ 1.00</div>
                         <div >
                             <a href="/product_preview/{{ $store->id }}" class=" btn btn-dark mt-1 disabled"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                         </div>

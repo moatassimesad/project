@@ -63,14 +63,12 @@ class StoreController extends Controller
     public function edit_store_info(Request $request){
         $this->validate($request,[
             'storeName'=>'required',
-            'storeActivityType'=>'required',
             'textLayer_top'=>'max:255',
             'textLayer_bottom'=>'max:255',
         ]);
         $user = User::find(auth()->user()->id);
         $store = $user->store;
         $store->name = $request->storeName;
-        $store->storeActivityType = $request->storeActivityType;
         $store->textLayer_top = $request->textLayer_top;
         $store->textLayer_bottom = $request->textLayer_bottom;
         $store->save();

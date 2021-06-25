@@ -124,7 +124,7 @@
                                         <div class="product-qty"> <span class="d-block">Quantity: {{$product->pivot->quantity}}</span> <span>Color: {{$product->pivot->color}}</span> </div>
                                     </td>
                                     <td width="20%">
-                                        <div class="text-right"> <span class="font-weight-bold">MAD {{$product->price}}</span> </div>
+                                        <div class="text-right"> <span class="font-weight-bold">$ {{$product->price}}</span> </div>
                                     </td>
                                 </tr>
                                         @endforeach
@@ -140,7 +140,7 @@
                                             <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span>MAD {{$order->payedTotal}}</span> </div>
+                                            <div class="text-right"> <span>$ {{$order->payedTotal}}</span> </div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -156,7 +156,7 @@
                                             <div class="text-left"> <span class="text-muted">Tax Free</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span>MAD 0.00</span> </div>
+                                            <div class="text-right"> <span>$ 0.00</span> </div>
                                         </td>
                                     </tr>
 
@@ -165,7 +165,7 @@
                                             <div class="text-left"> <span class="font-weight-bold">Order Total</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span class="font-weight-bold">MAD {{$order->payedTotal}}</span> </div>
+                                            <div class="text-right"> <span class="font-weight-bold">$ {{$order->payedTotal}}</span> </div>
                                         </td>
                                     </tr>
                                     </tbody>

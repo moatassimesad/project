@@ -18,7 +18,6 @@ class CreateStoresTable extends Migration
             $table->string('name');
             $table->string('facebookLink');
             $table->string('twitterLink');
-            $table->string('storeActivityType');
             $table->string('conditionOfUse');
             $table->string('designName');
             $table->string('client_id');

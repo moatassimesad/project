@@ -365,8 +365,11 @@
                  <div class="text-left ml-1 collection">
                     {{$product->collection->name}}
                 </div>
+            <div class="text-left ml-1">
+                    {{$product->quantity}}<span> lefts</span>
+                </div>
                 <div class="text-left ml-1 mt-2 price">
-                     MAD {{$product->price}}
+                     $ {{$product->price}}
                 </div>
                 <div class="text-left ml-1 mt-2 description">
                     {{ $product->description }}

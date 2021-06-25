@@ -160,7 +160,7 @@
                                             </div>
 
                                             </form>
-                                            <p class="mb-0"><span><strong>MAD {{$product['price']}}</strong></span></p>
+                                            <p class="mb-0"><span><strong>$ {{$product['price']}}</strong></span></p>
 
                                         </div>
                                     </div>
@@ -228,9 +228,9 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     Subtotal
                                     @if($cart)
-                                    <span>MAD {{$cart->totalPrice}}</span>
+                                    <span>$ {{$cart->totalPrice}}</span>
                                     @else
-                                        <span>MAD 0</span>
+                                        <span>$ 0</span>
                                     @endif
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
@@ -245,9 +245,9 @@
                                         </strong>
                                     </div>
                                     @if($cart)
-                                        <span><strong>MAD {{$cart->totalPrice}}</strong></span>
+                                        <span><strong>$ {{$cart->totalPrice}}</strong></span>
                                     @else
-                                        <span><strong>MAD 0</strong></span>
+                                        <span><strong>$ 0</strong></span>
                                     @endif
 
                                 </li>

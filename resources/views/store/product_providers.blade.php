@@ -157,7 +157,7 @@
                     <div class="productname" >Name     : {{$product->name}}</div>
                 </div>
                 <div class="text-left ml-1 mt-2">
-                    <div class="productprice" >Price     : MAD&ensp;{{$product->price}}</div>
+                    <div class="productprice" >Price     : $&ensp;{{$product->price}}</div>
                 </div>
                 <div class="text-left ml-1 mt-2">
                     <div class="productqte" >   Stock    : {{$product->quantity}}</div>

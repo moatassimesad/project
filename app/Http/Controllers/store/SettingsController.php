@@ -59,7 +59,7 @@ class SettingsController extends Controller
 
 
         $this->validate($request, [
-            'password' => 'confirmed|required|different:old_password',
+            'password' => 'confirmed|required|different:old_password|min:8|string',
             'old_password' => 'required',
         ]);
 

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderDetails;
+use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use App\Services\PaypalService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -64,10 +66,25 @@ class PaypalController extends Controller
                 Mail::to($client->email)->send(new OrderDetails($order, $store, $user, $client->firstName,$client->lastName,$client->address,'payed via paypal'));
             }
             catch (\Exception $e){
+                if (session()->has('cart'.$store->id)) {
+                    $cart = new Cart(session()->get('cart' . $store->id));
+                    foreach ($cart->items as $item) {
+                        $product = Product::find($item['id']);
+                        $product->quantity -= $item['quantity'];
+                        $product->save();
+                    }
+                }
                 session()->forget('cart'.$store->id);
                 return redirect()->route('shop',['id'=>$store->id,'collection_id'=>'all'])->with('status','Payment successful, but there s something wrong with sending you the confirmation email!  ⚠️️️ ⚠️️ ⚠️️');
             }
-
+            if (session()->has('cart'.$store->id)) {
+                $cart = new Cart(session()->get('cart' . $store->id));
+                foreach ($cart->items as $item) {
+                    $product = Product::find($item['id']);
+                    $product->quantity -= $item['quantity'];
+                    $product->save();
+                }
+            }
             session()->forget('cart'.$store->id);
             return redirect()->route('shop',['id'=>$store->id,'collection_id'=>'all'])->with('status','Payment successful!');
 

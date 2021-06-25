@@ -30,8 +30,8 @@
                 <div style="color: red; text-align: center;">{{ $message }}</div>
                 @enderror
                 <div class="form-group m-5">
-                    <label for="name">Price</label>
-                    <input type="number" min="0" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price" value="{{old('price')}}">
+                    <label for="name">Price ($)</label>
+                    <input type="number" min="0" class="form-control" name="price" style="@error('price') border:1px solid red; @enderror" placeholder="Price ($)" value="{{old('price')}}">
                 </div>
                 @error('price')
                 <div style="color: red; text-align: center;">{{ $message }}</div>

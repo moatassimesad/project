@@ -73,7 +73,7 @@
             <tr class="table-info">
                 <th scope="col">NUMBER</th>
                 <th scope="col">STATUS</th>
-                <th scope="col">PAYED TOTAL</th>
+                <th scope="col">PAYED TOTAL ($)</th>
                 <th scope="col">CONFIRMATION DATE</th>
                 <th scope="col">STATUS UPDATED AT</th>
                 <th scope="col">ACTION</th>

@@ -174,7 +174,7 @@
 
             @if($collections->count())
                 @for($i=0;$i<$collections->count();$i++)
-                    <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images" style="margin-right: 70px"> <div class="collectionName mr-5" >{{$collections->getNth($i)->name}}</div></a>
+                    <a href="/shop/{{ $store->id }}/{{$collections->getNth($i)->name}}"> <img src="../images/{{ $collections->getNth($i)->image }}" alt="" class="images mr-5 ml-5"> <div class="collectionName ml-5 mr-5" >{{$collections->getNth($i)->name}}</div></a>
 
                 @endfor
         </div>

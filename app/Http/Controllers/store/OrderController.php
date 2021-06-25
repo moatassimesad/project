@@ -45,31 +45,31 @@ class OrderController extends Controller
         $user = $store->user;
         if (session()->has('cart'.$store->id)) {
             $cart = new Cart(session()->get('cart'.$store->id));
+            $max = 0;
+            foreach( $cart->items as $item){
+                $product = Product::find($item['id']);
+                $colors = $product->getColors();
+                foreach ($colors as $color){
+                    try {
+                        $max += $cart->items[$product->id.$color]['quantity'];
+                    }
+                    catch (\Exception $e){}
+                }
+
+                if ($product->quantity < $max){
+                    if ($product->quantity == 0){
+                        return back()->with('status4','Sorry! the product titled "'.$product->name.'" is expired');
+                    }
+                    else{
+                        return back()->with('status4','Sorry! the quantity you wanna purchase for the product titled "'.$product->name.'" is out of stock, max is '.$product->quantity);
+                    }
+                }
+                $max = 0;
+            }
         } else {
             $cart = null;
             return back();
         }
-        $max = 0;
-        foreach( $cart->items as $item){
-            $product = Product::find($item['id']);
-            $colors = $product->getColors();
-            foreach ($colors as $color){
-                try {
-                    $max += $cart->items[$product->id.$color]['quantity'];
-                }
-                catch (\Exception $e){}
-            }
-
-            if ($product->quantity < $max){
-                if ($product->quantity == 0){
-                    return back()->with('status4','Sorry! the product titled "'.$product->name.'" is expired');
-                }
-                else{
-                    return back()->with('status4','Sorry! the quantity you wanna purchase for the product titled "'.$product->name.'" is out of stock, max is '.$product->quantity);
-                }
-            }
-            $max = 0;
-            }
         return view('shop.checkout',compact('cart','store','user'));
     }
 
@@ -150,9 +150,6 @@ class OrderController extends Controller
 
             foreach ($cart->items as $item) {
                 $order->products()->attach($item['id'], ['quantity' => $item['quantity'], 'unitCost' => $item['price'], 'shippingCost' => 0, 'color' => $item['color']]);
-                $product = Product::find($item['id']);
-                $product->quantity -= $item['quantity'];
-                $product->save();
             }
             $user = $store->user;
             if($request->paypal){
@@ -166,7 +163,11 @@ class OrderController extends Controller
                 session()->forget('cart'.$store->id);
                 return view('shop.order_details', compact('order', 'store', 'user','client','status'));
             }
-
+            foreach ($cart->items as $item) {
+                $product = Product::find($item['id']);
+                $product->quantity -= $item['quantity'];
+                $product->save();
+            }
             session()->forget('cart'.$store->id);
             $status = '';
             return view('shop.order_details', compact('order', 'store', 'user','client','status'));

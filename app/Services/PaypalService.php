@@ -108,7 +108,7 @@ class PaypalService
             'purchase_units' => [
                 [
                     'reference_id' =>  uniqid(),
-                    'description' => 'some order description for the order',
+                    'description' => 'Order number'.$order->number,
                     'custom_id' => 'CUST-HighFashions',
                     'soft_descriptor' => 'HighFashions',
                     'items' => $orderItems,
@@ -121,12 +121,12 @@ class PaypalService
                                 ],
                             'address' =>
                                 [
-                                    'address_line_1' => '123 Townsend St',
-                                    'address_line_2' => 'Floor 6',
-                                    'admin_area_2' => 'San Francisco',
-                                    'admin_area_1' => 'CA',
-                                    'postal_code' => '94107',
-                                    'country_code' => 'US',
+                                    'address_line_1' => $order->client->address,
+                                    'address_line_2' => '',
+                                    'admin_area_2' => $order->client->city,
+                                    'admin_area_1' => '',
+                                    'postal_code' => $order->client->postCode,
+                                    'country_code' => 'MA',
                                 ],
                         ],
                     'amount' =>

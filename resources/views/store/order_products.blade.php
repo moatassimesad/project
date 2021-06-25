@@ -65,7 +65,7 @@
                Order Status : {{$order->status}}
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 orderdetailscss">
-                Total Payed : {{$order->payedTotal}}
+                Total Payed : $ {{$order->payedTotal}}
             </div>
         </div>
 
@@ -84,7 +84,7 @@
             <th scope="col">IMAGE</th>
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
-            <th scope="col">PRICE</th>
+            <th scope="col">PRICE ($)</th>
             <th scope="col">QUANTITY</th>
             <th scope="col">COLOR</th>
             <th scope="col">DATE</th>

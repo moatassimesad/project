@@ -32,16 +32,6 @@
             <span class="ajax" id="show"></span>
 
         </div>
-        <div style="height: 100px;" class="align-items-center row justify-content-center">
-            <select name="storeActivityType" class="activity"  style="  @error('storeActivityType') border-bottom:1px solid red;  @enderror" id="storeActivityType" >
-                <option selected disabled>Selling what?</option>
-            </select>
-        </div>
-    @error('storeActivityType')
-    <div class="activity_error">
-        {{$message}}
-    </div>
-    @enderror
         <div style="height: 100px;" class="row justify-content-center ">
             <div><button type="submit" name="submit" style="width: 150px;" class="btn btn-info">Save</button></div>
         </div>
@@ -49,16 +39,6 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-    let tab=["Clothing","Jewelery","Make-up","Food","Electronics"];
-    for(let i =1; i<=tab.length;i++){
-        let option= document.createElement("option");
-        option.value=tab[i-1];
-        let text=document.createTextNode(tab[i-1]);
-        option.appendChild(text);
-        document.getElementById("storeActivityType").appendChild(option);
-    }
-</script>
 <script>
     $('#show').html('.MyStore.ma');
     $('#storeName').keyup(function () {

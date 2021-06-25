@@ -35,17 +35,6 @@
                     <span style="border-bottom: 1px solid black;" id="show"></span>
 
                 </div>
-                <div class="form-group m-4">
-                    <label for="storeActivityType">Store activity type</label>
-                    <select class="form-control" id="storeActivityType" name="storeActivityType" style="@error('storeActivityType') border:solid 1px red; @enderror">
-                        <option value="{{$store->storeActivityType}}" selected>{{$store->storeActivityType}}</option>
-                    </select>
-                </div>
-                @error('storeActivityType')
-                <div style="color: red; text-align: center; margin-top: 50px;">
-                    {{$message}}
-                </div>
-                @enderror
                 <div class="align-items-center row justify-content-center mt-5 mr-2 ml-2">
                     <label for="textLayer_top">Enter a text layer that will displayed at the top of the picture in the top</label>
                     <textarea class="form-control" style="  @error('textLayer_top') border:1px solid red;  @enderror" placeholder="Enter a text layer top for your store..." name="textLayer_top" rows="3">{{ $store->textLayer_top }}</textarea>

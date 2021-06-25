@@ -87,7 +87,7 @@
             <th scope="col">NAME</th>
             <th scope="col">REFERENCE</th>
             <th scope="col">STOCK</th>
-            <th scope="col">PRICE</th>
+            <th scope="col">PRICE ($)</th>
             <th scope="col">DATE</th>
             <th scope="col">ACTION</th>
         </tr>

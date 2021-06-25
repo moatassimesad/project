@@ -17,7 +17,6 @@ class Store extends Model
         'name',
         'facebookLink',
         'twitterLink',
-        'storeActivityType',
         'createdAt',
         'client_id',
         'client_secret',
