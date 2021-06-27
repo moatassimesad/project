@@ -49,7 +49,7 @@
             @enderror
             <div class="form-wrapper">
                 <select id="city" style="@error('city') border-bottom: 1px solid red; @enderror" name="city" required class="form-control">
-                    <option value="{{ old('city') }}" selected>{{ old('city') }}</option>
+                    <option value="0" selected>City</option>
                 </select>
                 <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
             </div>
