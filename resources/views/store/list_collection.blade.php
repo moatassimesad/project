@@ -2,6 +2,15 @@
 @section('content1')
     <head>
         <link rel="stylesheet" href="css/list_collection.css">
+        <style>
+            .image #zoom_in img{
+                transform: scale(1);
+                transition: 0.3s ease-in-out;
+            }
+            .image #zoom_in:hover img{
+                transform: scale(1.1);
+            }
+        </style>
     </head>
 
     <div class="container-fluid mt-5">
@@ -10,14 +19,14 @@
         @for($i=0;$i<$collections->count();$i++)
             <div class="row justify-content-around">
 
-                <div class="mt-5 flex-column">
-                    <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
+                <div class="mt-5 flex-column image">
+                    <a id="zoom_in" href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image }}" alt="" class="images"></a>
                     <div class="text-center mt-2" style="font-weight:500 " >{{$collections->getNth($i)->name}}</div>
                 </div>
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
-                        <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                    <div class="mt-5 flex-column image">
+                        <a id="zoom_in" href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="text-center mt-2" style="font-weight:500 ">{{$collections->getNth($i)->name}}</div>
                     </div>
                 @else
@@ -28,8 +37,8 @@
                 @endif
                 <input type="hidden" value="{{ $i++ }}">
                 @if($collections->getNth($i)!=null)
-                    <div class="mt-5 flex-column">
-                        <a href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
+                    <div class="mt-5 flex-column image">
+                        <a id="zoom_in" href="/collection_info/{{$collections->getNth($i)->id}}"> <img src="images/{{ $collections->getNth($i)->image}}" alt="" class="images"></a>
                         <div class="text-center mt-2" style="font-weight:500 ">{{$collections->getNth($i)->name}}</div>
                     </div>
                 @elseif($j==0)
