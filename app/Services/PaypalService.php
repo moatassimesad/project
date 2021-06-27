@@ -35,8 +35,7 @@ class PaypalService
             return $this->client->execute($request);
         }
         catch(\Exception $e){
-            dd($e->getMessage());
-            abort(500);
+            return view('payment.failed');
         }
     }
 

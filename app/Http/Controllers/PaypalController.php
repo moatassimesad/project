@@ -27,7 +27,7 @@ class PaypalController extends Controller
         $response = $paypalService->createOrder($orderId);
 
         if($response->statusCode !== 201) {
-            abort(500);
+            return view('payment.failed');
         }
 
 

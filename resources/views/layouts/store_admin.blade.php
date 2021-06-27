@@ -38,7 +38,7 @@
     </div>
     <a class="nav-link"  href="" id="title" style="color:#3b3b3b;"></a>
     <div class="navbar-nav" id="userhoverffect">
-        <li class="nav-item dropdown " >
+        <li class="nav-item dropdown " style="width: 100%">
             <a class="nav-link "  style="color: #3b3b3b;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#cad4df " >
                 <span id="usericon"><i class="fas fa-user-circle fa-lg"></i></span>
                 {{ auth()->user()->firstName }} {{ auth()->user()->lastName }}
